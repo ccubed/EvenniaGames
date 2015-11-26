@@ -1,0 +1,141 @@
+Nobles:
+  Benefices: Nobility, Riches
+  Pick House: Hawkwood, Decados, The Hazat, Li Halan (Church Ally), al-Malik (Passage Contract), Minor House (Nobility), Questing Knight (Imperial Knight Charter, Well-Travelled) QK must take QK Tour of Duty Extra Stage
+
+  Upbringing:
+    High Court:
+      Hawkwood: str +1, dex +1, wits +1, extrovert (primary) +2. Skills: melee 1, etiquette 1, lore (heraldry) 1, read urthish (2 pts). Blessing: unyielding. Curse: Prideful
+      Decados: dex +1, per +2, ego (primary) +2. Skills: etiquette 1, lore (rival house) 1, inquiry 1, read urthish (2 pts). Blessing: Suspicious. Curse: vain
+      Hazat: end +1, per +2, passion (primary) +2. Skills: impress 1, melee 1, etiquette 1, read urthish (2 pts). Blessing: Disciplined. Curse: vengeful.
+      Li Halan: wits +1, Extrovert or Introvert +1, Passion or Calm +1, faith (primary) +2. Skills: etiquette 1, focus 1, lore (theology) 1, read latin(2 pts). Blessing: pious. curse: guilty.
+      al-Malik: dex 1, wits 1, extrovert or introvert 1, calm (primary) 2. Skills: etiquette 1, speak graceful tongue (2 pts), read urthish (2 pts). Blessing: Gracious. Curse: Impetuous.
+
+    Rural Estate:
+      Hawkwood: str 2, dex 1, wits 1, extrovert(primary) 1. Skills: etiquette 1, lore (fief) 1, read urthish(2 pts), ride 1. Blessing: unyielding. Curse: prideful.
+      Decados: dex 2, per 2, ego (primary) 1. Skills etiquette 1, lore (rival house) 1, knavery 1, read urthish. Blessing suspcious, curse vain.
+      Hazat: end 2, per 2, passion (primary) 1. Skills: impress 1, melee 1, etiquette 1, read urthish. Blessing disciplined, curse vengeful.
+      Li Halan: wwits 1, extrovert or introvert 1, passion or calm 1, faith (primary) 2. Skills: etiquette 1, focus 1, lore (theology) 1, read latin. blessing pious, curse guilty.
+      al-Malik: dex 2, wits 1, extrovert or introvert 1, calm (primary) 1. Skills: etiquette 1, speak graceful tongue, read urthish. Blessing gracious, curse impetuous.
+
+    Landless:
+      Hawkwood: str 1. dex 2. wits 1, extrovert (primary) 1. Skills: impress 1, vigor 1, melee 2, ride 1. Blessing unyielding, curse prideful.
+      Decados: dex 2, per 2, ego (primary) 1. Skills: melee 1, observer 1, sneak 1, knavery 2. Blessing Suspicious, curse vain.
+      Hazat: end 2, per 2, passion (primary) 1. Skills: impress 1, melee 1, shoot 1, vigor 1, remedy 1. Blessing disciplined, curse vengeful.
+      Li Halan: wits 1, ex or in 1, pas or calm 1, faith (primary) 2. Skills: melee 1, observe 1, focus 1, lore (theology) 1, remedy 1. Blessing pious, curse guilty.
+      al-Malik: dex 2, wits 1, ex or in 1, calm (primary) 1. Skills: melee 1, inquiry 1, lore (trading) 1, speak graceful tongue. Blessing: gracious, curse impetuous.
+
+  Apprenticeship:
+    Military:
+      Soldier: str +2, dex +2, end +1. Skills: fight +1, shoot +2, vigor +1, remeder 1, social (leadership) 3, survival 1, warfare (military tactics) 1
+      Starman: dex +1, wits +2, per +1, extrovert +1. Skills: impress +1, melee +1, shoot +2, remedy 1, social (leadership) 2, spacesuit 1, think machine 1, warfare (gunnery) 1
+
+    Diplomacy/intrigue: wits +2, per +1, extrovert +1, calm +1. Skills: charm +2, observe +1, sneak +1, arts (rhetoric) 1, eitquette 2, inquiry or knavery 2, social (debate or oratory)
+
+    Leisure:
+      Duelist: Str +1, dex+2, end +1, passion or calm +1. Skills: dodge or vigor +1, melee +2, fencing actions (parry, thrust, slash), remedy 1
+      Dandy: dex +1, wits +2, per +1, passion or calm +1. Skills: any skill +2, charm +1, observe +1, shoot +1, arts (choose a favorite) 1, drive (aircraft or landcraft) 1, empathy 1, gambling 1, ride 1
+
+    Study: wits +2, introvert +2, passion or calm +1. Skills: academia 1, focus 3, inquiry 1, lore or science (object of study) 3, read urthish or latin (2pts)
+
+  Early Career:
+    Military Command:
+      Soldier: str+2, dex+2, end +2, wits +1, per +1, extrovert +1, passion or calm +1. Skills: Dodge +1, Fight +1, Impress +1, Observe +1, Melee +1, shoot +2, vigor +1, remedy 1, social (leadership) 4, survival 1, warfare (military tactics) 1. Benefice Rank (Knight)
+      Starman: Dex+2, end +2, wits +2, per+2, extrovert +1, passion or calm +2. Skills: impress +1, melee +1, shoot +2, drive spacecraft 1, read urthish, remedy 1, social (leadership) 2, spacesuit (2pts), think machine 1, warfare (gunnery) 1, warfare (starfleet tactics) 1. Benefice rank (knight)
+
+    Court:
+      Duelist: str +1, dex +2, end +2, wits +1, per +1, ex or in +1, passion or calm +2. Skills: dodge +1, melee +2, etiquette 1, fencing actions (choose basic or advanced below), remedy 1. Benefice Rank Knight.Basic (if no apprentice duelist): parry, thrust, slash, draw & Strike. Advanced: draw & strike, Parry / Riposte or Disarm, Feint
+      Ambassador: dex +1, wits +2, per +2, ext +2, calm +2, faith or ego +1. Skills: charm +2, observe +1, sneak +1, arts (rhetoric) 1, etiquette 2, inquiry or knavery 2, lore (court rivals) 1, social (debate or oratory) 1, read urthish, ride 1. Rank knight.
+
+  Questing: Body: Choose One +2, Choose 2 +1. Mind: Choose one +2, Choose 2 +1. Spirit: Choose one +1. Skills: charm or impress +1, dodge +1, combat skill (fight, melee or shoot +2), combat skill (secondary +1), observe +1, sneak +1, vigor +1, drive (craft) 1, inquiry or knavery 1, lore (place) 1, remedy 1, speak (choose dialect), streetwise 1. Rank Knight
+
+  Priests:
+    Benefices: Ordained, Vestments. No Riches.
+    House: Urth Orthodox (Noble Ally), Brother Battle, Eskatonic Order (secrets, Refuge), Temple Avesti, Sanctuary Aeon (Ally), Mendicant Monks (cloistered, ordained max 9), Imperial Priest Cohort (cohort badge, well travelled) (Must take cohort tour of duty)
+
+    Upbringing:
+      Environment:
+        City: wits +2, per +2. Skills: observe +1, inquiry 1, streetwise 1
+        Town: wits +1, per +1, extrovert +2. Skills: charm +1, vigor +1, inquiry 1
+        Country: str +1, end +2, faith +1. Skills: vigor +1, beast lore or drive beastcraft 1, lore (regional) 1
+
+      Class:
+        Wealthy: extrovert +1. skills: read urthish
+        Average: Ex or in +1. Skills: charm or impress +1, lore (folk or regional) 1
+        Poor: faith or ego +1. Skills: knavery 1, streetwise or survival 1
+
+      Brother Battle specific: str +1, dex +2, end +1, faith +1. Skills: dodge +1, fight +2, melee +1, shoot +2, vigor +1, focus 1, remedy 1, stoic body 1. Blessing disciplined, Curse clueless.
+
+    Apprenticeship: (Nobles can switch over to the priest lifepath here)
+      Cathedral:
+        Orthodoxy: Wits+1, extrovert +1, calm +1, faith +2, charm or impress +1. Skills: Academia 1, focus 1, lore (theology) 1, physick 1, social (oratory) 2, read latin, remedy 1.  Blessing Pious, Curse Austere
+        Eskatonic: wits +1, intro +2, faith +2. Skills: observe +1, academia 1, alchemy 1, focus 3, lore (occult) 1, stoic mind 1, read latin. Blessing Curious, Curse subtle.
+        Temple avesti: end +1, per +2, faith +2. Skills: impress +1, melee +1, observe +1, shoot +1, inquiry 1, lore (doctrine) 1, search 1, torture 1. Blessing Pious, Curse righteous
+        Sanctuary Aeon: dex +2, tech +1, calm +1, faith +1. Skills: charm +1, arts (music) 1, empathy 1, lore (theology) 1, physick 3, remedy 2, stoic mind 1. Blessing Compassionate, Curse Gulliable.
+
+      Parish:
+        Orthodoxy: wits +1, extrovert +1, calm +1, faith +2. Skills: Charm or impress +1, empathy 1, focus 1, lore (theology) 2, lore (the flock) 1, physick 1, remedy 1, social (oratory) 2. Blessing Pious, Curse Austere.
+        Eskatonic: wits +1, introvert +2, faith +2. Skills: observe +1, alchemy 1, empathy 1, focus 3, lore (occult) 1, remedy 1, stoic mind 2. blessing curious, curse subtle.
+        Temple Avesti: Same as cathedral.
+        Sanctuary Aeon: dex +2, calm +1, faith +2. Charm +1, arts (music) 1, empathy 1, lore (lives of the local people) 1, physick 3, remedy 2, stoic mind 1. Blessing compassionate, curse gullible.
+
+      Monastery:
+        Orthodoxy: wits +1, introvert +1, calm +1, faith +2. skills: academia 1, focus 2, lore (theology) 1, physick 1, stoic mind 1, read latin, read urthish. Blessing Pious, Curse austere.
+        Eskatonic: wits +1, introvert +2, faith +2. Skills: academia 1, alchemy 1, focus 2, lore (occult) 1, stoic mind 1, read latin, read urthish. Blessing curious, curse subtle.
+        Temple Avesti: Same as cathedral
+        Sanctuary Aeon: dex +1, introvert +1, calm +1, faith +2. skills: empathy 1, lore (theology) 1, physick 3, remedy 2, stoic mind 1, read urthish. Blessing compassionate, curse gullible.
+
+      Brother Battle Specific: str +1, dex +2, end +1, faith +1. Skills: combat (fight or melee) +1, shoot +1, remedy 1, stoic body 1. If fight add mantok martial arts: martial fist, martial kick, martial hold. If melee, add sword fencing: parry, thrust, slash.
+
+    Early Career:
+      Preacher/Pastor: wits +2, per +1, ext +2, intro +1, passion +2, faith +2. Skills: charm or impress +2, observe +1, empathy 1, focus 1, inquiry 1, lore (flock) 1, physick 1, read latin, remedy 1, social (oratory) 2, speak latin. Benefice Rank Novitiate.
+      Monk: Body Characteristic +1, wits +2, per +1, intro +2, calm +2, faith +2. Skills: Observe +1, academia 1, empathy 1, focus 3, inquiry 1, lore (theology) 1, lore (area of interest) 2, physick 1, read latin, remedy 1, stoic mind 1. Rank Novitiate
+      Missionary: end +2, wits +1, per +2, ext +2, passion +2, faith +1. Skills: charm or impress +3, observe +1, drive beastcraft 1, empathy 1, focus 1, inquiry 1, lore (doctrine) 1, physick 1, remedy 1, ride 1, social (oratory) 2, streetwise 1. Rank Novitiate
+      Healer: dex +2, end +1, wits +1, tech +1, extrovert +2, calm +1, faith +2.  skills: charm +2, observe +1, empathy 2, focus 1, lore (local populace) 1, physick 3, remedy 3, social (oratory) 1, tech redemption (choose type) 1. Rank Novitiate
+      Inquisitor: str +2, dex +1, end +2, per +2, passion +2, faith +1. Skills: impress +2, observe +2, shot +2, sneak +1, vigor +1, inquiry 1, lore (heresy) 1, search 1, stoic mind or body 1, streetwise 1, tracking 1, torture 1. Novitiate.
+      Brother Battle Specific: str +3, dex +1, end +3, passion or calm +1, ext or int +1, faith +1. Skills: dodge +1, combat skill (fight or melee) +2, combat skill (fight or melee) +1, shoot +2, physick 1, focus or stoic body 2, survival 1, warfare (military tactics) 1, rank apprentice. Pick: Mantok Martial Arts: Claw Fist or Tornado Kick. Sword Fencing: Disarm or Feint.
+
+  Merchants:
+    Benefices: Commission, Riches, Passage contract
+    House: Charioteers, Engineers, Scravers, The Muster (Chainers), Reeves (Gray Faces), Yeoman (Freelancer), Imperial Guild Cohort (Cohort Badge, Well Travelled) (Must take Cohort tour of duty)
+
+    Upbringing:
+      Environment:
+        City: wits +2, per +2. Skills: observe +1, inquiry 1, streetwise 1
+        Town: wits +1, per +1, extrovert +2. Skills: charm +1, vigor +1, inquiry 1
+        Country: str +1, end +2, faith +1. Skills: vigor +1, beast lore or drive beastcraft 1, lore (regional) 1
+
+      Class:
+        Wealthy: extrovert +1. skills: read urthish
+        Average: Ex or in +1. Skills: charm or impress +1, lore (folk or regional) 1
+        Poor: faith or ego +1. Skills: knavery 1, streetwise or survival 1
+
+    Apprenticeship: (Nobles can join a guild here)
+      Academy:
+        Charioteers: Dex +2, wits +1, extro +2. Skills: Impress +1, drive (Primary specialty) 3, drive (secondary specialty) 2, mech redemption 2, remedy 1, spacesuit 1. Blessing curious, Curse nosy.
+        Engineers: Dex +1, wits +1, tech +3. Skills: inquiry +1, read urthtech 1, tech redemption (primary specialty) 3, tech redemption (secondary) 1, science (primary) 2, science (secondary) 1, think machine 1. Blessing innovative, curse unnerving.
+        Scravers: str +2, per +2, ego +1. Skills: Impress +1, combat (fight, melee, shoot) +1, sneak +1, gambling 1, inquiry 1, knavery 1, speak scraver cant, streetwise 2. Blessing the man, curse possessive
+        Muster: str +1, dex +2, tech +2. skills: combat (fight or melee) +1, impress +1, shoot +2, drive (spec) 2, lore (place) 1, mech redemption 1, remedy 1, streetwise 1. blessing bold, curse callous.
+        Reeves: wits +2, per +2, intro +1. skills: impress +1, academia 1, art (rhetoric) 1, bureaucracy 1, etiquette 1, inquiry 1, lore (finance or law) 1, read latin, social (debate) 1. Blessing shrewd, curse mammon
+
+      Guildhall:
+        charioteers: dex +2, wits +1, extro +2. Skills: impress +1, drive (spec) 2, drive (secondary) 1, empathy 1, lore (place) 1, mech redemption 1, remedy 1, speak (local dialect).
+        engineers: dex +1, wits +1, tech +3. Skills: Shoot +1, inquiry +1, read urthtech 1, tech redemption (primary) 2, tech redemption (secondary) 1, science (primary) 2, science (secondary) 1, think machine 1.
+        scravers: str +2, per +2, ego +1. Skills: impress +1, dodge +1, combat skill (fight melee or shoot) +1, sneak +1, gambling 1, inquiry 1, knavery 1, speak scraver cant, streetwise 1. Blessing Lucky at Cards, Curse Possessive
+        muster: str +1, dex +2, tech +2. Skills: combat (fight melee) +1, impress +1, shoot +1, drive (spec) +1, lore (place) 1, mech redemption 1, remedy 1, search 1, streetwise 2.
+        reeves: wits +2, per +2, intro +1. Skills: impress +1, observe +1, academia 1, bureaucracy 1, etiquette 1, inquiry 1, lore (finance or law) 1, read latin, social (debate) 1.
+
+      Streets:
+        Charioteers: dex +2, wits +1, extro +2. Skills: impress +1, drive (spec) 2, lore (place) 1, knavery 1, mech redemption 1, remedy 1, speak (dialect), streetwise 1.
+        Engineers: dex +2, wits +1, tech +2. Skills: shoot +1, inquiry 
+
+    Early Career:
+
+    Aliens:
+      Upbringing:
+
+      Apprenticeship:
+
+      Early Career:
+
+Shared:
+  Extra Stages (2):

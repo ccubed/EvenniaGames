@@ -28,4 +28,22 @@ class Character(DefaultCharacter):
                     has connected" message echoed to the room
 
     """
-    pass
+    def at_object_creation(self):
+        """
+
+        Set up Fading Suns attributes.
+
+        """
+        self.db.attributes = {}
+        self.db.benefices = {}
+        self.db.skills = {}
+        self.db.vitality = 0
+        self.db.wyrd = 0
+        self.db.blessings = ()
+        self.db.curses = ()
+        self.db.afflictions = {}
+        self.db.languages = {}
+        self.db.approved = 0
+        self.db.house = 'None'
+        self.db.archetype = 'None'
+        self.db.choices = ()
