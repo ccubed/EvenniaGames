@@ -39,11 +39,13 @@ class Character(DefaultCharacter):
         self.db.skills = {}
         self.db.vitality = 0
         self.db.wyrd = 0
-        self.db.blessings = ()
-        self.db.curses = ()
+        self.db.blessings = []
+        self.db.curses = []
         self.db.afflictions = {}
-        self.db.languages = {}
+        self.db.languages = []
         self.db.approved = 0
         self.db.house = 'None'
         self.db.archetype = 'None'
-        self.db.choices = ()
+        self.db.choices = []
+        self.db.questing = 0  # Track questing/imperial choice. Matters to CG because forces requirements on player.
+        self.db.actions = {}
