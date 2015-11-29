@@ -14,6 +14,8 @@ Where X is:
     lpnq# - This indicates a questing knight deviation because they're annoying
     c# - This is step # in the custom CG path
 
+Reading this: hahaha, good luck.
+
 """
 
 from evennia.utils import evmenu
@@ -27,7 +29,7 @@ Begin helper section. This section is nothing but helper variables and dictionar
 
 """
 # Parses the input on noble house from the keys into the name.
-househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik', '5': 'Questing Knight'}
+househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik'}
 
 
 # Applies bonuses for paths and stages per house for nobles
@@ -96,7 +98,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.attributes['Wits'] = 1
                 pc.db.attributes['Extrovert'] = 1
                 pc.db.skills['Etiquette'] = 1
-                pc.db.choices.append('Fief')
                 pc.db.languages.append('Read Urthish')
                 pc.db.skills['Ride'] = 1
                 pc.db.blessings.append('Unyielding')
@@ -561,6 +562,40 @@ def menunode_lpnamsq(caller):
     return text, options
 
 
+def menunode_lpnhws(caller, raw_input):
+    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
+    text = "At this stage you pick an apprenticeship under another noble.\n"
+    text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
+    text += "At this stage, please choose whether or not you want to move to another Archetype."
+
+
+    def merchants(caller):
+        caller.db.archetype = "Merchant"
+
+
+    def priests(caller):
+        caller.db.archetype = "Priest"
+
+
+    options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
+               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
+               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
+    return text, options
+
+
+def menunode_lpnhwsq(caller, raw_input):
+    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
+
+    text = "Please select your noble apprenticeship."
+    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
+               {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
+               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpnq5"},
+               {"key": "3", "desc": "Duelist", "goto": "menumode_lpnq5"},
+               {"key": "4", "desc": "Dandy", "goto": "menumode_lpnq5"},
+               {"key": "5", "desc": "Study", "goto": "menumode_lpnq5"})
+    return text, options
+
+
 def menunode_lpn3(caller, raw_input):
 
     apply_path_noble(0, raw_input, caller.db.house, caller)
@@ -572,6 +607,10 @@ def menunode_lpn3(caller, raw_input):
                    {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpnds"},
                    {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpnds"},
                    {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpnds"})
+        return text, options
+    elif caller.db.house == 'Hawkwood' and raw_input == 1:
+        text = "Hawkwood need to specify a location for their Lore Fief. Enter one now."
+        options = ({"key": "_default", "goto": "menunode_lpnhws"})
         return text, options
 
     text = "At this stage you pick an apprenticeship under another noble.\n"
@@ -616,6 +655,10 @@ def menunode_lpnq4(caller, raw_input):
                    {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpndsq"},
                    {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpndsq"})
         return text, options
+    elif raw_input == 1 and caller.db.house == 'Hawkwood':
+        text = "Hawkwood need to specify a location for their Lore Fief. Enter one now."
+        options = ({"key": "_default", "goto": "menunode_lpnhwsq"})
+        return text, options
 
     text = "Please select your noble apprenticeship."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
@@ -631,6 +674,93 @@ def menunode_lpn5(caller, raw_input):
 
     apply_path_noble(1, raw_input, 'None', caller)
 
+    if raw_input == 2:
+        text = "Do you want Inquiry or Knavery at +2?"
+        options = ({"key": "0", "desc": "Inquiry", "exec": addsheet(caller, 'Inquiry', 'Skills', 2), "goto": "menunode_lpn5id2"},
+                   {"key": "1", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 2), "goto": "menunode_lpn5id2"})
+        return text, options
+    elif raw_input == 3:
+        text = "Do you want Passion or Calm +1??"
+        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpn5d2"},
+                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpn5d2"})
+        return text, options
+    elif raw_input == 4:
+        text = "Do you want Passion or Calm +1??"
+        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpn5da2"},
+                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpn5da2"})
+        return text, options
+    elif raw_input == 5:
+        text = "Do you want Passion or Calm +1??"
+        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpn5s2"},
+                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpn5s2"})
+        return text, options
+
+    text = "Please select your noble's Early Career."
+    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn6"},
+               {"key": "1", "desc": "Starman", "goto": "menunode_lpn6"},
+               {"key": "2", "desc": "Duelist", "goto": "menunode_lpn6"},
+               {"key": "3", "desc": "Ambassador", "goto": "menunode_lpn6"})
+
+    return text, options
+
+
+def menunode_lpn5id2(caller):
+    text = "Do you want debate or oratory for you Social specialty?"
+    options = ({"key": "0", "desc": "Debate", "exec": addsheet(caller, 'Social Debate', 'Skills', 1), "goto": "menunode_lpn5c"},
+               {"key": "1", "desc": "Oratory", "exec": addsheet(caller, 'Social Oratory', 'Skills', 1), "goto": "menunode_lpn5c"})
+    return text, options
+
+
+def menunode_lpn5d2(caller):
+    text = "Do you want Dodge or Vigor +1?"
+    options = ({"key": "0", "desc": "Dodge", "exec": addsheet(caller, 'Dodge', 'Skills', 1), "goto": "menunode_lpn5c"},
+               {"key": "1", "desc": "Vigor", "exec": addsheet(caller, 'Vigor', 'Skills', 1), "goto": "menunode_lpn5c"})
+    return text, options
+
+
+def menunode_lpn5da2(caller):
+    text = "You can select any skill for +2. Please enter it now."
+    options = ({"key": "_default", "goto": "menunode_lpn5da3"})
+    return text, options
+
+
+def menunode_lpn5da3(caller, raw_input):
+    addsheet(caller, raw_input, 'Skills', 2)
+
+    text = "What specialty would you like for your Arts skill at +1? Enter it now."
+    options = ({"key": "_default", "goto": "menunode_lpn5da4"})
+    return text, options
+
+
+def menunode_lpn5da4(caller, raw_input):
+    addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+
+    text = "Do you want Aircraft or Landcraft for your drive specialty?"
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Drive Aircraft', 'Skills', 1), "goto": "menunode_lpn5c"},
+               {"key": "1", "desc": "Landcraft", "exec": addsheet(caller, 'Drive Landcraft', 'Skills', 1), "goto": "menunode_lpn5c"})
+    return text, options
+
+
+def menunode_lpn5s2(caller):
+    text = "Please enter Lore or Science followed by your object of study. Ex: Lore War or Science Landcraft."
+    options = ({"key": "_default", "goto": "menunode_lpn5s3"})
+    return text, options
+
+
+def menunode_lpn5s3(caller, raw_input):
+    if not 'Lore' in raw_input or not 'Science' in raw_input:
+        text = "You did not enter Lore or Science. Enter Lore or Science followed by your object of study. Ex: Lore War or Science Landcraft."
+        options = ({"key": "_default", "goto": "menunode_lpn5s3"})
+        return text, options
+
+    addsheet(caller, raw_input, 'Skills', 3)
+
+    text = "Do you want Read Urthish or Read Lating?"
+    options = ({"key": "0", "desc": "Urthish", "exec": addsheet(caller, 'Read Urthish', 'Languages', 1), "goto": "menunode_lpn5c"},
+               {"key": "1", "desc": "Latin", "exec": addsheet(caller, 'Read Latin', 'Languages', 1), "goto": "menunode_lpn5c"})
+    return text, options
+
+def menunode_lpn5c(caller):
     text = "Please select your noble's Early Career."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn6"},
                {"key": "1", "desc": "Starman", "goto": "menunode_lpn6"},
