@@ -29,8 +29,8 @@
       <file leaf-file-name="fsunscg.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FSuns/typeclasses/fsunscg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36525613">
-              <caret line="753" column="28" selection-start-line="753" selection-start-column="28" selection-end-line="753" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.83296216">
+              <caret line="1076" column="24" selection-start-line="1076" selection-start-column="24" selection-end-line="1076" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/Notes/CGDev">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,8 +83,8 @@
       <list>
         <option value="$PROJECT_DIR$/FSuns/world/fsutils.py" />
         <option value="$PROJECT_DIR$/FSuns/typeclasses/characters.py" />
-        <option value="$PROJECT_DIR$/FSuns/typeclasses/fsunscg.py" />
         <option value="$PROJECT_DIR$/Notes/CGDev" />
+        <option value="$PROJECT_DIR$/FSuns/typeclasses/fsunscg.py" />
       </list>
     </option>
   </component>
@@ -262,6 +262,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///media/Github/EvenniaGames/Notes/CGDev" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -447,6 +448,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FSuns/world/prototypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FSuns/typeclasses/characters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -455,10 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FSuns/world/prototypes.py">
+    <entry file="file://$PROJECT_DIR$/Notes/CGDev">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -471,18 +480,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Notes/CGDev">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FSuns/typeclasses/fsunscg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36525613">
-          <caret line="753" column="28" selection-start-line="753" selection-start-column="28" selection-end-line="753" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.83296216">
+          <caret line="1076" column="24" selection-start-line="1076" selection-start-column="24" selection-end-line="1076" selection-end-column="24" />
           <folding />
         </state>
       </provider>

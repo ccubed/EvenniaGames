@@ -30,6 +30,8 @@ Begin helper section. This section is nothing but helper variables and dictionar
 """
 # Parses the input on noble house from the keys into the name.
 househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik'}
+# Parses priests like househelper
+priesthelper = {'0': 'Urth Orthodox', '1': 'Brother Battle', '2': 'Eskatonic Order', '3': 'Temple Avesti', '4': 'Sanctuary Aeon'}
 
 
 # Applies bonuses for paths and stages per house for nobles
@@ -231,14 +233,10 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Sneak', 'Skills', 1)
             addsheet(pc, 'Arts Rhetoric', 'Skills', 1)
             addsheet(pc, 'Etiquette', 'Skills', 2)
-            pc.db.choices.append("NADip")
-            pc.db.choices.append("NADip2")
         elif which == 3:  # Duelist
             addsheet(pc, 'Strength', 'Attributes', 1)
             addsheet(pc, 'Dexterity', 'Attributes', 2)
             addsheet(pc, 'Endurance', 'Attributes', 1)
-            pc.db.choices.append("PasCalm")
-            pc.db.choices.append("NADuelist")
             addsheet(pc, 'Melee', 'Skills', 2)
             addsheet(pc, 'Remedy', 'Skills', 1)
             pc.db.actions['Fencing'] = ['Parry', 'Thrust', 'Slash']
@@ -246,25 +244,18 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Dexterity', 'Attributes', 1)
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            pc.db.choices.append('PasCalm')
-            pc.db.choices.append('NADandy')
             addsheet(pc, 'Charm', 'Skills', 1)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 1)
-            pc.db.choices.append('NADandy2')
-            pc.db.choices.append('NADandy3')
             addsheet(pc, 'Empathy', 'Skills', 1)
             addsheet(pc, 'Gambling', 'Skills', 1)
             addsheet(pc, 'Ride', 'Skills', 1)s
         elif which == 5:  # Study
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Introvert', 'Attributes', 2)
-            pc.db.choices.append('PasCalm')
             addsheet(pc, 'Academia', 'Skills', 1)
             addsheet(pc, 'Focus', 'Skills', 3)
             addsheet(pc, 'Inquiry', 'Skills', 1)
-            pc.db.choices.append('NAStudy')
-            pc.db.choices.append('NAStudy2')
 
     # Early Career
     else stage == 2:
@@ -275,7 +266,6 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Wits', 'Attributes', 1)
             addsheet(pc, 'Perception', 'Attributes', 1)
             addsheet(pc, 'Extrovert', 'Attributes', 1)
-            pc.db.choices.append('PasCalm')
             addsheet(pc, 'Dodge', 'Skills', 1)
             addsheet(pc, 'Fight', 'Skills', 1)
             addsheet(pc, 'Impress', 'Skills', 1)
@@ -294,7 +284,6 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
             addsheet(pc, 'Extrovert', 'Attributes', 1)
-            pc.db.choices.append('PasCalm2')
             addsheet(pc, 'Impress', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 2)
@@ -313,13 +302,10 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Endurance', 'Attributes', 2)
             addsheet(pc, 'Wits', 'Attributes', 1)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            pc.db.choices.append('ExIn')
-            pc.db.choices.append('PasCalm2')
             addsheet(pc, 'Dodge', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 2)
             pc.db.skills['Etiquette'] = 1
             pc.db.skills['Remedy'] = 1
-            pc.db.choices.append('NAECDuelist')
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 3:  # Ambassador
             addsheet(pc, 'Dexterity', 'Attributes', 1)
@@ -327,7 +313,6 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Perception', 'Attributes', 2)
             addsheet(pc, 'Extrovert', 'Attributes', 2)
             addsheet(pc, 'Calm', 'Attributes', 2)
-            pc.db.choices.add('FaiEgo')
             addsheet(pc, 'Charm', 'Skills', 2)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Sneak', 'Skills', 1)
@@ -337,8 +322,31 @@ def apply_path_noble(stage, which, house, pc):
             pc.db.skills['Warfare Gunnery'] = 1
             pc.db.skills['Ride'] = 1
             pc.db.benefices['Rank'] = 'Knight'
-            pc.db.choices.append('NECA1')
-            pc.db.choices.append('NECA2')
+
+
+# Merchants and Priests share an upbringing. So they have the same function.
+def apply_path_uppm(caller, which, what):
+    # Environemnt
+    if which == 0:
+        # City
+        if what == 0:
+
+        # Town
+        elif what == 1:
+
+        # Country
+        elif what == 2:
+
+    # Class
+    elif which == 1:
+        # Wealthy
+        if what == 0:
+
+        # Average
+        elif what == 1:
+
+        # poor
+        elif what == 2:
 
 
 def menunode_start(caller):
@@ -921,4 +929,149 @@ def menunode_lpnq596(caller, raw_input):
 def menunode_lpn6(caller, raw_input):
     apply_path_noble(2, raw_input, 'None', caller)
 
+    if raw_input == 0:
+        text = "Do you want Passion or Calm +1?"
+        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": TOUR OF DUTY},
+                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": TOUR OF DUTY})
+        return text, options
+    elif raw_input == 1:
+        text = "Do you want Passion or Calm +2?"
+        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 2), "goto": TOUR OF DUTY},
+                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 2), "goto": TOUR OF DUTY})
+        return text, options
+    elif raw_input == 2:
+        text = "Do you want Extrovert or Introvert +1?"
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpn6d2"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpn6d2"})
+        return text, options
+    elif raw_input == 3:
+        text = "Do you want Faith or Ego +1?"
+        options = ({"key": "0", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpn6a2"},
+                   {"key": "1", "desc": "Ego", "exec": addsheet(caller, 'Ego', 'Attributes', 1), "goto": "menunode_lpn6a2"})
+        return text, options
+
+
+def menunode_lpn6d2(caller):
+    text = "Do you want to Passion or Calm +2?"
+    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 2), "goto": "menunode_lpn6d3"},
+               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 2), "goto": "menunode_lpn6d3"})
+    return text, options
+
+
+def menunode_lpn6d3(caller):
+    if 'Fencing' in caller.db.actions:
+        text = "For your dueling actions do you want Parry and Riposte or Disarm?"
+        options = ({"key": "0", "desc": "Parry and Riposte", "goto": "menunode_lpn6d4"},
+                   {"key": "1", "desc": "Disarm", "goto": "menunode_lpn6d4"})
+        return text, options
+    else:
+        caller.db.actions['Fencing'] = ['Parry', 'Thrust', 'Slash', 'Draw & Strike']
+        # TOUR OF DUTY
+
+
+def menunode_lpn6d4(caller, raw_input):
+    if raw_input == 0:
+        caller.db.actions['Fencing'].append('Draw & Strike')
+        caller.db.actions['Fencing'].append('Parry')
+        caller.db.actions['Fencing'].append('Riposte')
+        caller.db.actions['Fencing'].append('Feint')
+    else:
+        caller.db.actions['Fencing'].append('Draw & Strike')
+        caller.db.actions['Fencing'].append('Disarm')
+        caller.db.actions['Fencing'].append('Feint')
+
     # Tour of Duty
+
+    # End Noble Section
+
+    # Begin Priest Section
+def menunode_lpp1(caller):
+    caller.db.recbenefices.append('Ordained')
+    caller.db.recbenefices.append('Vestments')
+    caller.db.archetype = 'Priest'
+
+    text = "If you intend to do Mendicants with a custom Order, please use custom cg. What order does your priest come from?"
+    options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lpp2"},
+               {"key": "1", "desc": "Brother Battle", "goto": "menunode_lppbb"},
+               {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lpp2"},
+               {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lpp2"},
+               {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lpp2"},
+               {"key": "5", "desc": "Mendicant Monks", "goto": "menunode_lppmm"},
+               {"key": "6", "desc": "Imperial Priest Cohort", "goto": "menunode_lppip"})
+    return text, options
+
+
+def menunode_lpp2(caller, raw_input):
+    caller.db.house = priesthelper[raw_input]
+
+    if raw_input == 0:
+        caller.db.recbenefices.append('Noble Ally')
+    elif raw_input == 2:
+        caller.db.recbenefices.append('Secrets')
+        caller.db.recbenefices.append('Refuge')
+    elif raw_input == 4:
+        caller.db.recbenefices.append('Ally')
+
+    text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
+    options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
+               {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
+               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp22"})
+    return text, options
+
+
+def menunode_lpp22(caller):
+    text = "Do you want Beast Lore or Drive Beastcraft at +1?"
+    options = ({"key": "0", "desc": "Beast Lore", "exec": addsheet(caller, 'Beast Lore', 'Skills', 1), "goto": "menunode_lpp3"},
+               {"key": "1", "desc": "Drive Beastcraft", "exec": addsheet(caller, 'Drive Beastcraft', 'Skills', 1), "goto": "menunode_lpp3"})
+    return text, options
+
+
+def menunode_lpp3(caller):
+    text = "Now choose your Class."
+    options = ({"key": "0", "desc": "Wealthy", "exec": apply_path_uppm(caller, 1, 0), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Average", "exec": apply_path_uppm(caller, 1, 1), "goto": "menunode_lpp3a"},
+               {"key": "2", "desc": "Poor", "exec": apply_path_uppm(caller, 1, 2), "goto": "menunode_lpp3p"})
+    return text, options
+
+
+def menunode_lpp3a(caller):
+    text = "Do you want Extrovert or Introvert +1?"
+    options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpp3a2"},
+               {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpp3a2"})
+    return text, options
+
+
+def menunode_lpp3a2(caller):
+    text = "Do you want Charm or Impress +1?"
+    options = ({"key": "0", "desc": "Charm", "exec": addsheet(caller, 'Charm', 'Skills', 1), "goto": "menunode_lpp3a3"},
+               {"key": "1", "desc": "Impress", "exec": addsheet(caller, 'Impress', 'Skills', 1), "goto": "menunode_lpp3a3"})
+    return text, options
+
+
+def menunode_lpp3a3(caller):
+    text = "Do you want Lore Folk or Lore Regional +1?"
+    options = ({"key": "0", "desc": "Lore Folk", "exec": addsheet(caller, 'Lore Folk', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Lore Regional", "exec": addsheet(caller, 'Lore Regional', 'Skills', 1), "goto": "menunode_lpp4"})
+    return text, options
+
+
+def menunode_lpp3p(caller):
+    text = "Do you want Faith or Ego +1?"
+    options = ({"key": "0", "desc": "Faith", "exec": addsheet(caller, 'Ego', 'Attributes', 1), "goto": "menunode_lpp3p2"},
+               {"key": "1", "desc": "Ego", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpp3p2"})
+    return text, options
+
+
+def menunode_lpp3p2(caller):
+    text = "Do you want Streetwise or Survival +1?"
+    options = ({"key": "0", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Survival", "exec": addsheet(caller, 'Survival', 'Skills', 1), "goto": "menunode_lpp4"})
+    return text, options
+
+
+def menunode_lpp4(caller):
+    text = "Now it's time to choose if you spent your time in a Cathedral, Parish or Monastery."
+    options = ({"key": "0", "desc": "Streetwise", "exec": apply_path_priest(caller, 0, 0, caller.db.house), "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Survival", "exec": apply_path_priest(caller, 0, 1, caller.db.house), "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Survival", "exec": apply_path_priest(caller, 0, 2, caller.db.house), "goto": "menunode_lpp5"})
+    return text, options
