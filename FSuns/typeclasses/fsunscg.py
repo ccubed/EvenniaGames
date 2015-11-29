@@ -55,7 +55,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.attributes['Ego'] = 2
                 pc.db.skills['Inquiry'] = 1
                 pc.db.skills['Etiquette'] = 1
-                pc.db.choices.append('Rival House')
                 pc.db.languages.append('Read Urthish')
                 pc.db.blessings.append('Suspicious')
                 pc.db.curses.append('Vain')
@@ -71,8 +70,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.curses.append('Vengeful')
             elif house == "Li Halan":
                 pc.db.attributes['Wits'] = 1
-                pc.db.choices.append("ExIn")
-                pc.db.choices.append("PasCalm")
                 pc.db.attributes['Faith'] = 2
                 pc.db.skills['Focus'] = 1
                 pc.db.skills['Etiquette'] = 1
@@ -84,7 +81,6 @@ def apply_path_noble(stage, which, house, pc):
             else:
                 pc.db.attributes['Dexterity'] = 1
                 pc.db.attributes['Wits'] = 1
-                pc.db.choices.append("ExIn")
                 pc.db.attributes['Calm'] = 2
                 pc.db.skills['Etiquette'] = 1
                 pc.db.languages.append('Speak Graceful Tongue')
@@ -110,7 +106,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.attributes['Perception'] = 2
                 pc.db.attributes['Ego'] = 1
                 pc.db.skills['Etiquette'] = 1
-                pc.db.choices.append('Rival')
                 pc.db.skills['Knavery'] = 1
                 pc.db.languages.append('Read Urthish')
                 pc.db.blessings.append('Suspicious')
@@ -127,8 +122,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.curses.append('Vengeful')
             elif house == "Li Halan":
                 pc.db.attributes['Wits'] = 1
-                pc.db.choices.append("ExIn")
-                pc.db.choices.append("PasCalm")
                 pc.db.attributes['Faith'] = 2
                 pc.db.skills['Etiquette'] = 1
                 pc.db.skills['Focus'] = 1
@@ -139,7 +132,6 @@ def apply_path_noble(stage, which, house, pc):
             else:
                 pc.db.attributes['Dexterity'] = 2
                 pc.db.attributes['Wits'] = 1
-                pc.db.choices.append("ExIn")
                 pc.db.attributes['Calm'] = 1
                 pc.db.skills['Etiquette'] = 1
                 pc.db.languages.append('Speak Graceful Tongue')
@@ -183,8 +175,6 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.curses.append('Vengeful')
             elif house == "Li Halan":
                 pc.db.attributes['Wits'] = 1
-                pc.db.choices.append("ExIn")
-                pc.db.choices.append("PasCalm")
                 pc.db.attributes['Faith'] = 2
                 pc.db.skills['Melee'] = 1
                 pc.db.skills['Observe'] = 1
@@ -196,7 +186,6 @@ def apply_path_noble(stage, which, house, pc):
             else:
                 pc.db.attributes['Dexterity'] = 2
                 pc.db.attributes['Wits'] = 2
-                pc.db.choices.append('ExIn')
                 pc.db.attributes['Faith'] = 2
                 pc.db.skills['Melee'] = 1
                 pc.db.skills['Inquiry'] = 1
@@ -408,6 +397,60 @@ def menumode_lpn2(caller, raw_input):
 
     caller.db.house = househelper[raw_input]
 
+    if raw_input == 3:
+        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhs"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhs"})
+        return text, options
+    elif raaw_input == 4:
+        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnams"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnams"})
+        return text, options
+
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpn3"})
+    return text, options
+
+
+def menunode_lpnds(caller):
+    text = "At this stage you pick an apprenticeship under another noble.\n"
+    text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
+    text += "At this stage, please choose whether or not you want to move to another Archetype."
+
+
+    def merchants(caller):
+        caller.db.archetype = "Merchant"
+
+
+    def priests(caller):
+        caller.db.archetype = "Priest"
+
+
+    options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
+               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
+               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
+    return text, options
+
+
+def menunode_lpnlhs(caller):
+    text = "Lastly, would you like a point of Passion or Calm?"
+    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpnlhs2"},
+               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpnlhs2"})
+    return text, options
+
+
+def menunode_lpnlhs2(caller):
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpn3"})
+    return text, options
+
+
+def menunode_lpnams(caller):
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
                {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
@@ -433,6 +476,25 @@ def menunode_lpnmh(caller, raw_input):
     elif raw_input == 4:
         caller.db.recbenefices.append('Passage Contract')
 
+    if raw_input == 1:
+        text = "Decados need to pick another house for their lore rival house specialty."
+        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpnds"},
+                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpnds"})
+        return text, options
+    elif raw_input == 3:
+        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhs"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhs"})
+        return text, options
+    elif raaw_input == 4:
+        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnams"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnams"})
+        return text, options
+
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
                {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
@@ -448,6 +510,50 @@ def menunode_lpnq(caller, raw_input):
     elif raw_input == 4:
         caller.db.recbenefices.append('Passage Contract')
 
+    if raw_input == 3:
+        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhsq"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhsq"})
+        return text, options
+    elif raaw_input == 4:
+        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
+        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnamsq"},
+                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnamsq"})
+        return text, options
+
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
+    return text, options
+
+
+def menunode_lpndsq(caller):
+    text = "Please select your noble apprenticeship."
+    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
+               {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
+               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpnq5"},
+               {"key": "3", "desc": "Duelist", "goto": "menumode_lpnq5"},
+               {"key": "4", "desc": "Dandy", "goto": "menumode_lpnq5"},
+               {"key": "5", "desc": "Study", "goto": "menumode_lpnq5"})
+    return text, options
+
+def menunode_lpnlhsq(caller):
+    text = "Lastly, would you like a point of Passion or Calm?"
+    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpnlhs2q"},
+               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpnlhs2q"})
+    return text, options
+
+
+def menunode_lpnlhs2q(caller):
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
+    return text, options
+
+
+def menunode_lpnamsq(caller):
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
                {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
@@ -458,6 +564,15 @@ def menunode_lpnq(caller, raw_input):
 def menunode_lpn3(caller, raw_input):
 
     apply_path_noble(0, raw_input, caller.db.house, caller)
+
+    if caller.db.house == 'Decados' and raw_input != 2:
+        text = "Decados need to pick another house for their lore rival house specialty."
+        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpnds"},
+                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpnds"},
+                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpnds"})
+        return text, options
 
     text = "At this stage you pick an apprenticeship under another noble.\n"
     text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
@@ -473,8 +588,8 @@ def menunode_lpn3(caller, raw_input):
 
 
     options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
-               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_lppn3"},
-               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_lpmn3"})
+               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
+               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
     return text, options
 
 
@@ -489,7 +604,19 @@ def menunode_lpn4(caller):
     return text, options
 
 
-def menunode_lpnq4(caller):
+def menunode_lpnq4(caller, raw_input):
+
+    apply_path_noble(0, raw_input, caller.db.house, caller)
+
+    if raw_input != 2 and caller.db.house == 'Decados':
+        text = "Decados need to pick another house for their lore rival house specialty."
+        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpndsq"},
+                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpndsq"},
+                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpndsq"},
+                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpndsq"},
+                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpndsq"})
+        return text, options
+
     text = "Please select your noble apprenticeship."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
                {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
