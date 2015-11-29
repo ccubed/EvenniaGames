@@ -45,7 +45,7 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.attributes['Extrovert'] = 2
                 pc.db.skills['Melee'] = 1
                 pc.db.skills['Etiquette'] = 1
-                pc.db.skills['Lore'] = {'Heraldry': 1}
+                pc.db.skills['Lore Heraldry'] = 1
                 pc.db.languages.append('Read Urthish')
                 pc.db.blessings.append('Unyielding')
                 pc.db.curses.append('Prideful')
@@ -214,10 +214,10 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Fight', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 2)
             addsheet(pc, 'Vigor', 'Skills', 1)
-            pc.db.skills['Remedy'] = 1
-            pc.db.skills['Social Leadership'] = 3
-            pc.db.skills['Survival'] = 1
-            pc.db.skills['Warfare Military Tactics'] = 1
+            addsheet(pc, 'Remedy', 'Skills', 1)
+            addsheet(pc, 'Social Leadership', 'Skills', 3)
+            addsheet(pc, 'Survival', 'Skills', 1)
+            addsheet(pc, 'Warfare Military Tactics', 'Skills', 1)
         elif which == 1:  # Starman
             addsheet(pc, 'Dexterity', 'Attributes', 1)
             addsheet(pc, 'Wits', 'Attributes', 2)
@@ -226,11 +226,11 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Impress', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 2)
-            pc.db.skills['Remedy'] = 1
-            pc.db.skills['Social Leadership'] = 2
-            pc.db.skills['Spacesuit'] = 0
-            pc.db.skills['Think Machine'] = 1
-            pc.db.skills['Warfare Gunnery'] = 1
+            addsheet(pc, 'Remedy', 'Skills', 1)
+            addsheet(pc, 'Social Leadership', 'Skills', 2)
+            addsheet(pc, 'Think Machine', 'Skills', 1)
+            addsheet(pc, 'Warfare Gunnery', 'Skills', 1)
+            pc.db.skills['Spacesuit'] = 0  # Spacesuit has no levels. You either have it or you don't.
         elif which == 2:  # Diplomacy and Intrigue
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
@@ -239,8 +239,8 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Charm', 'Skills', 2)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Sneak', 'Skills', 1)
-            pc.db.skills['Arts Rhetoric'] = 1
-            pc.db.skills['Etiquette'] = 2
+            addsheet(pc, 'Arts Rhetoric', 'Skills', 1)
+            addsheet(pc, 'Etiquette', 'Skills', 2)
             pc.db.choices.append("NADip")
             pc.db.choices.append("NADip2")
         elif which == 3:  # Duelist
@@ -250,7 +250,7 @@ def apply_path_noble(stage, which, house, pc):
             pc.db.choices.append("PasCalm")
             pc.db.choices.append("NADuelist")
             addsheet(pc, 'Melee', 'Skills', 2)
-            pc.db.skills['Remedy'] = 1
+            addsheet(pc, 'Remedy', 'Skills', 1)
             pc.db.actions['Fencing'] = ['Parry', 'Thrust', 'Slash']
         elif which == 4:  # Dandy
             addsheet(pc, 'Dexterity', 'Attributes', 1)
@@ -263,16 +263,16 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Shoot', 'Skills', 1)
             pc.db.choices.append('NADandy2')
             pc.db.choices.append('NADandy3')
-            pc.db.skills['Empathy'] = 1
-            pc.db.skills['Gambling'] = 1
-            pc.db.skills['Ride'] = 1
+            addsheet(pc, 'Empathy', 'Skills', 1)
+            addsheet(pc, 'Gambling', 'Skills', 1)
+            addsheet(pc, 'Ride', 'Skills', 1)s
         elif which == 5:  # Study
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Introvert', 'Attributes', 2)
             pc.db.choices.append('PasCalm')
-            pc.db.skills['Academia'] = 1
-            pc.db.skills['Focus'] = 3
-            pc.db.skills['Inquiry'] = 1
+            addsheet(pc, 'Academia', 'Skills', 1)
+            addsheet(pc, 'Focus', 'Skills', 3)
+            addsheet(pc, 'Inquiry', 'Skills', 1)
             pc.db.choices.append('NAStudy')
             pc.db.choices.append('NAStudy2')
 
@@ -482,6 +482,137 @@ def menunode_lpnq5(caller, raw_input):
     apply_path_noble(1, raw_input, 'None', caller)
 
     # Questing knights have so many choices. Good lord.
+    text = "Now let's begin the long process of setting your choices for questing knight.\n"
+    text += "Pick your first Body attribute. This one gets +2."
+    options = ({"Key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_lpnq52"},
+               {"Key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_lpnq52"},
+               {"Key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_lpnq52"})
+
+    return text, options
+
+
+def menunode_lpnq52(caller):
+    text = "Now pick your second body attribute. It gets +1."
+    options = ({"Key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq53"},
+               {"Key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1). "goto": "menunode_lpnq53"},
+               {"Key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_lpnq53"})
+
+    return text, options
+
+
+def menunode_lpnq53(caller):
+    text = "Now pick your third body attribute. It gets +1."
+    options = ({"Key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
+               {"Key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
+               {"Key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"})
+
+    return text, options
+
+
+def menunode_lpnq54(caller):
+    text = "Now pick your first mind attribute. It gets +2."
+    options = ({"Key": "0", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_lpnq55"},
+               {"Key": "1", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_lpnq55"},
+               {"Key": "2", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_lpnq55"})
+
+    return text, options
+
+
+def menunode_lpnq55(caller):
+    text = "Now pick your second mind attribute. It gets +1."
+    options = ({"Key": "0", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_lpnq56"},
+               {"Key": "1", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_lpnq56"},
+               {"Key": "2", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_lpnq56"})
+
+    return text, options
+
+
+def menunode_lpnq56(caller):
+    text = "Now pick your first spirit attribute. It gets +2."
+    options = ({"Key": "0", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_lpnq57"},
+               {"Key": "1", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_lpnq57"},
+               {"Key": "2", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_lpnq57"})
+
+    return text, options
+
+
+def menumode_lpnq57(caller):
+    text = "Now pick your second spirit attribute. It gets +1."
+    options = ({"Key": "0", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_lpnq58"},
+               {"Key": "1", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_lpnq58"},
+               {"Key": "2", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpnq58"})
+
+    return text, options
+
+
+
+def menunode_lpnq58(caller):
+    text = "Do you want Charm or Impress +1?"
+    options = ({"Key": "0", "desc": "Impress", "exec": addsheet(caller, 'Impress', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"Key": "1", "desc": "Charm", "exec": addsheet(caller, 'Charm', 'Skills', 1), "goto": "menunode_lpnq59"})
+
+    return text, options
+
+
+def menunode_lpnq59(caller):
+    addsheet(caller, 'Dodge', 'Skills', 1)
+
+    text = "Pick your primary combat skill. It gets +2."
+    options = ({"Key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 2), "goto": "menunode_lpnq591"},
+               {"Key": "1", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 2), "goto": "menunode_lpnq591"},
+               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 2), "goto": "menunode_lpnq591"})
+
+    return text, options
+
+
+def menunode_lpnq591(caller, raw_input):
+    text = "Pick your secondary combat skill. It gets +1."
+    options = ({"Key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq592"},
+               {"Key": "1", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq592"},
+               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 1), "goto": "menunode_lpnq591"})
+
+    if raw_input == 0:
+        options = tuple([x for x in options if x['Name'] != 'Fight'])
+    elif raw_input == 1:
+        options = tuple([x for x in options if x['Name'] != 'Melee'])
+    else:
+        options = tuple([x for x in options if x['Name'] != 'Shoot'])
+
+    return text, options
+
+
+def menunode_lpnq592(caller):
+    addsheet(caller, 'Observe', 'Skills', 1)
+    addsheet(caller, 'Sneak', 'Skills', 1)
+    addsheet(caller, 'Vigor', 'Skills', 1)
+
+    text = "Please pick a specialty for Drive."
+    options = ({"Key": "0", "desc": "Landcraft", "goto": "menunode_lpnq593"},
+               {"Key": "1", "desc": "Aircraft", "goto": "menunode_lpnq593"})
+
+    return text, options
+
+
+def menunode_lpnq593(caller, raw_input):
+    if raw_input == 0:
+        caller.db.skills['Drive Landcraft'] = 1
+    else:
+        caller.db.skills['Drive Aircraft'] = 1
+
+    text = "Do you want inquiry or knavery?"
+    options = ({"Key": "0", "desc": "Inquiry", "goto": "menunode_lpnq594"},
+               {"Key": "1", "desc": "Knavery", "goto": "menunode_lpnq594"})
+
+    return text, options
+
+
+def menunode_lpnq594(caller, raw_input):
+    if raw_input == 0:
+        caller.db.skills['Inquiry'] = 1
+    else:
+        caller.db.skills['Knavery'] = 1
+
+    text = ""
 
 
 def menunode_lpn6(caller, raw_input):
