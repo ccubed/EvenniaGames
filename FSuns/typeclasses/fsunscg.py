@@ -365,18 +365,19 @@ def menumode_lifepath(caller):
                {"desc": "Merchants", "goto": "menunode_lpm1"}, {"desc": "Aliens", "goto": "menumode_lpa1"})
     return text, options
 
-
+#  Begin Noble Section
 def menumode_lpn1(caller):
     caller.db.archetype = "Noble"
     caller.db.recbenefices = ('Nobility', 'Riches')
     text = "As nobility, your first step is picking a house. Please pick one.\n"
-    text += "If you are looking for minor house, please use custom CG."
+    text += "If you are going to use minor house and not follow an existing house, use custom cg."
     options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpn2"},
                {"key": "1", "desc": "Decados", "goto": "menumode_lpn2"},
                {"key": "2", "desc": "Hazat", "goto": "menumode_lpn2"},
                {"key": "3", "desc": "Li Halan", "goto": "menumode_lpn2"},
                {"key": "4", "desc": "al-Malik", "goto": "menumode_lpn2"},
-               {"key": "5", "desc": "Questing Knight", "goto": "menumode_lpn2"})
+               {"key": "5", "desc": "Questing Knight", "goto": "menumode_lpn2"},
+               {"key": "6", "desc": "Minor House", "goto": "menumode_lpn2"})
 
 
 def menumode_lpn2(caller, raw_input):
@@ -389,6 +390,16 @@ def menumode_lpn2(caller, raw_input):
                {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnq"},
                {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnq"})
         return text, options
+    elif raw_input == 6:
+        caller.db.minor = 1
+        text = "Which existing house are you mirroring?"
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
+                   {"key": "1", "desc": "Decados", "goto": "menumode_lpnmh"},
+                   {"key": "2", "desc": "Hazat", "goto": "menumode_lpnmh"},
+                   {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnmh"},
+                   {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnmh"},
+                   {"key": "5", "desc": "Questing Knight", "goto": "menumode_lpnmh"})
+        return text, options
 
     if raw_input == 3:
         caller.db.recbenefices.append('Church Ally')
@@ -396,6 +407,31 @@ def menumode_lpn2(caller, raw_input):
         caller.db.recbenefices.append('Passage Contract')
 
     caller.db.house = househelper[raw_input]
+
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpn3"})
+    return text, options
+
+
+def menunode_lpnmh(caller, raw_input):
+    if raw_input == 5:
+        caller.db.questing = 1
+        text = "You selected questing knight. Please select the noble house you intend to mirror for bonuses."
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnq"},
+               {"key": "1", "desc": "Decados", "goto": "menumode_lpnq"},
+               {"key": "2", "desc": "Hazat", "goto": "menumode_lpnq"},
+               {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnq"},
+               {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnq"})
+        return text, options
+
+    caller.db.house = househelper[raw_input]
+
+    if raw_input == 3:
+        caller.db.recbenefices.append('Church Ally')
+    elif raw_input == 4:
+        caller.db.recbenefices.append('Passage Contract')
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
@@ -569,7 +605,7 @@ def menunode_lpnq591(caller, raw_input):
     text = "Pick your secondary combat skill. It gets +1."
     options = ({"Key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq592"},
                {"Key": "1", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq592"},
-               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 1), "goto": "menunode_lpnq591"})
+               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 1), "goto": "menunode_lpnq592"})
 
     if raw_input == 0:
         options = tuple([x for x in options if x['Name'] != 'Fight'])
@@ -587,36 +623,45 @@ def menunode_lpnq592(caller):
     addsheet(caller, 'Vigor', 'Skills', 1)
 
     text = "Please pick a specialty for Drive."
-    options = ({"Key": "0", "desc": "Landcraft", "goto": "menunode_lpnq593"},
-               {"Key": "1", "desc": "Aircraft", "goto": "menunode_lpnq593"})
+    options = ({"Key": "0", "desc": "Landcraft", "exec": addsheet(caller, 'Drive Landcraft', 'Skills', 1), "goto": "menunode_lpnq593"},
+               {"Key": "1", "desc": "Aircraft", "exec": addsheet(caller, 'Drive Aircraft', 'Skills', 1), "goto": "menunode_lpnq593"})
 
     return text, options
 
 
-def menunode_lpnq593(caller, raw_input):
-    if raw_input == 0:
-        caller.db.skills['Drive Landcraft'] = 1
-    else:
-        caller.db.skills['Drive Aircraft'] = 1
-
-    text = "Do you want inquiry or knavery?"
-    options = ({"Key": "0", "desc": "Inquiry", "goto": "menunode_lpnq594"},
-               {"Key": "1", "desc": "Knavery", "goto": "menunode_lpnq594"})
+def menunode_lpnq593(caller):
+    text = "Do you want inquiry or knavery +1?"
+    options = ({"Key": "0", "desc": "Inquiry", "exec": addsheet(caller, 'Inquiry', 'Skills', 1), "goto": "menunode_lpnq594"},
+               {"Key": "1", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpnq594"})
 
     return text, options
 
 
-def menunode_lpnq594(caller, raw_input):
-    if raw_input == 0:
-        caller.db.skills['Inquiry'] = 1
-    else:
-        caller.db.skills['Knavery'] = 1
+def menunode_lpnq594(caller):
+    text = "Please enter a specialty for your lore for People and Places seen."
+    options = {"key": "_default", "goto": "menunode_lpnq595"}
 
-    text = ""
+    return text, options
 
+
+def menunode_lpnq595(caller, raw_input):
+    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
+    addsheet(caller, 'Remedy', 'Skills', 1)
+
+    text = "Please enter a dialect for your free language choice."
+    options = {"key": "_default", "goto": "menunode_lpnq596"}
+
+    return text, options
+
+
+def menunode_lpnq596(caller, raw_input):
+    caller.db.languages.append('Speak ' + raw_input)
+    addsheet(caller, 'Streetwise', 'Skills', 1)
+    caller.db.benefices['Rank'] = 'Knight'
+
+    # Tour of Duty
 
 def menunode_lpn6(caller, raw_input):
-
     apply_path_noble(2, raw_input, 'None', caller)
 
-    # Paths converge on Tours of Duty
+    # Tour of Duty
