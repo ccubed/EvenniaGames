@@ -990,6 +990,11 @@ def menunode_lpp1(caller):
     caller.db.recbenefices.append('Vestments')
     caller.db.archetype = 'Priest'
 
+    def ipcs(caller):
+        caller.db.questing = 1
+        caller.db.recbenefices.append('Cohort Badge')
+        caller.db.recbenefices.append('Well-Travelled')
+
     text = "If you intend to do Mendicants with a custom Order, please use custom cg. What order does your priest come from?"
     options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lpp2"},
                {"key": "1", "desc": "Brother Battle", "goto": "menunode_lppbb"},
@@ -997,7 +1002,36 @@ def menunode_lpp1(caller):
                {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lpp2"},
                {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lpp2"},
                {"key": "5", "desc": "Mendicant Monks", "goto": "menunode_lppmm"},
-               {"key": "6", "desc": "Imperial Priest Cohort", "goto": "menunode_lppip"})
+               {"key": "6", "desc": "Imperial Priest Cohort", "exec": ipcs, "goto": "menunode_lppmm"})
+    return text, options
+
+
+def menunode_lppmm(caller):
+    text = "Which order are you mirroring for bonuses?\n"
+    text += "If you picked Imperial Priest Cohort, This question is instead for picking the order you come from."
+    options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lppmm2"},
+               {"key": "1", "desc": "Brother Battle", "goto": "menunode_lppbb"},
+               {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lppmm2"},
+               {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lppmm2"},
+               {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lppmm2"})
+    return text, options
+
+
+def menunode_lppmm2(caller, raw_input):
+    caller.db.house = priesthelper[raw_input]
+
+    if raw_input == 0:
+        caller.db.recbenefices.append('Noble Ally')
+    elif raw_input == 2:
+        caller.db.recbenefices.append('Secrets')
+        caller.db.recbenefices.append('Refuge')
+    elif raw_input == 4:
+        caller.db.recbenefices.append('Ally')
+
+    text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
+    options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
+               {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
+               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp22"})
     return text, options
 
 
@@ -1071,7 +1105,11 @@ def menunode_lpp3p2(caller):
 
 def menunode_lpp4(caller):
     text = "Now it's time to choose if you spent your time in a Cathedral, Parish or Monastery."
-    options = ({"key": "0", "desc": "Streetwise", "exec": apply_path_priest(caller, 0, 0, caller.db.house), "goto": "menunode_lpp5"},
-               {"key": "1", "desc": "Survival", "exec": apply_path_priest(caller, 0, 1, caller.db.house), "goto": "menunode_lpp5"},
-               {"key": "1", "desc": "Survival", "exec": apply_path_priest(caller, 0, 2, caller.db.house), "goto": "menunode_lpp5"})
+    options = ({"key": "0", "desc": "Cathedral", "exec": apply_path_priest(caller, 0, 0, caller.db.house), "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Parish", "exec": apply_path_priest(caller, 0, 1, caller.db.house), "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Monastery", "exec": apply_path_priest(caller, 0, 2, caller.db.house), "goto": "menunode_lpp5"})
     return text, options
+
+
+def menunode_lpp5(caller):
+    pass
