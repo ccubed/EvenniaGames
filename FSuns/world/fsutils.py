@@ -25,6 +25,7 @@ def addsheet(pc, what, which, amt):
             pc.db.skills[what] = amt
     elif which == 'Afflictions':
         #  How do these work?
+        pass
     elif which == 'Blessings':
         if not what in pc.db.blessings:
             pc.db.blessings.append(what)

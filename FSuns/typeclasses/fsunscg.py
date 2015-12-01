@@ -43,104 +43,104 @@ def apply_path_noble(stage, which, house, pc):
         if which == 0:
 
             if house == 'Hawkwood':
-                pc.db.attributes['Strength'] = 1
-                pc.db.attributes['Dexterity'] = 1
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Extrovert'] = 2
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.skills['Lore Heraldry'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Unyielding')
-                pc.db.curses.append('Prideful')
+                addsheet(pc, 'Strength', 'Attributes', 1)
+                addsheet(pc, 'Dexterity', 'Attributes', 1)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Extrovert', 'Attributes', 2)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Lore Heraldry', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Unyielding', 'Blessings', 0)
+                addsheet(pc, 'Prideful', 'Curses', 0)
             elif house == 'Decados':
-                pc.db.attributes['Dexterity'] = 1
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Ego'] = 2
-                pc.db.skills['Inquiry'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Suspicious')
-                pc.db.curses.append('Vain')
+                addsheet(pc, 'Dexterity', 'Attributes', 1)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Ego', 'Attributes', 2)
+                addsheet(pc, 'Inquiry', 'Skills', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Suspicious', 'Blessings', 0)
+                addsheet(pc, 'Vain', 'Curses', 0)
             elif house == 'Hazat':
-                pc.db.attributes['Endurance'] = 1
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Passion'] = 2
-                pc.db.skills['Impress'] = 1
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Disciplined')
-                pc.db.curses.append('Vengeful')
+                addsheet(pc, 'Endurance', 'Attributes', 1)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Passion', 'Attributes', 2)
+                addsheet(pc, 'Impress', 'Skills', 1)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Disciplined', 'Blessings', 0)
+                addsheet(pc, 'Vengeful', 'Curses', 0)
             elif house == "Li Halan":
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Faith'] = 2
-                pc.db.skills['Focus'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.skills['Lore Theology'] = 1
-                pc.db.languages.append('Read Latin')
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Pious')
-                pc.db.curses.append('Guilty')
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Faith', 'Attributes', 2)
+                addsheet(pc, 'Focus', 'Skills', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Lore Theology', 'Skills', 1)
+                addsheet(pc, 'Read Latin', 'Languages', 0)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Pious', 'Blessings', 0)
+                addsheet(pc, 'Guilty', 'Curses', 0)
             else:
-                pc.db.attributes['Dexterity'] = 1
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Calm'] = 2
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Speak Graceful Tongue')
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Gracious')
-                pc.db.curses.append('Impetuous')
+                addsheet(pc, 'Dexterity', 'Attributes', 1)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Calm', 'Attributes', 2)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Speak Graceful Tongue', 'Languages', 0)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Gracious', 'Blessings', 0)
+                addsheet(pc, 'Impetuous', 'Curses', 0)
 
         # Rural Estate
         elif which == 1:
             if house == "Hawkwood":
-                pc.db.attributes['Strength'] = 2
-                pc.db.attributes['Dexterity'] = 1
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Extrovert'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.skills['Ride'] = 1
-                pc.db.blessings.append('Unyielding')
-                pc.db.curses.append('Prideful')
+                addsheet(pc, 'Strength', 'Attributes', 2)
+                addsheet(pc, 'Dexterity', 'Attributes', 1)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Extrovert', 'Attributes', 2)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Ride', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Unyielding', 'Blessings', 0)
+                addsheet(pc, 'Prideful', 'Curses', 0)
             elif house == "Decados":
-                pc.db.attributes['Dexterity'] = 2
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Ego'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.skills['Knavery'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Suspicious')
-                pc.db.curses.append('Vain')
+                addsheet(pc, 'Dexterity', 'Attributes', 2)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Ego', 'Attributes', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Knavery', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Suspicious', 'Blessings', 0)
+                addsheet(pc, 'Vain', 'Curses', 0)
             elif house == "Hazat":
-                pc.db.attributes['Endurance'] = 2
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Passion'] = 1
-                pc.db.skills['Impress'] = 1
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Disciplined')
-                pc.db.curses.append('Vengeful')
+                addsheet(pc, 'Endurance', 'Attributes', 2)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Passion', 'Attributes', 1)
+                addsheet(pc, 'Impress', 'Skills', 1)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Disciplined', 'Blessings', 0)
+                addsheet(pc, 'Vengeful', 'Curses', 0)
             elif house == "Li Halan":
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Faith'] = 2
-                pc.db.skills['Etiquette'] = 1
-                pc.db.skills['Focus'] = 1
-                pc.db.skills['Lore Theology'] = 1
-                pc.db.languages.append('Read Latin')
-                pc.db.blessings.append('Pious')
-                pc.db.curses.append('Guilty')
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Faith', 'Attributes', 2)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Focus', 'Skills', 1)
+                addsheet(pc, 'Lore Theology', 'Skills', 1)
+                addsheet(pc, 'Read Latin', 'Languages', 0)
+                addsheet(pc, 'Pious', 'Blessings', 0)
+                addsheet(pc, 'Guilty', 'Curses', 0)
             else:
-                pc.db.attributes['Dexterity'] = 2
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Calm'] = 1
-                pc.db.skills['Etiquette'] = 1
-                pc.db.languages.append('Speak Graceful Tongue')
-                pc.db.languages.append('Read Urthish')
-                pc.db.blessings.append('Gravious')
-                pc.db.blessings.append('Vain')
+                addsheet(pc, 'Dexterity', 'Attributes', 2)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Calm', 'Attributes', 1)
+                addsheet(pc, 'Etiquette', 'Skills', 1)
+                addsheet(pc, 'Speak Graceful Tongue', 'Languages', 0)
+                addsheet(pc, 'Read Urthish', 'Languages', 0)
+                addsheet(pc, 'Gracious', 'Blessings', 0)
+                addsheet(pc, 'Impetuous', 'Curses', 0)
 
         # Landless
         elif which == 2:
@@ -198,7 +198,7 @@ def apply_path_noble(stage, which, house, pc):
                 pc.db.curses.append('Impetuous')
 
     # Apprenticeship
-    else stage == 1:
+    elif stage == 1:
         if which == 0:  # Soldier
             addsheet(pc, 'Strength', 'Attributes', 2)
             addsheet(pc, 'Dexterity', 'Attributes', 2)
@@ -222,7 +222,7 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Social Leadership', 'Skills', 2)
             addsheet(pc, 'Think Machine', 'Skills', 1)
             addsheet(pc, 'Warfare Gunnery', 'Skills', 1)
-            pc.db.skills['Spacesuit'] = 0  # Spacesuit has no levels. You either have it or you don't.
+            addsheet(pc, 'Spacesuit', 'Skills', 0) # Spacesuit has no levels. You either have it or you don't.
         elif which == 2:  # Diplomacy and Intrigue
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
@@ -249,7 +249,7 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Shoot', 'Skills', 1)
             addsheet(pc, 'Empathy', 'Skills', 1)
             addsheet(pc, 'Gambling', 'Skills', 1)
-            addsheet(pc, 'Ride', 'Skills', 1)s
+            addsheet(pc, 'Ride', 'Skills', 1)
         elif which == 5:  # Study
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Introvert', 'Attributes', 2)
@@ -258,7 +258,7 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Inquiry', 'Skills', 1)
 
     # Early Career
-    else stage == 2:
+    elif stage == 2:
         if which == 0:  # Soldier
             addsheet(pc, 'Strength', 'Attributes', 2)
             addsheet(pc, 'Dexterity', 'Attributes', 2)
@@ -273,10 +273,10 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Melee', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 2)
             addsheet(pc, 'Vigor', 'Skills', 1)
-            pc.db.skills['Remedy'] = 1
-            pc.db.skills['Social Leadership'] = 4
-            pc.db.skills['Survival'] = 1
-            pc.db.skills['Warfare Military Tactics'] = 1
+            addsheet(pc, 'Remedy', 'Skills', 1)
+            addsheet(pc, 'Social Leadership', 'Skills', 4)
+            addsheet(pc, 'Survival', 'Skills', 1)
+            addsheet(pc, 'Warfare Military Tactics', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 1:  # Starman
             addsheet(pc, 'Dexterity', 'Attributes', 2)
@@ -287,14 +287,14 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Impress', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 1)
             addsheet(pc, 'Shoot', 'Skills', 2)
-            pc.db.skills['Drive Spacecraft'] = 1
+            addsheet(pc, 'Drive Spacecraft', 'Skills', 1)
             addsheet(pc, 'Read Urthish', 'Languages', 1)
-            pc.db.skills['Remedy'] = 1
-            pc.db.skills['Social Leadership'] = 2
-            pc.db.skills['Warfare Gunnery'] = 1
-            pc.db.skills['Spacesuit'] = 0
-            pc.db.skills['Think Machine'] = 1
-            pc.db.skills['Warfare Starfleet Tactics'] = 1
+            addsheet(pc, 'Remedy', 'Skills', 1)
+            addsheet(pc, 'Social Leadership', 'Skills', 2)
+            addsheet(pc, 'Spacesuit', 'Skills', 0)
+            addsheet(pc, 'Think Machine', 'Skills', 1)
+            addsheet(pc, 'Warfare Gunnery', 'Skills', 1)
+            addsheet(pc, 'Warfare Starfleet Tactics', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 2:  # Duelist
             addsheet(pc, 'Strength', 'Attributes', 1)
@@ -304,8 +304,8 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Perception', 'Attributes', 1)
             addsheet(pc, 'Dodge', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 2)
-            pc.db.skills['Etiquette'] = 1
-            pc.db.skills['Remedy'] = 1
+            addsheet(pc, 'Etiquette', 'Skills', 1)
+            addsheet(pc, 'Remedy', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 3:  # Ambassador
             addsheet(pc, 'Dexterity', 'Attributes', 1)
@@ -316,11 +316,10 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Charm', 'Skills', 2)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Sneak', 'Skills', 1)
-            pc.db.skills['Arts Rhetoric'] = 1
+            addsheet(pc, 'Arts Rhetoric', 'Skills', 1)
+            addsheet(pc, 'Etiquette', 'Skills', 2)
             addsheet(pc, 'Read Urthish', 'Languages', 1)
-            pc.db.skills['Etiquette'] = 2
-            pc.db.skills['Warfare Gunnery'] = 1
-            pc.db.skills['Ride'] = 1
+            addsheet(pc, 'Ride', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
 
 
@@ -330,23 +329,194 @@ def apply_path_uppm(caller, which, what):
     if which == 0:
         # City
         if what == 0:
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Inquiry', 'Skills', 1)
+            addsheet(caller, 'Streetwise', 'Skills', 1)
 
         # Town
         elif what == 1:
+            addsheet(caller, 'Wits', 'Attributes', 1)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Extrovert', 'Attributes', 2)
+            addsheet(caller, 'Charm', 'Skills', 1)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Inquiry', 'Skills', 1)
 
         # Country
         elif what == 2:
+            addsheet(caller, 'Strength', 'Attributes', 1)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Faith', 'Attributes', 1)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Lore Regional', 'Skills', 1)
 
     # Class
     elif which == 1:
         # Wealthy
         if what == 0:
+            addsheet(caller, 'Extrovert', 'Attributes', 1)
+            addsheet(caller, 'Read Urthish', 'Languages', 0)
 
-        # Average
-        elif what == 1:
+        # Average would be here, but it's all choices
 
         # poor
         elif what == 2:
+            addsheet(caller, 'Knavery', 'Skills', 1)
+            
+
+def apply_path_priest(caller, which, what):
+    # Apprenticeship
+    if which == 0:
+        
+        # Cathedral
+        if what == 0:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Extrovert', 'Attributes', 1)
+                addsheet(caller, 'Calm', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Academia', 'Skills', 1)
+                addsheet(caller, 'Focus', 'Skills', 1)
+                addsheet(caller, 'Lore Theology', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Social Oratory', 'Skills', 1)
+                addsheet(caller, 'Read Latin', 'Languages', 0)
+                addsheet(caller, 'Remedy', 'Skills', 1)
+                caller.db.blessings.append('Pious')
+                caller.db.curses.append('Austere')
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Introvert', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Academia', 'Skills', 1)
+                addsheet(caller, 'Alchemy', 'Skills', 1)
+                addsheet(caller, 'Focus', 'Skills', 3)
+                addsheet(caller, 'Lore Occult', 'Skills', 1)
+                addsheet(caller, 'Stoic Mind', 'Skills', 1)
+                addsheet(caller, 'Read Latin', 'Languages', 0)
+                caller.db.blessings.append('Curious')
+                caller.db.curses.append('Subtle')
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Parish
+        elif what == 1:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Monastery
+        elif what == 2:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+    # Early Career
+    elif which == 1:
+        
+        # Preacher Pastor
+        if what == 0:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Monk
+        elif what == 1:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Missionary
+        elif what == 2:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Healer
+        elif what == 3:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
+            
+        # Inquisitor
+        elif what == 4:
+            
+            # Urth Orthodox
+            if caller.db.house == "Urth Orthodox":
+                
+            # Eskatonic
+            elif caller.db.house == "Eskatonic Order":
+                
+            # Temple Avesti
+            elif caller.db.house == "Temple Avesti":
+                
+            # Sanctuary Aeon
+            elif caller.db.house == "Sanctuary Aeon":
 
 
 def menunode_start(caller):
