@@ -641,6 +641,8 @@ def menunode_lpn2(caller, raw_input):
         return text, options
     elif 15 >= raw_input >= 5 :
         caller.db.minor = 1
+        caller.db.house = househelper[raw_input]
+        addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
                    {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
@@ -652,6 +654,7 @@ def menunode_lpn2(caller, raw_input):
     else not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
+        addsheet(pc, 'Faction Lore: ' + raw_input, 'Skills', 3)
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
                    {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
@@ -666,6 +669,7 @@ def menunode_lpn2(caller, raw_input):
         caller.db.recbenefices.append('Passage Contract')
 
     caller.db.house = househelper[raw_input]
+    addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
@@ -704,9 +708,11 @@ def menunode_lpnq(caller, raw_input):
         caller.db.mirrorhouse = househelper[raw_input]
     elif raw_input <= 4:
         caller.db.house = househelper[raw_input]
+        addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
     elif 15 >= raw_input >= 5:
         caller.db.minor = 1
         caller.db.house = househelper[raw_input]
+        addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
         text = "Which major house do you want to mirror?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
                {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
@@ -717,6 +723,7 @@ def menunode_lpnq(caller, raw_input):
     elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
+        addsheet(pc, 'Faction Lore: ' + raw_input, 'Skills', 3)
         text = "Which major house do you want to mirror?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
                {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
@@ -1148,6 +1155,7 @@ def menunode_lppmm(caller):
 
 def menunode_lppmm2(caller, raw_input):
     caller.db.house = priesthelper[raw_input]
+    addsheet(caller, 'Faction Lore: ' + priesthelper[raw_input], 'Skills', 3)
 
     if raw_input == 0:
         caller.db.recbenefices.append('Noble Ally')
@@ -1166,6 +1174,7 @@ def menunode_lppmm2(caller, raw_input):
 
 def menunode_lpp2(caller, raw_input):
     caller.db.house = priesthelper[raw_input]
+    addsheet(caller, 'Faction Lore: ' + priesthelper[raw_input], 'Skills', 3)
 
     if raw_input == 0:
         caller.db.recbenefices.append('Noble Ally')
