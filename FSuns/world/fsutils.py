@@ -30,4 +30,3 @@ def addsheet(pc, what, which, amt):
     elif which == 'Languages':
         if not what in pc.db.languages:
             pc.db.languages.append(what)
-
