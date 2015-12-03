@@ -13,11 +13,6 @@ def addsheet(pc, what, which, amt):
             pc.db.attributes[what] += amt
         else:
             pc.db.attributes[what] = amt
-    elif which == 'Benefices':
-        if what in pc.db.benefices:
-            pc.db.benefices[what] += amt
-        else:
-            pc.db.benefices[what] = amt
     elif which == 'Skills':
         if what in pc.db.skills:
             pc.db.skills[what] += amt

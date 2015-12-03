@@ -15,6 +15,7 @@ Where X is:
     c# - This is step # in the custom CG path
 
 Reading this: hahaha, good luck.
+This implements the lifepaths as described by FAS21901, the Lifepaths source released on the web as a supplement to revised in 2014.
 
 """
 
@@ -29,10 +30,76 @@ Begin helper section. This section is nothing but helper variables and dictionar
 
 """
 # Parses the input on noble house from the keys into the name.
-househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik'}
+househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik', '5': 'Alba', '6': 'Juandaastas', '7': 'Justinian', '8': 'Keddah', '9': 'Masseri', '10': 'Shelit', '11': 'Thana', '12': 'Torenson', '13': 'Trusnikron', '14': 'Van Gelder', '15': 'Xanthippe'}
 # Parses priests like househelper
 priesthelper = {'0': 'Urth Orthodox', '1': 'Brother Battle', '2': 'Eskatonic Order', '3': 'Temple Avesti', '4': 'Sanctuary Aeon'}
 
+
+# apply blessing and curse
+def apply_blessing_curse(pc, house):
+    if house == 'Hawkwood':
+        addsheet(pc, 'Unyielding', 'Blessings', 0)
+        addsheet(pc, 'Prideful', 'Curses', 0)
+    
+    elif house == 'Decados':
+        addsheet(pc, 'Suspicious', 'Blessings', 0)
+        addsheet(pc, 'Vain', 'Curses', 0)
+        
+    elif house == 'Hazat':
+        addsheet(pc, 'Disciplined', 'Blessings', 0)
+        addsheet(pc, 'Vengeful', 'Curses', 0)
+        
+    elif house == 'Li Halan':
+        addsheet(pc, 'Pious', 'Blessings', 0)
+        addsheet(pc, 'Guilty', 'Curses', 0)
+        
+    elif house == 'al-Malik':
+        addsheet(pc, 'Graceful', 'Blessings', 0)
+        addsheet(pc, 'Impetuous', 'Curses', 0)
+    
+    elif house == 'Alba':
+        addsheet(pc, 'Connected', 'Blessings', 0)
+        addsheet(pc, 'Uncouth', 'Curses', 0)
+        
+    elif house == 'Juandaastas':
+        addsheet(pc, 'Strong-Willed', 'Blessings', 0)
+        addsheet(pc, 'Outraged', 'Curses', 0)
+        
+    elif house == 'Justinian':
+        addsheet(pc, 'Loyal', 'Blessings', 0)
+        addsheet(pc, 'Stubborn', 'Curses', 0)
+        
+    elif house == 'Keddah':
+        addsheet(pc, 'Alert', 'Blessings', 0)
+        addsheet(pc, 'Untrustworthy', 'Curses', 0)
+        
+    elif house == 'Masseri':
+        addsheet(pc, 'Hardy', 'Blessings', 0)
+        addsheet(pc, 'Bitter', 'Curses', 0)
+        
+    elif house == 'Shelit':
+        addsheet(pc, 'Cybersympathy', 'Blessings', 0)
+        addsheet(pc, 'Weird', 'Curses', 0)
+        
+    elif house == 'Thana':
+        addsheet(pc, 'Angelic', 'Blessings', 0)
+        addsheet(pc, 'Guilty', 'Curses', 0)
+        
+    elif house == 'Torenson':
+        addsheet(pc, 'Elan', 'Blessings', 0)
+        addsheet(pc, 'Indignant', 'Curses', 0)
+        
+    elif house == 'Trusnikron':
+        addsheet(pc, 'Xeno Equestrian', 'Blessings', 0)
+        addsheet(pc, 'Uncouth', 'Curses', 0)
+        
+    elif house == 'Van Gelder':
+        addsheet(pc, 'Chameleon', 'Blessings', 0)
+        addsheet(pc, 'Alienated', 'Curses', 0)
+        
+    elif house == 'Xanthippe':
+        addsheet(pc, 'Disciplined', 'Blessings', 0)
+        addsheet(pc, 'Condescending', 'Curses', 0)
 
 # Applies bonuses for paths and stages per house for nobles
 def apply_path_noble(stage, which, house, pc):
@@ -46,51 +113,46 @@ def apply_path_noble(stage, which, house, pc):
                 addsheet(pc, 'Strength', 'Attributes', 1)
                 addsheet(pc, 'Dexterity', 'Attributes', 1)
                 addsheet(pc, 'Wits', 'Attributes', 1)
-                addsheet(pc, 'Extrovert', 'Attributes', 2)
+                addsheet(pc, 'Presence', 'Attributes', 2)
                 addsheet(pc, 'Melee', 'Skills', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Lore Heraldry', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Unyielding', 'Blessings', 0)
-                addsheet(pc, 'Prideful', 'Curses', 0)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Leadership', 'Skills', 1)
+                
             elif house == 'Decados':
                 addsheet(pc, 'Dexterity', 'Attributes', 1)
                 addsheet(pc, 'Perception', 'Attributes', 2)
-                addsheet(pc, 'Ego', 'Attributes', 2)
-                addsheet(pc, 'Inquiry', 'Skills', 1)
+                addsheet(pc, 'Will', 'Attributes', 2)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Suspicious', 'Blessings', 0)
-                addsheet(pc, 'Vain', 'Curses', 0)
+                addsheet(pc, 'Investigation', 'Skills', 1)
+                addsheet(pc, 'Influence', 'Skills', 1)
+
             elif house == 'Hazat':
                 addsheet(pc, 'Endurance', 'Attributes', 1)
                 addsheet(pc, 'Perception', 'Attributes', 2)
-                addsheet(pc, 'Passion', 'Attributes', 2)
-                addsheet(pc, 'Impress', 'Skills', 1)
-                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Presence', 'Attributes', 2)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Melee', 'Skills', 2)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Disciplined', 'Blessings', 0)
-                addsheet(pc, 'Vengeful', 'Curses', 0)
+                addsheet(pc, 'Communication', 'Skills', 1)
+
             elif house == "Li Halan":
                 addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
                 addsheet(pc, 'Faith', 'Attributes', 2)
-                addsheet(pc, 'Focus', 'Skills', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Lore Theology', 'Skills', 1)
-                addsheet(pc, 'Read Latin', 'Languages', 0)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Pious', 'Blessings', 0)
-                addsheet(pc, 'Guilty', 'Curses', 0)
+                addsheet(pc, 'Self Control', 'Skills', 1)
+                addsheet(pc, 'Latin', 'Languages', 0)
+
             else:
                 addsheet(pc, 'Dexterity', 'Attributes', 1)
                 addsheet(pc, 'Wits', 'Attributes', 1)
-                addsheet(pc, 'Calm', 'Attributes', 2)
+                addsheet(pc, 'Tech', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 2)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Speak Graceful Tongue', 'Languages', 0)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Gracious', 'Blessings', 0)
-                addsheet(pc, 'Impetuous', 'Curses', 0)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Graceful Tongue', 'Languages', 0)
 
         # Rural Estate
         elif which == 1:
@@ -98,104 +160,99 @@ def apply_path_noble(stage, which, house, pc):
                 addsheet(pc, 'Strength', 'Attributes', 2)
                 addsheet(pc, 'Dexterity', 'Attributes', 1)
                 addsheet(pc, 'Wits', 'Attributes', 1)
-                addsheet(pc, 'Extrovert', 'Attributes', 2)
+                addsheet(pc, 'Presence', 'Attributes', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Ride', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Unyielding', 'Blessings', 0)
-                addsheet(pc, 'Prideful', 'Curses', 0)
+                addsheet(pc, 'Vigor', 'Skills', 1)
+                addsheet(pc, 'Observe', 'Skills', 1)
+                addsheet(pc, 'Survival', 'Skills', 1)
+
             elif house == "Decados":
                 addsheet(pc, 'Dexterity', 'Attributes', 2)
                 addsheet(pc, 'Perception', 'Attributes', 2)
-                addsheet(pc, 'Ego', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Knavery', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Suspicious', 'Blessings', 0)
-                addsheet(pc, 'Vain', 'Curses', 0)
+                addsheet(pc, 'Sneak', 'Skills', 1)
+                addsheet(pc, 'Survival', 'Skills', 1)
+
             elif house == "Hazat":
                 addsheet(pc, 'Endurance', 'Attributes', 2)
                 addsheet(pc, 'Perception', 'Attributes', 2)
-                addsheet(pc, 'Passion', 'Attributes', 1)
-                addsheet(pc, 'Impress', 'Skills', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Influence', 'Skills', 1)
                 addsheet(pc, 'Melee', 'Skills', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Disciplined', 'Blessings', 0)
-                addsheet(pc, 'Vengeful', 'Curses', 0)
+                addsheet(pc, 'Survival', 'Skills', 1)
+                addsheet(pc, 'Leadership', 'Skills', 1)
+
             elif house == "Li Halan":
                 addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
                 addsheet(pc, 'Faith', 'Attributes', 2)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Focus', 'Skills', 1)
-                addsheet(pc, 'Lore Theology', 'Skills', 1)
-                addsheet(pc, 'Read Latin', 'Languages', 0)
-                addsheet(pc, 'Pious', 'Blessings', 0)
-                addsheet(pc, 'Guilty', 'Curses', 0)
+                addsheet(pc, 'Self Control', 'Skills', 1)
+                addsheet(pc, 'Survival', 'Skills', 1)
+                addsheet(pc, 'Latin', 'Languages', 0)
+
             else:
                 addsheet(pc, 'Dexterity', 'Attributes', 2)
                 addsheet(pc, 'Wits', 'Attributes', 1)
-                addsheet(pc, 'Calm', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
                 addsheet(pc, 'Etiquette', 'Skills', 1)
-                addsheet(pc, 'Speak Graceful Tongue', 'Languages', 0)
-                addsheet(pc, 'Read Urthish', 'Languages', 0)
-                addsheet(pc, 'Gracious', 'Blessings', 0)
-                addsheet(pc, 'Impetuous', 'Curses', 0)
+                addsheet(pc, 'Survival', 'Skills', 1)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Graceful Tongue', 'Languages', 0)
 
         # Landless
         elif which == 2:
             if house == "Hawkwood":
-                pc.db.attributes['Strength'] = 1
-                pc.db.attributes['Dexterity'] = 2
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Extrovert'] = 1
-                pc.db.skills['Impress'] = 1
-                pc.db.skills['Vigor'] = 1
-                pc.db.skills['Melee'] = 2
-                pc.db.skills['Ride'] = 1
-                pc.db.blessings.append('Unyielding')
-                pc.db.curses.append('Prideful')
+                addsheet(pc, 'Strength', 'Attributes', 1)
+                addsheet(pc, 'Dexterity', 'Attributes', 2)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Vigor', 'Skills', 1)
+                addsheet(pc, 'Melee', 'Skills', 2)
+                addsheet(pc, 'Survival', 'Skills', 1)
+
             elif house == "Decaods":
-                pc.db.attributes['Dexterity'] = 2
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Ego'] = 1
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Observe'] = 1
-                pc.db.skills['Sneak'] = 1
-                pc.db.skills['Knavery'] = 2
-                pc.db.blessings.append('Suspicious')
-                pc.db.curses.append('Vain')
+                addsheet(pc, 'Dexterity', 'Attributes', 2)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Will', 'Attributes', 1)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Observe', 'Skills', 1)
+                addsheet(pc, 'Sneak', 'Skills', 1)
+
             elif house == "Hazat":
-                pc.db.attributes['Endurance'] = 2
-                pc.db.attributes['Perception'] = 2
-                pc.db.attributes['Passion'] = 1
-                pc.db.skills['Impress'] = 1
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Shoot'] = 1
-                pc.db.skills['Vigor'] = 1
-                pc.db.skills['Remedy'] = 1
-                pc.db.blessings.append('Disciplined')
-                pc.db.curses.append('Vengeful')
+                addsheet(pc, 'Endurance', 'Attributes', 2)
+                addsheet(pc, 'Perception', 'Attributes', 2)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Influence', 'Skills', 1)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Vigor', 'Skills', 1)
+                addsheet(pc, 'Warfare', 'Skills', 1)
+
             elif house == "Li Halan":
-                pc.db.attributes['Wits'] = 1
-                pc.db.attributes['Faith'] = 2
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Observe'] = 1
-                pc.db.skills['Focus'] = 1
-                pc.db.skills['Lore Theology'] = 1
-                pc.db.skills['Remedy'] = 1
-                pc.db.blessings.append('Pious')
-                pc.db.curses.append('Guilty')
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
+                addsheet(pc, 'Faith', 'Attributes', 2)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Observe', 'Skills', 1)
+                addsheet(pc, 'Self Control', 'Skills', 1)
+                addsheet(pc, 'Vigor', 'Skills', 1)
+                addsheet(pc, 'Physick', 'Skills', 1)
+
             else:
-                pc.db.attributes['Dexterity'] = 2
-                pc.db.attributes['Wits'] = 2
-                pc.db.attributes['Faith'] = 2
-                pc.db.skills['Melee'] = 1
-                pc.db.skills['Inquiry'] = 1
-                pc.db.skills['Lore Trading'] = 1
-                pc.db.languages.append('Speak Graceful Tongue')
-                pc.db.blessings.append('Gracious')
-                pc.db.curses.append('Impetuous')
+                addsheet(pc, 'Dexterity', 'Attributes', 2)
+                addsheet(pc, 'Wits', 'Attributes', 1)
+                addsheet(pc, 'Presence', 'Attributes', 1)
+                addsheet(pc, 'Will', 'Attributes', 1)
+                addsheet(pc, 'Melee', 'Skills', 1)
+                addsheet(pc, 'Investigation', 'Skills', 1)
+                addsheet(pc, 'Athletics', 'Skills', 1)
+                addsheet(pc, 'Graceful Tongue', 'Languages', 0)
 
     # Apprenticeship
     elif stage == 1:
@@ -203,59 +260,58 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Strength', 'Attributes', 2)
             addsheet(pc, 'Dexterity', 'Attributes', 2)
             addsheet(pc, 'Endurance', 'Attributes', 1)
-            addsheet(pc, 'Fight', 'Skills', 1)
-            addsheet(pc, 'Shoot', 'Skills', 2)
             addsheet(pc, 'Vigor', 'Skills', 1)
-            addsheet(pc, 'Remedy', 'Skills', 1)
-            addsheet(pc, 'Social Leadership', 'Skills', 3)
+            addsheet(pc, 'Physick', 'Skills', 1)
+            addsheet(pc, 'Influence', 'Skills', 1)
+            addsheet(pc, 'Leadership', 'Skills', 2)
             addsheet(pc, 'Survival', 'Skills', 1)
-            addsheet(pc, 'Warfare Military Tactics', 'Skills', 1)
+            addsheet(pc, 'Warfare', 'Skills', 1)
         elif which == 1:  # Starman
             addsheet(pc, 'Dexterity', 'Attributes', 1)
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Extrovert', 'Attributes', 1)
-            addsheet(pc, 'Impress', 'Skills', 1)
-            addsheet(pc, 'Melee', 'Skills', 1)
-            addsheet(pc, 'Shoot', 'Skills', 2)
-            addsheet(pc, 'Remedy', 'Skills', 1)
-            addsheet(pc, 'Social Leadership', 'Skills', 2)
-            addsheet(pc, 'Think Machine', 'Skills', 1)
-            addsheet(pc, 'Warfare Gunnery', 'Skills', 1)
-            addsheet(pc, 'Spacesuit', 'Skills', 0) # Spacesuit has no levels. You either have it or you don't.
+            addsheet(pc, 'Presence', 'Attributes', 1)
+            addsheet(pc, 'Influence', 'Skills', 1)
+            addsheet(pc, 'Melee', 'Skills', 2)
+            addsheet(pc, 'Gunnery', 'Skills', 2)
+            addsheet(pc, 'Physick', 'Skills', 1)
+            addsheet(pc, 'Leadership', 'Skills', 2)
+            addsheet(pc, 'Warfare', 'Skills', 1)
         elif which == 2:  # Diplomacy and Intrigue
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Extrovert', 'Attributes', 1)
-            addsheet(pc, 'Calm', 'Attributes', 1)
-            addsheet(pc, 'Charm', 'Skills', 2)
+            addsheet(pc, 'Presence', 'Attributes', 2)
+            addsheet(pc, 'Influence', 'Skills', 2)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Sneak', 'Skills', 1)
-            addsheet(pc, 'Arts Rhetoric', 'Skills', 1)
             addsheet(pc, 'Etiquette', 'Skills', 2)
+            addsheet(pc, 'Leadership', 'Skills', 2)
         elif which == 3:  # Duelist
             addsheet(pc, 'Strength', 'Attributes', 1)
             addsheet(pc, 'Dexterity', 'Attributes', 2)
             addsheet(pc, 'Endurance', 'Attributes', 1)
+            addsheet(pc, 'Will', 'Attributes', 1)
+            addsheet(pc, 'Vigor', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 2)
-            addsheet(pc, 'Remedy', 'Skills', 1)
-            pc.db.actions['Fencing'] = ['Parry', 'Thrust', 'Slash']
+            addsheet(pc, 'Physick', 'Skills', 1)
+            addsheet(pc, 'Etiquette', 'Skills', 1)
         elif which == 4:  # Dandy
             addsheet(pc, 'Dexterity', 'Attributes', 1)
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Charm', 'Skills', 1)
+            addsheet(pc, 'Presence', 'Attributes', 1)
+            addsheet(pc, 'Vigor', 'Skills', 2)
+            addsheet(pc, 'Influence', 'Skills', 1)
             addsheet(pc, 'Observe', 'Skills', 1)
-            addsheet(pc, 'Shoot', 'Skills', 1)
             addsheet(pc, 'Empathy', 'Skills', 1)
             addsheet(pc, 'Gambling', 'Skills', 1)
-            addsheet(pc, 'Ride', 'Skills', 1)
-        elif which == 5:  # Study
+            addsheet(pc, 'Survival', 'Skills', 1)
+        elif which == 5:  # Student
             addsheet(pc, 'Wits', 'Attributes', 2)
-            addsheet(pc, 'Introvert', 'Attributes', 2)
-            addsheet(pc, 'Academia', 'Skills', 1)
-            addsheet(pc, 'Focus', 'Skills', 3)
-            addsheet(pc, 'Inquiry', 'Skills', 1)
+            addsheet(pc, 'Faith', 'Attributes', 2)
+            addsheet(pc, 'Will', 'Attributes', 1)
+            addsheet(pc, 'Investigation', 'Skills', 2)
+            addsheet(pc, 'Self Control', 'Skills', 3)
 
     # Early Career
     elif stage == 2:
@@ -265,36 +321,30 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Endurance', 'Attributes', 2)
             addsheet(pc, 'Wits', 'Attributes', 1)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Extrovert', 'Attributes', 1)
-            addsheet(pc, 'Dodge', 'Skills', 1)
+            addsheet(pc, 'Presence', 'Attributes', 1)
+            addsheet(pc, 'Will', 'Attributes', 1)
             addsheet(pc, 'Fight', 'Skills', 1)
-            addsheet(pc, 'Impress', 'Skills', 1)
+            addsheet(pc, 'Influence', 'Skills', 1)
             addsheet(pc, 'Observe', 'Skills', 1)
-            addsheet(pc, 'Melee', 'Skills', 1)
-            addsheet(pc, 'Shoot', 'Skills', 2)
-            addsheet(pc, 'Vigor', 'Skills', 1)
-            addsheet(pc, 'Remedy', 'Skills', 1)
-            addsheet(pc, 'Social Leadership', 'Skills', 4)
+            addsheet(pc, 'Vigor', 'Skills', 2)
+            addsheet(pc, 'Physick', 'Skills', 1)
             addsheet(pc, 'Survival', 'Skills', 1)
-            addsheet(pc, 'Warfare Military Tactics', 'Skills', 1)
+            addsheet(pc, 'Warfare', 'Skills', 2)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 1:  # Starman
             addsheet(pc, 'Dexterity', 'Attributes', 2)
             addsheet(pc, 'Endurance', 'Attributes', 2)
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Extrovert', 'Attributes', 1)
-            addsheet(pc, 'Impress', 'Skills', 1)
-            addsheet(pc, 'Melee', 'Skills', 1)
-            addsheet(pc, 'Shoot', 'Skills', 2)
-            addsheet(pc, 'Drive Spacecraft', 'Skills', 1)
-            addsheet(pc, 'Read Urthish', 'Languages', 1)
-            addsheet(pc, 'Remedy', 'Skills', 1)
-            addsheet(pc, 'Social Leadership', 'Skills', 2)
-            addsheet(pc, 'Spacesuit', 'Skills', 0)
-            addsheet(pc, 'Think Machine', 'Skills', 1)
-            addsheet(pc, 'Warfare Gunnery', 'Skills', 1)
-            addsheet(pc, 'Warfare Starfleet Tactics', 'Skills', 1)
+            addsheet(pc, 'Presence', 'Attributes', 1)
+            addsheet(pc, 'Will', 'Attributes', 2)
+            addsheet(pc, 'Influence', 'Skills', 1)
+            addsheet(pc, 'Gunnery', 'Skills', 1)
+            addsheet(pc, 'Spacecraft Operations', 'Skills', 2)
+            addsheet(pc, 'Physick', 'Skills', 1)
+            addsheet(pc, 'Think Machine', 'Skills', 2)
+            addsheet(pc, 'Warfare', 'Skills', 2)
+            addsheet(pc, 'Vigor', 'Skills', 2)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 2:  # Duelist
             addsheet(pc, 'Strength', 'Attributes', 1)
@@ -302,24 +352,27 @@ def apply_path_noble(stage, which, house, pc):
             addsheet(pc, 'Endurance', 'Attributes', 2)
             addsheet(pc, 'Wits', 'Attributes', 1)
             addsheet(pc, 'Perception', 'Attributes', 1)
-            addsheet(pc, 'Dodge', 'Skills', 1)
+            addsheet(pc, 'Presence', 'Attributes', 1)
+            addsheet(pc, 'Will', 'Attributes', 2)
+            addsheet(pc, 'Athletics', 'Skills', 2)
+            addsheet(pc, 'Vigor', 'Skills', 1)
             addsheet(pc, 'Melee', 'Skills', 2)
             addsheet(pc, 'Etiquette', 'Skills', 1)
-            addsheet(pc, 'Remedy', 'Skills', 1)
+            addsheet(pc, 'Physick', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
         elif which == 3:  # Ambassador
             addsheet(pc, 'Dexterity', 'Attributes', 1)
             addsheet(pc, 'Wits', 'Attributes', 2)
             addsheet(pc, 'Perception', 'Attributes', 2)
-            addsheet(pc, 'Extrovert', 'Attributes', 2)
-            addsheet(pc, 'Calm', 'Attributes', 2)
-            addsheet(pc, 'Charm', 'Skills', 2)
+            addsheet(pc, 'Presence', 'Attributes', 2)
+            addsheet(pc, 'Will', 'Attributes', 2)
+            addsheet(pc, 'Faith', 'Attributes', 1)
+            addsheet(pc, 'Influence', 'Skills', 4)
             addsheet(pc, 'Observe', 'Skills', 1)
             addsheet(pc, 'Sneak', 'Skills', 1)
-            addsheet(pc, 'Arts Rhetoric', 'Skills', 1)
             addsheet(pc, 'Etiquette', 'Skills', 2)
-            addsheet(pc, 'Read Urthish', 'Languages', 1)
-            addsheet(pc, 'Ride', 'Skills', 1)
+            addsheet(pc, 'Leadership', 'Skills', 2)
+            addsheet(pc, 'Survival', 'Skills', 1)
             pc.db.benefices['Rank'] = 'Knight'
 
 
@@ -386,8 +439,8 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Social Oratory', 'Skills', 1)
                 addsheet(caller, 'Read Latin', 'Languages', 0)
                 addsheet(caller, 'Remedy', 'Skills', 1)
-                caller.db.blessings.append('Pious')
-                caller.db.curses.append('Austere')
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Austere', 'Curses', 0)
                 
             # Eskatonic
             elif caller.db.house == "Eskatonic Order":
@@ -401,11 +454,12 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Lore Occult', 'Skills', 1)
                 addsheet(caller, 'Stoic Mind', 'Skills', 1)
                 addsheet(caller, 'Read Latin', 'Languages', 0)
-                caller.db.blessings.append('Curious')
-                caller.db.curses.append('Subtle')
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Temple Avesti
             elif caller.db.house == "Temple Avesti":
+                
                 
             # Sanctuary Aeon
             elif caller.db.house == "Sanctuary Aeon":
@@ -526,48 +580,85 @@ def menunode_start(caller):
     return text, options
 
 
-def menumode_lifepath(caller):
-    text = "Lifepath CG Beginning. This CG module uses the Lifepaths as described in Revised.\n"
+def menunode_lifepath(caller):
+    text = "Lifepath CG Beginning. This CG module uses the Lifepaths as described in FAS21901 the 2014 supplement to revised. It is free online.\n"
     text += "Please begin by selecting an archetype."
     options = ({"desc": "Nobles", "goto": "menunode_lpn1"}, {"desc": "Priests", "goto": "menunode_lpp1"},
-               {"desc": "Merchants", "goto": "menunode_lpm1"}, {"desc": "Aliens", "goto": "menumode_lpa1"})
+               {"desc": "Merchants", "goto": "menunode_lpm1"}, {"desc": "Aliens", "goto": "menunode_lpa1"})
     return text, options
 
 #  Begin Noble Section
-def menumode_lpn1(caller):
+def menunode_lpn1(caller):
     caller.db.archetype = "Noble"
+    caller.db.noble = 1
     caller.db.recbenefices = ('Nobility', 'Riches')
     text = "As nobility, your first step is picking a house. Please pick one.\n"
-    text += "If you are going to use minor house and not follow an existing house, use custom cg."
+    text += "Please note that houses after al-Malik are book defined minor houses.\n"
+    text += "If you are going to use minor house and not follow an existing house, use custom cg.\n"
+    text += "If you want to name your own minor house, type that name here.\n"
     options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpn2"},
-               {"key": "1", "desc": "Decados", "goto": "menumode_lpn2"},
-               {"key": "2", "desc": "Hazat", "goto": "menumode_lpn2"},
-               {"key": "3", "desc": "Li Halan", "goto": "menumode_lpn2"},
-               {"key": "4", "desc": "al-Malik", "goto": "menumode_lpn2"},
-               {"key": "5", "desc": "Questing Knight", "goto": "menumode_lpn2"},
-               {"key": "6", "desc": "Minor House", "goto": "menumode_lpn2"})
+               {"key": "1", "desc": "Decados", "goto": "menunode_lpn2"},
+               {"key": "2", "desc": "Hazat", "goto": "menunode_lpn2"},
+               {"key": "3", "desc": "Li Halan", "goto": "menunode_lpn2"},
+               {"key": "4", "desc": "al-Malik", "goto": "menunode_lpn2"},
+               {"key": "5", "desc": "Alba", "goto": "menunode_lpn2"},
+               {"key": "6", "desc": "Juandaastas", "goto": "menunode_lpn2"},
+               {"key": "7", "desc": "Justinian", "goto": "menunode_lpn2"},
+               {"key": "8", "desc": "Keddah", "goto": "menunode_lpn2"},
+               {"key": "9", "desc": "Masseri", "goto": "menunode_lpn2"},
+               {"key": "10", "desc": "Shelit", "goto": "menunode_lpn2"},
+               {"key": "11", "desc": "Thana", "goto": "menunode_lpn2"},
+               {"key": "12", "desc": "Torenson", "goto": "menunode_lpn2"},
+               {"key": "13", "desc": "Trusnikron", "goto": "menunode_lpn2"},
+               {"key": "14", "desc": "Van Gelder", "goto": "menunode_lpn2"},
+               {"key": "15", "desc": "Xanthippe", "goto": "menunode_lpn2"},
+               {"key": "16", "desc": "Questing Knight", "goto": "menunode_lpn2"},
+               {"Key": "_default", "goto": "menunode_lpn2"})
 
 
-def menumode_lpn2(caller, raw_input):
-    if raw_input == 5 and caller.db.house == 'None':
+def menunode_lpn2(caller, raw_input):
+    if raw_input == 16:
         caller.db.questing = 1
-        text = "You selected questing knight. Please select your noble house."
-        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnq"},
-               {"key": "1", "desc": "Decados", "goto": "menumode_lpnq"},
-               {"key": "2", "desc": "Hazat", "goto": "menumode_lpnq"},
-               {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnq"},
-               {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnq"})
+        text = "You selected questing knight. Please select your noble house.\n"
+        text ++ "If you want to enter a custom minor house you can do that here too."
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpn2"},
+               {"key": "1", "desc": "Decados", "goto": "menunode_lpnq"},
+               {"key": "2", "desc": "Hazat", "goto": "menunode_lpnq"},
+               {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnq"},
+               {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnq"},
+               {"key": "5", "desc": "Alba", "goto": "menunode_lpnq"},
+               {"key": "6", "desc": "Juandaastas", "goto": "menunode_lpnq"},
+               {"key": "7", "desc": "Justinian", "goto": "menunode_lpnq"},
+               {"key": "8", "desc": "Keddah", "goto": "menunode_lpnq"},
+               {"key": "9", "desc": "Masseri", "goto": "menunode_lpnq"},
+               {"key": "10", "desc": "Shelit", "goto": "menunode_lpnq"},
+               {"key": "11", "desc": "Thana", "goto": "menunode_lpnq"},
+               {"key": "12", "desc": "Torenson", "goto": "menunode_lpnq"},
+               {"key": "13", "desc": "Trusnikron", "goto": "menunode_lpnq"},
+               {"key": "14", "desc": "Van Gelder", "goto": "menunode_lpnq"},
+               {"key": "15", "desc": "Xanthippe", "goto": "menunode_lpnq"},
+               {"Key": "_default", "goto": "menunode_lpnq"})
         return text, options
-    elif raw_input == 6:
+    elif 15 >= raw_input >= 5 :
         caller.db.minor = 1
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
-                   {"key": "1", "desc": "Decados", "goto": "menumode_lpnmh"},
-                   {"key": "2", "desc": "Hazat", "goto": "menumode_lpnmh"},
-                   {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnmh"},
-                   {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnmh"},
-                   {"key": "5", "desc": "Questing Knight", "goto": "menumode_lpnmh"})
+                   {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
+                   {"key": "2", "desc": "Hazat", "goto": "menunode_lpnmh"},
+                   {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnmh"},
+                   {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnmh"},
+                   {"key": "5", "desc": "Questing Knight", "goto": "menunode_lpnmh"})
         return text, options
+    else not raw_input.isdigit():
+        caller.db.minor = 1
+        caller.db.house = raw_input
+        text = "Which existing house are you mirroring?"
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
+                   {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
+                   {"key": "2", "desc": "Hazat", "goto": "menunode_lpnmh"},
+                   {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnmh"},
+                   {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnmh"},
+                   {"key": "5", "desc": "Questing Knight", "goto": "menunode_lpnmh"})
 
     if raw_input == 3:
         caller.db.recbenefices.append('Church Ally')
@@ -576,60 +667,6 @@ def menumode_lpn2(caller, raw_input):
 
     caller.db.house = househelper[raw_input]
 
-    if raw_input == 3:
-        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhs"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhs"})
-        return text, options
-    elif raaw_input == 4:
-        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnams"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnams"})
-        return text, options
-
-    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
-    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
-               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
-               {"key": "2", "desc": "Landless", "goto": "menunode_lpn3"})
-    return text, options
-
-
-def menunode_lpnds(caller):
-    text = "At this stage you pick an apprenticeship under another noble.\n"
-    text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
-    text += "At this stage, please choose whether or not you want to move to another Archetype."
-
-
-    def merchants(caller):
-        caller.db.archetype = "Merchant"
-
-
-    def priests(caller):
-        caller.db.archetype = "Priest"
-
-
-    options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
-               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
-               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
-    return text, options
-
-
-def menunode_lpnlhs(caller):
-    text = "Lastly, would you like a point of Passion or Calm?"
-    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpnlhs2"},
-               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpnlhs2"})
-    return text, options
-
-
-def menunode_lpnlhs2(caller):
-    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
-    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
-               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
-               {"key": "2", "desc": "Landless", "goto": "menunode_lpn3"})
-    return text, options
-
-
-def menunode_lpnams(caller):
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
                {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpn3"},
@@ -642,37 +679,18 @@ def menunode_lpnmh(caller, raw_input):
         caller.db.questing = 1
         text = "You selected questing knight. Please select the noble house you intend to mirror for bonuses."
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnq"},
-               {"key": "1", "desc": "Decados", "goto": "menumode_lpnq"},
-               {"key": "2", "desc": "Hazat", "goto": "menumode_lpnq"},
-               {"key": "3", "desc": "Li Halan", "goto": "menumode_lpnq"},
-               {"key": "4", "desc": "al-Malik", "goto": "menumode_lpnq"})
+               {"key": "1", "desc": "Decados", "goto": "menunode_lpnq"},
+               {"key": "2", "desc": "Hazat", "goto": "menunode_lpnq"},
+               {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnq"},
+               {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnq"})
         return text, options
 
-    caller.db.house = househelper[raw_input]
+    caller.db.mirrorhouse = househelper[raw_input]
 
     if raw_input == 3:
         caller.db.recbenefices.append('Church Ally')
     elif raw_input == 4:
         caller.db.recbenefices.append('Passage Contract')
-
-    if raw_input == 1:
-        text = "Decados need to pick another house for their lore rival house specialty."
-        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpnds"},
-                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpnds"})
-        return text, options
-    elif raw_input == 3:
-        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhs"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhs"})
-        return text, options
-    elif raaw_input == 4:
-        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnams"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnams"})
-        return text, options
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
@@ -682,114 +700,65 @@ def menunode_lpnmh(caller, raw_input):
 
 
 def menunode_lpnq(caller, raw_input):
-    caller.db.house = househelper[raw_input]
+    if caller.db.minor == 1:
+        caller.db.mirrorhouse = househelper[raw_input]
+    elif raw_input <= 4:
+        caller.db.house = househelper[raw_input]
+    elif 15 >= raw_input >= 5:
+        caller.db.minor = 1
+        caller.db.house = househelper[raw_input]
+        text = "Which major house do you want to mirror?"
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
+               {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
+               {"key": "2", "desc": "Hazat", "goto": "menunode_lpnqmh"},
+               {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnqmh"},
+               {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnqmh"})
+        return text, options
+    elif not raw_input.isdigit():
+        caller.db.minor = 1
+        caller.db.house = raw_input
+        text = "Which major house do you want to mirror?"
+        options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
+               {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
+               {"key": "2", "desc": "Hazat", "goto": "menunode_lpnqmh"},
+               {"key": "3", "desc": "Li Halan", "goto": "menunode_lpnqmh"},
+               {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnqmh"})
+        return text, options
+    
 
     if raw_input == 3:
         caller.db.recbenefices.append('Church Ally')
     elif raw_input == 4:
         caller.db.recbenefices.append('Passage Contract')
 
-    if raw_input == 3:
-        text = "Li Halan need to make some choices. First would you like a point of Extrovert or Introvert?"
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnlhsq"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnlhsq"})
-        return text, options
-    elif raaw_input == 4:
-        text = "Al-Malik need to pick between a point of Extrovert or Introvert."
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpnamsq"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpnamsq"})
-        return text, options
+    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
+    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
+               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
+               {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
+    return text, options
+    
+    
+def menunode_lpnqmh(caller, raw_input):
+    caller.db.mirrorhouse = househelper[raw_input]
+    
+     if raw_input == 3:
+        caller.db.recbenefices.append('Church Ally')
+    elif raw_input == 4:
+        caller.db.recbenefices.append('Passage Contract')
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
                {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
                {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
     return text, options
-
-
-def menunode_lpndsq(caller):
-    text = "Please select your noble apprenticeship."
-    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
-               {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
-               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpnq5"},
-               {"key": "3", "desc": "Duelist", "goto": "menumode_lpnq5"},
-               {"key": "4", "desc": "Dandy", "goto": "menumode_lpnq5"},
-               {"key": "5", "desc": "Study", "goto": "menumode_lpnq5"})
-    return text, options
-
-def menunode_lpnlhsq(caller):
-    text = "Lastly, would you like a point of Passion or Calm?"
-    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": "menunode_lpnlhs2q"},
-               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": "menunode_lpnlhs2q"})
-    return text, options
-
-
-def menunode_lpnlhs2q(caller):
-    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
-    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
-               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
-               {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
-    return text, options
-
-
-def menunode_lpnamsq(caller):
-    text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
-    options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpnq4"},
-               {"key": "1", "desc": "Rural Estate", "goto": "menunode_lpnq4"},
-               {"key": "2", "desc": "Landless", "goto": "menunode_lpnq4"})
-    return text, options
-
-
-def menunode_lpnhws(caller, raw_input):
-    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
-    text = "At this stage you pick an apprenticeship under another noble.\n"
-    text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
-    text += "At this stage, please choose whether or not you want to move to another Archetype."
-
-
-    def merchants(caller):
-        caller.db.archetype = "Merchant"
-
-
-    def priests(caller):
-        caller.db.archetype = "Priest"
-
-
-    options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
-               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
-               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
-    return text, options
-
-
-def menunode_lpnhwsq(caller, raw_input):
-    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
-
-    text = "Please select your noble apprenticeship."
-    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
-               {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
-               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpnq5"},
-               {"key": "3", "desc": "Duelist", "goto": "menumode_lpnq5"},
-               {"key": "4", "desc": "Dandy", "goto": "menumode_lpnq5"},
-               {"key": "5", "desc": "Study", "goto": "menumode_lpnq5"})
-    return text, options
-
+    
 
 def menunode_lpn3(caller, raw_input):
 
-    apply_path_noble(0, raw_input, caller.db.house, caller)
-
-    if caller.db.house == 'Decados' and raw_input != 2:
-        text = "Decados need to pick another house for their lore rival house specialty."
-        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpnds"},
-                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpnds"},
-                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpnds"})
-        return text, options
-    elif caller.db.house == 'Hawkwood' and raw_input == 1:
-        text = "Hawkwood need to specify a location for their Lore Fief. Enter one now."
-        options = ({"key": "_default", "goto": "menunode_lpnhws"})
-        return text, options
+    if caller.db.minor:
+        apply_path_noble(0, raw_input, caller.db.mirrorhouse, caller)
+    else:
+        apply_path_noble(0, raw_input, caller.db.house, caller)
 
     text = "At this stage you pick an apprenticeship under another noble.\n"
     text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
@@ -813,41 +782,31 @@ def menunode_lpn3(caller, raw_input):
 def menunode_lpn4(caller):
     text = "Please select your noble apprenticeship."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn5"},
-               {"key": "1", "desc": "Starman", "goto": "menumode_lpn5"},
-               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpn5"},
-               {"key": "3", "desc": "Duelist", "goto": "menumode_lpn5"},
-               {"key": "4", "desc": "Dandy", "goto": "menumode_lpn5"},
-               {"key": "5", "desc": "Study", "goto": "menumode_lpn5"})
+               {"key": "1", "desc": "Starman", "goto": "menunode_lpn5"},
+               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menunode_lpn5"},
+               {"key": "3", "desc": "Duelist", "goto": "menunode_lpn5"},
+               {"key": "4", "desc": "Dandy", "goto": "menunode_lpn5"},
+               {"key": "5", "desc": "Study", "goto": "menunode_lpn5"})
     return text, options
 
 
 def menunode_lpnq4(caller, raw_input):
 
-    apply_path_noble(0, raw_input, caller.db.house, caller)
-
-    if raw_input != 2 and caller.db.house == 'Decados':
-        text = "Decados need to pick another house for their lore rival house specialty."
-        options = ({"key": "0", "desc": "Hawkwood", "exec": addsheet(caller, 'Lore Hawkwood', 'Skills', 1), "goto": "menunode_lpndsq"},
-                   {"key": "1", "desc": "Decados", "exec": addsheet(caller, 'Lore Decados', 'Skills', 1), "goto": "menumode_lpndsq"},
-                   {"key": "2", "desc": "Hazat", "exec": addsheet(caller, 'Lore Hazat', 'Skills', 1), "goto": "menumode_lpndsq"},
-                   {"key": "3", "desc": "Li Halan", "exec": addsheet(caller, 'Lore Li Halan', 'Skills', 1), "goto": "menumode_lpndsq"},
-                   {"key": "4", "desc": "al-Malik", "exec": addsheet(caller, 'Lore al-Malik', 'Skills', 1), "goto": "menumode_lpndsq"})
-        return text, options
-    elif raw_input == 1 and caller.db.house == 'Hawkwood':
-        text = "Hawkwood need to specify a location for their Lore Fief. Enter one now."
-        options = ({"key": "_default", "goto": "menunode_lpnhwsq"})
-        return text, options
+    if caller.db.minor:
+        apply_path_noble(0, raw_input, caller.db.mirrorhouse, caller)
+    else:
+        apply_path_noble(0, raw_input, caller.db.house, caller)
 
     text = "Please select your noble apprenticeship."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
-               {"key": "1", "desc": "Starman", "goto": "menumode_lpnq5"},
-               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menumode_lpnq5"},
-               {"key": "3", "desc": "Duelist", "goto": "menumode_lpnq5"},
-               {"key": "4", "desc": "Dandy", "goto": "menumode_lpnq5"},
-               {"key": "5", "desc": "Study", "goto": "menumode_lpnq5"})
+               {"key": "1", "desc": "Starman", "goto": "menunode_lpnq5"},
+               {"key": "2", "desc": "Diplomacy and Intrigue", "goto": "menunode_lpnq5"},
+               {"key": "3", "desc": "Duelist", "goto": "menunode_lpnq5"},
+               {"key": "4", "desc": "Dandy", "goto": "menunode_lpnq5"},
+               {"key": "5", "desc": "Study", "goto": "menunode_lpnq5"})
     return text, options
 
-
+#TODO: Fix choices to match up with newer lifepaths.
 def menunode_lpn5(caller, raw_input):
 
     apply_path_noble(1, raw_input, 'None', caller)
@@ -1007,7 +966,7 @@ def menunode_lpnq56(caller):
     return text, options
 
 
-def menumode_lpnq57(caller):
+def menunode_lpnq57(caller):
     text = "Now pick your second spirit attribute. It gets +1."
     options = ({"Key": "0", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_lpnq58"},
                {"Key": "1", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_lpnq58"},

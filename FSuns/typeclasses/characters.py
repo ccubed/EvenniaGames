@@ -50,3 +50,5 @@ class Character(DefaultCharacter):
         self.db.actions = {}
         self.db.minor = 0
         self.db.recbenefices = []
+        self.db.mirrorhouse = 'None'
+        self.db.noble = 0  # if 1, they can buy the nobility merit
