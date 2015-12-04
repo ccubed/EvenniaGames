@@ -767,9 +767,9 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Presence', 'Attributes', 2)
-                addsheet(caller, 'Influence', 'Skills', 2)
-                addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
-                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Empathy', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
                 
             # Engineers
@@ -778,8 +778,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Tech', 'Attributes', 3)
                 addsheet(caller, 'Investigate', 'Skills', 1)
-                addsheet(caller, 'Tech Redemption', 'Skills', 4)
-                addsheet(caller, 'Think Machine', 'Skills', 2)
+                addsheet(caller, 'Tech Redemption', 'Skills', 3)
+                addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
                 
             # Scravers
@@ -788,6 +788,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Perception', 'Attributes', 2)
                 addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Vigor', 'Skills', 1)
                 addsheet(caller, 'Sneak', 'Skills', 1)
                 addsheet(caller, 'Gaming', 'Skills', 1)
                 addsheet(caller, 'Investigate', 'Skills', 1)
@@ -799,9 +800,9 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Tech', 'Attributes', 2)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Observe', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 1)
                 
             # Reeves
             elif house == 'Reeves':
@@ -809,9 +810,10 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Perception', 'Attributes', 2)
                 addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 2)
-                addsheet(caller, 'Bureaucracy', 'Skills', 3)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Bureaucracy', 'Skills', 2)
                 addsheet(caller, 'Etiquette', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
                 addsheet(caller, 'Latin', 'Languages', 0)
                 
@@ -823,19 +825,19 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Presence', 'Attributes', 2)
-                addsheet(caller, 'Influence', 'Skills', 2)
-                addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
-                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Latin', 'Languages', 0)
                 
             # Engineers
             elif house == 'Engineers':
-                addsheet(caller, 'Dexterity', 'Attributes', 1)
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Wits', 'Attributes', 1)
-                addsheet(caller, 'Tech', 'Attributes', 3)
+                addsheet(caller, 'Tech', 'Attributes', 2)
                 addsheet(caller, 'Investigate', 'Skills', 1)
-                addsheet(caller, 'Tech Redemption', 'Skills', 4)
-                addsheet(caller, 'Think Machine', 'Skills', 2)
+                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
                 
             # Scravers
