@@ -385,38 +385,52 @@ def apply_path_uppm(caller, which, what):
             addsheet(caller, 'Wits', 'Attributes', 2)
             addsheet(caller, 'Perception', 'Attributes', 2)
             addsheet(caller, 'Observe', 'Skills', 1)
-            addsheet(caller, 'Inquiry', 'Skills', 1)
-            addsheet(caller, 'Streetwise', 'Skills', 1)
+            addsheet(caller, 'Investigation', 'Skills', 1)
+            addsheet(caller, 'Empathy', 'Skills', 1)
 
         # Town
         elif what == 1:
             addsheet(caller, 'Wits', 'Attributes', 1)
             addsheet(caller, 'Perception', 'Attributes', 1)
-            addsheet(caller, 'Extrovert', 'Attributes', 2)
-            addsheet(caller, 'Charm', 'Skills', 1)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
             addsheet(caller, 'Vigor', 'Skills', 1)
-            addsheet(caller, 'Inquiry', 'Skills', 1)
+            addsheet(caller, 'Investigaiton', 'Skills', 1)
 
-        # Country
+        # Rural
         elif what == 2:
             addsheet(caller, 'Strength', 'Attributes', 1)
             addsheet(caller, 'Endurance', 'Attributes', 2)
             addsheet(caller, 'Faith', 'Attributes', 1)
             addsheet(caller, 'Vigor', 'Skills', 1)
-            addsheet(caller, 'Lore Regional', 'Skills', 1)
+            addsheet(caller, 'Survival', 'Skills', 2)
+            
+        # Space Habitat
+        elif what == 3:
+            addsheet(caller, 'Dexterity', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 1)
+            addsheet(caller, 'Will', 'Attributes', 1)
+            addsheet(caller, 'Presence', 'Attributes', 1)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Tech Redemption', 'Skills', 1)
+            addsheet(caller, 'Self Control', 'Skills', 1)
 
     # Class
     elif which == 1:
         # Wealthy
         if what == 0:
-            addsheet(caller, 'Extrovert', 'Attributes', 1)
-            addsheet(caller, 'Read Urthish', 'Languages', 0)
+            addsheet(caller, 'Presence', 'Attributes', 1)
+            addsheet(caller, 'Etiquette', 'Skills', 1)
 
-        # Average would be here, but it's all choices
+        # Middle
+        elif what == 1:
+            addsheet(caller, 'Will', 'Attributes', 1)
+            addsheet(caller, 'Influence', 'Skills', 1)
 
         # poor
         elif what == 2:
-            addsheet(caller, 'Knavery', 'Skills', 1)
+            addsheet(caller, 'Faith', 'Attributes', 1)
+            addsheet(caller, 'Survival', 'Skills', 1)
             
 
 def apply_path_priest(caller, which, what):
@@ -429,40 +443,57 @@ def apply_path_priest(caller, which, what):
             # Urth Orthodox
             if caller.db.house == "Urth Orthodox":
                 addsheet(caller, 'Wits', 'Attributes', 1)
-                addsheet(caller, 'Extrovert', 'Attributes', 1)
-                addsheet(caller, 'Calm', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Faith', 'Attributes', 2)
-                addsheet(caller, 'Academia', 'Skills', 1)
-                addsheet(caller, 'Focus', 'Skills', 1)
-                addsheet(caller, 'Lore Theology', 'Skills', 1)
-                addsheet(caller, 'Physick', 'Skills', 1)
-                addsheet(caller, 'Social Oratory', 'Skills', 1)
-                addsheet(caller, 'Read Latin', 'Languages', 0)
-                addsheet(caller, 'Remedy', 'Skills', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Self Control', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 2)
+                addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Bureaucracy', 'Skills', 2)
+                addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Pious', 'Blessings', 0)
                 addsheet(caller, 'Austere', 'Curses', 0)
                 
             # Eskatonic
             elif caller.db.house == "Eskatonic Order":
                 addsheet(caller, 'Wits', 'Attributes', 1)
-                addsheet(caller, 'Introvert', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 2)
                 addsheet(caller, 'Faith', 'Attributes', 2)
-                addsheet(caller, 'Observe', 'Skills', 1)
-                addsheet(caller, 'Academia', 'Skills', 1)
-                addsheet(caller, 'Alchemy', 'Skills', 1)
-                addsheet(caller, 'Focus', 'Skills', 3)
-                addsheet(caller, 'Lore Occult', 'Skills', 1)
-                addsheet(caller, 'Stoic Mind', 'Skills', 1)
-                addsheet(caller, 'Read Latin', 'Languages', 0)
+                addsheet(caller, 'Observe', 'Skills', 2)
+                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Empathy', 'Skills', 1)
+                addsheet(caller, 'Self Control', 'Skills', 3)
+                addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Curious', 'Blessings', 0)
                 addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Temple Avesti
             elif caller.db.house == "Temple Avesti":
-                
+                addsheet(caller, 'Endurance', 'Attributes', 1)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Melee', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 2)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Sanctuary Aeon
             elif caller.db.house == "Sanctuary Aeon":
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Tech', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Empathy', 'Skills', 2)
+                addsheet(caller, 'Life Science', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 4)
+                addsheet(caller, 'Self Control', 'Skills', 1)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Subtle', 'Curses', 0)
             
         # Parish
         elif what == 1:
