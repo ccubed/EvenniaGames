@@ -34,9 +34,9 @@ class Character(DefaultCharacter):
         Set up Fading Suns attributes.
 
         """
-        self.db.attributes = {}
+        self.db.attributes = {'Strength': 3, 'Dexterity': 3, 'Endurance': 3, 'Wits': 3, 'Perception': 3, 'Tech': 3, 'Presence': 3, 'Will': 3, 'Faith': 3}
         self.db.benefices = {}
-        self.db.skills = {'Faction Lore: Phoenix Empire': '3', 'Fight': '3', 'Influence': '3', 'Observe': '3', 'Sneak': '3', 'Throwing': '3', 'Vigor': '3'}
+        self.db.skills = {'Faction Lore.Phoenix Empire': 3, 'Fight': 3, 'Influence': 3, 'Observe': 3, 'Sneak': 3, 'Throwing': 3, 'Vigor': 3}
         self.db.vitality = 0
         self.db.wyrd = 0
         self.db.blessings = []

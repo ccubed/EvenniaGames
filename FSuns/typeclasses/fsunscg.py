@@ -867,7 +867,7 @@ def menunode_lpn5(caller, raw_input):
     return text, options
     
     
-def menunode_lpn5sd2(caller, raw_input):
+def menunode_lpn5d2(caller, raw_input):
     if raw_input == 0:
         caller.db.actions['Florentine'] = []
     elif raw_input == 1:
@@ -970,6 +970,85 @@ def menunode_lpn5di2m2(caller):
                {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn5cc"})
     return text, options
     
+    
+def menunode_lpn5dy2(caller):
+    text = "Enter your Arts specialty."
+    options = ({"key": "_default", "goto": "menunode_lpn5dy3"})
+    return text, options
+    
+    
+def menunode_lpn5dy3(caller, raw_input):
+    addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    text = "You have one point to spend in the control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpn5cc"})
+               
+               
+def menunode_lpn5s2(caller, raw_input):
+    addsheet(caller, raw_input, 'Languages', 0)
+    text = "Do you want Creative or Science?"
+    options = ({"key": "0", "desc": "Creative", "goto": "menunode_lpn5s2c"},
+               {"key": "1", "desc": "Science", "goto": "menunode_lpn5s2s"})
+    return text, options
+    
+    
+def menunode_lpn5s2s(caller):
+    addsheet(caller, 'Social Science', 'Skills', 3)
+    text = "So you picked science. There are 5 skills in that group but since 4 of them are Guild only you get social science.\n"
+    text += "This is just a notice that you just signed up for 3 points in Social Science!"
+    options = ({"key": "0", "desc": "Oh...", "goto": "menunode_lpn5cc"})
+    return text, options
+    
+    
+def menunode_lpn5s2c(caller):
+    text = "Creative has Arts, Craft, Gaming and Performance. Of these only gaming does not require a specialty.\n"
+    text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
+    text += "Ex: Arts Painting or Craft Blacksmith.\n"
+    text += "First Point."
+    options = ({"key": "0", "desc": "Gaming", "exec": addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c2"},
+               {"key": "_default", "goto": "menunode_lpn5s2c2"})
+    return text, options
+    
+    
+def menunode_lpn5s2c2(caller, raw_input):
+    if not raw_input.isdigit():
+        addsheet(caller, raw_input, 'Skills', 1)
+        
+    text = "Creative has Arts, Craft, Gaming and Performance. Of these only gaming does not require a specialty.\n"
+    text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
+    text += "Ex: Arts Painting or Craft Blacksmith.\n"
+    text += "Second Point. If you want to add to an existing skill type it again. Case Sensitive."
+    options = ({"key": "0", "desc": "Gaming", "exec": addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c3"},
+               {"key": "_default", "goto": "menunode_lpn5s2c3"})
+    return text, options
+    
+    
+def menunode_lpn5s2c3(caller, raw_input):
+    if not raw_input.isdigit():
+        addsheet(caller, raw_input, 'Skills', 1)
+        
+    text = "Creative has Arts, Craft, Gaming and Performance. Of these only gaming does not require a specialty.\n"
+    text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
+    text += "Ex: Arts Painting or Craft Blacksmith.\n"
+    text += "Second Point. If you want to add to an existing skill type it again. Case Sensitive."
+    options = ({"key": "0", "desc": "Gaming", "exec": addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "_default", "goto": "menunode_lpn5s2c4"})
+    return text, options
+    
+    
+def menunode_lpn5s2c4(caller, raw_input):
+    addsheet(caller, raw_input, 'Skills', 1)
+    text = "Please select your noble's Early Career."
+    options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn6"},
+               {"key": "1", "desc": "Starman", "goto": "menunode_lpn6"},
+               {"key": "2", "desc": "Duelist", "goto": "menunode_lpn6"},
+               {"key": "3", "desc": "Ambassador", "goto": "menunode_lpn6"})
+    return text, options
+    
+    
 def menunode_lpn5cc(caller):
     text = "Please select your noble's Early Career."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn6"},
@@ -1048,82 +1127,83 @@ def menunode_lpnq57(caller):
     return text, options
 
 
-
 def menunode_lpnq58(caller):
-    text = "Do you want Charm or Impress +1?"
-    options = ({"Key": "0", "desc": "Impress", "exec": addsheet(caller, 'Impress', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"Key": "1", "desc": "Charm", "exec": addsheet(caller, 'Charm', 'Skills', 1), "goto": "menunode_lpnq59"})
+    addsheet(caller, 'Influence', 'Skills', 1)
+
+    text = "You get 3 points in combat skills. First point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq581"})
+
+    return text, options
+    
+    
+def menunode_lpnq581(caller):
+    text = "You get 3 points in combat skills. Second point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq582"})
+
+    return text, options
+    
+    
+def menunode_lpnq582(caller):
+    text = "You get 3 points in combat skills. Third point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq59"})
 
     return text, options
 
 
 def menunode_lpnq59(caller):
-    addsheet(caller, 'Dodge', 'Skills', 1)
-
-    text = "Pick your primary combat skill. It gets +2."
-    options = ({"Key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 2), "goto": "menunode_lpnq591"},
-               {"Key": "1", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 2), "goto": "menunode_lpnq591"},
-               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 2), "goto": "menunode_lpnq591"})
-
-    return text, options
-
-
-def menunode_lpnq591(caller, raw_input):
-    text = "Pick your secondary combat skill. It gets +1."
-    options = ({"Key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq592"},
-               {"Key": "1", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq592"},
-               {"Key": "2", "desc": "Shoot", "exec": addsheet(caller, 'Shoot', 'Skills', 1), "goto": "menunode_lpnq592"})
-
-    if raw_input == 0:
-        options = tuple([x for x in options if x['Name'] != 'Fight'])
-    elif raw_input == 1:
-        options = tuple([x for x in options if x['Name'] != 'Melee'])
-    else:
-        options = tuple([x for x in options if x['Name'] != 'Shoot'])
-
-    return text, options
-
-
-def menunode_lpnq592(caller):
+    addsheet(caller, 'Etiquette', 'Skills', 1)
     addsheet(caller, 'Observe', 'Skills', 1)
     addsheet(caller, 'Sneak', 'Skills', 1)
-    addsheet(caller, 'Vigor', 'Skills', 1)
+    addsheet(caller, 'Vigor', 'Skills', 2)
+    addsheet(caller, 'Investigate', 'Skills', 1)
+    addsheet(caller, 'Physick', 'Skills', 1)
 
-    text = "Please pick a specialty for Drive."
-    options = ({"Key": "0", "desc": "Landcraft", "exec": addsheet(caller, 'Drive Landcraft', 'Skills', 1), "goto": "menunode_lpnq593"},
-               {"Key": "1", "desc": "Aircraft", "exec": addsheet(caller, 'Drive Aircraft', 'Skills', 1), "goto": "menunode_lpnq593"})
-
-    return text, options
-
-
-def menunode_lpnq593(caller):
-    text = "Do you want inquiry or knavery +1?"
-    options = ({"Key": "0", "desc": "Inquiry", "exec": addsheet(caller, 'Inquiry', 'Skills', 1), "goto": "menunode_lpnq594"},
-               {"Key": "1", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpnq594"})
+    text = "Please pick a Malefaction skill."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpnq591"})
 
     return text, options
 
 
-def menunode_lpnq594(caller):
-    text = "Please enter a specialty for your lore for People and Places seen."
-    options = {"key": "_default", "goto": "menunode_lpnq595"}
-
-    return text, options
-
-
-def menunode_lpnq595(caller, raw_input):
-    addsheet(caller, 'Lore ' + raw_input, 'Skills', 1)
-    addsheet(caller, 'Remedy', 'Skills', 1)
-
+def menunode_lpnq591(caller):
     text = "Please enter a dialect for your free language choice."
-    options = {"key": "_default", "goto": "menunode_lpnq596"}
+    options = {"key": "_default", "goto": "menunode_lpnq592"}
 
     return text, options
 
 
-def menunode_lpnq596(caller, raw_input):
-    caller.db.languages.append('Speak ' + raw_input)
-    addsheet(caller, 'Streetwise', 'Skills', 1)
+def menunode_lpnq592(caller, raw_input):
+    addsheet(caller, raw_input, 'Languages', 0)
     caller.db.benefices['Rank'] = 'Knight'
 
     # Tour of Duty
@@ -1133,60 +1213,215 @@ def menunode_lpnq596(caller, raw_input):
 # TODO: Fix to new lifepaths
 def menunode_lpn6(caller, raw_input):
     apply_path_noble(2, raw_input, 'None', caller)
-
-    if raw_input == 0:
-        text = "Do you want Passion or Calm +1?"
-        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 1), "goto": TOUR OF DUTY},
-                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 1), "goto": TOUR OF DUTY})
+ 
+    if raw_input == 0: # Soldier
+        text = "As a soldier you get 3 points in combat skills. First point."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd2"})
         return text, options
-    elif raw_input == 1:
-        text = "Do you want Passion or Calm +2?"
-        options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 2), "goto": TOUR OF DUTY},
-                   {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 2), "goto": TOUR OF DUTY})
+    elif raw_input == 1: # Starman
+        text = "As a starman you get 2 points in combat skills. First point."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm2"})
         return text, options
-    elif raw_input == 2:
-        text = "Do you want Extrovert or Introvert +1?"
-        options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpn6d2"},
-                   {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpn6d2"})
+    elif raw_input == 2: # Duelist
+        text = "As a duelist you get a melee fighting style. Pick one now."
+        options = ({"key": "0", "desc": "Florentine", "goto": "menunode_lpn6d2"},
+                   {"key": "1", "desc": "Kraxi Knife", "goto": "menunode_lpn6d2"},
+                   {"key": "2", "desc": "Serpentis", "goto": "menunode_lpn6d2"},
+                   {"key": "3", "desc": "Torero", "goto": "menunode_lpn6d2"})
+                   
+        options = [x for x in options if x['desc'] not in caller.db.actions]
+        
         return text, options
-    elif raw_input == 3:
-        text = "Do you want Faith or Ego +1?"
-        options = ({"key": "0", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpn6a2"},
-                   {"key": "1", "desc": "Ego", "exec": addsheet(caller, 'Ego', 'Attributes', 1), "goto": "menunode_lpn6a2"})
+    elif raw_input == 3: # ambassador
+        text = "Enter the specialty for your arts."
+        options = ({'key': '_default', 'goto': 'menunode_lpn6a2'})
         return text, options
-
-
-def menunode_lpn6d2(caller):
-    text = "Do you want to Passion or Calm +2?"
-    options = ({"key": "0", "desc": "Passion", "exec": addsheet(caller, 'Passion', 'Attributes', 2), "goto": "menunode_lpn6d3"},
-               {"key": "1", "desc": "Calm", "exec": addsheet(caller, 'Calm', 'Attributes', 2), "goto": "menunode_lpn6d3"})
+        
+        
+def menunode_lpn6sd2(caller):
+    text = "As a soldier you get 3 points in combat skills. Second point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd3"})
     return text, options
+    
+def menunode_lpn6sd3(caller):
+    text = "As a soldier you get 3 points in combat skills. Third point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd4"})
+    return text, options
+    
 
+def menunode_lpn6sd4(caller):
+    text = "You now get 3 social points. First point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd5"})
+    return text, options
+    
+    
+def menunode_lpn6sd5(caller):
+    text = "You now get 3 social points. Second point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd6"})
+    return text, options
+    
+    
+def menunode_lpn6sd6(caller):
+    text = "You now get 3 social points. Third point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    return text, options
+    
+    
+def menunode_lpn6sm2(caller):
+    text = "As a starman you get 2 points in combat skills. Second Point.."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm3"})
+    return text, options
+    
+    
+def menunode_lpn6sm3(caller):
+    text = "You now get 2 social points. First point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sm4"})
+    return text, options
+    
+    
+def menunode_lpn6sm3(caller):
+    text = "You now get 2 social points. Second point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    return text, options
+    
+
+def menunode_lpn6d2(caller, raw_input):
+    if raw_input == 0:
+        caller.db.actions['Florentine'] = []
+    elif raw_input == 1:
+        caller.db.actions['Kraxi Knife'] = []
+    elif raw_input == 2:
+        caller.db.actions['Serpentis'] = []
+    else:
+        caller.db.actions['Torero'] = []
+        
+    text = "You now get 3 social points. First point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d3"})
+    return text, options
+    
 
 def menunode_lpn6d3(caller):
-    if 'Fencing' in caller.db.actions:
-        text = "For your dueling actions do you want Parry and Riposte or Disarm?"
-        options = ({"key": "0", "desc": "Parry and Riposte", "goto": "menunode_lpn6d4"},
-                   {"key": "1", "desc": "Disarm", "goto": "menunode_lpn6d4"})
-        return text, options
-    else:
-        caller.db.actions['Fencing'] = ['Parry', 'Thrust', 'Slash', 'Draw & Strike']
-        # TOUR OF DUTY
+    text = "You now get 3 social points. Second point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d4"})
+    return text, options
+    
 
+def menunode_lpn6d4(caller):
+    text = "You now get 3 social points. Third point."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    return text, options
+    
+    
+def menunode_lpn6a2(caller, raw_input):
+    addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    
+    text = "Do you want Investigate at +2 or to choose 2 points of skills from the Malefaction group?"
+    options = ({"key": "0", "desc": "Investigate +2", "exec": addsheet(caller, 'Investigate', 'Skills', 2), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn6a3"})
+    return text, options
+    
 
-def menunode_lpn6d4(caller, raw_input):
-    if raw_input == 0:
-        caller.db.actions['Fencing'].append('Draw & Strike')
-        caller.db.actions['Fencing'].append('Parry')
-        caller.db.actions['Fencing'].append('Riposte')
-        caller.db.actions['Fencing'].append('Feint')
-    else:
-        caller.db.actions['Fencing'].append('Draw & Strike')
-        caller.db.actions['Fencing'].append('Disarm')
-        caller.db.actions['Fencing'].append('Feint')
+def menunode_lpn6a3(caller):
+    text = "First point of Malefaction."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6a4"})
+    return text, options
+    
+    
+def menunode_lpn6a4(caller):
+    text = "Second point of Malefaction."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    return text, options
+    
 
-    # Tour of Duty
-
+def menunode_lpn6cc(caller):
+    pass
+    # TOUR OF DUTY
+    
     # End Noble Section
 
     # Begin Priest Section
