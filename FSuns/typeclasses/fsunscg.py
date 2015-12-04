@@ -433,7 +433,7 @@ def apply_path_uppm(caller, which, what):
             addsheet(caller, 'Survival', 'Skills', 1)
             
 
-def apply_path_priest(caller, which, what):
+def apply_path_priest(caller, which, what, house):
     # Apprenticeship
     if which == 0:
         
@@ -441,7 +441,7 @@ def apply_path_priest(caller, which, what):
         if what == 0:
             
             # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
+            if house == "Urth Orthodox":
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Presence', 'Attributes', 1)
                 addsheet(caller, 'Will', 'Attributes', 1)
@@ -457,7 +457,7 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Austere', 'Curses', 0)
                 
             # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
+            elif house == "Eskatonic Order":
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Will', 'Attributes', 2)
                 addsheet(caller, 'Faith', 'Attributes', 2)
@@ -470,7 +470,7 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
+            elif house == "Temple Avesti":
                 addsheet(caller, 'Endurance', 'Attributes', 1)
                 addsheet(caller, 'Perception', 'Attributes', 2)
                 addsheet(caller, 'Faith', 'Attributes', 2)
@@ -478,11 +478,11 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Melee', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 2)
                 addsheet(caller, 'Investigate', 'Skills', 1)
-                addsheet(caller, 'Curious', 'Blessings', 0)
-                addsheet(caller, 'Subtle', 'Curses', 0)
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Righteous', 'Curses', 0)
                 
             # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            elif house == "Sanctuary Aeon":
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Tech', 'Attributes', 1)
                 addsheet(caller, 'Will', 'Attributes', 1)
@@ -492,117 +492,390 @@ def apply_path_priest(caller, which, what):
                 addsheet(caller, 'Life Science', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 4)
                 addsheet(caller, 'Self Control', 'Skills', 1)
-                addsheet(caller, 'Curious', 'Blessings', 0)
-                addsheet(caller, 'Subtle', 'Curses', 0)
+                addsheet(caller, 'Compassionate', 'Blessings', 0)
+                addsheet(caller, 'Gullible', 'Curses', 0)
             
         # Parish
         elif what == 1:
             
             # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
+            if house == "Urth Orthodox":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Empathy', 'Skills', 1)
+                addsheet(caller, 'Self Control', 'Skills', 1)
+                addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 2)
+                addsheet(caller, 'Bureaucracy', 'Skills', 2)
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Auster', 'Curses', 0)
                 
             # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
+            elif house == "Eskatonic Order":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Empathy', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 2)
+                addsheet(caller, 'Self Control', 'Skills', 3)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
+            elif house == "Temple Avesti":
+                addsheet(caller, 'Endurance', 'Attributes', 1)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Melee', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 2)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Righteous', 'Curses', 0)
                 
             # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            elif house == "Sanctuary Aeon":
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Arts', 'Skills', 1)
+                addsheet(caller, 'Empathy', 'Skills', 2)
+                addsheet(caller, 'Life Science', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 3)
+                addsheet(caller, 'Self Control', 'Skills', 2)
+                addsheet(caller, 'Compassionate', 'Blessings', 0)
+                addsheet(caller, 'Gullible', 'Curses', 0)
             
         # Monastery
         elif what == 2:
             
             # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
+            if house == "Urth Orthodox":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Bureaucracy', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Communication', 'Skills', 1)
+                addsheet(caller, 'Self Control', 'Skills', 3)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Auster', 'Curses', 0)
                 
             # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
+            elif house == "Eskatonic Order":
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Investigate', 'Skills', 3)
+                addsheet(caller, 'Self Control', 'Skills', 3)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Subtle', 'Curses', 0)
                 
             # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
+            elif house == "Temple Avesti":
+                addsheet(caller, 'Endurance', 'Attributes', 1)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Melee', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 2)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Pious', 'Blessings', 0)
+                addsheet(caller, 'Righteous', 'Curses', 0)
                 
             # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            elif house == "Sanctuary Aeon":
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 1)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Faith', 'Attributes', 2)
+                addsheet(caller, 'Empathy', 'Skills', 1)
+                addsheet(caller, 'Life Science', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 3)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Self Control', 'Skills', 2)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Compassionate', 'Blessings', 0)
+                addsheet(caller, 'Gullible', 'Curses', 0)
             
     # Early Career
     elif which == 1:
         
         # Preacher Pastor
         if what == 0:
-            
-            # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
-                
-            # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
-                
-            # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
-                
-            # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Faith', 'Attributes', 3)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Empathy', 'Skills', 2)
+            addsheet(caller, 'Self Control', 'Skills', 2)
+            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Bureaucracy', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 2)
+            addsheet(caller, 'Communication', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Novitiate'
             
         # Monk
         elif what == 1:
-            
-            # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
-                
-            # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
-                
-            # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
-                
-            # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Faith', 'Attributes', 2)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Empathy', 'Skills', 2)
+            addsheet(caller, 'Self Control', 'Skills', 3)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Survival', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Novitiate'
             
         # Missionary
         elif what == 2:
-            
-            # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
-                
-            # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
-                
-            # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
-                
-            # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Wits', 'Attributes', 1)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 1)
+            addsheet(caller, 'Faith', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 3)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Empathy', 'Skills', 1)
+            addsheet(caller, 'Self Control', 'Skills', 1)
+            addsheet(caller, 'Investigate', 'Skills', 1)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 2)
+            addsheet(caller, 'Survival', 'Skills', 2)
+            addsheet(caller, 'Communication', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Novitiate'
             
         # Healer
         elif what == 3:
-            
-            # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
-                
-            # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
-                
-            # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
-                
-            # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 1)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 1)
+            addsheet(caller, 'Faith', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Empathy', 'Skills', 2)
+            addsheet(caller, 'Self Control', 'Skills', 1)
+            addsheet(caller, 'Life Science', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 4)
+            addsheet(caller, 'Communication', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Novitiate'
             
         # Inquisitor
         elif what == 4:
+            addsheet(caller, 'Strength', 'Attributes', 2)
+            addsheet(caller, 'Dexterity', 'Attributes', 1)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Faith', 'Attributes', 1)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Sneak', 'Skills', 1)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Bureaucracy', 'Skills', 1)
+            addsheet(caller, 'Self Control', 'Skills', 1)
+            addsheet(caller, 'Survival', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Novitiate'
             
-            # Urth Orthodox
-            if caller.db.house == "Urth Orthodox":
+            
+def apply_path_guild(caller, which, what, house):
+    # Apprenticeship
+    if which == 0:
+        
+        # Academy
+        if what == 0:
+    
+            # Charioteers
+            if house == 'Charioteers':
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 2)
+                addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
+                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Physick', 'Skills', 1)
                 
-            # Eskatonic
-            elif caller.db.house == "Eskatonic Order":
+            # Engineers
+            elif house == 'Engineers':
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Tech', 'Attributes', 3)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 4)
+                addsheet(caller, 'Think Machine', 'Skills', 2)
+                addsheet(caller, 'Urthtech', 'Languages', 0)
                 
-            # Temple Avesti
-            elif caller.db.house == "Temple Avesti":
+            # Scravers
+            elif house == 'Scravers':
+                addsheet(caller, 'Strength', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Sneak', 'Skills', 1)
+                addsheet(caller, 'Gaming', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 
-            # Sanctuary Aeon
-            elif caller.db.house == "Sanctuary Aeon":
-
+            # Muster
+            elif house == 'Muster':
+                addsheet(caller, 'Strength', 'Attributes', 1)
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Tech', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                
+            # Reeves
+            elif house == 'Reeves':
+                addsheet(caller, 'Wits', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Bureaucracy', 'Skills', 3)
+                addsheet(caller, 'Etiquette', 'Skills', 1)
+                addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                
+        # Guild Hall
+        elif what == 1:
+            
+            # Charioteers
+            if house == 'Charioteers':
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 2)
+                addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
+                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                
+            # Engineers
+            elif house == 'Engineers':
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Tech', 'Attributes', 3)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 4)
+                addsheet(caller, 'Think Machine', 'Skills', 2)
+                addsheet(caller, 'Urthtech', 'Languages', 0)
+                
+            # Scravers
+            elif house == 'Scravers':
+                addsheet(caller, 'Strength', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Sneak', 'Skills', 1)
+                addsheet(caller, 'Gaming', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Scravers Cant', 'Languages', 0)
+                
+            # Muster
+            elif house == 'Muster':
+                addsheet(caller, 'Strength', 'Attributes', 1)
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Tech', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                
+            # Reeves
+            elif house == 'Reeves':
+                addsheet(caller, 'Wits', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Bureaucracy', 'Skills', 3)
+                addsheet(caller, 'Etiquette', 'Skills', 1)
+                addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                
+        # Streets
+        elif what == 2:
+            
+            # Charioteers
+            if house == 'Charioteers':
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Presence', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 2)
+                addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
+                addsheet(caller, 'Tech Redemption', 'Skills', 2)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                
+            # Engineers
+            elif house == 'Engineers':
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
+                addsheet(caller, 'Wits', 'Attributes', 1)
+                addsheet(caller, 'Tech', 'Attributes', 3)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 4)
+                addsheet(caller, 'Think Machine', 'Skills', 2)
+                addsheet(caller, 'Urthtech', 'Languages', 0)
+                
+            # Scravers
+            elif house == 'Scravers':
+                addsheet(caller, 'Strength', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Sneak', 'Skills', 1)
+                addsheet(caller, 'Gaming', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Scravers Cant', 'Languages', 0)
+                
+            # Muster
+            elif house == 'Muster':
+                addsheet(caller, 'Strength', 'Attributes', 1)
+                addsheet(caller, 'Dexterity', 'Attributes', 2)
+                addsheet(caller, 'Tech', 'Attributes', 2)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Tech Redemption', 'Skills', 1)
+                addsheet(caller, 'Physick', 'Skills', 1)
+                
+            # Reeves
+            elif house == 'Reeves':
+                addsheet(caller, 'Wits', 'Attributes', 2)
+                addsheet(caller, 'Perception', 'Attributes', 2)
+                addsheet(caller, 'Will', 'Attributes', 1)
+                addsheet(caller, 'Influence', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Bureaucracy', 'Skills', 3)
+                addsheet(caller, 'Etiquette', 'Skills', 1)
+                addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Latin', 'Languages', 0)
+                
+    # Early Career
+    elif which == 1:
+        
+        pass
+    
 
 def menunode_start(caller):
     text = "Beginning Fading Suns Character Generation. You will be able to execute other commands.\n"

@@ -9,10 +9,7 @@ Utility functions
 # add to a stat
 def addsheet(pc, what, which, amt):
     if which == 'Attributes':
-        if what in pc.db.attributes:
-            pc.db.attributes[what] += amt
-        else:
-            pc.db.attributes[what] = amt
+        pc.db.attributes[what] = amt
     elif which == 'Skills':
         if what in pc.db.skills:
             pc.db.skills[what] += amt
