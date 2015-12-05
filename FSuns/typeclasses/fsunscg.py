@@ -1917,14 +1917,14 @@ def menunode_lpp1(caller):
                {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lpp2"},
                {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lpp2"},
                {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lpp2"},
-               {"key": "5", "desc": "Mendicant Monks", "goto": "menunode_lppmm"},
-               {"key": "6", "desc": "Imperial Priest Cohort", "exec": ipcs, "goto": "menunode_lppmm"})
+               {"key": "5", "desc": "Mendicant Monks", "goto": "menunode_lppmm"})
     return text, options
 
 
-def menunode_lppmm(caller):
+def menunode_lppmm(caller, raw_input):
+    caller.db.house = "Mendicant Monks"
+    caller.db.minor = 1
     text = "Which order are you mirroring for bonuses?\n"
-    text += "If you picked Imperial Priest Cohort, This question is instead for picking the order you come from."
     options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lppmm2"},
                {"key": "1", "desc": "Brother Battle", "goto": "menunode_lppbb"},
                {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lppmm2"},
@@ -1934,8 +1934,7 @@ def menunode_lppmm(caller):
 
 
 def menunode_lppmm2(caller, raw_input):
-    caller.db.house = priesthelper[raw_input]
-    addsheet(caller, 'Faction Lore: ' + priesthelper[raw_input], 'Skills', 3)
+    caller.db.mirrorhouse = priesthelper[raw_input]
 
     if raw_input == 0:
         caller.db.recbenefices.append('Noble Ally')
@@ -1948,13 +1947,14 @@ def menunode_lppmm2(caller, raw_input):
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
     options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
                {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
-               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp22"})
+               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
+               {"key": "3", "desc": "Space Habitat", "exec": apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
     return text, options
 
 
 def menunode_lpp2(caller, raw_input):
     caller.db.house = priesthelper[raw_input]
-    addsheet(caller, 'Faction Lore: ' + priesthelper[raw_input], 'Skills', 3)
+    addsheet(caller, 'Faction Lore.' + priesthelper[raw_input], 'Skills', 3)
 
     if raw_input == 0:
         caller.db.recbenefices.append('Noble Ally')
@@ -1967,67 +1967,127 @@ def menunode_lpp2(caller, raw_input):
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
     options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
                {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
-               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp22"})
+               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
+               {"key": "3", "desc": "Space Habitat", "exec": apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
     return text, options
-
-
-def menunode_lpp22(caller):
-    text = "Do you want Beast Lore or Drive Beastcraft at +1?"
-    options = ({"key": "0", "desc": "Beast Lore", "exec": addsheet(caller, 'Beast Lore', 'Skills', 1), "goto": "menunode_lpp3"},
-               {"key": "1", "desc": "Drive Beastcraft", "exec": addsheet(caller, 'Drive Beastcraft', 'Skills', 1), "goto": "menunode_lpp3"})
-    return text, options
-
 
 def menunode_lpp3(caller):
-    text = "Now choose your Class."
-    options = ({"key": "0", "desc": "Wealthy", "exec": apply_path_uppm(caller, 1, 0), "goto": "menunode_lpp4"},
-               {"key": "1", "desc": "Average", "exec": apply_path_uppm(caller, 1, 1), "goto": "menunode_lpp3a"},
-               {"key": "2", "desc": "Poor", "exec": apply_path_uppm(caller, 1, 2), "goto": "menunode_lpp3p"})
+    text = "The next thing you need to pick is your Class."
+    options = ({"key": "0", "desc": "Wealthy", "exec": apply_path_uppm(caller, 1, 0), "goto": "menunode_lpp31"},
+               {"key": "1", "desc": "Middle", "exec": apply_path_uppm(caller, 1, 1), "goto": "menunode_lpp32"},
+               {"key": "2", "desc": "Poor", "exec": apply_path_uppm(caller, 1, 2), "goto": "menunode_lpp33"})
     return text, options
-
-
-def menunode_lpp3a(caller):
-    text = "Do you want Extrovert or Introvert +1?"
-    options = ({"key": "0", "desc": "Extrovert", "exec": addsheet(caller, 'Extrovert', 'Attributes', 1), "goto": "menunode_lpp3a2"},
-               {"key": "1", "desc": "Introvert", "exec": addsheet(caller, 'Introvert', 'Attributes', 1), "goto": "menunode_lpp3a2"})
+               
+               
+def menunode_lpp31(caller):
+    text = "You get 1 point in the social group."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp4"})
     return text, options
-
-
-def menunode_lpp3a2(caller):
-    text = "Do you want Charm or Impress +1?"
-    options = ({"key": "0", "desc": "Charm", "exec": addsheet(caller, 'Charm', 'Skills', 1), "goto": "menunode_lpp3a3"},
-               {"key": "1", "desc": "Impress", "exec": addsheet(caller, 'Impress', 'Skills', 1), "goto": "menunode_lpp3a3"})
+    
+    
+def menunode_lpp32(caller):
+    text = "Enter your craft specialty."
+    options = ({"key": "_default", "goto": "menunode_lpp322"})
     return text, options
-
-
-def menunode_lpp3a3(caller):
-    text = "Do you want Lore Folk or Lore Regional +1?"
-    options = ({"key": "0", "desc": "Lore Folk", "exec": addsheet(caller, 'Lore Folk', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "1", "desc": "Lore Regional", "exec": addsheet(caller, 'Lore Regional', 'Skills', 1), "goto": "menunode_lpp4"})
+    
+    
+def menunode_lpp322(caller, raw_input):
+    addsheet(caller, 'Craft ' + raw_input, 'Skills', 1)
+    
+    text = "At this point you choose your apprenticeship."
+    options = ({"key": "0", "desc": "Cathedral", "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Parish", "goto": "menunode_lpp5"},
+               {"key": "2", "desc": "Monastery", "goto": "menunode_lpp5"})
     return text, options
-
-
-def menunode_lpp3p(caller):
-    text = "Do you want Faith or Ego +1?"
-    options = ({"key": "0", "desc": "Faith", "exec": addsheet(caller, 'Ego', 'Attributes', 1), "goto": "menunode_lpp3p2"},
-               {"key": "1", "desc": "Ego", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpp3p2"})
+    
+    
+def menunode_lpp33(caller):
+    text = "You get 1 point in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp4"})
     return text, options
-
-
-def menunode_lpp3p2(caller):
-    text = "Do you want Streetwise or Survival +1?"
-    options = ({"key": "0", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "1", "desc": "Survival", "exec": addsheet(caller, 'Survival', 'Skills', 1), "goto": "menunode_lpp4"})
-    return text, options
-
-
+    
+    
 def menunode_lpp4(caller):
-    text = "Now it's time to choose if you spent your time in a Cathedral, Parish or Monastery."
-    options = ({"key": "0", "desc": "Cathedral", "exec": apply_path_priest(caller, 0, 0, caller.db.house), "goto": "menunode_lpp5"},
-               {"key": "1", "desc": "Parish", "exec": apply_path_priest(caller, 0, 1, caller.db.house), "goto": "menunode_lpp5"},
-               {"key": "1", "desc": "Monastery", "exec": apply_path_priest(caller, 0, 2, caller.db.house), "goto": "menunode_lpp5"})
+    text = "At this point you choose your apprenticeship."
+    options = ({"key": "0", "desc": "Cathedral", "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Parish", "goto": "menunode_lpp5"},
+               {"key": "2", "desc": "Monastery", "goto": "menunode_lpp5"})
     return text, options
-
-
-def menunode_lpp5(caller):
-    pass
+    
+    
+def menunode_lpp5(caller, raw_input):
+    if caller.db.minor:
+        apply_path_priest(caller, 0, raw_input, caller.db.mirrorhouse)
+    else:
+        apply_path_priest(caller, 0, raw_input, caller.db.house)
+        
+    if raw_input == 0:
+        if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            return text, options
+        elif caller.db.house == "Sanctuary Aeon" or caller.db.mirrorhouse == "Sanctuary Aeon":
+            text = "What is your arts specialty?"
+            options = ({"key": "_default", "goto": "menunode_lpp5sa"})
+            return text, options
+    elif raw_input == 1:
+        if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            return text, options
+        elif caller.db.house == "Eskatonic Order" or caller.db.mirrorhouse == "Eskatonic Order":
+            text = "You get 3 points in the Analytical group."
+            options = ({"key": "0", "desc": "Bureaucracy", "exec": addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "1", "desc": "Investigation", "exec": addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "2", "desc": "Observe", "exec": addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "3", "desc": "Physick", "exec": addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "4", "desc": "Warfare", "exec": addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo02"})
+            return text, options
+    elif raw_input == 2:
+        if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            return text, options
+        elif caller.db.house == "Eskatonic Order" or caller.db.mirrorhouse == "Eskatonic Order":
+            text = "You get 2 points in the Analytical group."
+            options = ({"key": "0", "desc": "Bureaucracy", "exec": addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "1", "desc": "Investigation", "exec": addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "2", "desc": "Observe", "exec": addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "3", "desc": "Physick", "exec": addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "4", "desc": "Warfare", "exec": addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo12"})
+            return text, options
