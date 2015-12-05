@@ -843,41 +843,138 @@ def apply_path_guild(caller, which, what, house):
             # Scravers
             elif house == 'Scravers':
                 addsheet(caller, 'Strength', 'Attributes', 2)
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
                 addsheet(caller, 'Perception', 'Attributes', 2)
-                addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Sneak', 'Skills', 1)
                 addsheet(caller, 'Gaming', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Vigor', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 
             # Muster
             elif house == 'Muster':
-                addsheet(caller, 'Strength', 'Attributes', 1)
+                addsheet(caller, 'Strength', 'Attributes', 2)
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
-                addsheet(caller, 'Tech', 'Attributes', 2)
+                addsheet(caller, 'Tech', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Observe', 'Skills', 1)
-                addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Observe', 'Skills', 2)
+                addsheet(caller, 'Survival', 'Skills', 1)
                 
             # Reeves
             elif house == 'Reeves':
+                addsheet(caller, 'Dexterity', 'Attributes', 1)
                 addsheet(caller, 'Wits', 'Attributes', 2)
                 addsheet(caller, 'Perception', 'Attributes', 2)
-                addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 2)
-                addsheet(caller, 'Bureaucracy', 'Skills', 3)
+                addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Sneak', 'Skills', 1)
+                addsheet(caller, 'Investigate', 'Skills', 1)
                 addsheet(caller, 'Etiquette', 'Skills', 1)
+                addsheet(caller, 'Bureaucracy', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
-                addsheet(caller, 'Latin', 'Languages', 0)
                 
     # Early Career
     elif which == 1:
         
-        pass
-    
+        # Merchant
+        if what == 0:
+            addsheet(caller, 'Dexterity', 'Attributes', 1)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Gaming', 'Skills', 1)
+            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Sneak', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
+            
+        # Money-Lender
+        elif what == 1:
+            addsheet(caller, 'Dexterity', 'Attributes', 1)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Bureaucracy', 'Skills', 2)
+            addsheet(caller, 'Etiquette', 'Skills', 1)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Gaming', 'Skills', 1)
+            addsheet(caller, 'Investigate', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Associate'
+            
+        # Pilot
+        elif what == 2:
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Tech Redemption', 'Skills', 2)
+            addsheet(caller, 'Think Machine', 'Skills', 2)
+            addsheet(caller, 'Warfare', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
+            
+        # Engineer
+        elif what == 3:
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Spacecraft Operations', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Tech Redemption', 'Skills', 3)
+            addsheet(caller, 'Think Machine', 'Skills', 3)
+            addsheet(caller, 'Warfare', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
+            
+        # gunner
+        elif what == 4:
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 1)
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Gambling', 'Skills', 1)
+            addsheet(caller, 'Gunnery', 'Skills', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Spacecraft Operations', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Tech Redemption', 'Skills', 2)
+            addsheet(caller, 'Think Machine', 'Skills', 2)
+            addsheet(caller, 'Warfare', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
+            
+        # Soldier
+        elif what == 5:
+            
+        # Combat Engineer
+        elif what == 6:
+            
+        # Scholar
+        elif what == 7:
+            
+        # Scientist
+        elif what == 8:
+            
+        # Thief
+        elif what == 9:
+            
+        # Spy
+        elif what == 10:
+            
 
 def menunode_start(caller):
     text = "Beginning Fading Suns Character Generation. You will be able to execute other commands.\n"
