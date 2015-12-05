@@ -447,7 +447,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Faith', 'Attributes', 2)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Self Control', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
@@ -462,7 +462,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Will', 'Attributes', 2)
                 addsheet(caller, 'Faith', 'Attributes', 2)
                 addsheet(caller, 'Observe', 'Skills', 2)
-                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Investigation', 'Skills', 2)
                 addsheet(caller, 'Empathy', 'Skills', 1)
                 addsheet(caller, 'Self Control', 'Skills', 3)
                 addsheet(caller, 'Latin', 'Languages', 0)
@@ -477,7 +477,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Influence', 'Skills', 1)
                 addsheet(caller, 'Melee', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 2)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Pious', 'Blessings', 0)
                 addsheet(caller, 'Righteous', 'Curses', 0)
                 
@@ -533,7 +533,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Influence', 'Skills', 1)
                 addsheet(caller, 'Melee', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 2)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Pious', 'Blessings', 0)
                 addsheet(caller, 'Righteous', 'Curses', 0)
                 
@@ -560,7 +560,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Presence', 'Attributes', 1)
                 addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Faith', 'Attributes', 2)
-                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Investigation', 'Skills', 2)
                 addsheet(caller, 'Bureaucracy', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Communication', 'Skills', 1)
@@ -574,7 +574,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Will', 'Attributes', 2)
                 addsheet(caller, 'Faith', 'Attributes', 2)
-                addsheet(caller, 'Investigate', 'Skills', 3)
+                addsheet(caller, 'Investigation', 'Skills', 3)
                 addsheet(caller, 'Self Control', 'Skills', 3)
                 addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Curious', 'Blessings', 0)
@@ -588,7 +588,7 @@ def apply_path_priest(caller, which, what, house):
                 addsheet(caller, 'Influence', 'Skills', 1)
                 addsheet(caller, 'Melee', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 2)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Pious', 'Blessings', 0)
                 addsheet(caller, 'Righteous', 'Curses', 0)
                 
@@ -621,7 +621,7 @@ def apply_path_priest(caller, which, what, house):
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Empathy', 'Skills', 2)
             addsheet(caller, 'Self Control', 'Skills', 2)
-            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 2)
             addsheet(caller, 'Bureaucracy', 'Skills', 1)
             addsheet(caller, 'Physick', 'Skills', 2)
             addsheet(caller, 'Communication', 'Skills', 2)
@@ -635,7 +635,7 @@ def apply_path_priest(caller, which, what, house):
             addsheet(caller, 'Will', 'Attributes', 2)
             addsheet(caller, 'Faith', 'Attributes', 2)
             addsheet(caller, 'Observe', 'Skills', 2)
-            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 2)
             addsheet(caller, 'Empathy', 'Skills', 2)
             addsheet(caller, 'Self Control', 'Skills', 3)
             addsheet(caller, 'Vigor', 'Skills', 1)
@@ -655,7 +655,7 @@ def apply_path_priest(caller, which, what, house):
             addsheet(caller, 'Observe', 'Skills', 1)
             addsheet(caller, 'Empathy', 'Skills', 1)
             addsheet(caller, 'Self Control', 'Skills', 1)
-            addsheet(caller, 'Investigate', 'Skills', 1)
+            addsheet(caller, 'Investigation', 'Skills', 1)
             addsheet(caller, 'Vigor', 'Skills', 1)
             addsheet(caller, 'Physick', 'Skills', 2)
             addsheet(caller, 'Survival', 'Skills', 2)
@@ -692,7 +692,7 @@ def apply_path_priest(caller, which, what, house):
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Sneak', 'Skills', 1)
             addsheet(caller, 'Vigor', 'Skills', 1)
-            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 2)
             addsheet(caller, 'Bureaucracy', 'Skills', 1)
             addsheet(caller, 'Self Control', 'Skills', 1)
             addsheet(caller, 'Survival', 'Skills', 1)
@@ -721,7 +721,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 1)
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Tech', 'Attributes', 3)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 4)
                 addsheet(caller, 'Think Machine', 'Skills', 2)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
@@ -734,7 +734,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Influence', 'Skills', 1)
                 addsheet(caller, 'Sneak', 'Skills', 1)
                 addsheet(caller, 'Gaming', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 
             # Muster
@@ -753,7 +753,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Perception', 'Attributes', 2)
                 addsheet(caller, 'Will', 'Attributes', 1)
                 addsheet(caller, 'Influence', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Investigation', 'Skills', 2)
                 addsheet(caller, 'Bureaucracy', 'Skills', 3)
                 addsheet(caller, 'Etiquette', 'Skills', 1)
                 addsheet(caller, 'Leadership', 'Skills', 1)
@@ -777,7 +777,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 1)
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Tech', 'Attributes', 3)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 3)
                 addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
@@ -791,7 +791,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Vigor', 'Skills', 1)
                 addsheet(caller, 'Sneak', 'Skills', 1)
                 addsheet(caller, 'Gaming', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 
             # Muster
@@ -813,7 +813,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Observe', 'Skills', 1)
                 addsheet(caller, 'Bureaucracy', 'Skills', 2)
                 addsheet(caller, 'Etiquette', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 2)
+                addsheet(caller, 'Investigation', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
                 addsheet(caller, 'Latin', 'Languages', 0)
                 
@@ -835,7 +835,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Dexterity', 'Attributes', 2)
                 addsheet(caller, 'Wits', 'Attributes', 1)
                 addsheet(caller, 'Tech', 'Attributes', 2)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 2)
                 addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
@@ -868,7 +868,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Influence', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 1)
                 addsheet(caller, 'Sneak', 'Skills', 1)
-                addsheet(caller, 'Investigate', 'Skills', 1)
+                addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Etiquette', 'Skills', 1)
                 addsheet(caller, 'Bureaucracy', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
@@ -887,7 +887,7 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Influence', 'Skills', 2)
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Gaming', 'Skills', 1)
-            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 2)
             addsheet(caller, 'Sneak', 'Skills', 1)
             caller.db.benefices['Rank'] = 'Associate'
             
@@ -904,7 +904,7 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Influence', 'Skills', 2)
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Gaming', 'Skills', 1)
-            addsheet(caller, 'Investigate', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 2)
             caller.db.benefices['Rank'] = 'Associate'
             
         # Pilot
@@ -959,21 +959,94 @@ def apply_path_guild(caller, which, what, house):
             
         # Soldier
         elif what == 5:
+            addsheet(caller, 'Strength', 'Attributes', 2)
+            addsheet(caller, 'Dexterity', 'Attributes', 3)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Tech', 'Attributes', 1)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Vigor', 'Skills', 2)
+            addsheet(caller, 'Tech Redemption', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Survival', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Associate'
             
         # Combat Engineer
         elif what == 6:
+            addsheet(caller, 'Strength', 'Attributes', 1)
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Wits', 'Attributes', 1)
+            addsheet(caller, 'Perception', 'Attributes', 1)
+            addsheet(caller, 'Tech', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 1)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Physick', 'Skills', 1)
+            addsheet(caller, 'Tech Redemption', 'Skills', 3)
+            addsheet(caller, 'Science', 'Skills', 2)
+            addsheet(caller, 'Warfare', 'Skills', 3)
+            caller.db.benefices['Rank'] = 'Associate'
             
         # Scholar
         elif what == 7:
+            addsheet(caller, 'Wits', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Tech', 'Attributes', 1)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Faith', 'Attributes', 1)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Investigation', 'Skills', 3)
+            addsheet(caller, 'Etiquette', 'Skills', 1)
+            addsheet(caller, 'Self Control', 'Skills', 2)
+            addsheet(caller, 'Leadership', 'Skills', 1)
+            addsheet(caller, 'Think Machine', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
             
         # Scientist
         elif what == 8:
+            addsheet(caller, 'Wits', 'Attributes', 3)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Tech', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Presence', 'Attributes', 1)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Investigation', 'Skills', 2)
+            addsheet(caller, 'Tech Redemption', 'Skills', 3)
+            addsheet(caller, 'Think Machine', 'Skills', 3)
+            addsheet(caller, 'Urthtech', 'Languages', 0)
+            caller.db.benefices['Rank'] = 'Associate'
             
         # Thief
         elif what == 9:
+            addsheet(caller, 'Strength', 'Attributes', 2)
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Will', 'Attributes', 2)
+            addsheet(caller, 'Influence', 'Skills', 1)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Gaming', 'Skills', 1)
+            addsheet(caller, 'Investigation', 'Skills', 1)
+            addsheet(caller, 'Observe', 'Skills', 1)
+            addsheet(caller, 'Sneak', 'Skills', 2)
+            caller.db.benefices['Rank'] = 'Associate'
             
         # Spy
         elif what == 10:
+            addsheet(caller, 'Strength', 'Attributes', 2)
+            addsheet(caller, 'Dexterity', 'Attributes', 2)
+            addsheet(caller, 'Endurance', 'Attributes', 2)
+            addsheet(caller, 'Perception', 'Attributes', 2)
+            addsheet(caller, 'Presence', 'Attributes', 2)
+            addsheet(caller, 'Vigor', 'Skills', 1)
+            addsheet(caller, 'Gaming', 'Skills', 1)
+            addsheet(caller, 'Influence', 'Skills', 2)
+            addsheet(caller, 'Investigation', 'Skills', 1)
+            addsheet(caller, 'Observe', 'Skills', 2)
+            addsheet(caller, 'Sneak', 'Skills', 1)
+            caller.db.benefices['Rank'] = 'Associate'
             
 
 def menunode_start(caller):
@@ -1585,7 +1658,7 @@ def menunode_lpnq59(caller):
     addsheet(caller, 'Observe', 'Skills', 1)
     addsheet(caller, 'Sneak', 'Skills', 1)
     addsheet(caller, 'Vigor', 'Skills', 2)
-    addsheet(caller, 'Investigate', 'Skills', 1)
+    addsheet(caller, 'Investigation', 'Skills', 1)
     addsheet(caller, 'Physick', 'Skills', 1)
 
     text = "Please pick a Malefaction skill."
@@ -1795,8 +1868,8 @@ def menunode_lpn6d4(caller):
 def menunode_lpn6a2(caller, raw_input):
     addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
     
-    text = "Do you want Investigate at +2 or to choose 2 points of skills from the Malefaction group?"
-    options = ({"key": "0", "desc": "Investigate +2", "exec": addsheet(caller, 'Investigate', 'Skills', 2), "goto": "menunode_lpn6cc"},
+    text = "Do you want Investigation at +2 or to choose 2 points of skills from the Malefaction group?"
+    options = ({"key": "0", "desc": "Investigation +2", "exec": addsheet(caller, 'Investigation', 'Skills', 2), "goto": "menunode_lpn6cc"},
                {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn6a3"})
     return text, options
     
