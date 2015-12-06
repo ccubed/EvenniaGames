@@ -46,9 +46,10 @@ class Character(DefaultCharacter):
         self.db.approved = 0
         self.db.house = 'None'
         self.db.archetype = 'None'
-        self.db.questing = 0  # Track questing/imperial choice. Matters to CG because forces requirements on player.
+        self.db.questing = 0  # Track questing choice. Matters to CG because forces their first tour of duty to be the questing knight tour.
         self.db.actions = {}
         self.db.minor = 0
         self.db.recbenefices = []
         self.db.mirrorhouse = 'None'
         self.db.noble = 0  # if 1, they can buy the nobility merit
+        self.db.guild = 0  # if 1, they can buy guild only skills

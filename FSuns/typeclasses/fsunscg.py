@@ -1061,7 +1061,7 @@ def menunode_lifepath(caller):
     text = "Lifepath CG Beginning. This CG module uses the Lifepaths as described in FAS21901 the 2014 supplement to revised. It is free online.\n"
     text += "Please begin by selecting an archetype."
     options = ({"desc": "Nobles", "goto": "menunode_lpn1"}, {"desc": "Priests", "goto": "menunode_lpp1"},
-               {"desc": "Merchants", "goto": "menunode_lpm1"}, {"desc": "Aliens", "goto": "menunode_lpa1"})
+               {"desc": "Merchants AKA Guild", "goto": "menunode_lpm1"})
     return text, options
 
 #  Begin Noble Section
@@ -1346,13 +1346,13 @@ def menunode_lpn5(caller, raw_input):
     
 def menunode_lpn5d2(caller, raw_input):
     if raw_input == 0:
-        caller.db.actions['Florentine'] = []
+        caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double strike', 'Wall of Steel']
     elif raw_input == 1:
-        caller.db.actions['Kraxi Knife'] = []
+        caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
     elif raw_input == 2:
-        caller.db.options['Serpentis'] = []
+        caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
     else:
-        caller.db.options['Torero'] = []
+        caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
         
     text = "Please select your noble's Early Career."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpn6"},
@@ -1828,13 +1828,13 @@ def menunode_lpn6sm3(caller):
 
 def menunode_lpn6d2(caller, raw_input):
     if raw_input == 0:
-        caller.db.actions['Florentine'] = []
+        caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double strike', 'Wall of Steel']
     elif raw_input == 1:
-        caller.db.actions['Kraxi Knife'] = []
+        caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
     elif raw_input == 2:
-        caller.db.actions['Serpentis'] = []
+        caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
     else:
-        caller.db.actions['Torero'] = []
+        caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
         
     text = "You now get 3 social points. First point."
     options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d3"},
@@ -2260,8 +2260,120 @@ def menunode_lpp6i4(caller):
                {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp6cc"},
                {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp6cc"})
     return text, options
+    
+def menunode_lppbb(caller):
+    addsheet(caller, 'Strength', 'Attributes', 5)
+    addsheet(caller, 'Dexterity', 'Attributes', 5)
+    addsheet(caller, 'Endurance', 'Attributes', 5)
+    addsheet(caller, 'Will', 'Attributes', 1)
+    addsheet(caller, 'Faith', 'Attributes', 4)
+    addsheet(caller, 'Vigor', 'Skills', 3)
+    addsheet(caller, 'Physick', 'Skills', 3)
+    addsheet(caller, 'Self Control', 'Skills', 4)
+    addsheet(caller, 'Survival', 'Skills', 1)
+    addsheet(caller, 'Warfare', 'Skills', 1)
+    addsheet(caller, 'Fight', 'Skills', 1)
+    addsheet(caller, 'Melee', 'Skills', 1)
+    caller.db.actions['Mantok'] = ["Soldier's Stance", 'Close Palm, Reach the Heart', 'Cross Arms, Don the Robe', 'Stretch Spine, Speak the Word']
+    
+    text = "You have 2 points to spend in the combat group."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb2"})
+    return text, options
+    
+    
+def menunode_lppbb2(caller):
+    text = "You have 2 points to spend in the combat group. Second Point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb3"})
+    return text, options
+    
+
+def menunode_lppbb3(caller):
+    text = "Do you want Fight or Melee +2?"
+    options = ({"key": "0", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 2), "goto": "menunode_lppbb4"},
+               {"key": "0", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 2), "goto": "menunode_lppbb4"})
+    return text, options
+    
+    
+def menunode_lppbb4(caller):
+    text = "Pick a single combat skill to get +3."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 3), "goto": "menunode_lppbb5"})
+    return text, options
+    
+
+def menunode_lppbb5(caller):
+    text = "Pick another fighting style to get."
+    options = ({"key": "0", "desc": "Jox Kai Von", "goto": "menunode_lppbb6"},
+               {"key": "1", "desc": "Koto", "goto": "menunode_lppbb6"},
+               {"key": "2", "desc": "Iron Heel", "goto": "menunode_lppbb6"},
+               {"key": "3", "desc": "Shaidan", "goto": "menunode_lppbb6"},
+               {"key": "4", "desc": "Florentine", "goto": "menunode_lppbb6"},
+               {"key": "5", "desc": "Kraxi Knife", "goto": "menunode_lppbb6"},
+               {"key": "6", "desc": "Serpentis", "goto": "menunode_lppbb6"},
+               {"key": "7", "desc": "Torero", "goto": "menunode_lppbb6"},
+               {"key": "8", "desc": "Phoenix Rifle Corps Training", "goto": "menunode_lppbb6"},
+               {"key": "9", "desc": "Pistola", "goto": "menunode_lppbb6"})
+    return text, options
+    
+    
+def menunode_lppbb6(caller, raw_input):
+    if raw_input == 0:
+        caller.db.actions['Jox Kai Von'] = ['Jox Stance', 'Jab', 'Pound', 'Mantis Strike']
+    elif raw_input == 1:
+        caller.db.actions['Koto'] = ['Koto Stance', 'Step to Sky', 'Jolo Bird Squawks', 'Old Lady Falls and Gets Up']
+    elif raw_input == 2:
+        caller.db.actions['Iron Heel'] = ['Beatdown Stance', 'Chain of Destruction', 'Head-Butt', 'Choke Hold']
+    elif raw_input == 3:
+        caller.db.actions['Shaidan'] = ['Balanced Stance', 'Royal Palm', 'Astride the Throne', 'Imperial Dance']
+    elif raw_input == 4:
+        caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double Strike', 'Wall of Steel']
+    elif raw_input == 5:
+        caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
+    elif raw_input == 6:
+        caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
+    elif raw_input == 7:
+        caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
+    elif raw_input == 8:
+        caller.db.actions['Phoenix Rifle Corps'] = ['Heads Down Stance', 'Practiced Shooting', 'Stock Slam', 'Instinct Shot']
+    elif raw_input == 9:
+        caller.db.actions['Pistola'] = ['Criticorum Reload', 'Snap Shot', 'Roll and Shoot', 'Run and Gun']
+        
+    # TOUR OF DUTY
+    
+    
+def menunode_lpp6cc(caller):
+    pass
 
 # END PRIEST SECTION
 
 # BEGIN GUILD SECTION
 
+def menunode_lpm1(caller):
+    caller.db.archetype = "Merchant"
+    
