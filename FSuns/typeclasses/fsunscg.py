@@ -33,6 +33,8 @@ Begin helper section. This section is nothing but helper variables and dictionar
 househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '4': 'al-Malik', '5': 'Alba', '6': 'Juandaastas', '7': 'Justinian', '8': 'Keddah', '9': 'Masseri', '10': 'Shelit', '11': 'Thana', '12': 'Torenson', '13': 'Trusnikron', '14': 'Van Gelder', '15': 'Xanthippe'}
 # Parses priests like househelper
 priesthelper = {'0': 'Urth Orthodox', '1': 'Brother Battle', '2': 'Eskatonic Order', '3': 'Temple Avesti', '4': 'Sanctuary Aeon'}
+# Parses guilds like househelper
+guildhelper = {'0': 'Charioteers', '1': 'Engineers', '2': 'Scravers', '3': 'Muster', '4': 'Reeves'}
 
 
 # apply blessing and curse
@@ -716,6 +718,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Spacecraft Operations', 'Skills', 2)
                 addsheet(caller, 'Tech Redemption', 'Skills', 2)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Nosy', 'Blessings', 0)
                 
             # Engineers
             elif house == 'Engineers':
@@ -726,6 +730,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Tech Redemption', 'Skills', 4)
                 addsheet(caller, 'Think Machine', 'Skills', 2)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
+                addsheet(caller, 'Innovative', 'Blessings', 0)
+                addsheet(caller, 'Unnerving', 'Blessings', 0)
                 
             # Scravers
             elif house == 'Scravers':
@@ -737,6 +743,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Gaming', 'Skills', 1)
                 addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
+                addsheet(caller, 'The Man', 'Blessings', 0)
+                addsheet(caller, 'Possessive', 'Blessings', 0)
                 
             # Muster
             elif house == 'Muster':
@@ -747,6 +755,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Observe', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Bold', 'Blessings', 0)
+                addsheet(caller, 'Callous', 'Blessings', 0)
                 
             # Reeves
             elif house == 'Reeves':
@@ -759,6 +769,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Etiquette', 'Skills', 1)
                 addsheet(caller, 'Leadership', 'Skills', 1)
                 addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Shrewd', 'Blessings', 0)
+                addsheet(caller, 'Mammon', 'Blessings', 0)
                 
         # Guild Hall
         elif what == 1:
@@ -772,6 +784,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Empathy', 'Skills', 1)
                 addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Nosy', 'Blessings', 0)
                 
             # Engineers
             elif house == 'Engineers':
@@ -782,6 +796,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Tech Redemption', 'Skills', 3)
                 addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
+                addsheet(caller, 'Innovative', 'Blessings', 0)
+                addsheet(caller, 'Unnerving', 'Blessings', 0)
                 
             # Scravers
             elif house == 'Scravers':
@@ -794,6 +810,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Gaming', 'Skills', 1)
                 addsheet(caller, 'Investigation', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
+                addsheet(caller, 'The Man', 'Blessings', 0)
+                addsheet(caller, 'Possessive', 'Blessings', 0)
                 
             # Muster
             elif house == 'Muster':
@@ -804,6 +822,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 1)
+                addsheet(caller, 'Bold', 'Blessings', 0)
+                addsheet(caller, 'Callous', 'Blessings', 0)
                 
             # Reeves
             elif house == 'Reeves':
@@ -817,6 +837,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Investigation', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
                 addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Shrewd', 'Blessings', 0)
+                addsheet(caller, 'Mammon', 'Blessings', 0)
                 
         # Streets
         elif what == 2:
@@ -830,6 +852,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Tech Redemption', 'Skills', 1)
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Latin', 'Languages', 0)
+                addsheet(caller, 'Curious', 'Blessings', 0)
+                addsheet(caller, 'Nosy', 'Blessings', 0)
                 
             # Engineers
             elif house == 'Engineers':
@@ -840,6 +864,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Tech Redemption', 'Skills', 2)
                 addsheet(caller, 'Think Machine', 'Skills', 1)
                 addsheet(caller, 'Urthtech', 'Languages', 0)
+                addsheet(caller, 'Innovative', 'Blessings', 0)
+                addsheet(caller, 'Unnerving', 'Blessings', 0)
                 
             # Scravers
             elif house == 'Scravers':
@@ -850,6 +876,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Gaming', 'Skills', 1)
                 addsheet(caller, 'Vigor', 'Skills', 1)
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
+                addsheet(caller, 'The Man', 'Blessings', 0)
+                addsheet(caller, 'Possessive', 'Blessings', 0)
                 
             # Muster
             elif house == 'Muster':
@@ -860,6 +888,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Observe', 'Skills', 2)
                 addsheet(caller, 'Survival', 'Skills', 1)
+                addsheet(caller, 'Bold', 'Blessings', 0)
+                addsheet(caller, 'Callous', 'Blessings', 0)
                 
             # Reeves
             elif house == 'Reeves':
@@ -873,6 +903,8 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Etiquette', 'Skills', 1)
                 addsheet(caller, 'Bureaucracy', 'Skills', 2)
                 addsheet(caller, 'Leadership', 'Skills', 1)
+                addsheet(caller, 'Shrewd', 'Blessings', 0)
+                addsheet(caller, 'Mammon', 'Blessings', 0)
                 
     # Early Career
     elif which == 1:
@@ -1094,7 +1126,7 @@ def menunode_lpn1(caller):
 
 
 def menunode_lpn2(caller, raw_input):
-    if raw_input == 16:
+    if int(raw_input) == 16:
         caller.db.questing = 1
         text = "You selected questing knight. Please select your noble house.\n"
         text ++ "If you want to enter a custom minor house you can do that here too."
@@ -1116,7 +1148,7 @@ def menunode_lpn2(caller, raw_input):
                {"key": "15", "desc": "Xanthippe", "goto": "menunode_lpnq"},
                {"Key": "_default", "goto": "menunode_lpnq"})
         return text, options
-    elif 15 >= raw_input >= 5 :
+    elif 15 >= int(raw_input) >= 5 :
         caller.db.minor = 1
         caller.db.house = househelper[raw_input]
         addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
@@ -1140,9 +1172,9 @@ def menunode_lpn2(caller, raw_input):
                    {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnmh"},
                    {"key": "5", "desc": "Questing Knight", "goto": "menunode_lpnmh"})
 
-    if raw_input == 3:
+    if int(raw_input) == 3:
         caller.db.recbenefices.append('Church Ally')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Passage Contract')
 
     caller.db.house = househelper[raw_input]
@@ -1156,7 +1188,7 @@ def menunode_lpn2(caller, raw_input):
 
 
 def menunode_lpnmh(caller, raw_input):
-    if raw_input == 5:
+    if int(raw_input) == 5:
         caller.db.questing = 1
         text = "You selected questing knight. Please select the noble house you intend to mirror for bonuses."
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnq"},
@@ -1168,9 +1200,9 @@ def menunode_lpnmh(caller, raw_input):
 
     caller.db.mirrorhouse = househelper[raw_input]
 
-    if raw_input == 3:
+    if int(raw_input) == 3:
         caller.db.recbenefices.append('Church Ally')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Passage Contract')
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
@@ -1183,10 +1215,10 @@ def menunode_lpnmh(caller, raw_input):
 def menunode_lpnq(caller, raw_input):
     if caller.db.minor == 1:
         caller.db.mirrorhouse = househelper[raw_input]
-    elif raw_input <= 4:
+    elif int(raw_input) <= 4:
         caller.db.house = househelper[raw_input]
         addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
-    elif 15 >= raw_input >= 5:
+    elif 15 >= int(raw_input) >= 5:
         caller.db.minor = 1
         caller.db.house = househelper[raw_input]
         addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
@@ -1210,9 +1242,9 @@ def menunode_lpnq(caller, raw_input):
         return text, options
     
 
-    if raw_input == 3:
+    if int(raw_input) == 3:
         caller.db.recbenefices.append('Church Ally')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Passage Contract')
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
@@ -1225,9 +1257,9 @@ def menunode_lpnq(caller, raw_input):
 def menunode_lpnqmh(caller, raw_input):
     caller.db.mirrorhouse = househelper[raw_input]
     
-     if raw_input == 3:
+     if int(raw_input) == 3:
         caller.db.recbenefices.append('Church Ally')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Passage Contract')
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
@@ -1240,9 +1272,9 @@ def menunode_lpnqmh(caller, raw_input):
 def menunode_lpn3(caller, raw_input):
 
     if caller.db.minor:
-        apply_path_noble(0, raw_input, caller.db.mirrorhouse, caller)
+        apply_path_noble(0, int(raw_input), caller.db.mirrorhouse, caller)
     else:
-        apply_path_noble(0, raw_input, caller.db.house, caller)
+        apply_path_noble(0, int(raw_input), caller.db.house, caller)
 
     text = "At this stage you pick an apprenticeship under another noble.\n"
     text += "However, nobles also have the option of switching to any of the other archetypes as well.\n"
@@ -1277,9 +1309,9 @@ def menunode_lpn4(caller):
 def menunode_lpnq4(caller, raw_input):
 
     if caller.db.minor:
-        apply_path_noble(0, raw_input, caller.db.mirrorhouse, caller)
+        apply_path_noble(0, int(raw_input), caller.db.mirrorhouse, caller)
     else:
-        apply_path_noble(0, raw_input, caller.db.house, caller)
+        apply_path_noble(0, int(raw_input), caller.db.house, caller)
 
     text = "Please select your noble apprenticeship."
     options = ({"key": "0", "desc": "Soldier", "goto": "menunode_lpnq5"},
@@ -1292,9 +1324,9 @@ def menunode_lpnq4(caller, raw_input):
 
 def menunode_lpn5(caller, raw_input):
 
-    apply_path_noble(1, raw_input, 'None', caller)
+    apply_path_noble(1, int(raw_input), 'None', caller)
 
-    if raw_input == 0:
+    if int(raw_input) == 0:
         text = "As a soldier you get 3 points for combat skills. First point."
         options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd2"},
                    {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd2"},
@@ -1307,18 +1339,18 @@ def menunode_lpn5(caller, raw_input):
                    {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd2"},
                    {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd2"})
         return text, options
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         text = "Please enter the specialty for your Arts +1 now."
         options = ({"key": "_default", "goto": "menunode_lpn5di2"})
         return text, options
-    elif raw_input == 3:
+    elif int(raw_input) == 3:
         text = "As a duelist you get a melee fighting style. Pick one now."
         options = ({"key": "0", "desc": "Florentine", "goto": "menunode_lpn5d2"},
                    {"key": "1", "desc": "Kraxi Knife", "goto": "menunode_lpn5d2"},
                    {"key": "2", "desc": "Serpentis", "goto": "menunode_lpn5d2"},
                    {"key": "3", "desc": "Torero", "goto": "menunode_lpn5d2"})
         return text, options
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         text = "As a dandy your first choice is 1 point into a combat skill. Pick one now."
         options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5dy2"},
                    {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5dy2"},
@@ -1331,7 +1363,7 @@ def menunode_lpn5(caller, raw_input):
                    {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5dy2"},
                    {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5dy2"})
         return text, options
-    elif raw_input == 5:
+    elif int(raw_input) == 5:
         text = "As a student you get a language of your choice. Enter it now."
         options = ({"key": "_default", "goto": "menunode_lpn5s2"})
         return text, options
@@ -1345,11 +1377,11 @@ def menunode_lpn5(caller, raw_input):
     
     
 def menunode_lpn5d2(caller, raw_input):
-    if raw_input == 0:
+    if int(raw_input) == 0:
         caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double strike', 'Wall of Steel']
-    elif raw_input == 1:
+    elif int(raw_input) == 1:
         caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
     else:
         caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
@@ -1538,7 +1570,7 @@ def menunode_lpn5cc(caller):
 # QUESTING KNIGHTS
 def menunode_lpnq5(caller, raw_input):
     # Questing knights are mostly the same, but they can't suddenly switch to other archetypes and their early career is set in stone.
-    apply_path_noble(1, raw_input, 'None', caller)
+    apply_path_noble(1, int(raw_input), 'None', caller)
 
     # Questing knights have so many choices. Good lord.
     text = "Now let's begin the long process of setting your choices for questing knight.\n"
@@ -1688,9 +1720,9 @@ def menunode_lpnq592(caller, raw_input):
 
 
 def menunode_lpn6(caller, raw_input):
-    apply_path_noble(2, raw_input, 'None', caller)
+    apply_path_noble(2, int(raw_input), 'None', caller)
  
-    if raw_input == 0: # Soldier
+    if int(raw_input) == 0: # Soldier
         text = "As a soldier you get 3 points in combat skills. First point."
         options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
                    {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd2"},
@@ -1703,7 +1735,7 @@ def menunode_lpn6(caller, raw_input):
                    {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
                    {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd2"})
         return text, options
-    elif raw_input == 1: # Starman
+    elif int(raw_input) == 1: # Starman
         text = "As a starman you get 2 points in combat skills. First point."
         options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
                    {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm2"},
@@ -1716,7 +1748,7 @@ def menunode_lpn6(caller, raw_input):
                    {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
                    {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm2"})
         return text, options
-    elif raw_input == 2: # Duelist
+    elif int(raw_input) == 2: # Duelist
         text = "As a duelist you get a melee fighting style. Pick one now."
         options = ({"key": "0", "desc": "Florentine", "goto": "menunode_lpn6d2"},
                    {"key": "1", "desc": "Kraxi Knife", "goto": "menunode_lpn6d2"},
@@ -1726,7 +1758,7 @@ def menunode_lpn6(caller, raw_input):
         options = [x for x in options if x['desc'] not in caller.db.actions]
         
         return text, options
-    elif raw_input == 3: # ambassador
+    elif int(raw_input) == 3: # ambassador
         text = "Enter the specialty for your arts."
         options = ({'key': '_default', 'goto': 'menunode_lpn6a2'})
         return text, options
@@ -1827,11 +1859,11 @@ def menunode_lpn6sm3(caller):
     
 
 def menunode_lpn6d2(caller, raw_input):
-    if raw_input == 0:
+    if int(raw_input) == 0:
         caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double strike', 'Wall of Steel']
-    elif raw_input == 1:
+    elif int(raw_input) == 1:
         caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
     else:
         caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
@@ -1931,12 +1963,12 @@ def menunode_lppmm(caller, raw_input):
 def menunode_lppmm2(caller, raw_input):
     caller.db.mirrorhouse = priesthelper[raw_input]
 
-    if raw_input == 0:
+    if int(raw_input) == 0:
         caller.db.recbenefices.append('Noble Ally')
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         caller.db.recbenefices.append('Secrets')
         caller.db.recbenefices.append('Refuge')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Ally')
 
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
@@ -1951,12 +1983,12 @@ def menunode_lpp2(caller, raw_input):
     caller.db.house = priesthelper[raw_input]
     addsheet(caller, 'Faction Lore.' + priesthelper[raw_input], 'Skills', 3)
 
-    if raw_input == 0:
+    if int(raw_input) == 0:
         caller.db.recbenefices.append('Noble Ally')
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         caller.db.recbenefices.append('Secrets')
         caller.db.recbenefices.append('Refuge')
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.recbenefices.append('Ally')
 
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
@@ -2020,12 +2052,12 @@ def menunode_lpp4(caller):
     
 def menunode_lpp5(caller, raw_input):
     if caller.db.minor:
-        apply_path_priest(caller, 0, raw_input, caller.db.mirrorhouse)
+        apply_path_priest(caller, 0, int(raw_input), caller.db.mirrorhouse)
     else:
-        apply_path_priest(caller, 0, raw_input, caller.db.house)
+        apply_path_priest(caller, 0, int(raw_input), caller.db.house)
     
     # cathdral    
-    if raw_input == 0:
+    if int(raw_input) == 0:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
             options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
@@ -2044,7 +2076,7 @@ def menunode_lpp5(caller, raw_input):
             options = ({"key": "_default", "goto": "menunode_lpp5sa"})
             return text, options
     # Parish
-    elif raw_input == 1:
+    elif int(raw_input) == 1:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
             options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
@@ -2067,7 +2099,7 @@ def menunode_lpp5(caller, raw_input):
                        {"key": "4", "desc": "Warfare", "exec": addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo02"})
             return text, options
     # Monastery
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
             options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
@@ -2190,15 +2222,15 @@ def menunode_lpp5cc(caller):
     
     
 def menunode_lpp6(caller, raw_input):
-    apply_path_priest(caller, 1, raw_input, 'None')
+    apply_path_priest(caller, 1, int(raw_input), 'None')
     
     # Monk
-    if raw_input == 1:
+    if int(raw_input) == 1:
         text = "What is your craft specialty?"
         options = ({"key": "_default", "goto": "menunode_lpp6m2"})
         return text, options
     # Missionary
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         text = "You have one point to spend in the control group."
         options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
                    {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
@@ -2207,7 +2239,7 @@ def menunode_lpp6(caller, raw_input):
                    {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpp6cc"})
         return text, options
     # Inquisitor
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         text = "You get 2 points in the combat group."
         options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp6i2"},
                    {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp6i2"},
@@ -2343,25 +2375,25 @@ def menunode_lppbb5(caller):
     
     
 def menunode_lppbb6(caller, raw_input):
-    if raw_input == 0:
+    if int(raw_input) == 0:
         caller.db.actions['Jox Kai Von'] = ['Jox Stance', 'Jab', 'Pound', 'Mantis Strike']
-    elif raw_input == 1:
+    elif int(raw_input) == 1:
         caller.db.actions['Koto'] = ['Koto Stance', 'Step to Sky', 'Jolo Bird Squawks', 'Old Lady Falls and Gets Up']
-    elif raw_input == 2:
+    elif int(raw_input) == 2:
         caller.db.actions['Iron Heel'] = ['Beatdown Stance', 'Chain of Destruction', 'Head-Butt', 'Choke Hold']
-    elif raw_input == 3:
+    elif int(raw_input) == 3:
         caller.db.actions['Shaidan'] = ['Balanced Stance', 'Royal Palm', 'Astride the Throne', 'Imperial Dance']
-    elif raw_input == 4:
+    elif int(raw_input) == 4:
         caller.db.actions['Florentine'] = ['Woven Steel', 'Off-Hand Strike', 'Double Strike', 'Wall of Steel']
-    elif raw_input == 5:
+    elif int(raw_input) == 5:
         caller.db.actions['Kraxi Knife'] = ['Focused Rage', 'Thrust', 'Rapid Strike', 'Slip of the Knife']
-    elif raw_input == 6:
+    elif int(raw_input) == 6:
         caller.db.actions['Serpentis'] = ['Weaving Fangs', 'Draw and Strike', 'Setup', 'Stop Thrust']
-    elif raw_input == 7:
+    elif int(raw_input) == 7:
         caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
-    elif raw_input == 8:
+    elif int(raw_input) == 8:
         caller.db.actions['Phoenix Rifle Corps'] = ['Heads Down Stance', 'Practiced Shooting', 'Stock Slam', 'Instinct Shot']
-    elif raw_input == 9:
+    elif int(raw_input) == 9:
         caller.db.actions['Pistola'] = ['Criticorum Reload', 'Snap Shot', 'Roll and Shoot', 'Run and Gun']
         
     # TOUR OF DUTY
@@ -2376,4 +2408,842 @@ def menunode_lpp6cc(caller):
 
 def menunode_lpm1(caller):
     caller.db.archetype = "Merchant"
+    caller.db.guild = 1
     
+    text = "You have chosen to be a guild member or perhaps a yeoman. Please pick your guild below.\n"
+    text += "If you want to be a yeoman but not mirror another guild please use custom cg."
+    options = ({"key": "0", "desc": "Charioteers", "goto": "menunode_lpm2"},
+               {"key": "1", "desc": "Engineers", "goto": "menunode_lpm2"},
+               {"key": "2", "desc": "Scravers", "goto": "menunode_lpm2"},
+               {"key": "3", "desc": "The Muster", "goto": "menunode_lpm2"},
+               {"key": "4", "desc": "The Reeves", "goto": "menunode_lpm2"},
+               {"key": "5", "desc": "Yeoman", "goto": "menunode_lpm12"})
+    return text, options
+    
+    
+def menunode_lpm12(caller):
+    caller.db.house = "Yeoman"
+    caller.db.minor = 1
+    
+    text = "Please select the guild you will mirror for lifepath selections."
+    options = ({"key": "0", "desc": "Charioteers", "goto": "menunode_lpm2"},
+               {"key": "1", "desc": "Engineers", "goto": "menunode_lpm2"},
+               {"key": "2", "desc": "Scravers", "goto": "menunode_lpm2"},
+               {"key": "3", "desc": "The Muster", "goto": "menunode_lpm2"},
+               {"key": "4", "desc": "The Reeves", "goto": "menunode_lpm2"})
+    return text, options
+    
+    
+def menunode_lpm2(caller, raw_input):
+    if caller.db.minor:
+        caller.db.mirrorhouse = guildhelper[raw_input]
+    else:
+        caller.db.house = guildhelper[raw_input]
+        addsheet(caller, 'Faction Lore.' + caller.db.house, 'Skills', 3)
+        
+    text = "Now you select an upbringing. Merchants have 2 factors to select. An environment and Class.\n"
+    text += "Pick an environment."
+    options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpm3"},
+               {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpm3"},
+               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpm3"},
+               {"key": "3", "desc": "Space Habitat", "exec": apply_path_uppm(caller, 0, 3), "goto": "menunode_lpm3"})
+    return text, options
+    
+    
+def menunode_lpm3(caller):
+    text = "The second part of your upbringing is a class. Pick one now."
+    options = ({"key": "0", "desc": "Wealthy", "exec": apply_path_uppm(caller, 1, 0), "goto": "menunode_lpm31"},
+               {"key": "1", "desc": "Middle", "exec": apply_path_uppm(caller, 1, 1), "goto": "menunode_lpm32"},
+               {"key": "2", "desc": "Poor", "exec": apply_path_uppm(caller, 1, 2), "goto": "menunode_lpm33"})
+    return text, options
+    
+    
+def menunode_lpm31(caller):
+    text = "You get 1 point in the social group."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm4"})
+    return text, options
+    
+def menunode_lpm32(caller):
+    text = "Pick your craft specialty."
+    options = ({"key": "_default", "goto": "menunode_lpm322"})
+    return text, options
+    
+    
+def menunode_lpm322(caller, raw_input):
+    addsheet(caller, 'Craft ' + raw_input, 'Skills', 1)
+    # APPRENTICESHIP
+    
+    
+def menunode_lpm33(caller):
+    text = "You get 1 pointi n the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm4"})
+    return text, options
+    
+    
+def menunode_lpm4(caller):
+    text = "Now you will pick an apprenticeship."
+    options = ({"key": "0", "desc": "Academy", "goto": "menunode_lpm5"},
+               {"key": "1", "desc": "Guild Hall", "goto": "menunode_lpm5"},
+               {"key": "2", "desc": "The Streets", "goto": "menunode_lpm5"})
+               
+    if caller.db.minor: # no academy for yeoman
+        options = [x for x in options if x['key'] != '0']
+        
+    return text, options
+    
+    
+def menunode_lpm5(caller, raw_input):
+    if caller.db.minor:
+        apply_path_guild(caller, 0, int(raw_input), caller.db.mirrorhouse)
+    else:
+        apply_path_guild(caller, 0, int(raw_input), caller.db.house)
+        
+    if int(raw_input) == 0:  # Academy
+        
+        if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
+            text = "You get 3 points in the control group."
+            options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c02"})
+            return text, options
+        elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
+            text = "You get 2 points in the science group."
+            options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e02"})
+            return text, options
+        elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s02"})
+            return text, options
+        elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
+            text = "You get 3 points in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m02"})
+            return text, options
+        
+    elif int(raw_input) == 1: # Guild Hall
+        
+        if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
+            text = "You get 3 points in the control group."
+            options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c12"})
+            return text, options
+        elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5e12"})
+            return text, options
+        elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s12"})
+            return text, options
+        elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
+            text = "You get 2 points in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m12"})
+            return text, options
+        
+    elif int(raw_input) == 2: # streets
+        
+        if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
+            text = "You get 2 points in the control group."
+            options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c22"})
+            return text, options
+        elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
+            text = "You get 2 points in the science group.."
+            options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e22"})
+            return text, options
+        elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
+            text = "You get 3 points in the malefaction group."
+            options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s22"})
+            return text, options
+        elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
+            text = "You get 2 points in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m22"})
+            return text, options
+        elif caller.db.house == "Reeves" or caller.db.mirrorhouse == "Reeves":
+            text = "You get 1 point in the combat group."
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5r22"})
+            return text, options
+            
+    text = "Select your early career."
+    options = ({"key": "0", "desc": "Merchant", "goto": "menunode_lpm6"},
+               {"key": "1", "desc": "Money-Lender", "goto": "menunode_lpm6"},
+               {"key": "2", "desc": "Pilot", "goto": "menunode_lpm6"},
+               {"key": "3", "desc": "Engineer", "goto": "menunode_lpm6"},
+               {"key": "4", "desc": "Gunner", "goto": "menunode_lpm6"},
+               {"key": "5", "desc": "Soldier", "goto": "menunode_lpm6"},
+               {"key": "6", "desc": "Combat Engineer", "goto": "menunode_lpm6"},
+               {"key": "7", "desc": "Scholar", "goto": "menunode_lpm6"},
+               {"key": "8", "desc": "Scientist", "goto": "menunode_lpm6"},
+               {"key": "9", "desc": "Thief", "goto": "menunode_lpm6"},
+               {"key": "10", "desc": "Spy", "goto": "menunode_lpm6"})
+    return text, options
+    
+    
+def menunode_lpm5c02(caller):
+    text = "Second point in control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c03"})
+    return text, options
+
+    
+def menunode_lpm5c03(caller):
+    text = "Third point in control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5e02(caller):
+    text = "You get 2 points in the science group. Second Point."
+    options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+
+def menunode_lpm5s02(caller):
+    text = "You now get 3 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s03"})
+    return text, options
+    
+    
+def menunode_lpm5s03(caller):
+    text = "You now get 3 points in the malefaction group. Second Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s04"})
+    return text, options
+    
+    
+def menunode_lpm5s04(caller):
+    text = "You now get 3 points in the malefaction group. Third Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5m02(caller):
+    text = "Combat point 2."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m03"})
+    return text, options
+    
+    
+def menunode_lpm5m03(caller):
+    text = "Combat point 3."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m04"})
+    return text, options
+    
+    
+def menunode_lpm5m04(caller):
+    text = "You get 2 points in the control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m05"})
+    return text, options
+    
+    
+def menunode_lpm5m05(caller):
+    text = "Second control point."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m06"})
+    return text, options
+    
+
+def menunode_lpm5m06(caller):
+    text = "You now get 1 point in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+def menunode_lpm5c12(caller):
+    text = "Second Control Point."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c13"})
+    return text, options
+    
+def menunode_lpm5c13(caller):
+    text = "Third Control Point."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c14"})
+    return text, options
+    
+
+def menunode_lpm5c14(caller):
+    text = "You get 1 point in the social group."
+    options = ({"key": "0", "desc": "Empathy", "exec": addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "1", "desc": "Etiquette", "exec": addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "2", "desc": "Influence", "exec": addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "3", "desc": "Knavery", "exec": addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "4", "desc": "Leadership", "exec": addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm5c15"})
+    return text, options
+    
+def menunode_lpm5c15(caller):
+    text = "Enter your free language."
+    options = ({"key": "_default", "goto": "menunode_lpm5c16"})
+    return text, options
+    
+
+def menunode_lpm5c16(caller, raw_input):
+    addsheet(caller, raw_input, 'Languages', 0)
+    text = "Select your early career."
+    options = ({"key": "0", "desc": "Merchant", "goto": "menunode_lpm6"},
+               {"key": "1", "desc": "Money-Lender", "goto": "menunode_lpm6"},
+               {"key": "2", "desc": "Pilot", "goto": "menunode_lpm6"},
+               {"key": "3", "desc": "Engineer", "goto": "menunode_lpm6"},
+               {"key": "4", "desc": "Gunner", "goto": "menunode_lpm6"},
+               {"key": "5", "desc": "Soldier", "goto": "menunode_lpm6"},
+               {"key": "6", "desc": "Combat Engineer", "goto": "menunode_lpm6"},
+               {"key": "7", "desc": "Scholar", "goto": "menunode_lpm6"},
+               {"key": "8", "desc": "Scientist", "goto": "menunode_lpm6"},
+               {"key": "9", "desc": "Thief", "goto": "menunode_lpm6"},
+               {"key": "10", "desc": "Spy", "goto": "menunode_lpm6"})
+    return text, options
+    
+
+def menunode_lpm5e12(caller):
+    text = "You get 2 points in the science group."
+    options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e13"})
+    return text, options
+    
+
+def menunode_lpm5e13(caller):
+    text = "You get 2 points in the science group. Second Point."
+    options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+
+def menunode_lpm5s12(caller):
+    text = "You now get 2 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s13"})
+    return text, options
+    
+
+def menunode_lpm5s13(caller):
+    text = "You now get 2 points in the malefaction group. Second Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5m12(caller):
+    text = "Second Combat Point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m13"})
+    return text, options
+    
+
+def menunode_lpm5m13(caller):
+    text = "You get 1 point in the control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m14"})
+    return text, options
+    
+
+def menunode_lpm5m14(caller):
+    text = "You now get 3 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m15"})
+    return text, options
+    
+    
+def menunode_lpm5m15(caller):
+    text = "You now get 3 points in the malefaction group. Second Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m16"})
+    return text, options
+    
+
+def menunode_lpm5m16(caller):
+    text = "You now get 3 points in the malefaction group. Third Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5c22(caller):
+    text = "Second Control Point."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c23"})
+    return text, options
+    
+    
+def menunode_lpm5c23(caller):
+    text = "You get one point in the combat group."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5c24"})
+    return text, options
+    
+    
+def menunode_lpm5c24(caller):
+    text = "You now get 2 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5c25"})
+    return text, options
+    
+    
+def menunode_lpm5c25(caller):
+    text = "You now get 2 points in the malefaction group. Second Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+
+def menunode_lpm5e22(caller):
+    text = "You get 2 points in the science group. Second Point."
+    options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e23"})
+    return text, options
+    
+    
+def menunode_lpm5e23(caller):
+    text = "You now get 1 point in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5s22(caller):
+    text = "Second Malefaction Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s23"})
+    return text, options
+    
+    
+def menunode_lpm5s23(caller):
+    text = "Third Malefaction Point."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s24"})
+    return text, options
+    
+
+def menunode_lpm5s24(caller):
+    text = "You get 2 points in the combat group."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s25"})
+    return text, options
+    
+def menunode_lpm5s25(caller):
+    text = "Second Combat Point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5m22(caller):
+    text = "Second Combat Point."
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m23"})
+    return text, options
+    
+
+def menunode_lpm5m23(caller):
+    text = "You get one point in the control group."
+    options = ({"key": "0", "desc": "Aircraft", "exec": addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "1", "desc": "Beastcraft", "exec": addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "2", "desc": "Landcraft", "exec": addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "3", "desc": "Watercraft", "exec": addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "4", "desc": "Ride", "exec": addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m24"})
+    return text, options
+    
+    
+def menunode_lpm5m24(caller):
+    text = "You get 2 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m25"})
+    return text, options
+    
+    
+def menunode_lpm5m25(caller):
+    text = "You get 2 points in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5r22(caller):
+    text = "You get one point in the malefaction group."
+    options = ({"key": "0", "desc": "Lockpicking", "exec": addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    return text, options
+    
+    
+def menunode_lpm5cc(caller):
+    text = "Select your early career."
+    options = ({"key": "0", "desc": "Merchant", "goto": "menunode_lpm6"},
+               {"key": "1", "desc": "Money-Lender", "goto": "menunode_lpm6"},
+               {"key": "2", "desc": "Pilot", "goto": "menunode_lpm6"},
+               {"key": "3", "desc": "Engineer", "goto": "menunode_lpm6"},
+               {"key": "4", "desc": "Gunner", "goto": "menunode_lpm6"},
+               {"key": "5", "desc": "Soldier", "goto": "menunode_lpm6"},
+               {"key": "6", "desc": "Combat Engineer", "goto": "menunode_lpm6"},
+               {"key": "7", "desc": "Scholar", "goto": "menunode_lpm6"},
+               {"key": "8", "desc": "Scientist", "goto": "menunode_lpm6"},
+               {"key": "9", "desc": "Thief", "goto": "menunode_lpm6"},
+               {"key": "10", "desc": "Spy", "goto": "menunode_lpm6"})
+    return text, options
+    
+    
+def menunode_lpm6(caller, raw_input):
+    apply_path_guild(caller, 1, int(raw_input), 'None')
+    
+    if int(raw_input) == 0:  # Merchant
+        text = "You get one point in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6m01"})
+        return text, options
+    elif int(raw_input) == 1:  # Money Lender
+        text = "You get one point in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ml01"})
+        return text, options
+    elif int(raw_input) == 2:  # Pilot 
+        text = "You get 2 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6p01"})
+        return text, options
+    elif int(raw_input) == 3:  # Engineer
+        text = "You get 2 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6e01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6e01"})
+        return text, options
+    elif int(raw_input) == 4:  # Gunner
+        text = "You get 2 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6g01"})
+        return text, options
+    elif int(raw_input) == 5:  # Soldier
+        text = "You get 7 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s01"})
+        return text, options
+    elif int(raw_input) == 6:  # Combat Engineer
+        text = "You get 3 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce01"})
+        return text, options
+    elif int(raw_input) == 7 or int(raw_input) == 8:  # Scholar and Scientist. They both pick 5 points of science, nothing more.
+        text = "You get 5 points in the science group."
+        options = ({"key": "0", "desc": "Applied Science", "exec": addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "1", "desc": "Life Science", "exec": addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "2", "desc": "Social Science", "exec": addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "3", "desc": "Physical Science", "exec": addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "4", "desc": "Terraforming", "exec": addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi01"})
+        return text, options
+    elif int(raw_input) == 9:  # Thief
+        text = "You get 2 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6t01"})
+        return text, options
+    elif int(raw_input) == 10: # Spy
+        text = "You get 2 points in the combat group."
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "1", "desc": "Archery", "exec": addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "2", "desc": "Artillery", "exec": addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "3", "desc": "Demolitions", "exec": addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "5", "desc": "Fight", "exec": addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "6", "desc": "Gunnery", "exec": addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "7", "desc": "Melee", "exec": addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6spy01"})
+        return text, options
