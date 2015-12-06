@@ -35,6 +35,8 @@ househelper = {'0': 'Hawkwood', '1': 'Decados', '2': 'Hazat', '3': 'Li Halan', '
 priesthelper = {'0': 'Urth Orthodox', '1': 'Brother Battle', '2': 'Eskatonic Order', '3': 'Temple Avesti', '4': 'Sanctuary Aeon'}
 # Parses guilds like househelper
 guildhelper = {'0': 'Charioteers', '1': 'Engineers', '2': 'Scravers', '3': 'Muster', '4': 'Reeves'}
+# List of guild only skills for verification
+guildonly = {'applied science': 0, 'life science': 0, 'physical science': 0, 'terraforming': 0, 'spacecraft': 0, 'spacecraft operations': 0, 'tech redemption': 0, 'think machine': 0, 'jumpweb lore': 0, 'system lore': 0}
 
 
 # apply blessing and curse
@@ -1290,8 +1292,97 @@ def menunode_lpn3(caller, raw_input):
 
 
     options = ({"key": "0", "desc": "Stay a Noble", "goto": "menunode_lpn4"},
-               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_NOBLE_TO_PRIEST"},
-               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_NOBLE_TO_MERCHANT"})
+               {"key": "1", "desc": "Move to Priests", "exec": priests, "goto": "menunode_lpn2p"},
+               {"key": "2", "desc": "Move to Merchants", "exec": merchants, "goto": "menunode_lpn2m"})
+    return text, options
+    
+    
+def menunode_lpn2m(caller):
+    caller.db.archetype = "Merchant"
+    text = "Great, Welcome to the Guild. Which one did you join?"
+    options = ({"key": "0", "desc": "Charioteers", "goto": "menunode_lpn2m2"},
+               {"key": "1", "desc": "Engineers", "goto": "menunode_lpn2m2"},
+               {"key": "2", "desc": "Scravers", "goto": "menunode_lpn2m2"},
+               {"key": "3", "desc": "The Muster", "goto": "menunode_lpn2m2"},
+               {"key": "4", "desc": "The Reeves", "goto": "menunode_lpn2m2"},
+               {"key": "5", "desc": "Yeoman", "goto": "menunode_lpn2m2"})
+    return text, options
+    
+
+def menunode_lpn2m2(caller, raw_input):
+    if int(raw_input) == 5:
+        caller.db.minor = 1
+        caller.db.house = "Yeoman"
+        text = "Yeoman, Freelancer. Got it, what house are you mirroring for bonuses?"
+        options = ({"key": "0", "desc": "Charioteers", "goto": "menunode_lpn2m2m"},
+                   {"key": "1", "desc": "Engineers", "goto": "menunode_lpn2m2m"},
+                   {"key": "2", "desc": "Scravers", "goto": "menunode_lpn2m2m"},
+                   {"key": "3", "desc": "The Muster", "goto": "menunode_lpn2m2m"},
+                   {"key": "4", "desc": "The Reeves", "goto": "menunode_lpn2m2m"})
+        return text, options
+        
+    caller.db.house = guildhelper[raw_input]
+    
+    text = "Now you will pick an apprenticeship."
+    options = ({"key": "0", "desc": "Academy", "goto": "menunode_lpm5"},
+               {"key": "1", "desc": "Guild Hall", "goto": "menunode_lpm5"},
+               {"key": "2", "desc": "The Streets", "goto": "menunode_lpm5"})
+        
+    return text, options
+    
+    
+def menunode_lpn2m2m(caller, raw_input):
+    caller.db.mirrorhouse = guildhelper[raw_input]
+    
+    text = "Now you will pick an apprenticeship."
+    options = ({"key": "0", "desc": "Academy", "goto": "menunode_lpm5"},
+               {"key": "1", "desc": "Guild Hall", "goto": "menunode_lpm5"},
+               {"key": "2", "desc": "The Streets", "goto": "menunode_lpm5"})
+               
+    if caller.db.minor: # no academy for yeoman
+        options = [x for x in options if x['key'] != '0']
+        
+    return text, options
+    
+    
+def menunode_lpn2p(caller):
+    caller.db.archetype = "Priest"
+    text = "Great, welcome to the Universal Church. What sect did you join?"
+    options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lpn2p2"},
+               {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lpn2p2"},
+               {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lpn2p2"},
+               {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lpn2p2"},
+               {"key": "5", "desc": "Mendicant Monks", "goto": "menunode_lpn2p2"})
+    return text, options
+    
+    
+def menunode_lpn2p2(caller, raw_input):
+    if int(raw_input) == 5:
+        caller.db.minor = 1
+        caller.db.house = "Mendicant Monks"
+        text = "Mendicants are great, now tell me what sect you're mirroring for bonuses."
+        options = ({"key": "0", "desc": "Urth Orthodox", "goto": "menunode_lpn2p2m"},
+                   {"key": "2", "desc": "Eskatonic Order", "goto": "menunode_lpn2p2m"},
+                   {"key": "3", "desc": "Temple Avesti", "goto": "menunode_lpn2p2m"},
+                   {"key": "4", "desc": "Sanctuary Aeon", "goto": "menunode_lpn2p2m"})
+        return text, options
+    
+    caller.db.house = priesthelper[raw_input]
+    
+    text = "At this point you choose your apprenticeship."
+    options = ({"key": "0", "desc": "Cathedral", "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Parish", "goto": "menunode_lpp5"},
+               {"key": "2", "desc": "Monastery", "goto": "menunode_lpp5"})
+    return text, options
+    
+
+def menunode_lpn2p2m(caller, raw_input):
+    caller.db.mirrorhouse = priesthelper[raw_input]
+    
+    text = "At this point you choose your apprenticeship."
+    options = ({"key": "0", "desc": "Cathedral", "goto": "menunode_lpp5"},
+               {"key": "1", "desc": "Parish", "goto": "menunode_lpp5"},
+               {"key": "2", "desc": "Monastery", "goto": "menunode_lpp5"})
     return text, options
 
 
@@ -1715,7 +1806,9 @@ def menunode_lpnq592(caller, raw_input):
     addsheet(caller, raw_input, 'Languages', 0)
     caller.db.benefices['Rank'] = 'Knight'
 
-    # Tour of Duty
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
 # QUESTING KNIGHTS END
 
 
@@ -1927,8 +2020,9 @@ def menunode_lpn6a4(caller):
     
 
 def menunode_lpn6cc(caller):
-    pass
-    # TOUR OF DUTY
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
     # End Noble Section
 
@@ -2253,12 +2347,17 @@ def menunode_lpp6(caller, raw_input):
                    {"key": "9", "desc": "Throwing", "exec": addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp6i2"})
         return text, options
         
-    # TOUR OF DUTY
+        
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
     
 def menunode_lpp6m2(caller, raw_input):
     addsheet(caller, 'Craft ' + raw_input, 'Skills', 2)
-    # TOUR OF DUTY
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
 def menunode_lpp6i2(caller):
     text = "You get 2 points in the combat group. Second Point"
@@ -2396,7 +2495,9 @@ def menunode_lppbb6(caller, raw_input):
     elif int(raw_input) == 9:
         caller.db.actions['Pistola'] = ['Criticorum Reload', 'Snap Shot', 'Roll and Shoot', 'Run and Gun']
         
-    # TOUR OF DUTY
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
     
 def menunode_lpp6cc(caller):
@@ -3296,8 +3397,9 @@ def menunode_lpm6m05(caller):
     
 def menunode_lpm6m06(caller, raw_input):
     addsheet(caller, raw_input, 'Languages', 0)
-    pass
-    # TOUR OF DUTY
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
 
 def menunode_lpm6ml01(caller):
@@ -3328,8 +3430,9 @@ def menunode_lpm6ml03(caller):
     
 def menunode_lpm6ml04(caller, raw_input):
     addsheet(caller, raw_input, 'Languages', 0)
-    pass
-    # TOUR OF DUTY
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
 
 def menunode_lpm6p01(caller):
@@ -3745,6 +3848,439 @@ def menunode_lpm6spy06(caller):
     
     
 def menunode_lpm6cc(caller):
-    # Tour of Duty
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
     
 # END GUILD SECTION
+
+
+# BEGIN TOUR OF DUTY SECTION
+
+def menunode_todstart(caller, raw_input):
+    addsheet(caller, 'Planetary Lore.' + raw_input, 'Skills', 3)
+    
+    if caller.db.questing:
+        text = "Normally you get to choose two tours of duty. In your case you only get one choice.\n"
+        text += "As a questing knight you are required to make your first tour Questing Knight.\n"
+        text += "You get to pick an attribute to increase by 2."
+        options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
+        return text, options
+        
+    else:
+        text = "You now get to pick two tours of duty."
+        options = ({"key": "0", "desc": "Career Tour", "goto": "menunode_todct2"},
+                   {"key": "1", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                   {"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},
+                   {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"})
+                   
+        if caller.db.archetype == "Noble":
+            options.append({"key": "4", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+        elif caller.db.archetype == "Priest" or caller.db.archetype == "Merchant":
+            options.append({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+        
+        return text, options
+        
+def menunode_todqk1(caller):
+    text = "You get to pick an attribute to increase by 2."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
+    return text, options
+    
+    
+def menunode_todqk2(caller, raw_input):
+    caller.db.todsp = 7
+    text = "You get to pick an attribute to increase by 1."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todqk3"})
+               
+    options = [for x in options if x['key'] != raw_input]
+               
+    return text, options
+    
+    
+def menunode_todqk3(caller, raw_input):
+    if caller.db.todsp == 0:
+        caller.db.benefices['Imperial Charter'] = 'Carried'
+        caller.db.tours.append('Questing Knight')
+        if len(caller.db.tours) != 2:
+            text = "Now you get to pick your second tour of duty."
+            options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
+                       {"key": "1", "desc": "Career Tour", "goto": "menumode_todct2"},
+                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
+                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
+            return text, options
+        else:
+            text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+            options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+            return text, options
+        
+    caller.db.todsp -= 1
+    text = "You get 7 points of skills. You can improve existing or choose new ones.\n"
+    
+    if not raw_input.isdigit():
+        if raw_input.lower() in guildonly:
+            caller.db.todsp += 1
+            text += "The last skill you entered was guild only. Pick another.\n"
+        else:
+            addsheet(caller, raw_input, 'Skills', 1)
+        
+    text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
+    options = ({"key": "_default", "goto": "menunode_todqk3"})
+    
+    i = 0
+    for x in caller.db.skills.keys():
+        options.append({"key": str(i), "desc": x, "exec": addsheet(caller, x, 'Skills', 1), "goto": "menunode_todqk3"})
+        i+=1
+        
+    return text, options
+    
+
+def menunode_todct2(caller):
+    text = "You get to pick an attribute to increase by 2."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todct3"})
+    return text, options
+    
+
+def menunode_todct3(caller, raw_input):
+    caller.db.todsp = 7
+    text = "You get to pick an attribute to increase by 1."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todct4"})
+               
+    options = [for x in options if x['key'] != raw_input]
+               
+    return text, options
+    
+    
+def menunode_todct4(caller, raw_input):
+    if caller.db.todsp == 0:
+        caller.db.tours.append('Career Tour')
+        if len(caller.db.tours) != 2:
+            text = "Now you get to pick your second tour of duty."
+            options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
+                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
+                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
+                       
+            if caller.db.archetype == "Noble":
+                options.append({"key": "5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+                    
+            return text, options
+        else:
+            text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+            options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+            return text, options
+        
+    caller.db.todsp -= 1
+    text = "You get 11 points of skills. You can improve existing or choose new ones.\n"
+    
+    if not raw_input.isdigit():
+        if raw_input.lower() in guildonly and not caller.db.archetype == "Merchant":
+            caller.db.todsp += 1
+            text += "The last skill you entered was guild only. Pick another.\n"
+        else:
+            addsheet(caller, raw_input, 'Skills', 1)
+        
+    text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
+    options = ({"key": "_default", "goto": "menunode_todct4"})
+    
+    i = 0
+    for x in caller.db.skills.keys():
+        options.append({"key": str(i), "desc": x, "exec": addsheet(caller, x, 'Skills', 1), "goto": "menunode_todct4"})
+        i += 1
+        
+    return text, options
+    
+    
+def menunode_todic2(caller):
+    text = "You get to pick an attribute to increase by 2."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todic3"})
+    return text, options
+    
+
+def menunode_todic3(caller, raw_input):
+    caller.db.todsp = 7
+    text = "You get to pick an attribute to increase by 1."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todic4"})
+               
+    options = [for x in options if x['key'] != raw_input]
+               
+    return text, options
+    
+
+def menunode_todic4(caller, raw_input):
+    if caller.db.todsp == 0:
+        caller.db.benefices['Cohort Badge'] = 'Carried'
+        caller.db.tours.append('Imperial Cohort')
+        if len(caller.db.tours) != 2:
+            text = "Now you get to pick your second tour of duty."
+            options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
+                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
+                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
+                       {"key": "5", "desc": "Career Tour", "goto": "menumode_todct2"})
+            return text, options
+        else:
+            text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+            options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+            return text, options
+        
+    caller.db.todsp -= 1
+    text = "You get 8 points of skills. You can improve existing or choose new ones.\n"
+    
+    if not raw_input.isdigit():
+        if raw_input.lower() in guildonly:
+            caller.db.todsp += 1
+            text += "The last skill you entered was guild only. Pick another.\n"
+        else:
+            addsheet(caller, raw_input, 'Skills', 1)
+        
+    text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
+    options = ({"key": "_default", "goto": "menunode_todic4"})
+    
+    i = 0
+    for x in caller.db.skills.keys():
+        options.append({"key": str(i), "desc": x, "exec": addsheet(caller, x, 'Skills', 1), "goto": "menunode_todic4"})
+        i += 1
+        
+    return text, options
+    
+    
+def menunode_todnp2(caller):
+    addsheet(caller, 'Psi', 'Attributes', 3)
+    caller.db.wyrd += 2
+    text = "Choose a psychic path."
+    options = ({"key": "0", "desc": "Farhand", "goto": "menunode_todnp3"},
+               {"key": "1", "desc": "Omen", "goto": "menunode_todnp3"},
+               {"key": "2", "desc": "Psyche", "goto": "menunode_todnp3"},
+               {"key": "3", "desc": "Sixth Sense", "goto": "menunode_todnp3"},
+               {"key": "4", "desc": "Soma", "goto": "menunode_todnp3"},
+               {"key": "5", "desc": "Sympathy", "goto": "menunode_todnp3"},
+               {"key": "6", "desc": "Vis Craft", "goto": "menunode_todnp3"})
+    return text, options
+    
+    
+def menunode_todnp3(caller, raw_input):
+    
+    if int(raw_input) == 0:
+        caller.db.occult['Farhand'] = [ 'Lifting Hand', 'Throwing Hand', 'Crushing Hand' ]
+        addsheet(caller, 'Farhand', 'Skills', 3)
+    elif int(raw_input) == 1:
+        caller.db.occult['Omen'] = []
+        addsheet(caller, 'Omen', 'Skills', 3)
+    elif int(raw_input) == 2:
+        caller.db.occult['Psyche'] = [ 'Intuit', 'Emote', 'Mindsight' ]
+        addsheet(caller, 'Psyche', 'Skills', 3)
+    elif int(raw_input) == 3:
+        caller.db.occult['Sixth Sense'] = [ 'Sensitivity', 'Darksense', 'Subtle Sight' ]
+        addsheet(caller, 'Sixth Sense', 'Skills', 3)
+    elif int(raw_input) == 4:
+        caller.db.occult['Soma'] = [ 'Toughening', 'Strengthening', 'Quickening' ]
+        addsheet(caller, 'Soma', 'Skills', 3)
+    elif int(raw_input) == 5:
+        caller.db.occult['Sympathy'] = [ 'Bond' ]
+        addsheet(caller, 'Sympathy', 'Skills', 3)
+    elif int(raw_input) == 6:
+        caller.db.occult['Vis Craft'] = [ 'Vis Eye', 'Vis Drain', 'Vis Chakra', 'Vis Flow' ]
+        addsheet(caller, 'Vis Craft', 'Skills', 3)
+        
+    text = "Enter a skill to add +1 to. This should be related to the psychic path you just picked."
+    options = ({"key": "_default", "goto": "menunode_todnp4"})
+    return text, options
+    
+    
+def menunode_todnp4(caller, raw_input):
+    addsheet(caller, raw_input, 'Skills', 1)
+    
+    caller.db.tours.append('Natal Psi')
+    
+    if len(caller.db.tours) != 2:
+        text = "Now you get to pick your second tour of duty."
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                   {"key": "1", "desc": "Savant Psi", "goto": "menumode_todsp2"},
+                   {"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
+                   {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
+                   {"key": "4", "desc": "Career Tour", "goto": "menumode_todct2"})
+                   
+        if caller.db.archetype == "Noble":
+            options.append({"key":"5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+        else:
+            options.append({"key": "5", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+                   
+        return text, options
+    else:
+        text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+        options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+        return text, options
+        
+        
+def menunode_todsp2(caller):
+    addsheet(caller, 'Psi', 'Attributes', 2)
+    caller.db.wyrd += 1
+    
+    if 'Farhand' in caller.db.occult:
+        caller.db.skills['Farhand'] = 5
+        caller.db.occult['Farhand'].append('Dueling Hand')
+    elif 'Omen' in caller.db.occult:
+        caller.db.skills['Omen'] = 5
+    elif 'Psyche' in caller.db.occult:
+        caller.db.skills['Psyche'] = 5
+        caller.db.occult['Psyche'].append('MindSpeech')
+        caller.db.occult['Psyche'].append("Heart's Command")
+        caller.db.occult['Psyche'].append('MindSearch')
+    elif 'Sixth Sense' in caller.db.occult:
+        caller.db.skills['Sixth Sense'] = 5
+        caller.db.occult['Sixth Sense'].append('Premonition')
+        caller.db.occult['Sixth Sense'].append('FarSight')
+    elif 'Soma' in caller.db.occult:
+        caller.db.skills['Soma'] = 5
+        caller.db.occult['Soma'].append('Hardening')
+        caller.db.occult['Soma'].append('Sizing')
+    elif 'Sympathy' in caller.db.occult:
+        caller.db.skills['Sympathy'] = 5
+        caller.db.occult['Sympathy'].append('Sanctum')
+        caller.db.occult['Sympathy'].append('Totem')
+    elif 'Vis Craft' in caller.db.occult:
+        caller.db.skills['Vis Craft'] = 5
+        caller.db.occult['Vis Craft'].append('Vis Siphon')
+        caller.db.occult['Vis Craft'].append('Vis Shock')
+    
+    text = "Pick another Psi Path to get 2 levels in."
+    options = ({"key": "0", "desc": "Farhand", "goto": "menunode_todsp4"},
+               {"key": "1", "desc": "Omen", "goto": "menunode_todsp4"},
+               {"key": "2", "desc": "Psyche", "goto": "menunode_todsp4"},
+               {"key": "3", "desc": "Sixth Sense", "goto": "menunode_todsp4"},
+               {"key": "4", "desc": "Soma", "goto": "menunode_todsp4"},
+               {"key": "5", "desc": "Sympathy", "goto": "menunode_todsp4"},
+               {"key": "6", "desc": "Vis Craft", "goto": "menunode_todsp4"})
+               
+    options = [for x in options where x['desc'] not in caller.db.occult]
+               
+    return text, options
+    
+    
+def menunode_todsp4(caller, raw_input):
+    
+    if int(raw_input) == 0:
+        caller.db.occult['Farhand'] = [ 'Lifting Hand', 'Throwing Hand' ]
+        addsheet(caller, 'Farhand', 'Skills', 2)
+    elif int(raw_input) == 1:
+        caller.db.occult['Omen'] = []
+        addsheet(caller, 'Omen', 'Skills', 2)
+    elif int(raw_input) == 2:
+        caller.db.occult['Psyche'] = [ 'Intuit', 'Emote' ]
+        addsheet(caller, 'Psyche', 'Skills', 2)
+    elif int(raw_input) == 3:
+        caller.db.occult['Sixth Sense'] = [ 'Sensitivity', 'Darksense' ]
+        addsheet(caller, 'Sixth Sense', 'Skills', 2)
+    elif int(raw_input) == 4:
+        caller.db.occult['Soma'] = [ 'Toughening', 'Strengthening' ]
+        addsheet(caller, 'Soma', 'Skills', 2)
+    elif int(raw_input) == 5:
+        caller.db.occult['Sympathy'] = []
+        addsheet(caller, 'Sympathy', 'Skills', 2)
+    elif int(raw_input) == 6:
+        caller.db.occult['Vis Craft'] = [ 'Vis Eye', 'Vis Drain' ]
+        addsheet(caller, 'Vis Craft', 'Skills', 2)
+    
+    caller.db.tours.append('Savant Psi')
+    
+    text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+    options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+    return text, options
+    
+# END TOUR OF DUTY SECTION
+
+# BEGIN BONUSPOINTS SECTION
+
+def menunode_bonuspointcalc(caller):
+    caller.db.bonus = 0
+    
+    # calculate skills and attributes over 8 if any
+    for x in caller.db.attributes.keys():
+        if caller.db.attributes[x] > 8:
+            caller.db.bonus = caller.db.attributes[x] - 8
+            caller.db.attributes[x] = 8
+    for x in caller.db.skills.keys():
+        if caller.db.skills[x] > 8:
+            caller.db.bonus = caller.db.skills[x] - 8
+            caller.db.skills[x] = 8
+            
+    if caller.db.bonus:
+        text = "Some of your attributes and skills were over 8 and had to be lowered.\n"
+        text += "You can now use those points regained to purchase extra items. What do you want?\n"
+        text += "You have %i points remaining." % caller.db.bonus
+        options = ({})
+        return text, options
+    else:
+        text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
+        options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
+        return text, options
+
+
+def menunode_bonuspoints(caller):
+    if caller.db.bonus:
+        text = "Some of your attributes and skills were over 8 and had to be lowered.\n"
+        text += "You can now use those points regained to purchase extra items. What do you want?\n"
+        text += "You have %i points remaining." % caller.db.bonus
+        options = ({})
+        return text, options
+    else:
+        text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
+        options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
+        return text, options

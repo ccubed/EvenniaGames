@@ -27,3 +27,8 @@ def addsheet(pc, what, which, amt):
     elif which == 'Languages':
         if not what in pc.db.languages:
             pc.db.languages.append(what)
+    elif which == 'Occult':
+        if not what in pc.db.occult:
+            pc.db.occult[what] = which
+        else:
+            pc.db.occult[what].append(which)
