@@ -3961,7 +3961,7 @@ def menunode_todqk3(caller, raw_input):
             fsutils.addsheet(caller, raw_input, 'Skills', 1)
         
     text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
-    options = ({"key": "_default", "goto": "menunode_todqk3"})
+    options = ({"key": "_default", "goto": "menunode_todqk3"},)
     
     i = 0
     for x in caller.db.skills.keys():
@@ -4035,7 +4035,7 @@ def menunode_todct4(caller, raw_input):
             fsutils.addsheet(caller, raw_input, 'Skills', 1)
         
     text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
-    options = ({"key": "_default", "goto": "menunode_todct4"})
+    options = ({"key": "_default", "goto": "menunode_todct4"},)
     
     i = 0
     for x in caller.db.skills.keys():
@@ -4108,7 +4108,7 @@ def menunode_todic4(caller, raw_input):
             fsutils.addsheet(caller, raw_input, 'Skills', 1)
         
     text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
-    options = ({"key": "_default", "goto": "menunode_todic4"})
+    options = ({"key": "_default", "goto": "menunode_todic4"},)
     
     i = 0
     for x in caller.db.skills.keys():
@@ -4466,7 +4466,7 @@ def menunode_todmt4(caller, raw_input):
             fsutils.addsheet(caller, raw_input, 'Skills', 1)
         
     text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
-    options = ({"key": "_default", "goto": "menunode_todmt4"})
+    options = ({"key": "_default", "goto": "menunode_todmt4"},)
     
     i = 0
     for x in caller.db.skills.keys():
