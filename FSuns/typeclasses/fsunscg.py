@@ -3922,7 +3922,7 @@ def menunode_todqk2(caller, raw_input):
                {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todqk3"},
                {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todqk3"})
                
-    options = [for x in options if x['key'] != raw_input]
+    options = [x for x in options if x['key'] != raw_input]
                
     return text, options
     
@@ -3995,7 +3995,7 @@ def menunode_todct3(caller, raw_input):
                {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todct4"},
                {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todct4"})
                
-    options = [for x in options if x['key'] != raw_input]
+    options = [x for x in options if x['key'] != raw_input]
                
     return text, options
     
@@ -4069,7 +4069,7 @@ def menunode_todic3(caller, raw_input):
                {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todic4"},
                {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todic4"})
                
-    options = [for x in options if x['key'] != raw_input]
+    options = [x for x in options if x['key'] != raw_input]
                
     return text, options
     
@@ -4225,7 +4225,7 @@ def menunode_todsp2(caller):
                {"key": "5", "desc": "Sympathy", "goto": "menunode_todsp4"},
                {"key": "6", "desc": "Vis Craft", "goto": "menunode_todsp4"})
                
-    options = [for x in options where x['desc'] not in caller.db.occult]
+    options = [x for x in options where x['desc'] not in caller.db.occult]
                
     return text, options
     
@@ -4353,7 +4353,7 @@ def menunode_todat2(caller):
                {"key": "4", "desc": "Temple Avesti Rituals", "goto": "menunode_todat3"},
                {"key": "5", "desc": "Sanctuary Aeon Rituals", "goto": "menunode_todat3"})
                
-    options = [for x in options if x['desc'] not in caller.db.occult]
+    options = [x for x in options if x['desc'] not in caller.db.occult]
     
     return text, options
     
@@ -4439,7 +4439,7 @@ def menunode_todmt3(caller, raw_input):
                {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todmt4"},
                {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todmt4"})
                
-    options = [for x in options if x['key'] != raw_input]
+    options = [x for x in options if x['key'] != raw_input]
                
     return text, options
     
@@ -4831,7 +4831,7 @@ def menunode_bonuspointcalc(caller):
                    {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
                    {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
                    
-        options = [for x in options if caller.db.attributes[x['desc']] != 8]
+        options = [x for x in options if caller.db.attributes[x['desc']] != 8]
         
         return text, options
     elif caller.db.bonusskills:
@@ -4862,7 +4862,7 @@ def menunode_bonusattrib(caller):
                    {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
                    {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
                    
-        options = [for x in options if caller.db.attributes[x['desc']] != 8]
+        options = [x for x in options if caller.db.attributes[x['desc']] != 8]
         
         return text, options
     else:
