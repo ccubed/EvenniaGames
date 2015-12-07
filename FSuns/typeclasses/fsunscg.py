@@ -1184,7 +1184,7 @@ def menunode_lpn2(caller, raw_input):
         caller.db.recbenefices.append('Passage Contract')
 
     caller.db.house = househelper[raw_input]
-    fsutils.addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
+    fsutils.addsheet(caller, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
 
     text = "At this point you select your upbringing. Depending on your house you will gain various bonuses."
     options = ({"key": "0", "desc": "High Court", "goto": "menunode_lpn3"},
@@ -1223,11 +1223,11 @@ def menunode_lpnq(caller, raw_input):
         caller.db.mirrorhouse = househelper[raw_input]
     elif int(raw_input) <= 4:
         caller.db.house = househelper[raw_input]
-        fsutils.addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
     elif 15 >= int(raw_input) >= 5:
         caller.db.minor = 1
         caller.db.house = househelper[raw_input]
-        fsutils.addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
         text = "Which major house do you want to mirror?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
                {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
@@ -1238,7 +1238,7 @@ def menunode_lpnq(caller, raw_input):
     elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
-        fsutils.addsheet(pc, 'Faction Lore: ' + raw_input, 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore: ' + raw_input, 'Skills', 3)
         text = "Which major house do you want to mirror?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
                {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
@@ -1589,6 +1589,7 @@ def menunode_lpn5dy3(caller, raw_input):
                {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
                {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
                {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpn5cc"})
+    return text, options
                
                
 def menunode_lpn5s2(caller, raw_input):
@@ -3888,12 +3889,12 @@ def menunode_todstart(caller, raw_input):
                    {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"})
                    
         if caller.db.archetype == "Noble":
-            options.append({"key": "4", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+            options = options + ({"key": "4", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
         elif caller.db.archetype == "Priest" or caller.db.archetype == "Merchant":
-            options.append({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            options = options + ({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetype == 'Priest':
-            options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
         
         return text, options
         
@@ -3941,7 +3942,7 @@ def menunode_todqk3(caller, raw_input):
                        {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
                        
             if caller.db.archetype == 'Priest':
-                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
                        
             return text, options
         else:
@@ -3964,7 +3965,7 @@ def menunode_todqk3(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options.append({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todqk3"})
+        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todqk3"},)
         i+=1
         
     return text, options
@@ -4012,10 +4013,10 @@ def menunode_todct4(caller, raw_input):
                        {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
                        
             if caller.db.archetype == "Noble":
-                options.append({"key": "5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+                options = options + ({"key": "5", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
                 
             if caller.db.archetype == 'Priest':
-                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
                     
             return text, options
         else:
@@ -4038,7 +4039,7 @@ def menunode_todct4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options.append({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todct4"})
+        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todct4"},)
         i += 1
         
     return text, options
@@ -4088,7 +4089,7 @@ def menunode_todic4(caller, raw_input):
                        {"key": "5", "desc": "Career Tour", "goto": "menumode_todct2"})
                        
             if caller.db.archetype == 'Priest':
-                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
             
             return text, options
         else:
@@ -4111,7 +4112,7 @@ def menunode_todic4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options.append({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todic4"})
+        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todic4"},)
         i += 1
         
     return text, options
@@ -4173,12 +4174,12 @@ def menunode_todnp4(caller, raw_input):
                    {"key": "4", "desc": "Career Tour", "goto": "menumode_todct2"})
                    
         if caller.db.archetype == "Noble":
-            options.append({"key":"5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+            options = options + ({"key":"5", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
         else:
-            options.append({"key": "5", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            options = options + ({"key": "5", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetype == 'Priest':
-            options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
                    
         return text, options
     else:
@@ -4305,9 +4306,9 @@ def menunode_todnt3(caller, raw_input):
                    {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
                    
         if caller.db.archetype == "Noble":
-            options.append({"key":"4", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+            options = options + ({"key":"4", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
         else:
-            options.append({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            options = options + ({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
                    
         return text, options
     else:
@@ -4400,12 +4401,12 @@ def menunode_todcyt2(caller):
                    {"key": "2", "desc": "Career Tour", "goto": "menumode_todct2"})
                    
         if caller.db.archetype == "Noble":
-            options.append({"key":"3", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+            options = options + ({"key":"3", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
         else:
-            options.append({"key": "3", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            options = options + ({"key": "3", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetpye == "Priest":
-            options.append({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+            options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
                    
         return text, options
     else:
@@ -4469,10 +4470,10 @@ def menunode_todmt4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options.append({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todmt4"})
+        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todmt4"},)
         i += 1
         
-    return text, option
+    return text, options
     
     
 def menunode_todmt5(caller, raw_input):
