@@ -4225,7 +4225,7 @@ def menunode_todsp2(caller):
                {"key": "5", "desc": "Sympathy", "goto": "menunode_todsp4"},
                {"key": "6", "desc": "Vis Craft", "goto": "menunode_todsp4"})
                
-    options = [x for x in options where x['desc'] not in caller.db.occult]
+    options = [x for x in options if x['desc'] not in caller.db.occult]
                
     return text, options
     
