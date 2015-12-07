@@ -6,6 +6,7 @@ Fading Suns specific commands.
 """
 
 from evennia import default_cmds
+from evennia.utils.evmenu import EvMenu
 from evennia.utils import evtable
 from evennia.utils.utils import *
 
@@ -15,7 +16,7 @@ class Sheet(default_cmds.MuxCommand):
     Sheet Display
     
     Usage:
-        +sheet
+        +sheet, sheet, score
         
     Display your sheet.
     """
@@ -68,3 +69,21 @@ class Sheet(default_cmds.MuxCommand):
                 else:
                     i += 1
             self.caller.msg(table)
+            
+            
+class ChargenStart(default_cmds.MuxCommand):
+    """
+    Enter Chargen
+    
+    Usage:
+        +cg, cg, chargen, start
+        
+    Start chargen.
+    """
+    
+    key = "+cg"
+    aliases = [ 'cg', 'chargen', 'start' ]
+    locks = "cmd:attr(approved,0)"
+    
+    def func(self):
+        EvMenu(self.caller, "typeclasses.fsunscg", startnode="menunode_start", cmdset_mergetype="union", allow_quit="true", cmd_on_quit="look")
