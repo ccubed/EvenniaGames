@@ -4841,6 +4841,11 @@ def menunode_bonuspointcalc(caller):
         options = ({"key": "_default", "goto": "menunode_bonusskills"})
         return text, options
     else:
+        caller.db.vitality = 5 + caller.db.attributes['Endurance']
+        if caller.db.attributes['Faith'] > caller.db.attributes['Will']:
+            caller.db.wyrd += caller.db.attributes['Faith']
+        else:
+            caller.db.wyrd += caller.db.attributes['Will']
         text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
         options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
         return text, options
@@ -4866,6 +4871,11 @@ def menunode_bonusattrib(caller):
         
         return text, options
     else:
+        caller.db.vitality = 5 + caller.db.attributes['Endurance']
+        if caller.db.attributes['Faith'] > caller.db.attributes['Will']:
+            caller.db.wyrd += caller.db.attributes['Faith']
+        else:
+            caller.db.wyrd += caller.db.attributes['Will']
         text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
         options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
         return text, options
@@ -4886,6 +4896,11 @@ def menunode_bonusskills(caller, raw_input):
         options = ({"key": "_default", "goto": "menunode_bonusskills"})
         return text, options
     else:
+        caller.db.vitality = 5 + caller.db.attributes['Endurance']
+        if caller.db.attributes['Faith'] > caller.db.attributes['Will']:
+            caller.db.wyrd += caller.db.attributes['Faith']
+        else:
+            caller.db.wyrd += caller.db.attributes['Will']
         text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
         options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
         return text, options
