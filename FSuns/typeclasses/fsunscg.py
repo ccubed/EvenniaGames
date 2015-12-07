@@ -4084,12 +4084,12 @@ def menunode_todic4(caller, raw_input):
         if len(caller.db.tours) != 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
-                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
-                       {"key": "5", "desc": "Career Tour", "goto": "menumode_todct2"})
+                       {"key": "1", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                       {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
+                       {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
                        
             if caller.db.archetype == 'Priest':
-                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+                options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
             
             return text, options
         else:
