@@ -57,4 +57,4 @@ class Character(DefaultCharacter):
         self.db.notes = {}
         self.db.firebirds = 250
         self.db.assets = 0
-        self.cmdset.add("fsunset.FSunSet")
+        self.cmdset.add("fsunsset.FSunSet", permanent=True)
