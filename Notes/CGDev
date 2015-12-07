@@ -1,1 +1,216 @@
-# Random CG Dev Notes
+# Work on Cybernetics
+def menunode_todcyt3(caller):
+    if caller.db.cyberpts == 0:
+        caller.db.tours.append('Cybernetically Tweaked')
+        if len(caller.db.tours) != 2:
+            text = "Now you get to pick your second tour of duty."
+            options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                       {"key": "1", "desc": "Adept Theurge", "goto": "menumode_todat2"},
+                       {"key": "2", "desc": "Loaded for Bear", "goto": "menumode_todcyt2"},
+                       {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
+            return text, options
+        else:
+            text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+            options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+            return text, options
+        
+    text = "What type of cybernetic?"
+    options = ({"key": "0", "desc": "Armor", "goto": "menunode_todcyt4"},
+               {"key": "1", "desc": "Chemical Pump", "goto": "menunode_todcyt4"},
+               {"key": "2", "desc": "Cyberlung", "goto": "menunode_todcyt4"},
+               {"key": "3", "desc": "Cybersense", "goto": "menunode_todcyt4"},
+               {"key": "4", "desc": "Efficient Organ", "goto": "menunode_todcyt4"},
+               {"key": "5", "desc": "Energy Shield", "goto": "menunode_todcyt4"},
+               {"key": "6", "desc": "Enhanced Characteristc", "goto": "menunode_todcyt4"},
+               {"key": "7", "desc": "Enhanced Reflexes", "goto": "menunode_todcyt4"},
+               {"key": "8", "desc": "Enhanced Vitality", "goto": "menunode_todcyt4"},
+               {"key": "9", "desc": "Extra Limb", "goto": "menunode_todcyt4"},
+               {"key": "10", "desc": "Flesh Cavity", "goto": "menunode_todcyt4"},
+               {"key": "11", "desc": "Flight", "goto": "menunode_todcyt4"},
+               {"key": "12", "desc": "Light", "goto": "menunode_todcyt4"},
+               {"key": "13", "desc": "Flash", "goto": "menunode_todcyt4"},
+               {"key": "14", "desc": "Movement Boost", "goto": "menunode_todcyt4"},
+               {"key": "15", "desc": "Pain Desensitivity", "goto": "menunode_todcyt4"},
+               {"key": "16", "desc": "Think Machine", "goto": "menunode_todcyt4"},
+               {"key": "17", "desc": "Tool Implant", "goto": "menunode_todcyt4"},
+               {"key": "18", "desc": "Immunity", "goto": "menunode_todcyt4"},
+               {"key": "19", "desc": "Weaponry", "goto": "menunode_todcyt4"})
+    return text, options
+    
+
+def menunode_todcyt4(caller, raw_input):
+    if int(raw_input) == 0:
+        text = "How many points of armor do you want?"
+        options = ({"key": "_default", "goto": "menunode_todcytarmor"})
+        return text, options
+    elif int(raw_input) == 1:    
+        text = "You get 10 injections base. How many points do you want to spend on extra Injections?\n"
+        text ++ "Remember it is 1 point per 10 injections. So if you put in 2 here that would be an extra 20 injections."
+        options = ({"key": "_default", "goto": "menunode_todcytchempump"})
+    elif int(raw_input) == 2:
+        text = "What type of cyberlung?"
+        options = ({"key": "0", "desc": "Water", "goto": "menunode_todcytlung"},
+                   {"key": "1", "desc": "Gaseous", "goto": "menunode_todcytlung"},
+                   {"key": "2", "desc": "Vacuum", "goto": "menunode_todcytlung"})
+        return text, options
+    elif int(raw_input) == 3:
+        text = "What type of Cybersense?"
+        options = ({"key": "0", "desc": "Magnifier", "goto": "menunode_todcytsense"},
+                   {"key": "1", "desc": "UV", "goto": "menunode_todcytsense"},
+                   {"key": "2", "desc": "IR", "goto": "menunode_todcytsense"},
+                   {"key": "3", "desc": "XRay", "goto": "menunode_todcytsense"},
+                   {"key": "4", "desc": "Camera", "goto": "menunode_todcytsense"},
+                   {"key": "5", "desc": "Video", "goto": "menunode_todcytsense"},
+                   {"key": "6", "desc": "High Pitch", "goto": "menunode_todcytsense"},
+                   {"key": "7", "desc": "Low Pitch", "goto": "menunode_todcytsense"},
+                   {"key": "8", "desc": "Radio", "goto": "menunode_todcytsense"},
+                   {"key": "9", "desc": "Spy Radio", "goto": "menunode_todcytsense"},
+                   {"key": "10", "desc": "Tape Recorder", "goto": "menunode_todcytsense"},
+                   {"key": "11", "desc": "Hypersmell", "goto": "menunode_todcytsense"},
+                   {"key": "12", "desc": "Hypertaste", "goto": "menunode_todcytsense"},
+                   {"key": "13", "desc": "Hypertouch", "goto": "menunode_todcytsense"})
+        return text, options
+    elif int(raw_input) == 4:
+        text = "What organ are you replacing?"
+        options = ({"key": "_default", "goto": "menunode_todcytorgan"})
+        return text, options
+    elif int(raw_input) == 5:
+        text = "What kind of energy shield?"
+        options = ({"key": "0", "desc": "Standard", "goto": "menunode_todcytshield"},
+                   {"key": "1", "desc": "Dueling", "goto": "menunode_todcytshield"},
+                   {"key": "2", "desc": "Assault", "goto": "menunode_todcytshield"},
+                   {"key": "3", "desc": "Battle", "goto": "menunode_todcytshield"})
+        return text, options
+    elif int(raw_input) == 6:
+        text = "Enter a characteristic and a number to increase it by. You cannot increase Psi, Tech, Faith or Theurgy.\n"
+        text += "Ex: Strength 3"
+        options = ({"key": "_default", "goto": "menunode_todcytenhchar"})
+        return text, options
+    elif int(raw_input) == 7:
+        text = "How many points do you want to spend on reflexes?"
+        options = ({"key": "_default", "goto": "menunode_todcytenhref"})
+        return text, options
+    elif int(raw_input) == 8:
+        text = "It's 2 points per extra vitality. How much vitality do you want?"
+        options = ({"key": "_default", "goto": "menunode_todcytenhvit"})
+        return text, options
+    elif int(raw_input) == 9:
+        text = "What is the extra limb?"
+        options = ({"key": "_default", "goto": "menunode_todcytextralimb"})
+        return text, options
+    elif int(raw_input) == 10:
+        text = "How concealed do you want it?"
+        options = ({"key": "0", "desc": "Unsightly", "goto": "menunode_todcytcavity"},
+                   {"key": "1", "desc": "Messy", "goto": "menunode_todcytcavity"},
+                   {"key": "2", "desc": "Incognito", "goto": "menunode_todcytcavity"},
+                   {"key": "3", "desc": "Hidden", "goto": "menunode_todcytcavity"},
+                   {"key": "4", "desc": "Simulacra", "goto": "menunode_todcytcavity"})
+        return text, options
+    elif int(raw_input) == 11:
+        addsheet(caller, 'Fly', 'Skills', 1)
+        text = "The cost for flight includes the first level of the Fly skill required for use.\n"
+        text += "Do you want to put points into increasing it further? Either put in 0 or a positive amount."
+        options = ({"key": "_default", "goto": "menunode_todcytflight"})
+        return text, options
+    elif int(raw_input) == 12:
+        text = "How many points do you want to spend on the light?"
+        options = ({"key": "_default", "goto": "menunode_todcytlight"})
+        return text, options
+    elif int(raw_input) == 13:
+        text = "How many points do you want to spend on the cybernetic? Max of 3."
+        options = ({"key": "_default", "goto": "menunode_todcytlight"})
+        return text, options
+    elif int(raw_input) == 14:
+        text = "Running, Jumping or Swimming?"
+        options = ({"key": "0", "desc": "Running", "goto": "menunode_todcytenhmove"},
+                   {"key": "1", "desc": "Jumping", "goto": "menunode_todcytenhmove"},
+                   {"key": "2", "desc": "Swimming", "goto": "menunode_todcytenhmove"})
+        return text, options
+    elif int(raw_input) == 15:
+        text = "How concealed do you want it?"
+        options = ({"key": "0", "desc": "Unsightly", "goto": "menunode_todcytpain"},
+                   {"key": "1", "desc": "Messy", "goto": "menunode_todcytpain"},
+                   {"key": "2", "desc": "Incognito", "goto": "menunode_todcytpain"},
+                   {"key": "3", "desc": "Hidden", "goto": "menunode_todcytpain"},
+                   {"key": "4", "desc": "Simulacra", "goto": "menunode_todcytpain"})
+        return text, options
+    elif int(raw_input) == 16:
+        text = "What type of Think Machine?"
+        options = ({"key": "0", "desc": "Data Interface", "goto": "menunode_todcytthink"},
+                   {"key": "1", "desc": "Skill Programs", "goto": "menunode_todcytthink"},
+                   {"key": "2", "desc": "Neural Interface", "goto": "menunode_todcytthink"},
+                   {"key": "3", "desc": "Multitasking", "goto": "menunode_todcytthink"},
+                   {"key": "4", "desc": "Advisor", "goto": "menunode_todcytthink"})
+        return text, options
+    elif int(raw_input) == 17:
+        text = "What kind of tool?"
+        options = ({"key": "_default", "goto": "menunode_todcyttool"})
+        return text, options
+    elif int(raw_input) == 18:
+        text = "Enter a poison or disease."
+        options = ({"key": "_default", "goto": "menunode_todcytimmunity"})
+        return text, options
+    elif int(raw_input) == 19:
+        text = "Ranged or Melee?"
+        options = ({"key": "0", "desc": "Ranged", "goto": "menunode_todcytweaprange"},
+                   {"key": "1", "desc": "Melee", "goto": "menunode_todcytweapmelee"})
+        return text, options
+        
+        
+def menunode_todcytarmor(caller, raw_input):
+    if not raw_input.isidigit():
+        text = "You didn't enter a number. How many points of armor do you want?"
+        options = ({"key": "_default", "goto": "menunode_todcytarmor"})
+        return text, options
+    
+    caller.db.cyberpts -= int(raw_input) * 2
+    caller.db.cyber.append({'Type': 'Armor', 'Rating': raw_input, 'TL': '5'})
+    
+    text = "You spent %i points on the armor.\n" % (int(raw_input)*2)
+    text = "Now how concealed do you want it?"
+    options = ({"key": "0", "desc": "Unsightly", "goto": "menunode_todcytarmor2"},
+               {"key": "1", "desc": "Messy", "goto": "menunode_todcytarmor2"},
+               {"key": "2", "desc": "Incognito", "goto": "menunode_todcytarmor2"},
+               {"key": "3", "desc": "Hidden", "goto": "menunode_todcytarmor2"},
+               {"key": "4", "desc": "Simulacra", "goto": "menunode_todcytarmor2"})
+    return text, options
+    
+def menunode_todcytarmor2(caller, raw_input):
+    if int(raw_input) == 0 or int(raw_input) == 1:
+        caller.db.cyberpts += 1
+        for x in caller.db.cyber:
+            if x['Type'] == 'Armor':
+                x['Look'] = 'Unsightly or Messy'
+        text = "You were refunded 1 point for having unsightly or messy cybernetics.\n"
+    elif int(raw_input) == 2:
+        caller.db.cyberpts -= 1
+        for x in caller.db.cyber:
+            if x['Type'] == 'Armor':
+                x['Look'] = 'Incognito'
+        text = "You spent an extra point to purchase the incognito feature.\n"
+    elif int(raw_input) == 3:
+        caller.db.cyberpts -= 2
+        for x in caller.db.cyber:
+            if x['Type'] == 'Armor':
+                x['Look'] = 'Hidden'
+                x['TL'] = '6'
+        text = "You spent an extra 2 points to purchase the Hidden feature.\n"
+    elif int(raw_input) == 4:
+        caller.db.cyberpts -= 3
+        for x in caller.db.cyber:
+            if x['Type'] == 'Armor':
+                x['Look'] = 'Simulcra'
+                x['TL'] = '8'
+        text = "You spent an extra 3 points to purchase the Simulcra feature.\n"
+    
+    text += "What Material do you want?"
+    options = ({"key": "0", "desc": "Metal", "goto": "menunode_todcytarmor3"},
+               {"key": "1", "desc": "Plastic", "goto": "menunode_todcytarmor3"},
+               {"key": "2", "desc": "Ceramsteel", "goto": "menunode_todcytarmor3"},
+               {"key": "3", "desc": "Synthflehs", "goto": "menunode_todcytarmor3"},
+               {"key": "4", "desc": "Synthlife", "goto": "menunode_todcytarmor3"},
+               {"key": "5", "desc": "Nanotech", "goto": "menunode_todcytarmor3"})
+    return text, options
+    
+    
+def menunode_todcytarmor3(caller, raw_input):

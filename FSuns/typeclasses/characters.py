@@ -56,3 +56,6 @@ class Character(DefaultCharacter):
         self.db.occult = {} # occult powers
         self.db.tours = [] # duty tours
         self.db.cyber = [] # Cybernetics
+        self.db.notes = {}
+        self.db.firebirds = 250
+        self.db.assets = 0

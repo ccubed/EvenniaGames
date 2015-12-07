@@ -722,6 +722,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Curious', 'Blessings', 0)
                 addsheet(caller, 'Nosy', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Ensign'
                 
             # Engineers
             elif house == 'Engineers':
@@ -734,6 +735,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Urthtech', 'Languages', 0)
                 addsheet(caller, 'Innovative', 'Blessings', 0)
                 addsheet(caller, 'Unnerving', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Apprentice'
                 
             # Scravers
             elif house == 'Scravers':
@@ -747,6 +749,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 addsheet(caller, 'The Man', 'Blessings', 0)
                 addsheet(caller, 'Possessive', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
             # Muster
             elif house == 'Muster':
@@ -759,6 +762,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Bold', 'Blessings', 0)
                 addsheet(caller, 'Callous', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Private'
                 
             # Reeves
             elif house == 'Reeves':
@@ -773,6 +777,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Shrewd', 'Blessings', 0)
                 addsheet(caller, 'Mammon', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
         # Guild Hall
         elif what == 1:
@@ -788,6 +793,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Physick', 'Skills', 1)
                 addsheet(caller, 'Curious', 'Blessings', 0)
                 addsheet(caller, 'Nosy', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Ensign'
                 
             # Engineers
             elif house == 'Engineers':
@@ -800,6 +806,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Urthtech', 'Languages', 0)
                 addsheet(caller, 'Innovative', 'Blessings', 0)
                 addsheet(caller, 'Unnerving', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Apprentice'
                 
             # Scravers
             elif house == 'Scravers':
@@ -814,6 +821,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 addsheet(caller, 'The Man', 'Blessings', 0)
                 addsheet(caller, 'Possessive', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
             # Muster
             elif house == 'Muster':
@@ -826,6 +834,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Observe', 'Skills', 1)
                 addsheet(caller, 'Bold', 'Blessings', 0)
                 addsheet(caller, 'Callous', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Private'
                 
             # Reeves
             elif house == 'Reeves':
@@ -841,6 +850,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Shrewd', 'Blessings', 0)
                 addsheet(caller, 'Mammon', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
         # Streets
         elif what == 2:
@@ -856,6 +866,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Latin', 'Languages', 0)
                 addsheet(caller, 'Curious', 'Blessings', 0)
                 addsheet(caller, 'Nosy', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Ensign'
                 
             # Engineers
             elif house == 'Engineers':
@@ -868,6 +879,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Urthtech', 'Languages', 0)
                 addsheet(caller, 'Innovative', 'Blessings', 0)
                 addsheet(caller, 'Unnerving', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Apprentice'
                 
             # Scravers
             elif house == 'Scravers':
@@ -880,6 +892,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Scravers Cant', 'Languages', 0)
                 addsheet(caller, 'The Man', 'Blessings', 0)
                 addsheet(caller, 'Possessive', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
             # Muster
             elif house == 'Muster':
@@ -892,6 +905,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Survival', 'Skills', 1)
                 addsheet(caller, 'Bold', 'Blessings', 0)
                 addsheet(caller, 'Callous', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Private'
                 
             # Reeves
             elif house == 'Reeves':
@@ -907,6 +921,7 @@ def apply_path_guild(caller, which, what, house):
                 addsheet(caller, 'Leadership', 'Skills', 1)
                 addsheet(caller, 'Shrewd', 'Blessings', 0)
                 addsheet(caller, 'Mammon', 'Blessings', 0)
+                caller.db.benefices['Rank'] = 'Associate'
                 
     # Early Career
     elif which == 1:
@@ -924,7 +939,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Gaming', 'Skills', 1)
             addsheet(caller, 'Investigation', 'Skills', 2)
             addsheet(caller, 'Sneak', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Money-Lender
         elif what == 1:
@@ -940,7 +954,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Gaming', 'Skills', 1)
             addsheet(caller, 'Investigation', 'Skills', 2)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Pilot
         elif what == 2:
@@ -956,7 +969,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 2)
             addsheet(caller, 'Think Machine', 'Skills', 2)
             addsheet(caller, 'Warfare', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Engineer
         elif what == 3:
@@ -972,7 +984,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 3)
             addsheet(caller, 'Think Machine', 'Skills', 3)
             addsheet(caller, 'Warfare', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # gunner
         elif what == 4:
@@ -990,7 +1001,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 2)
             addsheet(caller, 'Think Machine', 'Skills', 2)
             addsheet(caller, 'Warfare', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Soldier
         elif what == 5:
@@ -1004,7 +1014,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 1)
             addsheet(caller, 'Physick', 'Skills', 1)
             addsheet(caller, 'Survival', 'Skills', 2)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Combat Engineer
         elif what == 6:
@@ -1020,7 +1029,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 3)
             addsheet(caller, 'Science', 'Skills', 2)
             addsheet(caller, 'Warfare', 'Skills', 3)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Scholar
         elif what == 7:
@@ -1037,7 +1045,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Self Control', 'Skills', 2)
             addsheet(caller, 'Leadership', 'Skills', 1)
             addsheet(caller, 'Think Machine', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Scientist
         elif what == 8:
@@ -1051,7 +1058,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Tech Redemption', 'Skills', 3)
             addsheet(caller, 'Think Machine', 'Skills', 3)
             addsheet(caller, 'Urthtech', 'Languages', 0)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Thief
         elif what == 9:
@@ -1066,7 +1072,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Investigation', 'Skills', 1)
             addsheet(caller, 'Observe', 'Skills', 1)
             addsheet(caller, 'Sneak', 'Skills', 2)
-            caller.db.benefices['Rank'] = 'Associate'
             
         # Spy
         elif what == 10:
@@ -1081,7 +1086,6 @@ def apply_path_guild(caller, which, what, house):
             addsheet(caller, 'Investigation', 'Skills', 1)
             addsheet(caller, 'Observe', 'Skills', 2)
             addsheet(caller, 'Sneak', 'Skills', 1)
-            caller.db.benefices['Rank'] = 'Associate'
             
 
 def menunode_start(caller):
@@ -3879,13 +3883,15 @@ def menunode_todstart(caller, raw_input):
         text = "You now get to pick two tours of duty."
         options = ({"key": "0", "desc": "Career Tour", "goto": "menunode_todct2"},
                    {"key": "1", "desc": "Natal Psi", "goto": "menunode_todnp2"},
-                   {"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},
                    {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"})
                    
         if caller.db.archetype == "Noble":
             options.append({"key": "4", "desc": "Questing Knight", "goto": "menunode_todqk1"})
         elif caller.db.archetype == "Priest" or caller.db.archetype == "Merchant":
             options.append({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            
+        if caller.db.archetype == 'Priest':
+            options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
         
         return text, options
         
@@ -3930,8 +3936,11 @@ def menunode_todqk3(caller, raw_input):
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "1", "desc": "Career Tour", "goto": "menumode_todct2"},
                        {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
                        {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
+                       
+            if caller.db.archetype == 'Priest':
+                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+                       
             return text, options
         else:
             text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
@@ -3998,11 +4007,13 @@ def menunode_todct4(caller, raw_input):
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
                        {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
                        
             if caller.db.archetype == "Noble":
                 options.append({"key": "5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+                
+            if caller.db.archetype == 'Priest':
+                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
                     
             return text, options
         else:
@@ -4071,9 +4082,12 @@ def menunode_todic4(caller, raw_input):
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "3", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
                        {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
                        {"key": "5", "desc": "Career Tour", "goto": "menumode_todct2"})
+                       
+            if caller.db.archetype == 'Priest':
+                options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+            
             return text, options
         else:
             text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
@@ -4153,7 +4167,6 @@ def menunode_todnp4(caller, raw_input):
         text = "Now you get to pick your second tour of duty."
         options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
                    {"key": "1", "desc": "Savant Psi", "goto": "menumode_todsp2"},
-                   {"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},
                    {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
                    {"key": "4", "desc": "Career Tour", "goto": "menumode_todct2"})
                    
@@ -4161,6 +4174,9 @@ def menunode_todnp4(caller, raw_input):
             options.append({"key":"5", "desc": "Questing Knight", "goto": "menunode_todqk1"})
         else:
             options.append({"key": "5", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            
+        if caller.db.archetype == 'Priest':
+            options.append({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
                    
         return text, options
     else:
@@ -4244,6 +4260,544 @@ def menunode_todsp4(caller, raw_input):
     options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
     return text, options
     
+    
+def menunode_todnt2(caller):
+    addsheet(caller, 'Theurgy', 'Attributes', 3)
+    caller.db.wyrd += 2
+    
+    text = "You can either learn the rites specific to your sect or the universal rites.\n"
+    options = ({"key": "0", "desc": "Universal Theurgy", "goto": "menunode_todnt3"},
+               {"key": "1", "desc": caller.db.house + " Theurgy", "goto": "menunode_todnt3"})
+    return text, options
+    
+
+def menunode_todnt3(caller, raw_input):
+    
+    if int(raw_input) == 0:
+        addsheet(caller, 'Church Rituals', 'Skills', 3)
+        caller.db.occult['Church Rituals'] = [ "The Prophet's Holy Blessing", 'The Devotional Liturgy', 'The Laying On Of Hands' ]
+    else:
+        if caller.db.house == 'Urth Orthodox':
+            addsheet(caller, 'Orthodox Rituals', 'Skills', 3)
+            caller.db.occult['Orthodox Rituals'] = [ 'Consecration', 'Light', 'Armor of the Pancreator' ]
+        elif caller.db.house == 'Brother Battle':
+            addsheet(caller, 'Brother Battle Rituals', 'Skills', 3)
+            caller.db.occult['Brother Battle Rituals'] = [ "Soul's Vessel", 'Rightfully Guided Hand', 'Armor of the Pancreator' ]
+        elif caller.db.house == 'Eskantonic Order':
+            addsheet(caller, 'Eskatonic Order Rituals', 'Skills', 3)
+            caller.db.occult['Eskatonic Order Rituals'] = [ 'Celestial Alignment', 'Divine Revelation', 'Rending the Veil of Unreason' ]
+        elif caller.db.house == 'Temple Avesti':
+            addsheet(caller, 'Temple Avesti Rituals', 'Skills', 3)
+            caller.db.occult['Temple Avesti Rituals'] = [ 'Knowing the False Heart', 'Scent of Evil', 'Sting of Conscience' ]
+        elif caller.db.house == 'Sanctuary Aeon':
+            addsheet(caller, 'Sanctuary Aeon Rituals', 'Skills', 3)
+            caller.db.occult['Sanctuary Aeon Rituals'] = [ 'Cleansing', 'Hearth', 'Calming' ]
+            
+    caller.db.tours.append('Neophyte Theurge')
+    
+    if len(caller.db.tours) != 2:
+        text = "Now you get to pick your second tour of duty."
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                   {"key": "1", "desc": "Adept Theurge", "goto": "menumode_todat2"},
+                   {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
+                   {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
+                   
+        if caller.db.archetype == "Noble":
+            options.append({"key":"4", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+        else:
+            options.append({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+                   
+        return text, options
+    else:
+        text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+        options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+        return text, options
+        
+        
+def menunode_todat2(caller):
+    addsheet(caller, 'Theurgy', 'Attributes', 2)
+    caller.db.wyrd += 1
+    
+    if 'Orthodox Rituals' in caller.db.occult:
+        addsheet(caller, 'Orthodox Rituals', 'Skills', 2)
+        caller.db.occult['Orthodox Rituals'].append('Tightening the Leash')
+        caller.db.occult['Orthodox Rituals'].append('Faithful Heart')
+    elif 'Brother Battle Rituals' in caller.db.occult:
+        addsheet(caller, 'Brother Battle Rituals', 'Skills', 2)
+        caller.db.occult['Brother Battle Rituals'].append('Righteous Fervor')
+        caller.db.occult['Brother Battle Rituals'].append('Liturgy of the Wrathful Host')
+    elif 'Eskatonic Order Rituals' in caller.db.occult:
+        addsheet(caller, 'Eskatonic Order Rituals', 'Skills', 2)
+        caller.db.occult['Eskatonic Order Rituals'].append('Second Sight')
+        caller.db.occult['Eskatonic Order Rituals'].append('Silence the Beast')
+        caller.db.occult['Eskatonic Order Rituals'].append('Osseous Transmutation')
+    elif 'Temple Avesti Rituals' in caller.db.occult:
+        addsheet(caller, 'Temple Avesti Rituals', 'Skills', 2)
+        caller.db.occult['Temple Avesti Rituals'].append('Torchbearing')
+        caller.db.occult['Temple Avesti Rituals'].append('Fault of the Soulless')
+    elif 'Sanctuary Aeon Rituals' in caller.db.occult:
+        addsheet(caller, 'Sanctuary Aeon Rituals', 'Skills', 2)
+        caller.db.occult['Sanctuary Aeon Rituals'].append('Knowing Heart')
+        caller.db.occult['Sanctuary Aeon Rituals'].append('Fruitful Multiplication')
+        caller.db.occult['Sanctuary Aeon Rituals'].append('Restoration')
+    elif 'Church Rituals' in caller.db.occult:
+        addsheet(caller, 'Church Rituals', 'Skills', 2)
+        caller.db.occult['Church Rituals'].append("The Prohet's Censure")
+        caller.db.occult['Church Rituals'].append('Oath to the Saints')
+    
+    text = "Pick a second path to get the first two levels of rituals in."
+    options = ({"key": "0", "desc": "Universal Rituals", "goto": "menunode_todat3"},
+               {"key": "1", "desc": "Orthodox Rituals", "goto": "menunode_todat3"},
+               {"key": "2", "desc": "Brother Battle Rituals", "goto": "menunode_todat3"},
+               {"key": "3", "desc": "Eskatonic Order Rituals", "goto": "menunode_todat3"},
+               {"key": "4", "desc": "Temple Avesti Rituals", "goto": "menunode_todat3"},
+               {"key": "5", "desc": "Sanctuary Aeon Rituals", "goto": "menunode_todat3"})
+               
+    options = [for x in options if x['desc'] not in caller.db.occult]
+    
+    return text, options
+    
+    
+def menunode_todat3(caller, raw_input):
+    
+    if int(raw_input) == 0:
+        addsheet(caller, 'Church Rituals', 'Skills', 2)
+        caller.db.occult['Church Rituals'] = [ "The Prophet's Holy Blessing", 'The Devotional Liturgy' ]
+    elif int(raw_input) == 1:
+        addsheet(caller, 'Orthodox Rituals', 'Skills', 2)
+        caller.db.occult['Orthodox Rituals'] = [ 'Consecration', 'Light' ]
+    elif int(raw_input) == 2:
+        addsheet(caller, 'Brother Battle Rituals', 'Skills', 2)
+        caller.db.occult['Brother Battle Rituals'] = [ "Soul's Vessel", 'Rightfully Guided Hand' ]
+    elif int(raw_input) == 3:
+        addsheet(caller, 'Eskatonic Order Rituals', 'Skills', 2)
+        caller.db.occult['Eskatonic Order Rituals'] = [ 'Celestial Alignment', 'Divine Revelation' ]
+    elif int(raw_input) == 4:
+        addsheet(caller, 'Temple Avesti Rituals', 'Skills', 2)
+        caller.db.occult['Temple Avesti Rituals'] = [ 'Knowing the False Heart', 'Scent of Evil' ]
+    elif int(raw_input) == 5:
+        addsheet(caller, 'Sanctuary Aeon Rituals', 'Skills', 2)
+        caller.db.occult['Sanctuary Aeon Rituals'] = [ 'Cleansing', 'Hearth' ]
+        
+    text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+    options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+    return text, options
+    
+    
+def menunode_todcyt2(caller):
+    caller.db.cyberpts = 20
+    text = "Twenty points of cybernetics to the lucky recruit. Cybernetics are not coded in CG.\n"
+    text += "The system is hard to code and that part is still being made. For now you should design your cybernetics and contact staff.\n"
+    
+    caller.db.tours.append('Cybernetically Tweaked')
+    
+    if len(caller.db.tours) != 2:
+        text += "In the meantime, you get to pick your second tour of duty."
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
+                   {"key": "1", "desc": "Loaded for Bear", "goto": "menumode_todlfb2"},
+                   {"key": "2", "desc": "Career Tour", "goto": "menumode_todct2"})
+                   
+        if caller.db.archetype == "Noble":
+            options.append({"key":"3", "desc": "Questing Knight", "goto": "menunode_todqk1"})
+        else:
+            options.append({"key": "3", "desc": "Imperial Cohort", "goto": "menunode_todic2"})
+            
+        if caller.db.archetpye == "Priest":
+            options.append({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"})
+                   
+        return text, options
+    else:
+        text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+        options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+        return text, options
+    
+    
+def menunode_todmt2(caller):
+    text = "You get to pick an attribute to increase by 1."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todmt3"})
+    return text, options
+    
+
+def menunode_todmt3(caller, raw_input):
+    caller.db.todsp = 6
+    text = "You get to pick an attribute to increase by 1."
+    options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todmt4"})
+               
+    options = [for x in options if x['key'] != raw_input]
+               
+    return text, options
+    
+def menunode_todmt4(caller, raw_input):
+    if caller.db.todsp == 0:
+        text = "Pick which of these benefices you want."
+        options = ({"key": "0", "desc": "Promotion and Rewards", "goto": "menunode_todmt5"},
+                   {"key": "1", "desc": "High Promotion", "goto": "menunode_todmt5"},
+                   {"key": "2", "desc": "Rich Rewards", "goto": "menunode_todmt5"},
+                   {"key": "3", "desc": "Friends", "goto": "menunode_todmt5"})
+        return text, options
+        
+    caller.db.todsp -= 1
+    text = "You get 8 points of skills. You can improve existing or choose new ones.\n"
+    
+    if not raw_input.isdigit():
+        if raw_input.lower() in guildonly and not caller.db.archetype == 'Merchant':
+            caller.db.todsp += 1
+            text += "The last skill you entered was guild only. Pick another.\n"
+        else:
+            addsheet(caller, raw_input, 'Skills', 1)
+        
+    text += "You have %i points left. You can either pick an existing skill or enter a new one." % (caller.db.todsp + 1)
+    options = ({"key": "_default", "goto": "menunode_todmt4"})
+    
+    i = 0
+    for x in caller.db.skills.keys():
+        options.append({"key": str(i), "desc": x, "exec": addsheet(caller, x, 'Skills', 1), "goto": "menunode_todmt4"})
+        i += 1
+        
+    return text, option
+    
+    
+def menunode_todmt5(caller, raw_input):
+    if int(raw_input) == 0:
+        if caller.db.archetype == "Noble":
+            caller.db.benefices['Rank'] = 'Baronet'
+        elif caller.db.archetype == "Merchant":
+            if caller.db.house == 'Charioteers':
+                caller.db.benefices['Rank'] = 'Lieutenant'
+            elif caller.db.house == 'Engineers':
+                caller.db.benefices['Rank'] = 'Entered'
+            elif caller.db.house == 'Scravers':
+                caller.db.benefices['Rank'] = 'Genin'
+            elif caller.db.house == 'Muster':
+                caller.db.benefices['Rank'] = 'Sergeant'
+            elif caller.db.house == 'Reeves':
+                caller.db.benefices['Rank'] = 'Chief'
+        elif caller.db.archetype == 'Priest':
+            if caller.db.house == 'Brother Battle':
+                caller.db.benefices['Rank'] = 'Oblate'
+            elif caller.db.house == 'Eskatonic Order':
+                caller.db.benefices['Rank'] = 'Provost'
+            else:
+                caller.db.benefices['Rank'] = 'Canon'
+        
+        text = "Do you want a rank of Assets or Cash?"
+        options = ({"key": "0", "desc": "Assets", "goto": "menunode_todmt5pr"},
+                   {"key": "1", "desc": "Cash", "goto": "menunode_todmt5pr"})
+        return text, options
+        
+    elif int(raw_input) == 1:
+        if caller.db.archetype == "Noble":
+            caller.db.benefices['Rank'] = 'Baron'
+        elif caller.db.archetype == "Merchant":
+            if caller.db.house == 'Charioteers':
+                caller.db.benefices['Rank'] = 'Commander'
+            elif caller.db.house == 'Engineers':
+                caller.db.benefices['Rank'] = 'Fellow'
+            elif caller.db.house == 'Scravers':
+                caller.db.benefices['Rank'] = 'Boss'
+            elif caller.db.house == 'Muster':
+                caller.db.benefices['Rank'] = 'Lieutenant'
+            elif caller.db.house == 'Reeves':
+                caller.db.benefices['Rank'] = 'Manager'
+        elif caller.db.archetype == 'Priest':
+            if caller.db.house == 'Brother Battle':
+                caller.db.benefices['Rank'] = 'Acolyte'
+            elif caller.db.house == 'Eskatonic Order':
+                caller.db.benefices['Rank'] = 'Illuminatus'
+            else:
+                caller.db.benefices['Rank'] = 'Deacon'
+        
+        caller.db.tours.append("Master Tour")
+        text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+        options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+        return text, options
+        
+    elif int(raw_input) == 2:
+        text = "Do you want ranks of Assets or Cash?"
+        options = ({"key": "0", "desc": "Assets", "goto": "menunode_todmt5rr"},
+                   {"key": "1", "desc": "Cash", "goto": "menunode_todmt5rr"})
+        return text, options
+    
+    elif int(raw_input) == 3:
+        caller.db.todsp = 8
+        text = "You get 8 points in the following benefices. Spend them now."
+        options = ({"key": "0", "desc": "Ally", "goto": "menunode_todmt5f"},
+                   {"key": "1", "desc": "Contact", "goto": "menunode_todmt5f"},
+                   {"key": "2", "desc": "Gossip Network", "goto": "menunode_todmt5f"},
+                   {"key": "3", "desc": "Retinue", "goto": "menunode_todmt5f"},
+                   {"key": "4", "desc": "Passage Contract", "goto": "menunode_todmt5f"},
+                   {"key": "5", "desc": "Refuge", "goto": "menunode_todmt5f"})
+                   
+                   
+def menunode_todmt5pr(caller, raw_input):
+    if int(raw_input) == 0:
+        caller.db.benefices['Assets'] = '4'
+        caller.db.assets += 300
+    else:
+        caller.db.benefices['Cash'] = '4'
+        caller.db.firebirds = 1000
+    
+    caller.db.tours.append("Master Tour")
+    text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+    options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+    return text, options
+    
+    
+def menunode_todmt5rr(caller, raw_input):
+    if int(raw_input) == 0:
+        caller.db.benefices['Assets'] = '8'
+        caller.db.assets += 500
+    else:
+        caller.db.benefices['Cash'] = '8'
+        caller.db.firebirds = 2000
+        
+    caller.db.tours.append("Master Tour")
+    text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+    options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+    return text, options
+    
+
+def menunode_todmt5f(caller, raw_input):
+    caller.db.todsp -= 1
+    if int(raw_input) == 0:
+        if 'Ally' in caller.db.benefices:
+            caller.db.benefices['Ally'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Ally'] = '1'
+    elif int(raw_input) == 1:
+        if 'Contact' in caller.db.benefices:
+            caller.db.benefices['Contact'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Contact'] = '1'
+    elif int(raw_input) == 2:
+        if 'Gossip Network' in caller.db.benefices:
+            caller.db.benefices['Gossip Network'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Gossip Network'] = '1'
+    elif int(raw_input) == 3:
+        if 'Retinue' in caller.db.benefices:
+            caller.db.benefices['Retinue'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Retinue'] = '1'
+    elif int(raw_input) == 4:
+        if 'Passage Contract' in caller.db.benefices:
+            caller.db.benefices['Passage Contract'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Passage Contract'] = '1'
+    elif int(raw_input) == 5:
+        if 'Refuge' in caller.db.benefices:
+            caller.db.benefices['Refuge'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Refuge'] = '1'
+            
+    if caller.db.todsp == 0:
+        caller.db.tours.append("Master Tour")
+        text = "You've picked two tours of duty. Now you get to pick an item from the worldly benefits tree."
+        options = ({"key": "0", "desc": "Ok", "goto": "menunode_todwbt"})
+        return text, options
+        
+    text = "You have %i points left." % caller.db.todsp
+    options = ({"key": "0", "desc": "Ally", "goto": "menunode_todmt5f"},
+               {"key": "1", "desc": "Contact", "goto": "menunode_todmt5f"},
+               {"key": "2", "desc": "Gossip Network", "goto": "menunode_todmt5f"},
+               {"key": "3", "desc": "Retinue", "goto": "menunode_todmt5f"},
+               {"key": "4", "desc": "Passage Contract", "goto": "menunode_todmt5f"},
+               {"key": "5", "desc": "Refuge", "goto": "menunode_todmt5f"})
+    return text, options
+    
+    
+def menunode_todwbt(caller):
+    text = "What Lifepath Worldy Benefit do you want?"
+    options = ({"key": "0", "desc": "Promotion", "goto": "menunode_todwbtp"},
+               {"key": "1", "desc": "Rewards", "goto": "menunode_todwbtr"},
+               {"key": "2", "desc": "Friends", "goto": "menunode_todwbtf"})
+    return text, options
+    
+    
+def menunode_todwbtp(caller):
+    if 'Contact' in caller.db.benefices:
+        caller.db.benefices['Contact'] = str(int(caller.db.benefices['Contact']) + 1)
+    else:
+        caller.db.benefices['Contact'] = '1'
+        
+    if 'Gossip Network' in caller.db.benefices:
+        caller.db.benefices['Gossip Network'] = str(int(caller.db.benefices['Gossip Network']) + 1)
+    else:
+        caller.db.benefices['Gossip Network'] = '1'
+    
+    if caller.db.archetype == "Noble":
+        if caller.db.benefices['Rank'] == 'Baron':
+            caller.db.benefices['Rank'] = 'Earl/Marquis'
+        elif caller.db.benefices['Rank'] == 'Knight':
+            caller.db.benfices['Rank'] = 'Baronet'
+        else:
+            caller.db.benefices['Rank'] = 'Baron'
+    elif caller.db.archetype == "Merchant":
+        if caller.db.house == 'Charioteers':
+            if caller.db.benefices['Rank'] == 'Commander':
+                caller.db.benefices['Rank'] = 'Captain'
+            elif caller.db.benefices['Rank'] == 'Ensign':
+                caller.db.benefices['Rank'] = 'Lieutenant'
+            else:
+                caller.db.benefices['Rank'] = 'Commander'
+        elif caller.db.house == 'Engineers':
+            if caller.db.benefices['Rank'] == 'Fellow':
+                caller.db.benefices['Rank'] = 'Crafter'
+            elif caller.db.benefices['Rank'] == 'Apprentice':
+                caller.db.benefices['Rank'] = 'Entered'
+            else:
+                caller.db.benefices['Rank'] = 'Fellow'
+        elif caller.db.house == 'Scravers':
+            if caller.db.benefices['Rank'] == 'Boss':
+                caller.db.benefices['Rank'] = 'Jonin'
+            elif caller.db.benefices['Rank'] == 'Genin':
+                caller.db.benefices['Rank'] = 'Boss'
+            else:
+                caller.db.benefices['Rank'] = 'Genin'
+        elif caller.db.house == 'Muster':
+            if caller.db.benefices['Rank'] == 'Lieutenant':
+                caller.db.benefices['Rank'] = 'Captain'
+            elif caller.db.benefices['Rank'] == 'Sergeant':
+                caller.db.benefices['Rank'] = 'Lieutenant'
+            else:
+                caller.db.benefices['Rank'] = 'Sergeant'
+        elif caller.db.house == 'Reeves':
+            if caller.db.benefices['Rank'] == 'Manager':
+                caller.db.benefices['Rank'] = 'Director'
+            elif caller.db.benefices['Rank'] == 'Chief':
+                caller.db.benefices['Rank'] = 'Manager'
+            else:
+                caller.db.benefices['Rank'] = 'Chief'
+    elif caller.db.archetype == 'Priest':
+        if caller.db.house == 'Brother Battle':
+            if caller.db.benefices['Rank'] == 'Acolyte':
+                caller.db.benefices['Rank'] = 'Adept'
+            elif caller.db.benefices['Rank'] == 'Oblate':
+                caller.db.benefices['Rank'] = 'Acolyte'
+            else:
+                caller.db.benefices['Rank'] = 'Oblate'
+        elif caller.db.house == 'Eskatonic Order':
+            if caller.db.benefices['Rank'] == 'Illuminatus':
+                caller.db.benefices['Rank'] = 'Philosophus'
+            elif caller.db.benefices['Rank'] == 'Provost':
+                caller.db.benefices['Rank'] = 'Illuminatus'
+            else:
+                caller.db.benefices['Rank'] = 'Provost'
+        else:
+            if caller.db.benefices['Rank'] == 'Deacon':
+                caller.db.benefices['Rank'] = 'Priest'
+            elif caller.db.benefices['Rank'] == 'Canon':
+                caller.db.benefices['Rank'] = 'Deacon'
+            else:
+                caller.db.benefices['Rank'] = 'Canon'
+                
+    text = "Promotion applied. Just one final check."
+    options = ({'key': '0', 'desc': 'ok', 'goto': 'menunode_bonuspointcalc'})
+    return text, options
+    
+
+def menunode_todwbtr(caller):
+    if 'Passage Contract' in caller.db.benefices:
+        caller.db.benefices['Passage Contract'] = str(int(caller.db.benefices['Passage Contract']) + 2)
+    else:
+        caller.db.benefices['Passage Contract'] = '2'
+    
+    text = "Do you want ranks of Assets or Cash?"
+    options = ({"key": "0", "desc": "Assets", "goto": "menunode_todwbtr2"},
+               {"key": "1", "desc": "Cash", "goto": "menunode_todwbtr2"})
+    return text, options
+
+
+def menunode_todwbtr2(caller, raw_input):
+    if int(raw_input) == 0:
+        if 'Assets' in caller.db.benefices:
+            if caller.db.benefices['Assets'] == '4':
+                caller.db.benefices['Assets'] = '8'
+                caller.db.assets += 200
+            else:
+                caller.db.benefices['Assets'] = '12'
+                caller.db.assets += 500
+        else:
+            caller.db.benefices['Assets'] = '4'
+            caller.db.assets += 300
+    else:
+        if 'Cash' in caller.db.benefices:
+            if caller.db.benefices['Cash'] == '4':
+                caller.db.benefices['Cash'] = '8'
+                caller.db.firebirds = 2000
+            else:
+                caller.db.benefices['Cash'] = '12'
+                caller.db.firebirds = 3000
+        else:
+            caller.db.benefices['Cash'] = '4'
+            caller.db.firebirds = 1000
+            
+    text = "Rewards applied. Just one final check."
+    options = ({'key': '0', 'desc': 'ok', 'goto': 'menunode_bonuspointcalc'})
+    return text, options
+    
+    
+def menunode_todwbtf(caller):
+    caller.db.todsp = 6
+    text = "You get 6 points among the following."
+    options = ({"key": "0", "desc": "Ally", "goto": "menunode_todwbtf2"},
+               {"key": "1", "desc": "Contact", "goto": "menunode_todwbtf2"},
+               {"key": "2", "desc": "Gossip Network", "goto": "menunode_todwbtf2"},
+               {"key": "3", "desc": "Passage Contract", "goto": "menunode_todwbtf2"})
+    return text, options
+    
+
+def menunode_todwbtf2(caller, raw_input):
+    caller.db.todsp -= 1
+    if int(raw_input) == 0:
+        if 'Ally' in caller.db.benefices:
+            caller.db.benefices['Ally'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Ally'] = '1'
+    elif int(raw_input) == 1:
+        if 'Contact' in caller.db.benefices:
+            caller.db.benefices['Contact'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Contact'] = '1'
+    elif int(raw_input) == 2:
+        if 'Gossip Network' in caller.db.benefices:
+            caller.db.benefices['Gossip Network'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Gossip Network'] = '1'
+    elif int(raw_input) == 3:
+        if 'Passage Contract' in caller.db.benefices:
+            caller.db.benefices['Passage Contract'] = str(int(caller.db.benefices['Ally'])+1)
+        else:
+            caller.db.benefices['Passage Contract'] = '1'
+    
+    if caller.db.todsp == 0:
+        text = "Rewards applied. Just one final check."
+        options = ({'key': '0', 'desc': 'ok', 'goto': 'menunode_bonuspointcalc'})
+        return text, options
+        
+    text = "%i points remaining." % caller.db.todsp
+    options = ({"key": "0", "desc": "Ally", "goto": "menunode_todwbtf2"},
+               {"key": "1", "desc": "Contact", "goto": "menunode_todwbtf2"},
+               {"key": "2", "desc": "Gossip Network", "goto": "menunode_todwbtf2"},
+               {"key": "3", "desc": "Passage Contract", "goto": "menunode_todwbtf2"})
+    return text, options
+            
 # END TOUR OF DUTY SECTION
 
 # BEGIN BONUSPOINTS SECTION
