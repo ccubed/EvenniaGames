@@ -10,4 +10,4 @@ from commands import fsunscmds
 
 class FSunSet(CmdSet):
     def at_cmdset_creation(self):
-        self.add(fsunscmds.Sheet)
+        self.add(fsunscmds.Sheet())
