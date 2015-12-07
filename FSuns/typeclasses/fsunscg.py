@@ -2505,7 +2505,9 @@ def menunode_lppbb6(caller, raw_input):
     
     
 def menunode_lpp6cc(caller):
-    pass
+    text = "Enter your home planet now."
+    options = ({"key": "_default", "goto": "menunode_todstart"})
+    return text, options
 
 # END PRIEST SECTION
 
