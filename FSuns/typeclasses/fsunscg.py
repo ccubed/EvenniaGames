@@ -1091,7 +1091,7 @@ def apply_path_guild(caller, which, what, house):
 def menunode_start(caller):
     text = "Beginning Fading Suns Character Generation. You will be able to execute other commands.\n"
     text += "You can exit early but will have to start over. Select your character's path."
-    options = ({"desc": "Lifepath CG", "goto": "menunode_lifepath"}, {"desc": "Custom CG", "goto": "menunode_custom"})
+    options = ({"desc": "Lifepath CG", "goto": "menunode_lifepath"})
     return text, options
 
 
@@ -1166,7 +1166,7 @@ def menunode_lpn2(caller, raw_input):
                    {"key": "4", "desc": "al-Malik", "goto": "menunode_lpnmh"},
                    {"key": "5", "desc": "Questing Knight", "goto": "menunode_lpnmh"})
         return text, options
-    else not raw_input.isdigit():
+    elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
         addsheet(pc, 'Faction Lore: ' + raw_input, 'Skills', 3)
@@ -1263,7 +1263,7 @@ def menunode_lpnq(caller, raw_input):
 def menunode_lpnqmh(caller, raw_input):
     caller.db.mirrorhouse = househelper[raw_input]
     
-     if int(raw_input) == 3:
+    if int(raw_input) == 3:
         caller.db.recbenefices.append('Church Ally')
     elif int(raw_input) == 4:
         caller.db.recbenefices.append('Passage Contract')
@@ -1531,7 +1531,7 @@ def menunode_lpn5di2(caller, raw_input):
     addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
     text = "Do you want to take 2 points of Analytical or Malefaction skills?"
     options = ({"key": "0", "desc": "Analytical", "goto": "menunode_lpn5di2a"},
-               {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn5di2m"}}
+               {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn5di2m"})
     return text, options
     
     
@@ -1680,7 +1680,7 @@ def menunode_lpnq5(caller, raw_input):
 def menunode_lpnq52(caller):
     text = "Now pick your second body attribute. It gets +1."
     options = ({"Key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq53"},
-               {"Key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1). "goto": "menunode_lpnq53"},
+               {"Key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_lpnq53"},
                {"Key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_lpnq53"})
 
     return text, options
@@ -4803,23 +4803,42 @@ def menunode_todwbtf2(caller, raw_input):
 # BEGIN BONUSPOINTS SECTION
 
 def menunode_bonuspointcalc(caller):
-    caller.db.bonus = 0
+    caller.db.bonusattrib = 0
+    caller.db.bonusskills = 0
     
     # calculate skills and attributes over 8 if any
     for x in caller.db.attributes.keys():
         if caller.db.attributes[x] > 8:
-            caller.db.bonus = caller.db.attributes[x] - 8
+            caller.db.bonusattrib = caller.db.attributes[x] - 8
             caller.db.attributes[x] = 8
     for x in caller.db.skills.keys():
         if caller.db.skills[x] > 8:
-            caller.db.bonus = caller.db.skills[x] - 8
+            caller.db.bonusskills = caller.db.skills[x] - 8
             caller.db.skills[x] = 8
             
-    if caller.db.bonus:
-        text = "Some of your attributes and skills were over 8 and had to be lowered.\n"
+    if caller.db.bonusattrib:
+        caller.db.bonuseattrib -= 1
+        text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
-        text += "You have %i points remaining." % caller.db.bonus
-        options = ({})
+        text += "You have %i points remaining." % caller.db.bonusattrib
+        options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
+                   
+        options = [for x in options if caller.db.attributes[x['desc']] != 8]
+        
+        return text, options
+    elif caller.db.bonusskills:
+        text = "Some of your skills were over 8 and had to be lowered.\n"
+        text += "You can now use those points regained to purchase extra items. Enter a skill now? Case matters.\n"
+        text += "You have %i points remaining." % caller.db.bonusskills
+        options = ({"key": "_default", "goto": "menunode_bonusskills"})
         return text, options
     else:
         text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
@@ -4827,12 +4846,44 @@ def menunode_bonuspointcalc(caller):
         return text, options
 
 
-def menunode_bonuspoints(caller):
-    if caller.db.bonus:
-        text = "Some of your attributes and skills were over 8 and had to be lowered.\n"
+def menunode_bonusattrib(caller):
+    if caller.db.bonusattrib:
+        caller.db.bonuseattrib -= 1
+        text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
-        text += "You have %i points remaining." % caller.db.bonus
-        options = ({})
+        text += "You have %i points remaining." % caller.db.bonusattrib
+        options = ({"key": "0", "desc": "Strength", "exec": addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "1", "desc": "Dexterity", "exec": addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "2", "desc": "Endurance", "exec": addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "3", "desc": "Wits", "exec": addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "4", "desc": "Perception", "exec": addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "5", "desc": "Tech", "exec": addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "6", "desc": "Presence", "exec": addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "7", "desc": "Will", "exec": addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "8", "desc": "Faith", "exec": addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
+                   
+        options = [for x in options if caller.db.attributes[x['desc']] != 8]
+        
+        return text, options
+    else:
+        text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
+        options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
+        return text, options
+        
+def menunode_bonusskills(caller, raw_input):
+    caller.db.bonusskills -= 1
+    
+    if raw_input in guildonly and not caller.db.archetype == 'Merchant':
+        caller.db.bonusskills += 1
+        text = "You entered a guild only skill. Refunded the point."
+    else:
+        addsheet(caller, raw_input, 'Skills', 1)
+        
+    if caller.db.bonusskills:
+        text = "Some of your skills were over 8 and had to be lowered.\n"
+        text += "You can now use those points regained to purchase extra items. Enter a skill now? Case matters.\n"
+        text += "You have %i points remaining." % caller.db.bonusskills
+        options = ({"key": "_default", "goto": "menunode_bonusskills"})
         return text, options
     else:
         text = "Congrats, you are done. Type quit to exit. Ask staff about approval."

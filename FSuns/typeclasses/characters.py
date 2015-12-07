@@ -51,8 +51,6 @@ class Character(DefaultCharacter):
         self.db.minor = 0
         self.db.recbenefices = []
         self.db.mirrorhouse = 'None'
-        self.db.noble = 0  # if 1, they can buy the nobility merit
-        self.db.guild = 0  # if 1, they can buy guild only skills
         self.db.occult = {} # occult powers
         self.db.tours = [] # duty tours
         self.db.cyber = [] # Cybernetics
