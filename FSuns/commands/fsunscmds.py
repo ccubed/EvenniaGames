@@ -7,7 +7,7 @@ Fading Suns specific commands.
 
 from evennia import default_cmds
 from evennia.utils.evmenu import EvMenu
-from evennia.utils import evtable
+from evennia.utils import EvTable
 from evennia.utils.utils import *
 from evennia.utils import search
 
