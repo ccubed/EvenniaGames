@@ -1457,16 +1457,16 @@ def menunode_lpn5(caller, raw_input):
         return text, options
     elif int(raw_input) == 4:
         text = "As a dandy your first choice is 1 point into a combat skill. Pick one now."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5dy2"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5dy2"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5dy2"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5dy2"})
         return text, options
     elif int(raw_input) == 5:
         text = "As a student you get a language of your choice. Enter it now."
@@ -1500,31 +1500,31 @@ def menunode_lpn5d2(caller, raw_input):
     
 def menunode_lpn5sd2(caller):
     text = "As a soldier you get 3 points for combat skills. Second point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd3"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd3"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd3"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd3"})
     return text, options    
     
     
 def menunode_lpn5sd3(caller):
     text = "As a soldier you get 3 points for combat skills. Second point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd4"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd4"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd4"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd4"})
     return text, options
     
     
@@ -1547,41 +1547,41 @@ def menunode_lpn5di2(caller, raw_input):
     
 def menunode_lpn5di2a(caller):
     text = "First point of Analytical."
-    options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
-               {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
-               {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
-               {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
-               {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpn5di2a2"})
+    options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
+               {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
+               {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
+               {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpn5di2a2"},
+               {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpn5di2a2"})
     return text, options
     
 
 def menunode_lpn5di2a2(caller):
     text = "Second point of Analytical."
-    options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpn5cc"})
+    options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpn5cc"})
     return text, options
     
     
 def menunode_lpn5di2m(caller):
     text = "First point of Malefaction."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn5di2m2"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn5di2m2"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn5di2m2"})
     return text, options
     
 
 def menunode_lpn5di2m2(caller):
     text = "Second point of Malefaction."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn5cc"})
     return text, options
     
     
@@ -1594,11 +1594,11 @@ def menunode_lpn5dy2(caller):
 def menunode_lpn5dy3(caller, raw_input):
     fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
     text = "You have one point to spend in the control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpn5cc"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpn5cc"})
     return text, options
                
                
@@ -1623,7 +1623,7 @@ def menunode_lpn5s2c(caller):
     text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
     text += "Ex: Arts Painting or Craft Blacksmith.\n"
     text += "First Point."
-    options = ({"key": "0", "desc": "Gaming", "exec": fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c2"},
+    options = ({"key": "0", "desc": "Gaming", "exec": lambda caller: fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c2"},
                {"key": "_default", "goto": "menunode_lpn5s2c2"})
     return text, options
     
@@ -1636,7 +1636,7 @@ def menunode_lpn5s2c2(caller, raw_input):
     text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
     text += "Ex: Arts Painting or Craft Blacksmith.\n"
     text += "Second Point. If you want to add to an existing skill type it again. Case Sensitive."
-    options = ({"key": "0", "desc": "Gaming", "exec": fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c3"},
+    options = ({"key": "0", "desc": "Gaming", "exec": lambda caller: fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5s2c3"},
                {"key": "_default", "goto": "menunode_lpn5s2c3"})
     return text, options
     
@@ -1649,7 +1649,7 @@ def menunode_lpn5s2c3(caller, raw_input):
     text += "If you want gaming, just select it here. If you want one of the others, type that skill and then the specialty after it.\n"
     text += "Ex: Arts Painting or Craft Blacksmith.\n"
     text += "Second Point. If you want to add to an existing skill type it again. Case Sensitive."
-    options = ({"key": "0", "desc": "Gaming", "exec": fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5cc"},
+    options = ({"key": "0", "desc": "Gaming", "exec": lambda caller: fsutils.addsheet(caller, 'Gaming', 'Skills', 1), "goto": "menunode_lpn5cc"},
                {"key": "_default", "goto": "menunode_lpn5s2c4"})
     return text, options
     
@@ -1681,63 +1681,63 @@ def menunode_lpnq5(caller, raw_input):
     # Questing knights have so many choices. Good lord.
     text = "Now let's begin the long process of setting your choices for questing knight.\n"
     text += "Pick your first Body attribute. This one gets +2."
-    options = ({"Key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_lpnq52"},
-               {"Key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_lpnq52"},
-               {"Key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_lpnq52"})
+    options = ({"Key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_lpnq52"},
+               {"Key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_lpnq52"},
+               {"Key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_lpnq52"})
 
     return text, options
 
 
 def menunode_lpnq52(caller):
     text = "Now pick your second body attribute. It gets +1."
-    options = ({"Key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq53"},
-               {"Key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_lpnq53"},
-               {"Key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_lpnq53"})
+    options = ({"Key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq53"},
+               {"Key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_lpnq53"},
+               {"Key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_lpnq53"})
 
     return text, options
 
 
 def menunode_lpnq53(caller):
     text = "Now pick your third body attribute. It gets +1."
-    options = ({"Key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
-               {"Key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
-               {"Key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"})
+    options = ({"Key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
+               {"Key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"},
+               {"Key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_lpnq54"})
 
     return text, options
 
 
 def menunode_lpnq54(caller):
     text = "Now pick your first mind attribute. It gets +2."
-    options = ({"Key": "0", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_lpnq55"},
-               {"Key": "1", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_lpnq55"},
-               {"Key": "2", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_lpnq55"})
+    options = ({"Key": "0", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_lpnq55"},
+               {"Key": "1", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_lpnq55"},
+               {"Key": "2", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_lpnq55"})
 
     return text, options
 
 
 def menunode_lpnq55(caller):
     text = "Now pick your second mind attribute. It gets +1."
-    options = ({"Key": "0", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_lpnq56"},
-               {"Key": "1", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_lpnq56"},
-               {"Key": "2", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_lpnq56"})
+    options = ({"Key": "0", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_lpnq56"},
+               {"Key": "1", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_lpnq56"},
+               {"Key": "2", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_lpnq56"})
 
     return text, options
 
 
 def menunode_lpnq56(caller):
     text = "Now pick your first spirit attribute. It gets +2."
-    options = ({"Key": "0", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_lpnq57"},
-               {"Key": "1", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_lpnq57"},
-               {"Key": "2", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_lpnq57"})
+    options = ({"Key": "0", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_lpnq57"},
+               {"Key": "1", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_lpnq57"},
+               {"Key": "2", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_lpnq57"})
 
     return text, options
 
 
 def menunode_lpnq57(caller):
     text = "Now pick your second spirit attribute. It gets +1."
-    options = ({"Key": "0", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_lpnq58"},
-               {"Key": "1", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_lpnq58"},
-               {"Key": "2", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpnq58"})
+    options = ({"Key": "0", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_lpnq58"},
+               {"Key": "1", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_lpnq58"},
+               {"Key": "2", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_lpnq58"})
 
     return text, options
 
@@ -1746,48 +1746,48 @@ def menunode_lpnq58(caller):
     fsutils.addsheet(caller, 'Influence', 'Skills', 1)
 
     text = "You get 3 points in combat skills. First point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq581"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq581"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq581"})
 
     return text, options
     
     
 def menunode_lpnq581(caller):
     text = "You get 3 points in combat skills. Second point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq582"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq582"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq582"})
 
     return text, options
     
     
 def menunode_lpnq582(caller):
     text = "You get 3 points in combat skills. Third point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq59"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpnq59"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpnq59"})
 
     return text, options
 
@@ -1801,11 +1801,11 @@ def menunode_lpnq59(caller):
     fsutils.addsheet(caller, 'Physick', 'Skills', 1)
 
     text = "Please pick a Malefaction skill."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpnq591"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpnq591"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpnq591"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpnq591"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpnq591"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpnq591"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpnq591"})
 
     return text, options
 
@@ -1832,29 +1832,29 @@ def menunode_lpn6(caller, raw_input):
  
     if int(raw_input) == 0: # Soldier
         text = "As a soldier you get 3 points in combat skills. First point."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd2"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd2"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd2"})
         return text, options
     elif int(raw_input) == 1: # Starman
         text = "As a starman you get 2 points in combat skills. First point."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm2"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm2"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm2"})
         return text, options
     elif int(raw_input) == 2: # Duelist
         text = "As a duelist you get a melee fighting style. Pick one now."
@@ -1874,95 +1874,95 @@ def menunode_lpn6(caller, raw_input):
         
 def menunode_lpn6sd2(caller):
     text = "As a soldier you get 3 points in combat skills. Second point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd3"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd3"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd3"})
     return text, options
     
 def menunode_lpn6sd3(caller):
     text = "As a soldier you get 3 points in combat skills. Third point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd4"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sd4"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sd4"})
     return text, options
     
 
 def menunode_lpn6sd4(caller):
     text = "You now get 3 social points. First point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd5"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd5"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd5"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd5"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd5"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd5"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd5"})
     return text, options
     
     
 def menunode_lpn6sd5(caller):
     text = "You now get 3 social points. Second point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd6"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd6"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd6"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd6"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd6"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sd6"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sd6"})
     return text, options
     
     
 def menunode_lpn6sd6(caller):
     text = "You now get 3 social points. Third point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
     return text, options
     
     
 def menunode_lpn6sm2(caller):
     text = "As a starman you get 2 points in combat skills. Second Point.."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm3"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn6sm3"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn6sm3"})
     return text, options
     
     
 def menunode_lpn6sm3(caller):
     text = "You now get 2 social points. First point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sm4"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sm4"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sm4"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sm4"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sm4"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6sm4"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6sm4"})
     return text, options
     
     
 def menunode_lpn6sm3(caller):
     text = "You now get 2 social points. Second point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
     return text, options
     
 
@@ -1977,31 +1977,31 @@ def menunode_lpn6d2(caller, raw_input):
         caller.db.actions['Torero'] = ['Faena', 'Masking Strike', 'Disarming Cloak', 'Entangling Cloak']
         
     text = "You now get 3 social points. First point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d3"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d3"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d3"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d3"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d3"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d3"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d3"})
     return text, options
     
 
 def menunode_lpn6d3(caller):
     text = "You now get 3 social points. Second point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d4"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d4"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d4"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d4"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d4"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6d4"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6d4"})
     return text, options
     
 
 def menunode_lpn6d4(caller):
     text = "You now get 3 social points. Third point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpn6cc"})
     return text, options
     
     
@@ -2009,28 +2009,28 @@ def menunode_lpn6a2(caller, raw_input):
     fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
     
     text = "Do you want Investigation at +2 or to choose 2 points of skills from the Malefaction group?"
-    options = ({"key": "0", "desc": "Investigation +2", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 2), "goto": "menunode_lpn6cc"},
+    options = ({"key": "0", "desc": "Investigation +2", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 2), "goto": "menunode_lpn6cc"},
                {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn6a3"})
     return text, options
     
 
 def menunode_lpn6a3(caller):
     text = "First point of Malefaction."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6a4"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6a4"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6a4"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6a4"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6a4"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6a4"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6a4"})
     return text, options
     
     
 def menunode_lpn6a4(caller):
     text = "Second point of Malefaction."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpn6cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpn6cc"})
     return text, options
     
 
@@ -2081,10 +2081,10 @@ def menunode_lppmm2(caller, raw_input):
         caller.db.recbenefices.append('Ally')
 
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
-    options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
-               {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
-               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
-               {"key": "3", "desc": "Space Habitat", "exec": apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
+    options = ({"key": "0", "desc": "City", "exec": lambda caller: apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
+               {"key": "1", "desc": "Town", "exec": lambda caller: apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
+               {"key": "2", "desc": "Country", "exec": lambda caller: apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
+               {"key": "3", "desc": "Space Habitat", "exec": lambda caller: apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
     return text, options
 
 
@@ -2101,27 +2101,27 @@ def menunode_lpp2(caller, raw_input):
         caller.db.recbenefices.append('Ally')
 
     text = "Now choose your upbringing. Upbringing for a priest has 2 factors. First pick your Environment."
-    options = ({"key": "0", "desc": "City", "exec": apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
-               {"key": "1", "desc": "Town", "exec": apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
-               {"key": "2", "desc": "Country", "exec": apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
-               {"key": "3", "desc": "Space Habitat", "exec": apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
+    options = ({"key": "0", "desc": "City", "exec": lambda caller: apply_path_uppm(caller, 0, 0), "goto": "menunode_lpp3"},
+               {"key": "1", "desc": "Town", "exec": lambda caller: apply_path_uppm(caller, 0, 1), "goto": "menunode_lpp3"},
+               {"key": "2", "desc": "Country", "exec": lambda caller: apply_path_uppm(caller, 0, 2), "goto": "menunode_lpp3"},
+               {"key": "3", "desc": "Space Habitat", "exec": lambda caller: apply_path_uppm(caller, 0, 3), "goto": "menunode_lpp3"})
     return text, options
 
 def menunode_lpp3(caller):
     text = "The next thing you need to pick is your Class."
-    options = ({"key": "0", "desc": "Wealthy", "exec": apply_path_uppm(caller, 1, 0), "goto": "menunode_lpp31"},
-               {"key": "1", "desc": "Middle", "exec": apply_path_uppm(caller, 1, 1), "goto": "menunode_lpp32"},
-               {"key": "2", "desc": "Poor", "exec": apply_path_uppm(caller, 1, 2), "goto": "menunode_lpp33"})
+    options = ({"key": "0", "desc": "Wealthy", "exec": lambda caller: apply_path_uppm(caller, 1, 0), "goto": "menunode_lpp31"},
+               {"key": "1", "desc": "Middle", "exec": lambda caller: apply_path_uppm(caller, 1, 1), "goto": "menunode_lpp32"},
+               {"key": "2", "desc": "Poor", "exec": lambda caller: apply_path_uppm(caller, 1, 2), "goto": "menunode_lpp33"})
     return text, options
                
                
 def menunode_lpp31(caller):
     text = "You get 1 point in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp4"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp4"})
     return text, options
     
     
@@ -2143,11 +2143,11 @@ def menunode_lpp322(caller, raw_input):
     
 def menunode_lpp33(caller):
     text = "You get 1 point in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp4"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp4"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp4"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp4"})
     return text, options
     
     
@@ -2169,16 +2169,16 @@ def menunode_lpp5(caller, raw_input):
     if int(raw_input) == 0:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
             return text, options
         elif caller.db.house == "Sanctuary Aeon" or caller.db.mirrorhouse == "Sanctuary Aeon":
             text = "What is your arts specialty?"
@@ -2188,47 +2188,47 @@ def menunode_lpp5(caller, raw_input):
     elif int(raw_input) == 1:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
             return text, options
         elif caller.db.house == "Eskatonic Order" or caller.db.mirrorhouse == "Eskatonic Order":
             text = "You get 3 points in the Analytical group."
-            options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo02"},
-                       {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo02"},
-                       {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo02"},
-                       {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo02"},
-                       {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo02"})
+            options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo02"},
+                       {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo02"})
             return text, options
     # Monastery
     elif int(raw_input) == 2:
         if caller.db.house == "Temple Avesti" or caller.db.mirrorhouse == "Temple Avesti":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp5ta2"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp5ta2"})
             return text, options
         elif caller.db.house == "Eskatonic Order" or caller.db.mirrorhouse == "Eskatonic Order":
             text = "You get 2 points in the Analytical group."
-            options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo12"},
-                       {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo12"},
-                       {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo12"},
-                       {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo12"},
-                       {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo12"})
+            options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo12"},
+                       {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo12"})
             return text, options
             
     text = "Please select your early career."
@@ -2252,71 +2252,71 @@ def menunode_lpp5sa(caller, raw_input):
 
 def menunode_lpp5ta2(caller):
     text = "You get 2 points in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp5ta3"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp5ta3"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp5ta3"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp5ta3"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp5ta3"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp5ta3"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp5ta3"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp5ta3"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp5ta3"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp5ta3"})
     return text, options
     
     
 def menunode_lpp5ta3(caller):
     text = "You get 2 points in the social group. Second Point."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp5ta4"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp5ta4"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp5ta4"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp5ta4"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp5ta4"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpp5ta4"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpp5ta4"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpp5ta4"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpp5ta4"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpp5ta4"})
     return text, options
     
     
 def menunode_lpp5ta4(caller):
     text = "You get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp5ta5"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp5ta5"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp5ta5"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp5ta5"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp5ta5"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp5ta5"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp5ta5"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp5ta5"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp5ta5"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp5ta5"})
     return text, options
     
     
 def menunode_lpp5ta5(caller):
     text = "You get 2 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp5cc"})
     return text, options
     
     
 def menunode_lpp5eo02(caller):
     text = "You get 3 points in the Analytical group. Second Point."
-    options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo03"},
-               {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo03"},
-               {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo03"},
-               {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo03"},
-               {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo03"})
+    options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5eo03"},
+               {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5eo03"},
+               {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5eo03"},
+               {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5eo03"},
+               {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5eo03"})
     return text, options
     
 
 def menunode_lpp5eo03(caller):
     text = "You get 3 points in the Analytical group. Third Point."
-    options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5cc"})
+    options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5cc"})
     return text, options
     
     
 def menunode_lpp5eo12(caller):
     text = "You get 2 points in the Analytical group. Second Point."
-    options = ({"key": "0", "desc": "Bureaucracy", "exec": fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "1", "desc": "Investigation", "exec": fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "2", "desc": "Observe", "exec": fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "3", "desc": "Physick", "exec": fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5cc"},
-               {"key": "4", "desc": "Warfare", "exec": fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5cc"})
+    options = ({"key": "0", "desc": "Bureaucracy", "exec": lambda caller: fsutils.addsheet(caller, 'Bureaucracy', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "1", "desc": "Investigation", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "2", "desc": "Observe", "exec": lambda caller: fsutils.addsheet(caller, 'Observe', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "3", "desc": "Physick", "exec": lambda caller: fsutils.addsheet(caller, 'Physick', 'Skills', 1), "goto": "menunode_lpp5cc"},
+               {"key": "4", "desc": "Warfare", "exec": lambda caller: fsutils.addsheet(caller, 'Warfare', 'Skills', 1), "goto": "menunode_lpp5cc"})
     return text, options
     
     
@@ -2341,25 +2341,25 @@ def menunode_lpp6(caller, raw_input):
     # Missionary
     elif int(raw_input) == 2:
         text = "You have one point to spend in the control group."
-        options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
-                   {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
-                   {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
-                   {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
-                   {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpp6cc"})
+        options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
+                   {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
+                   {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
+                   {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpp6cc"},
+                   {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpp6cc"})
         return text, options
     # Inquisitor
     elif int(raw_input) == 4:
         text = "You get 2 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp6i2"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp6i2"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp6i2"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp6i2"})
         return text, options
         
         
@@ -2376,35 +2376,35 @@ def menunode_lpp6m2(caller, raw_input):
     
 def menunode_lpp6i2(caller):
     text = "You get 2 points in the combat group. Second Point"
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp6i3"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp6i3"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpp6i3"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpp6i3"})
     return text, options
 
 
 def menunode_lpp6i3(caller):
     text = "You get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp6i4"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp6i4"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp6i4"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp6i4"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp6i4"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp6i4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp6i4"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp6i4"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp6i4"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp6i4"})
     return text, options
     
 def menunode_lpp6i4(caller):
     text = "You get 2 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp6cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp6cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp6cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp6cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp6cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpp6cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpp6cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpp6cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpp6cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpp6cc"})
     return text, options
     
 def menunode_lppbb(caller):
@@ -2423,53 +2423,53 @@ def menunode_lppbb(caller):
     caller.db.actions['Mantok'] = ["Soldier's Stance", 'Close Palm, Reach the Heart', 'Cross Arms, Don the Robe', 'Stretch Spine, Speak the Word']
     
     text = "You have 2 points to spend in the combat group."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb2"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb2"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb2"})
     return text, options
     
     
 def menunode_lppbb2(caller):
     text = "You have 2 points to spend in the combat group. Second Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb3"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lppbb3"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lppbb3"})
     return text, options
     
 
 def menunode_lppbb3(caller):
     text = "Do you want Fight or Melee +2?"
-    options = ({"key": "0", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 2), "goto": "menunode_lppbb4"},
-               {"key": "0", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 2), "goto": "menunode_lppbb4"})
+    options = ({"key": "0", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 2), "goto": "menunode_lppbb4"},
+               {"key": "0", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 2), "goto": "menunode_lppbb4"})
     return text, options
     
     
 def menunode_lppbb4(caller):
     text = "Pick a single combat skill to get +3."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 3), "goto": "menunode_lppbb5"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 3), "goto": "menunode_lppbb5"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 3), "goto": "menunode_lppbb5"})
     return text, options
     
 
@@ -2578,11 +2578,11 @@ def menunode_lpm3(caller):
     
 def menunode_lpm31(caller):
     text = "You get 1 point in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm4"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm4"})
     return text, options
     
 def menunode_lpm32(caller):
@@ -2593,16 +2593,24 @@ def menunode_lpm32(caller):
     
 def menunode_lpm322(caller, raw_input):
     fsutils.addsheet(caller, 'Craft ' + raw_input, 'Skills', 1)
-    # APPRENTICESHIP
+    text = "Now you will pick an apprenticeship."
+    options = ({"key": "0", "desc": "Academy", "goto": "menunode_lpm5"},
+               {"key": "1", "desc": "Guild Hall", "goto": "menunode_lpm5"},
+               {"key": "2", "desc": "The Streets", "goto": "menunode_lpm5"})
+               
+    if caller.db.minor: # no academy for yeoman
+        options = [x for x in options if x['key'] != '0']
+        
+    return text, options
     
     
 def menunode_lpm33(caller):
     text = "You get 1 point in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm4"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm4"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm4"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm4"})
     return text, options
     
     
@@ -2628,151 +2636,151 @@ def menunode_lpm5(caller, raw_input):
         
         if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
             text = "You get 3 points in the control group."
-            options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
-                       {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
-                       {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
-                       {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
-                       {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c02"},
-                       {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c02"})
+            options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c02"},
+                       {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c02"})
             return text, options
         elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
             text = "You get 2 points in the science group."
-            options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
-                       {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
-                       {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
-                       {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
-                       {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e02"})
+            options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e02"},
+                       {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e02"})
             return text, options
         elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s02"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s02"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s02"})
             return text, options
         elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
             text = "You get 3 points in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m02"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m02"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m02"})
             return text, options
         
     elif int(raw_input) == 1: # Guild Hall
         
         if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
             text = "You get 3 points in the control group."
-            options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
-                       {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
-                       {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
-                       {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
-                       {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c12"},
-                       {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c12"})
+            options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c12"},
+                       {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c12"})
             return text, options
         elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5e12"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5e12"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5e12"})
             return text, options
         elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s12"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s12"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s12"})
             return text, options
         elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
             text = "You get 2 points in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m12"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m12"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m12"})
             return text, options
         
     elif int(raw_input) == 2: # streets
         
         if caller.db.house == "Charioteers" or caller.db.mirrorhouse == "Charioteers":
             text = "You get 2 points in the control group."
-            options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
-                       {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
-                       {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
-                       {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
-                       {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c22"},
-                       {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c22"})
+            options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c22"},
+                       {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c22"})
             return text, options
         elif caller.db.house == "Engineers" or caller.db.mirrorhouse == "Engineers":
             text = "You get 2 points in the science group.."
-            options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
-                       {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
-                       {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
-                       {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
-                       {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e22"})
+            options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e22"},
+                       {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e22"})
             return text, options
         elif caller.db.house == "Scravers" or caller.db.mirrorhouse == "Scravers":
             text = "You get 3 points in the malefaction group."
-            options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s22"},
-                       {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s22"},
-                       {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s22"},
-                       {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s22"},
-                       {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s22"})
+            options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s22"},
+                       {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s22"})
             return text, options
         elif caller.db.house == "Muster" or caller.db.mirrorhouse == "Muster":
             text = "You get 2 points in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m22"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m22"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m22"})
             return text, options
         elif caller.db.house == "Reeves" or caller.db.mirrorhouse == "Reeves":
             text = "You get 1 point in the combat group."
-            options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
-                       {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5r22"})
+            options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5r22"},
+                       {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5r22"})
             return text, options
             
     text = "Select your early career."
@@ -2792,155 +2800,155 @@ def menunode_lpm5(caller, raw_input):
     
 def menunode_lpm5c02(caller):
     text = "Second point in control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c03"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c03"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c03"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c03"})
     return text, options
 
     
 def menunode_lpm5c03(caller):
     text = "Third point in control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5e02(caller):
     text = "You get 2 points in the science group. Second Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
 
 def menunode_lpm5s02(caller):
     text = "You now get 3 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s03"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s03"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s03"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s03"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s03"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s03"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s03"})
     return text, options
     
     
 def menunode_lpm5s03(caller):
     text = "You now get 3 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s04"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s04"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s04"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s04"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s04"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s04"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s04"})
     return text, options
     
     
 def menunode_lpm5s04(caller):
     text = "You now get 3 points in the malefaction group. Third Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5m02(caller):
     text = "Combat point 2."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m03"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m03"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m03"})
     return text, options
     
     
 def menunode_lpm5m03(caller):
     text = "Combat point 3."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m04"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m04"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m04"})
     return text, options
     
     
 def menunode_lpm5m04(caller):
     text = "You get 2 points in the control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m05"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m05"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm5m05(caller):
     text = "Second control point."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m06"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m06"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m06"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m06"})
     return text, options
     
 
 def menunode_lpm5m06(caller):
     text = "You now get 1 point in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
 def menunode_lpm5c12(caller):
     text = "Second Control Point."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c13"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c13"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c13"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c13"})
     return text, options
     
 def menunode_lpm5c13(caller):
     text = "Third Control Point."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c14"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c14"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c14"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c14"})
     return text, options
     
 
 def menunode_lpm5c14(caller):
     text = "You get 1 point in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm5c15"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm5c15"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm5c15"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm5c15"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm5c15"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm5c15"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm5c15"})
     return text, options
     
 def menunode_lpm5c15(caller):
@@ -2950,7 +2958,7 @@ def menunode_lpm5c15(caller):
     
 
 def menunode_lpm5c16(caller, raw_input):
-    fsutils.addsheet(caller, raw_input, 'Languages', 0)
+    lambda caller: fsutils.addsheet(caller, raw_input, 'Languages', 0)
     text = "Select your early career."
     options = ({"key": "0", "desc": "Merchant", "goto": "menunode_lpm6"},
                {"key": "1", "desc": "Money-Lender", "goto": "menunode_lpm6"},
@@ -2968,268 +2976,268 @@ def menunode_lpm5c16(caller, raw_input):
 
 def menunode_lpm5e12(caller):
     text = "You get 2 points in the science group."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e13"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e13"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e13"})
     return text, options
     
 
 def menunode_lpm5e13(caller):
     text = "You get 2 points in the science group. Second Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
 
 def menunode_lpm5s12(caller):
     text = "You now get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s13"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s13"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s13"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s13"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s13"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s13"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s13"})
     return text, options
     
 
 def menunode_lpm5s13(caller):
     text = "You now get 2 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5m12(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m13"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m13"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m13"})
     return text, options
     
 
 def menunode_lpm5m13(caller):
     text = "You get 1 point in the control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m14"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m14"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m14"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m14"})
     return text, options
     
 
 def menunode_lpm5m14(caller):
     text = "You now get 3 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m15"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m15"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m15"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m15"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m15"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m15"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m15"})
     return text, options
     
     
 def menunode_lpm5m15(caller):
     text = "You now get 3 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m16"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m16"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m16"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m16"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m16"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m16"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m16"})
     return text, options
     
 
 def menunode_lpm5m16(caller):
     text = "You now get 3 points in the malefaction group. Third Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5c22(caller):
     text = "Second Control Point."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c23"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c23"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5c23"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5c23"})
     return text, options
     
     
 def menunode_lpm5c23(caller):
     text = "You get one point in the combat group."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5c24"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5c24"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5c24"})
     return text, options
     
     
 def menunode_lpm5c24(caller):
     text = "You now get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5c25"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5c25"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5c25"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5c25"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5c25"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5c25"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5c25"})
     return text, options
     
     
 def menunode_lpm5c25(caller):
     text = "You now get 2 points in the malefaction group. Second Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
 
 def menunode_lpm5e22(caller):
     text = "You get 2 points in the science group. Second Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e23"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm5e23"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm5e23"})
     return text, options
     
     
 def menunode_lpm5e23(caller):
     text = "You now get 1 point in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5s22(caller):
     text = "Second Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s23"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s23"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s23"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s23"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s23"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s23"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s23"})
     return text, options
     
     
 def menunode_lpm5s23(caller):
     text = "Third Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s24"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s24"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s24"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s24"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s24"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5s24"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5s24"})
     return text, options
     
 
 def menunode_lpm5s24(caller):
     text = "You get 2 points in the combat group."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s25"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5s25"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5s25"})
     return text, options
     
 def menunode_lpm5s25(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5m22(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m23"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm5m23"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm5m23"})
     return text, options
     
 
 def menunode_lpm5m23(caller):
     text = "You get one point in the control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m24"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m24"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm5m24"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm5m24"})
     return text, options
     
     
 def menunode_lpm5m24(caller):
     text = "You get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m25"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m25"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m25"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m25"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m25"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5m25"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5m25"})
     return text, options
     
     
 def menunode_lpm5m25(caller):
     text = "You get 2 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
 def menunode_lpm5r22(caller):
     text = "You get one point in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm5cc"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm5cc"})
     return text, options
     
     
@@ -3254,155 +3262,155 @@ def menunode_lpm6(caller, raw_input):
     
     if int(raw_input) == 0:  # Merchant
         text = "You get one point in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6m01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6m01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6m01"})
         return text, options
     elif int(raw_input) == 1:  # Money Lender
         text = "You get one point in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ml01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ml01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ml01"})
         return text, options
     elif int(raw_input) == 2 or int(raw_input) == 3:  # Pilot, Engineer get combat 2, Science 3
         text = "You get 2 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6p01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6p01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6p01"})
         return text, options
     elif int(raw_input) == 4:  # Gunner is the same as pilot and engineer but he only gets 2 science because let's be complicated
         text = "You get 2 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6g01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6g01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6g01"})
         return text, options
     elif int(raw_input) == 5:  # Soldier
         text = "You get 7 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s01"})
         return text, options
     elif int(raw_input) == 6:  # Combat Engineer
         text = "You get 3 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce01"})
         return text, options
     elif int(raw_input) == 7 or int(raw_input) == 8:  # Scholar and Scientist. They both pick 5 points of science, nothing more.
         text = "You get 5 points in the science group."
-        options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
-                   {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
-                   {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
-                   {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
-                   {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi01"})
+        options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi01"},
+                   {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi01"})
         return text, options
     elif int(raw_input) == 9:  # Thief
         text = "You get 2 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6t01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6t01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6t01"})
         return text, options
     elif int(raw_input) == 10: # Spy
         text = "You get 2 points in the combat group."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6spy01"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6spy01"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6spy01"})
         return text, options
         
         
 def menunode_lpm6m01(caller):
     text = "You get 2 points in the Malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6m02"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6m02"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6m02"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6m02"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6m02"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6m02"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6m02"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6m02"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6m02"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6m02"})
     return text, options
     
 
 def menunode_lpm6m02(caller):
     text = "Second Malefaction Group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6m03"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6m03"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6m03"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6m03"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6m03"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6m03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6m03"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6m03"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6m03"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6m03"})
     return text, options
     
     
 def menunode_lpm6m03(caller):
     text = "You get 2 points in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6m04"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6m04"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6m04"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6m04"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6m04"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6m04"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6m04"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6m04"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6m04"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6m04"})
     return text, options
     
 
 def menunode_lpm6m04(caller):
     text = "You get 2 points in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6m05"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6m05"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6m05"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6m05"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6m05"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6m05"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6m05"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6m05"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6m05"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6m05"})
     return text, options
     
     
@@ -3421,21 +3429,21 @@ def menunode_lpm6m06(caller, raw_input):
 
 def menunode_lpm6ml01(caller):
     text = "You get 2 points in the Malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6ml02"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6ml02"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6ml02"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6ml02"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6ml02"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6ml02"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6ml02"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6ml02"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6ml02"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6ml02"})
     return text, options
     
 
 def menunode_lpm6ml02(caller):
     text = "Second Malefaction Group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6ml03"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6ml03"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6ml03"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6ml03"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6ml03"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6ml03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6ml03"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6ml03"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6ml03"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6ml03"})
     return text, options
     
     
@@ -3454,413 +3462,413 @@ def menunode_lpm6ml04(caller, raw_input):
 
 def menunode_lpm6p01(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6p02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6p02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6p02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6p02"})
     return text, options
     
     
 def menunode_lpm6p02(caller):
     text = "You get 3 points in the science group."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6p03"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6p03"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6p03"})
     return text, options
     
     
 def menunode_lpm6p03(caller):
     text = "You get 3 points in the science group. Second Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6p04"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6p04"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6p04"})
     return text, options
     
     
 def menunode_lpm6p04(caller):
     text = "You get 3 points in the science group. Third Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm6g01(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6g02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6g02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6g02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6g02"})
     return text, options
     
     
 def menunode_lpm6g02(caller):
     text = "You get 2 points in the science group."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6g03"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6g03"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6g03"})
     return text, options
     
     
 def menunode_lpm6g03(caller):
     text = "You get 2 points in the science group. Second Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm6s01(caller):
     text = "You get 7 points in the combat group. Second Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s02"})
     return text, options
     
 
 def menunode_lpm6s02(caller):
     text = "You get 7 points in the combat group. Third Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s03"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s03"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s03"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s03"})
     return text, options
     
     
 def menunode_lpm6s03(caller):
     text = "You get 7 points in the combat group. Fourth Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s04"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s04"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s04"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s04"})
     return text, options
     
     
 def menunode_lpm6s05(caller):
     text = "You get 7 points in the combat group. Fifth Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s05"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s05"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s05"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s05"})
     return text, options
     
     
 def menunode_lpm6s06(caller):
     text = "You get 7 points in the combat group. Sixth Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s06"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s06"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s06"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s06"})
     return text, options
     
     
 def menunode_lpm6s07(caller):
     text = "You get 7 points in the combat group. Seventh Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s08"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s08"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6s08"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6s08"})
     return text, options
     
 
 def menunode_lpm6s08(caller):
     text = "You get one point in the Control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm6ce01(caller):
     text = "You get 3 points in the combat group. Second Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce02"})
     return text, options
     
     
 def menunode_lpm6ce02(caller):
     text = "You get 3 points in the combat group. Third Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce03"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce03"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6ce03"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6ce03"})
     return text, options
     
     
 def menunode_lpm6ce03(caller):
     text = "You get 2 points in the Control group."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6ce04"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6ce04"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6ce04"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6ce04"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6ce04"})
     return text, options
     
     
 def menunode_lpm6ce04(caller):
     text = "Second Control Point."
-    options = ({"key": "0", "desc": "Aircraft", "exec": fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Beastcraft", "exec": fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Landcraft", "exec": fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Watercraft", "exec": fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Ride", "exec": fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "5", "desc": "Spacecraft", "exec": fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Landcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Landcraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Watercraft", "exec": lambda caller: fsutils.addsheet(caller, 'Watercraft', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Ride", "exec": lambda caller: fsutils.addsheet(caller, 'Ride', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "5", "desc": "Spacecraft", "exec": lambda caller: fsutils.addsheet(caller, 'Spacecraft', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm6schi01(caller):
     text = "Second Science Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi02"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi02"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi02"})
     return text, options
     
     
 def menunode_lpm6schi02(caller):
     text = "Third Science Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi03"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi03"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi03"})
     return text, options
     
 
 def menunode_lpm6schi03(caller):
     text = "Fourth Science Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi04"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6schi04"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6schi04"})
     return text, options
     
     
 def menunode_lpm6schi04(caller):
     text = "Fifth Science Point."
-    options = ({"key": "0", "desc": "Applied Science", "exec": fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Life Science", "exec": fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Social Science", "exec": fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Physical Science", "exec": fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Terraforming", "exec": fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Applied Science", "exec": lambda caller: fsutils.addsheet(caller, 'Applied Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Life Science", "exec": lambda caller: fsutils.addsheet(caller, 'Life Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Social Science", "exec": lambda caller: fsutils.addsheet(caller, 'Social Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Physical Science", "exec": lambda caller: fsutils.addsheet(caller, 'Physical Science', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Terraforming", "exec": lambda caller: fsutils.addsheet(caller, 'Terraforming', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
 def menunode_lpm6t01(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6t02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6t02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6t02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6t02"})
     return text, options
     
 
 def menunode_lpm6t02(caller):
     text = "You get 5 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t03"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t03"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t03"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t03"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t03"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t03"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t03"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t03"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t03"})
     return text, options
     
 def menunode_lpm6t03(caller):
     text = "Second Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t04"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t04"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t04"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t04"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t04"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t04"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t04"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t04"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t04"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t04"})
     return text, options
     
     
 def menunode_lpm6t04(caller):
     text = "Third Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t05"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t05"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t05"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t05"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t05"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t05"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t05"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t05"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t05"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t05"})
     return text, options
     
     
 def menunode_lpm6t05(caller):
     text = "Fourth Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t06"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t06"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t06"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t06"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t06"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t06"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t06"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t06"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t06"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t06"})
     return text, options
     
     
 def menunode_lpm6t06(caller):
     text = "Fifth Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t07"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t07"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t07"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t07"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t07"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6t07"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6t07"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6t07"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6t07"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6t07"})
     return text, options
     
     
 def menunode_lpm6t07(caller):
     text = "You get one point in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
 
 def menunode_lpm6spy01(caller):
     text = "Second Combat Point."
-    options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6spy02"},
-               {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6spy02"})
+    options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpm6spy02"},
+               {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpm6spy02"})
     return text, options
     
     
 def menunode_lpm6spy02(caller):
     text = "You get 4 points in the malefaction group."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy03"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy03"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy03"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy03"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy03"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy03"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy03"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy03"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy03"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy03"})
     return text, options
     
     
 def menunode_lpm6spy03(caller):
     text = "Second Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy04"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy04"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy04"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy04"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy04"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy04"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy04"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy04"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy04"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy04"})
     return text, options
     
     
 def menunode_lpm6spy04(caller):
     text = "Third Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy05"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy05"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy05"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy05"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy05"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy05"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy05"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy05"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy05"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy05"})
     return text, options
     
     
 def menunode_lpm6spy05(caller):
     text = "Fourth Malefaction Point."
-    options = ({"key": "0", "desc": "Lockpicking", "exec": fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy06"},
-               {"key": "1", "desc": "Sleight of Hand", "exec": fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy06"},
-               {"key": "2", "desc": "Sneak", "exec": fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy06"},
-               {"key": "3", "desc": "Streetwise", "exec": fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy06"},
-               {"key": "4", "desc": "Torture", "exec": fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy06"})
+    options = ({"key": "0", "desc": "Lockpicking", "exec": lambda caller: fsutils.addsheet(caller, 'Lockpicking', 'Skills', 1), "goto": "menunode_lpm6spy06"},
+               {"key": "1", "desc": "Sleight of Hand", "exec": lambda caller: fsutils.addsheet(caller, 'Sleight of Hand', 'Skills', 1), "goto": "menunode_lpm6spy06"},
+               {"key": "2", "desc": "Sneak", "exec": lambda caller: fsutils.addsheet(caller, 'Sneak', 'Skills', 1), "goto": "menunode_lpm6spy06"},
+               {"key": "3", "desc": "Streetwise", "exec": lambda caller: fsutils.addsheet(caller, 'Streetwise', 'Skills', 1), "goto": "menunode_lpm6spy06"},
+               {"key": "4", "desc": "Torture", "exec": lambda caller: fsutils.addsheet(caller, 'Torture', 'Skills', 1), "goto": "menunode_lpm6spy06"})
     return text, options
     
     
 def menunode_lpm6spy06(caller):
     text = "You get one point in the social group."
-    options = ({"key": "0", "desc": "Empathy", "exec": fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "1", "desc": "Etiquette", "exec": fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "2", "desc": "Influence", "exec": fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "3", "desc": "Knavery", "exec": fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6cc"},
-               {"key": "4", "desc": "Leadership", "exec": fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6cc"})
+    options = ({"key": "0", "desc": "Empathy", "exec": lambda caller: fsutils.addsheet(caller, 'Empathy', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "1", "desc": "Etiquette", "exec": lambda caller: fsutils.addsheet(caller, 'Etiquette', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "2", "desc": "Influence", "exec": lambda caller: fsutils.addsheet(caller, 'Influence', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "3", "desc": "Knavery", "exec": lambda caller: fsutils.addsheet(caller, 'Knavery', 'Skills', 1), "goto": "menunode_lpm6cc"},
+               {"key": "4", "desc": "Leadership", "exec": lambda caller: fsutils.addsheet(caller, 'Leadership', 'Skills', 1), "goto": "menunode_lpm6cc"})
     return text, options
     
     
@@ -3881,15 +3889,15 @@ def menunode_todstart(caller, raw_input):
         text = "Normally you get to choose two tours of duty. In your case you only get one choice.\n"
         text += "As a questing knight you are required to make your first tour Questing Knight.\n"
         text += "You get to pick an attribute to increase by 2."
-        options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
-                   {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
+        options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
+                   {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
         return text, options
         
     else:
@@ -3910,30 +3918,30 @@ def menunode_todstart(caller, raw_input):
         
 def menunode_todqk1(caller):
     text = "You get to pick an attribute to increase by 2."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todqk2"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todqk2"})
     return text, options
     
     
 def menunode_todqk2(caller, raw_input):
     caller.db.todsp = 7
     text = "You get to pick an attribute to increase by 1."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todqk3"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todqk3"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todqk3"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todqk3"})
                
     options = [x for x in options if x['key'] != raw_input]
                
@@ -3975,7 +3983,7 @@ def menunode_todqk3(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todqk3"},)
+        options = options + ({"key": str(i), "desc": x, "exec": lambda caller: fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todqk3"},)
         i+=1
         
     return text, options
@@ -3983,30 +3991,30 @@ def menunode_todqk3(caller, raw_input):
 
 def menunode_todct2(caller):
     text = "You get to pick an attribute to increase by 2."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todct3"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todct3"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todct3"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todct3"})
     return text, options
     
 
 def menunode_todct3(caller, raw_input):
     caller.db.todsp = 7
     text = "You get to pick an attribute to increase by 1."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todct4"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todct4"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todct4"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todct4"})
                
     options = [x for x in options if x['key'] != raw_input]
                
@@ -4049,7 +4057,7 @@ def menunode_todct4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todct4"},)
+        options = options + ({"key": str(i), "desc": x, "exec": lambda caller: fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todct4"},)
         i += 1
         
     return text, options
@@ -4057,30 +4065,30 @@ def menunode_todct4(caller, raw_input):
     
 def menunode_todic2(caller):
     text = "You get to pick an attribute to increase by 2."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todic3"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todic3"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todic3"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todic3"})
     return text, options
     
 
 def menunode_todic3(caller, raw_input):
     caller.db.todsp = 7
     text = "You get to pick an attribute to increase by 1."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todic4"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todic4"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todic4"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todic4"})
                
     options = [x for x in options if x['key'] != raw_input]
                
@@ -4122,7 +4130,7 @@ def menunode_todic4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todic4"},)
+        options = options + ({"key": str(i), "desc": x, "exec": lambda caller: fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todic4"},)
         i += 1
         
     return text, options
@@ -4427,30 +4435,30 @@ def menunode_todcyt2(caller):
     
 def menunode_todmt2(caller):
     text = "You get to pick an attribute to increase by 1."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todmt3"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todmt3"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 2), "goto": "menunode_todmt3"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 2), "goto": "menunode_todmt3"})
     return text, options
     
 
 def menunode_todmt3(caller, raw_input):
     caller.db.todsp = 6
     text = "You get to pick an attribute to increase by 1."
-    options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todmt4"},
-               {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todmt4"})
+    options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_todmt4"},
+               {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_todmt4"})
                
     options = [x for x in options if x['key'] != raw_input]
                
@@ -4480,7 +4488,7 @@ def menunode_todmt4(caller, raw_input):
     
     i = 0
     for x in caller.db.skills.keys():
-        options = options + ({"key": str(i), "desc": x, "exec": fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todmt4"},)
+        options = options + ({"key": str(i), "desc": x, "exec": lambda caller: fsutils.addsheet(caller, x, 'Skills', 1), "goto": "menunode_todmt4"},)
         i += 1
         
     return text, options
@@ -4834,15 +4842,15 @@ def menunode_bonuspointcalc(caller):
         text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
         text += "You have %i points remaining." % caller.db.bonusattrib
-        options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
+        options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
                    
         options = [x for x in options if caller.db.attributes[x['desc']] != 8]
         
@@ -4870,15 +4878,15 @@ def menunode_bonusattrib(caller):
         text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
         text += "You have %i points remaining." % caller.db.bonusattrib
-        options = ({"key": "0", "desc": "Strength", "exec": fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "1", "desc": "Dexterity", "exec": fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "2", "desc": "Endurance", "exec": fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "3", "desc": "Wits", "exec": fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "4", "desc": "Perception", "exec": fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "5", "desc": "Tech", "exec": fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "6", "desc": "Presence", "exec": fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "7", "desc": "Will", "exec": fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
-                   {"key": "8", "desc": "Faith", "exec": fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
+        options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "2", "desc": "Endurance", "exec": lambda caller: fsutils.addsheet(caller, 'Endurance', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "3", "desc": "Wits", "exec": lambda caller: fsutils.addsheet(caller, 'Wits', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "4", "desc": "Perception", "exec": lambda caller: fsutils.addsheet(caller, 'Perception', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "5", "desc": "Tech", "exec": lambda caller: fsutils.addsheet(caller, 'Tech', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "6", "desc": "Presence", "exec": lambda caller: fsutils.addsheet(caller, 'Presence', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "7", "desc": "Will", "exec": lambda caller: fsutils.addsheet(caller, 'Will', 'Attributes', 1), "goto": "menunode_bonusattrib"},
+                   {"key": "8", "desc": "Faith", "exec": lambda caller: fsutils.addsheet(caller, 'Faith', 'Attributes', 1), "goto": "menunode_bonusattrib"})
                    
         options = [x for x in options if caller.db.attributes[x['desc']] != 8]
         
