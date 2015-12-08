@@ -7,7 +7,7 @@ Fading Suns specific commands.
 
 from evennia import default_cmds
 from evennia.utils.evmenu import EvMenu
-from evennia.utils import EvTable
+from evennia.utils import evtable
 from evennia.utils.utils import *
 from evennia.utils import search
 
@@ -48,7 +48,7 @@ class Sheet(default_cmds.MuxCommand):
                 rows = []
             else:
                 i += 1
-        table = EvTable(header=False,table=data)
+        table = evtable.EvTable(header=False,table=data)
         self.caller.msg(unicode(table))
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
@@ -70,7 +70,7 @@ class Sheet(default_cmds.MuxCommand):
                     rows = []
                 else:
                     i += 1
-            table = EvTable(header=False,table=data)
+            table = evtable.EvTable(header=False,table=data)
             self.caller.msg(unicode(table))
             
             
