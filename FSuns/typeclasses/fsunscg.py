@@ -391,6 +391,7 @@ def apply_path_uppm(caller, which, what):
             fsutils.addsheet(caller, 'Observe', 'Skills', 1)
             fsutils.addsheet(caller, 'Investigation', 'Skills', 1)
             fsutils.addsheet(caller, 'Empathy', 'Skills', 1)
+            print "Environment City"
 
         # Town
         elif what == 1:
@@ -400,6 +401,7 @@ def apply_path_uppm(caller, which, what):
             fsutils.addsheet(caller, 'Influence', 'Skills', 1)
             fsutils.addsheet(caller, 'Vigor', 'Skills', 1)
             fsutils.addsheet(caller, 'Investigaiton', 'Skills', 1)
+            print "Environment Town"
 
         # Rural
         elif what == 2:
@@ -408,6 +410,7 @@ def apply_path_uppm(caller, which, what):
             fsutils.addsheet(caller, 'Faith', 'Attributes', 1)
             fsutils.addsheet(caller, 'Vigor', 'Skills', 1)
             fsutils.addsheet(caller, 'Survival', 'Skills', 2)
+            print "Environment Rural"
             
         # Space Habitat
         elif what == 3:
@@ -418,6 +421,7 @@ def apply_path_uppm(caller, which, what):
             fsutils.addsheet(caller, 'Observe', 'Skills', 1)
             fsutils.addsheet(caller, 'Tech Redemption', 'Skills', 1)
             fsutils.addsheet(caller, 'Self Control', 'Skills', 1)
+            print "Environment Space Habitat"
 
     # Class
     elif which == 1:
@@ -4098,7 +4102,7 @@ def menunode_todic4(caller, raw_input):
             return text, options
         
     caller.db.todsp -= 1
-    text = "You get 8 points of skills. You can improve existing or choose new ones.\n"
+    text = "You get 7 points of skills. You can improve existing or choose new ones.\n"
     
     if not raw_input.isdigit():
         if raw_input.lower() in guildonly:
