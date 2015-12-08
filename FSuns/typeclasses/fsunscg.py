@@ -122,6 +122,7 @@ def apply_path_noble(stage, which, house, pc):
                 fsutils.addsheet(pc, 'Etiquette', 'Skills', 1)
                 fsutils.addsheet(pc, 'Influence', 'Skills', 1)
                 fsutils.addsheet(pc, 'Leadership', 'Skills', 1)
+                print "Hawkwood"
                 
             elif house == 'Decados':
                 fsutils.addsheet(pc, 'Dexterity', 'Attributes', 1)
@@ -130,6 +131,7 @@ def apply_path_noble(stage, which, house, pc):
                 fsutils.addsheet(pc, 'Etiquette', 'Skills', 1)
                 fsutils.addsheet(pc, 'Investigation', 'Skills', 1)
                 fsutils.addsheet(pc, 'Influence', 'Skills', 1)
+                print "Decados"
 
             elif house == 'Hazat':
                 fsutils.addsheet(pc, 'Endurance', 'Attributes', 1)
@@ -139,6 +141,7 @@ def apply_path_noble(stage, which, house, pc):
                 fsutils.addsheet(pc, 'Melee', 'Skills', 2)
                 fsutils.addsheet(pc, 'Etiquette', 'Skills', 1)
                 fsutils.addsheet(pc, 'Communication', 'Skills', 1)
+                print "Hazat"
 
             elif house == "Li Halan":
                 fsutils.addsheet(pc, 'Wits', 'Attributes', 1)
@@ -148,6 +151,7 @@ def apply_path_noble(stage, which, house, pc):
                 fsutils.addsheet(pc, 'Etiquette', 'Skills', 1)
                 fsutils.addsheet(pc, 'Self Control', 'Skills', 1)
                 fsutils.addsheet(pc, 'Latin', 'Languages', 0)
+                print "Li Halan"
 
             else:
                 fsutils.addsheet(pc, 'Dexterity', 'Attributes', 1)
@@ -157,6 +161,7 @@ def apply_path_noble(stage, which, house, pc):
                 fsutils.addsheet(pc, 'Etiquette', 'Skills', 1)
                 fsutils.addsheet(pc, 'Influence', 'Skills', 1)
                 fsutils.addsheet(pc, 'Graceful Tongue', 'Languages', 0)
+                print "al-Malik"
 
         # Rural Estate
         elif which == 1:
@@ -1133,6 +1138,7 @@ def menunode_lpn1(caller):
                {"key": "15", "desc": "Xanthippe", "goto": "menunode_lpn2"},
                {"key": "16", "desc": "Questing Knight", "goto": "menunode_lpn2"},
                {"Key": "_default", "goto": "menunode_lpn2"})
+    return text, options
 
 
 def menunode_lpn2(caller, raw_input):
@@ -1161,7 +1167,7 @@ def menunode_lpn2(caller, raw_input):
     elif 15 >= int(raw_input) >= 5 :
         caller.db.minor = 1
         caller.db.house = househelper[raw_input]
-        fsutils.addsheet(pc, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore: ' + househelper[raw_input], 'Skills', 3)
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
                    {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
@@ -1173,7 +1179,7 @@ def menunode_lpn2(caller, raw_input):
     elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
-        fsutils.addsheet(pc, 'Faction Lore: ' + raw_input, 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore: ' + raw_input, 'Skills', 3)
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
                    {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
