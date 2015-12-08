@@ -1514,7 +1514,7 @@ def menunode_lpn5sd2(caller):
     
     
 def menunode_lpn5sd3(caller):
-    text = "As a soldier you get 3 points for combat skills. Second point."
+    text = "As a soldier you get 3 points for combat skills. Third point."
     options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd4"},
                {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd4"},
                {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd4"},
@@ -4004,7 +4004,7 @@ def menunode_todct2(caller):
     
 
 def menunode_todct3(caller, raw_input):
-    caller.db.todsp = 7
+    caller.db.todsp = 11
     text = "You get to pick an attribute to increase by 1."
     options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todct4"},
                {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todct4"},
@@ -4448,7 +4448,7 @@ def menunode_todmt2(caller):
     
 
 def menunode_todmt3(caller, raw_input):
-    caller.db.todsp = 6
+    caller.db.todsp = 8
     text = "You get to pick an attribute to increase by 1."
     options = ({"key": "0", "desc": "Strength", "exec": lambda caller: fsutils.addsheet(caller, 'Strength', 'Attributes', 1), "goto": "menunode_todmt4"},
                {"key": "1", "desc": "Dexterity", "exec": lambda caller: fsutils.addsheet(caller, 'Dexterity', 'Attributes', 1), "goto": "menunode_todmt4"},
@@ -4666,7 +4666,7 @@ def menunode_todwbtp(caller):
         if caller.db.benefices['Rank'] == 'Baron':
             caller.db.benefices['Rank'] = 'Earl/Marquis'
         elif caller.db.benefices['Rank'] == 'Knight':
-            caller.db.benfices['Rank'] = 'Baronet'
+            caller.db.benefices['Rank'] = 'Baronet'
         else:
             caller.db.benefices['Rank'] = 'Baron'
     elif caller.db.archetype == "Merchant":

@@ -37,18 +37,19 @@ class Sheet(default_cmds.MuxCommand):
         table.add_row("Dexterity: " + str(self.caller.db.attributes['Dexterity']), "Perception: " + str(self.caller.db.attributes['Perception']), "Will: " + str(self.caller.db.attributes['Will']))
         table.add_row("Endurance: " + str(self.caller.db.attributes['Endurance']), "Tech: " + str(self.caller.db.attributes['Tech']), "Faith: " + str(self.caller.db.attributes['Faith']))
         self.caller.msg(table)
-        table = evtable.EvTable(width=80, align="c", border="cells")
         self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
         i = 0
+        data = []
         rows = []
         for x in self.caller.db.skills.keys():
             rows.append(x + ': ' + str(self.caller.db.skills[x]))
             if i == 2:
-                table.add_column(rows)
+                data.append(rows)
                 rows = []
             else:
                 i += 1
-        self.caller.msg(table)
+        table = EvTable(header=False,table=data)
+        self.caller.msg(unicode(table))
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
@@ -58,18 +59,19 @@ class Sheet(default_cmds.MuxCommand):
             for x in self.caller.db.actions.keys():
                 self.caller.msg(wrap(x + ": " + self.caller.db.actions[x], width=80, indent=3))
         if len(self.caller.db.languages):
-            table = evtable.EvTable(width=80, align="c", border="cells")
             i = 0
+            data = []
             rows = []
-            self.caller.msg(pad("Languages", width=80, align="c", fillchar="="))
+            self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
             for x in self.caller.db.languages:
                 rows.append(x)
                 if i == 2:
-                    table.add_column(rows)
+                    data.append(rows)
                     rows = []
                 else:
                     i += 1
-            self.caller.msg(table)
+            table = EvTable(header=False,table=data)
+            self.caller.msg(unicode(table))
             
             
 class ChargenStart(default_cmds.MuxCommand):
