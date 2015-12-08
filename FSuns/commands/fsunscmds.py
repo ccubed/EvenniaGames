@@ -105,10 +105,13 @@ class ApprovePC(default_cmds.MuxCommand):
     lock = "cmd:perm(Wizards)"
     
     def func(self):
-        target = evennia.search_object(self.args, typeclass="typeclasses.characters.Character"
-        if target:
+        target = evennia.search_object(self.args, typeclass="typeclasses.characters.Character")
+        if len(target) == 1:
             target.db.approved = 1
             self.caller.msg("You have approved " + self.args + " for play.")
             target.msg("You have been approved for play by " + self.caller.key)
         else:
-            self.caller.msg("Error: Couldn't find " + self.args)
+            if len(target) > 1:
+                self.caller.msg("Error: " + self.args + " matched several Characters.")
+            else:
+                self.caller.msg("Error: " + self.args + " didn't match a Character.")
