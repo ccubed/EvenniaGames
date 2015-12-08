@@ -8,6 +8,7 @@ Utility functions
 
 # add to a stat
 def addsheet(pc, what, which, amt):
+    print "Addsheet for "  + pc.key + " to do " + what + " + " + str(amt)
     if which == 'Attributes':
         pc.db.attributes[what] += amt
     elif which == 'Skills':
