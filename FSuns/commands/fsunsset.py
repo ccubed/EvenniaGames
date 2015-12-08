@@ -12,3 +12,4 @@ class FSunSet(CmdSet):
     def at_cmdset_creation(self):
         self.add(fsunscmds.Sheet())
         self.add(fsunscmds.ChargenStart())
+        self.add(fsunscmds.ApprovePC())

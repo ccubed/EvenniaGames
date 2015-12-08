@@ -9,6 +9,7 @@ from evennia import default_cmds
 from evennia.utils.evmenu import EvMenu
 from evennia.utils import evtable
 from evennia.utils.utils import *
+from evennia.utils import search
 
 
 class Sheet(default_cmds.MuxCommand):
@@ -43,7 +44,7 @@ class Sheet(default_cmds.MuxCommand):
         for x in self.caller.db.skills.keys():
             rows.append(x + ': ' + str(self.caller.db.skills[x]))
             if i == 2:
-                table.add_rows(rows)
+                table.add_column(rows)
                 rows = []
             else:
                 i += 1
@@ -64,7 +65,7 @@ class Sheet(default_cmds.MuxCommand):
             for x in self.caller.db.languages:
                 rows.append(x)
                 if i == 2:
-                    table.add_rows(rows)
+                    table.add_column(rows)
                     rows = []
                 else:
                     i += 1
@@ -87,3 +88,27 @@ class ChargenStart(default_cmds.MuxCommand):
     
     def func(self):
         EvMenu(self.caller, "typeclasses.fsunscg", startnode="menunode_start", cmdset_mergetype="union", allow_quit="true", cmd_on_quit="look")
+        
+
+class ApprovePC(default_cmds.MuxCommand):
+    """
+    Approve a PC for play.
+    
+    Usage:
+        +approve/approve <name>
+        
+    Approve a player for play.
+    """
+    
+    key = "+approve"
+    aliases = [ "approve" ]
+    lock = "cmd:perm(Wizards)"
+    
+    def func(self):
+        target = evennia.search_object(self.args, typeclass="typeclasses.characters.Character"
+        if target:
+            target.db.approved = 1
+            self.caller.msg("You have approved " + self.args + " for play.")
+            target.msg("You have been approved for play by " + self.caller.key)
+        else:
+            self.caller.msg("Error: Couldn't find " + self.args)
