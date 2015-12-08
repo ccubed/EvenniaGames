@@ -1433,16 +1433,16 @@ def menunode_lpn5(caller, raw_input):
 
     if int(raw_input) == 0:
         text = "As a soldier you get 3 points for combat skills. First point."
-        options = ({"key": "0", "desc": "Artifact Melee", "exec": fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "1", "desc": "Archery", "exec": fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "2", "desc": "Artillery", "exec": fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "3", "desc": "Demolitions", "exec": fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "4", "desc": "Energy Guns", "exec": fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "5", "desc": "Fight", "exec": fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "6", "desc": "Gunnery", "exec": fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "7", "desc": "Melee", "exec": fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "8", "desc": "Slug Guns", "exec": fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd2"},
-                   {"key": "9", "desc": "Throwing", "exec": fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd2"})
+        options = ({"key": "0", "desc": "Artifact Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Artifact Melee', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "1", "desc": "Archery", "exec": lambda caller: fsutils.addsheet(caller, 'Archer', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "2", "desc": "Artillery", "exec": lambda caller: fsutils.addsheet(caller, 'Artillery', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "3", "desc": "Demolitions", "exec": lambda caller: fsutils.addsheet(caller, 'Demolitions', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "4", "desc": "Energy Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Energy Guns', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "5", "desc": "Fight", "exec": lambda caller: fsutils.addsheet(caller, 'Fight', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "6", "desc": "Gunnery", "exec": lambda caller: fsutils.addsheet(caller, 'Gunnery', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "7", "desc": "Melee", "exec": lambda caller: fsutils.addsheet(caller, 'Melee', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "8", "desc": "Slug Guns", "exec": lambda caller: fsutils.addsheet(caller, 'Slug Guns', 'Skills', 1), "goto": "menunode_lpn5sd2"},
+                   {"key": "9", "desc": "Throwing", "exec": lambda caller: fsutils.addsheet(caller, 'Throwing', 'Skills', 1), "goto": "menunode_lpn5sd2"})
         return text, options
     elif int(raw_input) == 2:
         text = "Please enter the specialty for your Arts +1 now."
