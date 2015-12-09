@@ -55,13 +55,13 @@ class Sheet(default_cmds.MuxCommand):
         temp = ''
         for x in self.caller.db.skills.keys():
             if 'Lore' in x:
-                temp += crop(x, 35, '...') + ': ' + str(self.caller.db.skills[x])
+                temp += "{0:^16}: {1:>6}".format(crop(x.split('.')[1],16,'...'), self.caller.db.skills[x])
                 if i == 1:
                     self.caller.msg(temp)
                     temp = ''
                     i = 0
                 else:
-                    i+=1
+                    i += 1
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
@@ -72,22 +72,15 @@ class Sheet(default_cmds.MuxCommand):
                 self.caller.msg(wrap(x + ": " + self.caller.db.actions[x], width=80, indent=3))
         if len(self.caller.db.languages):
             self.caller.msg(pad("Languages", width=80, align="c", fillchar="="))
-            data = {}
+            temp = ''
             i = 0
-            table = evtable.EvTable(header=False,align="c",width="80")
             for x in self.caller.db.languages:
-                data[i]=x
+                temp += "{0:^16}".format(crop(x,16,'...'))
                 if i == 2:
-                    table.add_row(data[0], data[1], data[2])
+                    self.caller.msg(temp)
                     i = 0
                 else:
                     i += 1
-            if len(data) > 0:
-                if len(data) == 1:
-                    table.add_row(data[0])
-                else:
-                    table.add_row(data[0], data[1])
-            self.caller.msg(unicode(table))
             
             
 class ChargenStart(default_cmds.MuxCommand):
