@@ -38,19 +38,13 @@ class Sheet(default_cmds.MuxCommand):
         table.add_row("Endurance: " + str(self.caller.db.attributes['Endurance']), "Tech: " + str(self.caller.db.attributes['Tech']), "Faith: " + str(self.caller.db.attributes['Faith']))
         self.caller.msg(table)
         self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
-        i = 0
-        a = 0
-        data = {}
         for x in self.caller.db.skills.keys():
-            data[a] = {i: x + ': ' + self.caller.db.skills[x]}
-            if i == 2:
-                i=0
-                a+=1
-            else:
-                i += 1
+            data.append(x + ': ' + str(self.caller.db.skills[x]))
         table = evtable.EvTable(header=False)
-        for x in data.keys():
-            table.add_row(data[x][0],data[x][1],data[x][2])
+        i = 0
+        while i < len(data):
+            table.add_row(data[i],data[i+1],data[i+2])
+            i+=2
         self.caller.msg(unicode(table))
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
