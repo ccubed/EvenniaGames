@@ -41,8 +41,8 @@ class Sheet(default_cmds.MuxCommand):
         i = 0
         a = 0
         data = {}
-        for x,v in self.caller.db.skills.values():
-            data[a] = {i: x + ': ' + v}
+        for x in self.caller.db.skills.keys():
+            data[a] = {i: x + ': ' + self.caller.db.skills[x]}
             if i == 2:
                 i=0
                 a+=1
