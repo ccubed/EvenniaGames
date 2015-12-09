@@ -7,7 +7,6 @@ Fading Suns specific commands.
 
 from evennia import default_cmds
 from evennia.utils.evmenu import EvMenu
-from evennia.utils import evtable
 from evennia.utils.utils import *
 from evennia.utils import search
 
@@ -38,22 +37,15 @@ class Sheet(default_cmds.MuxCommand):
         table.add_row("Endurance: " + str(self.caller.db.attributes['Endurance']), "Tech: " + str(self.caller.db.attributes['Tech']), "Faith: " + str(self.caller.db.attributes['Faith']))
         self.caller.msg(table)
         self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
-        data = {}
         i = 0
-        table = evtable.EvTable(header=False,align="c",width="80")
+        temp = ''
         for x in self.caller.db.skills.keys():
-            data[i]=x + ': ' + str(self.caller.db.skills[x]))
+            temp += "{0:^20}: {1:>6}".format(x,self.caller.db.skills[x])
             if i == 2:
-                table.add_row(data[0], data[1], data[2])
-                i = 0
+                self.caller.msg(temp)
+                temp = ''
             else:
-                i += 1
-        if len(data) > 0:
-            if len(data) == 1:
-                table.add_row(data[0])
-            else:
-                table.add_row(data[0], data[1])
-        self.caller.msg(unicode(table))
+                i+=1
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
