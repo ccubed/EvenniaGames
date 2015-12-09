@@ -43,7 +43,7 @@ class Sheet(default_cmds.MuxCommand):
         temp = ''
         for x in self.caller.db.skills.keys():
             if 'lore' not in x:
-                temp += "{0:^16}: {1:>6}".format(crop(x,width=16,suffix='...'), self.caller.db.skills[x])
+                temp += "{0:^16}: {1:>6}".format(crop(x, 16, '...'), self.caller.db.skills[x])
                 if i == 2:
                     self.caller.msg(temp)
                     temp = ''
@@ -55,7 +55,7 @@ class Sheet(default_cmds.MuxCommand):
         temp = ''
         for x in self.caller.db.skills.keys():
             if 'lore' in x:
-                temp += crop(x,width=35,suffix-'...') + ': ' + str(self.caller.db.skills[x])
+                temp += crop(x, 35, '...') + ': ' + str(self.caller.db.skills[x])
                 if i == 1:
                     self.caller.msg(temp)
                     temp = ''
