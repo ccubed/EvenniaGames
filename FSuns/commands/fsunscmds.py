@@ -39,16 +39,18 @@ class Sheet(default_cmds.MuxCommand):
         self.caller.msg(table)
         self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
         i = 0
-        data = []
-        rows = []
-        for x in self.caller.db.skills.keys():
-            rows.append(x + ': ' + str(self.caller.db.skills[x]))
+        a = 0
+        data = {}
+        for x,v in self.caller.db.skills.values():
+            data[a] = {i: x + ': ' + v}
             if i == 2:
-                data.append(rows)
-                rows = []
+                i=0
+                a+=1
             else:
                 i += 1
-        table = evtable.EvTable(header=False,table=data)
+        table = evtable.EvTable(header=False)
+        for x in data.keys():
+            table.add_row(data[x][0],data[x][1],data[x][2])
         self.caller.msg(unicode(table))
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
@@ -60,17 +62,19 @@ class Sheet(default_cmds.MuxCommand):
                 self.caller.msg(wrap(x + ": " + self.caller.db.actions[x], width=80, indent=3))
         if len(self.caller.db.languages):
             i = 0
-            data = []
-            rows = []
-            self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
-            for x in self.caller.db.languages:
-                rows.append(x)
+            a = 0
+            data = {}
+            self.caller.msg(pad("Languages", width=80, align="c", fillchar="="))
+            for x,v in self.caller.db.skills.values():
+                data[a] = {i: x + ': ' + v}
                 if i == 2:
-                    data.append(rows)
-                    rows = []
+                    i=0
+                    a+=1
                 else:
                     i += 1
-            table = evtable.EvTable(header=False,table=data)
+            table = evtable.EvTable(header=False)
+            for x in data.keys():
+                table.add_row(data[x][0],data[x][1],data[x][2])
             self.caller.msg(unicode(table))
             
             

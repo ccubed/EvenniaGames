@@ -42,7 +42,7 @@ class Character(DefaultCharacter):
         self.db.blessings = []
         self.db.curses = []
         self.db.afflictions = {}
-        self.db.languages = []
+        self.db.languages = [ 'Urthish' ]
         self.db.approved = 0
         self.db.house = 'None'
         self.db.archetype = 'None'
