@@ -7,8 +7,10 @@ Fading Suns specific commands.
 
 from evennia import default_cmds
 from evennia.utils.evmenu import EvMenu
+from evennia.utils import evtable
 from evennia.utils.utils import *
 from evennia.utils import search
+from evennia.utils.utils import crop
 
 
 class Sheet(default_cmds.MuxCommand):
@@ -40,12 +42,26 @@ class Sheet(default_cmds.MuxCommand):
         i = 0
         temp = ''
         for x in self.caller.db.skills.keys():
-            temp += "{0:^20}: {1:>6}".format(x,self.caller.db.skills[x])
-            if i == 2:
-                self.caller.msg(temp)
-                temp = ''
-            else:
-                i+=1
+            if 'lore' not in x:
+                temp += "{0:^16}: {1:>6}".format(crop(x,width=16,suffix='...'), self.caller.db.skills[x])
+                if i == 2:
+                    self.caller.msg(temp)
+                    temp = ''
+                    i=0
+                else:
+                    i+=1
+        self.caller.msg(pad("Lores", width=80, align="c", fillchar="="))
+        i = 0
+        temp = ''
+        for x in self.caller.db.skills.keys():
+            if 'lore' in x:
+                temp += crop(x,width=35,suffix-'...') + ': ' + str(self.caller.db.skills[x])
+                if i == 1:
+                    self.caller.msg(temp)
+                    temp = ''
+                    i = 0
+                else:
+                    i+=1
         if len(self.caller.db.occult):
             self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
