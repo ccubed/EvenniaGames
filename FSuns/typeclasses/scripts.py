@@ -13,7 +13,8 @@ just overloads its hooks to have it perform its function.
 """
 
 from evennia import DefaultScript
-import datetime import *
+from datetime import *
+from evennia.utils import search
 
 class Assets(DefaultScript):
     "Gives monthly assets. Global Script."
@@ -26,4 +27,22 @@ class Assets(DefaultScript):
     def at_repeat(self):
         "called every 24 hours"
         if datetime.now().day == 1:
-            
+            # First day of the month, deposit time.
+            players = evennia.search_object(1, typeclass="typeclasses.characters.Character", attribute_name="approved")
+            for x in players:
+                if 'Assets' in x.db.benefices:
+                    if x.db.benefices['Assets'] == 4:
+                        x.assets += 250
+                    elif x.db.benefices['Assets'] == 8:
+                        x.assets += 417
+                    elif x.db.benefcies['Assets'] == 12:
+                        x.assets += 833
+                    elif x.db.benefices['Assets'] == 16:
+                        x.assets += 1250
+                    else:
+                        x.assets += 1667
+                        
+                    if x.has_player() != 0:
+                        x.msg("Your monthly assets have been deposited.")
+                    else:
+                        x.db.notifications.put_nowait((1,'{0}/{1}: Your monthly assets have been deposited.'.format(datetime.now().month,datetime.now().day)))

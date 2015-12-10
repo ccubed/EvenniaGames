@@ -13,3 +13,5 @@ class FSunSet(CmdSet):
         self.add(fsunscmds.Sheet())
         self.add(fsunscmds.ChargenStart())
         self.add(fsunscmds.ApprovePC())
+        self.add(fsunscmds.NotificationNext())
+        self.add(fsunscmds.StaffNotify())

@@ -8,6 +8,7 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
+from Queue import *
 
 class Character(DefaultCharacter):
     """
@@ -57,4 +58,11 @@ class Character(DefaultCharacter):
         self.db.notes = {}
         self.db.firebirds = 250
         self.db.assets = 0
+        self.db.notifications = PriorityQueue()
         self.cmdset.add("fsunsset.FSunSet", permanent=True)
+        
+        
+    def at_pre_puppet(self):
+        # Check notifications
+        if self.db.notifications.qsize() > 0:
+            self.caller.msg("You have {0} notifications waiting. Type nn to read them.".format(self.db.notifications.qsize()))
