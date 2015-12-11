@@ -157,7 +157,7 @@ class MailSend(default_cmds.MuxCommand):
         elif len(target) > 1:
             caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
         else:
-            caller.ndb.mailto = target
+            caller.ndb.mailto = target[0]
             get_input(caller, "SYSTEM: What is the subject of this mail?", MailSubject)
             
             
