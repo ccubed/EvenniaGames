@@ -138,18 +138,18 @@ class MailSend(default_cmds.MuxCommand):
             caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
         else:
             caller.ndb.mailto = target[0]
-            get_input(caller, "SYSTEM: What is the subject of this mail?", MailSubject)
+            get_input(caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
             
             
     def MailSubject(caller, prompt, user_input):
         caller.ndb.mailtitle = user_input
         key = "{0} to {1}".format(user_input, caller.ndb.mailto.key)
-        eveditor.EvEditor(self.caller, savefunc=save, quitfunc=quit, key=key)
+        eveditor.EvEditor(self.caller, savefunc=self.save, quitfunc=self.quit, key=key)
     
     
     def func(self):
         if not self.args:
-            get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
+            get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
         else:
             target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
             title = self.args.split('/').split('=')[0]
