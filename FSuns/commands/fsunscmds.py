@@ -122,13 +122,13 @@ class ApprovePC(default_cmds.MuxCommand):
         target = evennia.search_object(self.args, typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             target.db.approved = 1
-            self.caller.msg("You have approved " + target.key + " for play.")
-            target.msg("You have been approved for play by " + self.caller.key)
+            self.caller.msg("SYSTEM: You have approved " + target.key + " for play.")
+            target.msg("SYSTEM: You have been approved for play by " + self.caller.key)
         else:
             if len(target) > 1:
-                self.caller.msg("Error: " + self.args + " matched several Characters.")
+                self.caller.msg("SYSTEM: " + self.args + " matched several Characters.")
             else:
-                self.caller.msg("Error: " + self.args + " didn't match a Character.")
+                self.caller.msg("SYSTEM: " + self.args + " didn't match a Character.")
                 
                 
 class NotificationNext(default_cmds.MuxCommand):
@@ -147,7 +147,7 @@ class NotificationNext(default_cmds.MuxCommand):
     
     def func(self):
         if self.db.notifications.qsize() == 0:
-            self.caller.msg("There aren't any notifications in your queue.")
+            self.caller.msg("SYSTEM: There aren't any notifications in your queue.")
         else:
             self.caller.msg(self.caller.db.notifications.get_nowait()[1])
             
@@ -170,9 +170,9 @@ class StaffNotify(default_cmds.MuxCommand):
         if len(target) == 1:
             prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
             target.db.notifications.put_nowait((2,prefix + self.args.split('=')[1]))
-            self.caller.msg("Added notification to " + target.key + "'s queue.")
+            self.caller.msg("SYSTEM: Added notification to " + target.key + "'s queue.")
         else:
             if len(target) > 1:
-                self.caller.msg("That matched more than one player.")
+                self.caller.msg("SYSTEM: That matched more than one player.")
             else:
-                self.caller.msg("That did not match a player.")
+                self.caller.msg("SYSTEM: That did not match a player.")
