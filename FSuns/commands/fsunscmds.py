@@ -169,7 +169,7 @@ class StaffNotify(default_cmds.MuxCommand):
         target = evennia.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
-            target.db.notifications.put_nowait((2,prefix + self.args.split('=')[1]))
+            target.db.notifications.put_nowait((2,prefix + self.args.split('=',1)[1]))
             self.caller.msg("SYSTEM: Added notification to " + target.key + "'s queue.")
         else:
             if len(target) > 1:
