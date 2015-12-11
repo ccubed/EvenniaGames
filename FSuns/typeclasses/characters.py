@@ -64,7 +64,7 @@ class Character(DefaultCharacter):
         self.cmdset.add("mailset.MailSet", permanent=True)
         
         
-    def at_pre_puppet(self):
+    def at_pre_puppet(self, player, session=None):
         # Check notifications
         if len(self.db.notifications) > 0:
             self.caller.msg("You have {0} notifications waiting. Type nn to read them.".format(len(self.db.notifications)))
