@@ -125,7 +125,7 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.message
         del caller.ndb.mailtitle
         caller.msg("Sent your letter to {0}.".format(caller.ndb.mailto.key)) 
-        if caller.ndb.mailto.has_player():
+        if caller.ndb.mailto.has_player:
             caller.ndb.mailto.msg("SYSTEM: You have pending notifications.")
         del caller.ndb.mailto
         
@@ -146,7 +146,7 @@ class MailSend(default_cmds.MuxCommand):
                 target.db.mailsystem.append(temp)
                 self.caller.msg("Sent your mail to {0}".format(target.key))
                 target.db.notifications.append("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
-                if target.has_player():
+                if target.has_player:
                     target.msg("SYSTEM: You have pending notifications.")
             
     

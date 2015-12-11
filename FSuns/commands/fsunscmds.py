@@ -125,7 +125,7 @@ class ApprovePC(default_cmds.MuxCommand):
         if len(target) == 1:
             target[0].db.approved = 1
             self.caller.msg("SYSTEM: You have approved " + target.key + " for play.")
-            if target[0].has_player():
+            if target[0].has_player:
                 target[0].msg("SYSTEM: You have been approved for play by " + self.caller.key)
             else:
                 now = datetime.now()
@@ -178,8 +178,8 @@ class StaffNotify(default_cmds.MuxCommand):
         if len(target) == 1:
             prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
             target[0].db.notifications.append(prefix + self.args.split('=',1)[1])
-            self.caller.msg("SYSTEM: Added notification to " + target.key + "'s queue.")
-            if target[0].has_player():
+            self.caller.msg("SYSTEM: Added notification to " + target[0].key + "'s queue.")
+            if target[0].has_player:
                 target[0].msg("SYSTEM: You have pending notifications.")
         else:
             if len(target) > 1:
