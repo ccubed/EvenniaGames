@@ -130,7 +130,7 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.mailto
         
     
-    def MailTo(caller, prompt, user_input):
+    def MailTo(self, caller, prompt, user_input):
         target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
         if len(target) == 0:
             caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
