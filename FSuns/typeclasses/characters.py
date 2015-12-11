@@ -59,6 +59,7 @@ class Character(DefaultCharacter):
         self.db.firebirds = 250
         self.db.assets = 0
         self.db.notifications = PriorityQueue()
+        self.db.mailsystem = []
         self.cmdset.add("fsunsset.FSunSet", permanent=True)
         
         

@@ -16,6 +16,8 @@ at_server_cold_stop()
 
 """
 
+from evennia import create_script
+
 
 def at_server_start():
     """
@@ -60,4 +62,4 @@ def at_server_cold_stop():
     This is called only when the server goes down due to a shutdown or
     reset.
     """
-    pass
+    create_script("typeclasses.scripts.Assets", obj=None, persistent=True)

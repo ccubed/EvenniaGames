@@ -10,7 +10,7 @@ from evennia.utils.evmenu import EvMenu
 from evennia.utils import evtable
 from evennia.utils.utils import *
 from evennia.utils import search
-from evennia.utils.utils import crop
+from datetime import *
 
 
 class Sheet(default_cmds.MuxCommand):
@@ -41,7 +41,7 @@ class Sheet(default_cmds.MuxCommand):
             table.add_row("Dexterity: " + str(self.caller.db.attributes['Dexterity']), "Perception: " + str(self.caller.db.attributes['Perception']), "Will: " + str(self.caller.db.attributes['Will']))
             table.add_row("Endurance: " + str(self.caller.db.attributes['Endurance']), "Tech: " + str(self.caller.db.attributes['Tech']), "Faith: " + str(self.caller.db.attributes['Faith']))
             self.caller.msg(table)
-            self.caller.msg(pad("Skills", width=80, align="c", fillchar="="))
+            self.caller.msg(pad(" Skills ", width=80, align="c", fillchar="="))
             i = 0
             temp = ''
             for x in self.caller.db.skills.keys():
@@ -53,7 +53,7 @@ class Sheet(default_cmds.MuxCommand):
                         i=0
                     else:   
                         i+=1
-            self.caller.msg(pad("Lores", width=80, align="c", fillchar="="))
+            self.caller.msg(pad(" Lores ", width=80, align="c", fillchar="="))
             i = 0
             temp = ''
             for x in self.caller.db.skills.keys():
@@ -66,15 +66,15 @@ class Sheet(default_cmds.MuxCommand):
                     else:
                         i += 1
             if len(self.caller.db.occult):
-                self.caller.msg(pad("Occult", width=80, align="c", fillchar="="))
+                self.caller.msg(pad(" Occult ", width=80, align="c", fillchar="="))
                 for x in self.caller.db.occult.keys():
                     self.caller.msg(wrap(x + ": " + self.caller.db.occult[x], width=80, indent=3))
             if len(self.caller.db.actions):
-                self.caller.msg(pad("Fighting Styles", width=80, align="c", fillchar="="))
+                self.caller.msg(pad(" Fighting Styles ", width=80, align="c", fillchar="="))
                 for x in self.caller.db.actions.keys():
                     self.caller.msg(wrap(x + ": " + self.caller.db.actions[x], width=80, indent=3))
             if len(self.caller.db.languages):
-                self.caller.msg(pad("Languages", width=80, align="c", fillchar="="))
+                self.caller.msg(pad(" Languages ", width=80, align="c", fillchar="="))
                 temp = ''
                 i = 0
                 for x in self.caller.db.languages:
@@ -168,7 +168,8 @@ class StaffNotify(default_cmds.MuxCommand):
     def func(self):
         target = evennia.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
         if len(target) == 1:
-            target.db.notifications.put_nowait((2,self.args.split('=')[1]))
+            prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
+            target.db.notifications.put_nowait((2,prefix + self.args.split('=')[1]))
             self.caller.msg("Added notification to " + target.key + "'s queue.")
         else:
             if len(target) > 1:
