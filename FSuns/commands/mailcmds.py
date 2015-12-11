@@ -128,17 +128,6 @@ class MailSend(default_cmds.MuxCommand):
         if caller.ndb.mailto.has_player:
             caller.ndb.mailto.msg("SYSTEM: You have pending notifications.")
         del caller.ndb.mailto
-        
-    
-    def MailTo(self, caller, prompt, user_input):
-        target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
-        if len(target) == 0:
-            caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
-        elif len(target) > 1:
-            caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
-        else:
-            caller.ndb.mailto = target[0]
-            get_input(caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
             
             
     def MailSubject(self, caller, prompt, user_input):
@@ -150,7 +139,7 @@ class MailSend(default_cmds.MuxCommand):
     def func(self):
         print "Mailing. Got this: " + self.args
         if not self.args:
-            get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
+            get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
         else:
             target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
             title = self.args.split('/').split('=')[0]
@@ -166,3 +155,14 @@ class MailSend(default_cmds.MuxCommand):
                 target.db.notifications.append("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
                 if target.has_player:
                     target.msg("SYSTEM: You have pending notifications.")
+                    
+                    
+    def MailTo(self, caller, prompt, user_input):
+        target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
+        if len(target) == 0:
+            caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
+        elif len(target) > 1:
+            caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
+        else:
+            caller.ndb.mailto = target[0]
+            get_input(caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
