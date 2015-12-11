@@ -46,6 +46,8 @@ class Sheet(default_cmds.MuxCommand):
             temp = ''
             for x in self.caller.db.skills.keys():
                 if 'Lore' not in x:
+                    print x
+                    print x.split('.')
                     temp += "{0:^16}: {1:>6} ".format(crop(x, 16, '...'), self.caller.db.skills[x])
                     if i == 2:
                         self.caller.msg(temp)
