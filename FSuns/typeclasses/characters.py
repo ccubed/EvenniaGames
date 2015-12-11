@@ -8,7 +8,6 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
-from Queue import *
 
 class Character(DefaultCharacter):
     """
@@ -62,3 +61,7 @@ class Character(DefaultCharacter):
         self.db.mailsystem = []
         self.cmdset.add("fsunsset.FSunSet", permanent=True)
         self.cmdset.add("mailset.MailSet", permanent=True)
+        
+        
+def at_pre_puppet(self, player, session=None):
+    pass
