@@ -114,11 +114,11 @@ class MailSend(default_cmds.MuxCommand):
     locks = "cmd:all()"
         
         
-    def save(caller, buffer):
+    def save(self, caller, buffer):
         caller.ndb.message = buffer
     
         
-    def quit(caller):
+    def quit(self, caller):
         temp = Mail(caller.key, caller.ndb.mailtitle, caller.ndb.message, datetime.now())
         caller.ndb.mailto.db.mailsystem.append(temp)
         caller.ndb.mailto.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
@@ -130,7 +130,7 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.mailto
         
     
-    def MailTo(caller, prompt, user_input):
+    def MailTo(self, caller, prompt, user_input):
         target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
         if len(target) == 0:
             caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
@@ -141,7 +141,7 @@ class MailSend(default_cmds.MuxCommand):
             get_input(caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
             
             
-    def MailSubject(caller, prompt, user_input):
+    def MailSubject(self, caller, prompt, user_input):
         caller.ndb.mailtitle = user_input
         key = "{0} to {1}".format(user_input, caller.ndb.mailto.key)
         eveditor.EvEditor(self.caller, savefunc=self.save, quitfunc=self.quit, key=key)
