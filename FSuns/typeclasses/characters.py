@@ -64,4 +64,6 @@ class Character(DefaultCharacter):
         
         
 def at_pre_puppet(self, player, session=None):
-    pass
+    if len(self.db.notifications) > 0:
+        self.msg("SYSTEM: You have pending notifications. Type nn to read them.")
+    
