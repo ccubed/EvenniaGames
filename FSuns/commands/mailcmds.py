@@ -93,9 +93,8 @@ class MailDelete(default_cmds.MuxCommand):
         elif self.args > len(self.caller.db.mailsystem):
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
-            self.caller.ndb.mail = self.caller.db.mailsystem[int(self.args)]
             self.caller.db.mailsystem.remove(mail)
-            self.caller.msg("SYSTEM: Removed mail " + mail['title'] + " from your inbox.\nYou can recover this mail until a server restart or you delete another mail by using the command undomail."
+            self.caller.msg("SYSTEM: Removed mail " + mail['title'] + " from your inbox.")
         
         
 class MailSend(default_cmds.MuxCommand):
@@ -122,7 +121,7 @@ class MailSend(default_cmds.MuxCommand):
     def quit(caller):
         temp = Mail(caller.key, caller.ndb.mailtitle, caller.ndb.message, datetime.now())
         caller.ndb.mailto.db.mailsystem.append(temp)
-        caller.ndb.mailto.db.notifications.put_nowait("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
+        caller.ndb.mailto.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
         del caller.ndb.message
         del caller.ndb.mailtitle
         caller.msg("Sent your letter to {0}.".format(caller.ndb.mailto.key)) 
@@ -146,7 +145,7 @@ class MailSend(default_cmds.MuxCommand):
                 temp = Mail(self.caller.key, title, message, datetime.now())
                 target.db.mailsystem.append(temp)
                 self.caller.msg("Sent your mail to {0}".format(target.key))
-                target.db.notifications.put_nowait("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
+                target.db.notifications.append("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
                 if target.has_player():
                     target.msg("SYSTEM: You have pending notifications.")
             

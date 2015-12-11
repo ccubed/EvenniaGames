@@ -61,9 +61,10 @@ class Character(DefaultCharacter):
         self.db.notifications = Queue()
         self.db.mailsystem = []
         self.cmdset.add("fsunsset.FSunSet", permanent=True)
+        self.cmdset.add("mailset.MailSet", permanent=True)
         
         
     def at_pre_puppet(self):
         # Check notifications
-        if self.db.notifications.qsize() > 0:
-            self.caller.msg("You have {0} notifications waiting. Type nn to read them.".format(self.db.notifications.qsize()))
+        if len(self.db.notifications) > 0:
+            self.caller.msg("You have {0} notifications waiting. Type nn to read them.".format(len(self.db.notifications)))

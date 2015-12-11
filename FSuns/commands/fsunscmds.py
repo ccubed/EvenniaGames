@@ -129,7 +129,7 @@ class ApprovePC(default_cmds.MuxCommand):
                 target.msg("SYSTEM: You have been approved for play by " + self.caller.key)
             else:
                 now = datetime.now()
-                target.db.notifications.put_nowait("{0}/{1}: Approved for play by {2}.".format(now.month, now.day, self.caller.key))
+                target.db.notifications.append("{0}/{1}: Approved for play by {2}.".format(now.month, now.day, self.caller.key))
         else:
             if len(target) > 1:
                 self.caller.msg("SYSTEM: " + self.args + " matched several Characters.")
@@ -152,10 +152,12 @@ class NotificationNext(default_cmds.MuxCommand):
     lock = "cmd:all()"
     
     def func(self):
-        if self.caller.db.notifications.qsize() == 0:
+        if len(self.caller.db.notifications) == 0:
             self.caller.msg("SYSTEM: There aren't any notifications in your queue.")
         else:
-            self.caller.msg(self.caller.db.notifications.get_nowait())
+            temp = self.caller.db.notifications[0]
+            self.caller.msg(temp)
+            self.caller.db.notifications.remove(temp)
             
             
 class StaffNotify(default_cmds.MuxCommand):
@@ -175,8 +177,10 @@ class StaffNotify(default_cmds.MuxCommand):
         target = evennia.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
-            target.db.notifications.put_nowait(prefix + self.args.split('=',1)[1])
+            target.db.notifications.append(prefix + self.args.split('=',1)[1])
             self.caller.msg("SYSTEM: Added notification to " + target.key + "'s queue.")
+            if target.has_player():
+                target.msg("SYSTEM: You have pending notifications.")
         else:
             if len(target) > 1:
                 self.caller.msg("SYSTEM: That matched more than one player.")
