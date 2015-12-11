@@ -64,8 +64,20 @@ class Character(DefaultCharacter):
         
         
     def at_pre_puppet(self, player, session=None):
-        pass
-        #if len(self.db.notifications) > 0:
-        #    print "Pending Notifications"
-        #    player.msg("SYSTEM: You have pending notifications. Type nn to read them.")
+        if self.db.prelogout_location:
+            # try to recover
+            self.location = self.db.prelogout_location
+        if self.location is None:
+            # make sure location is never None (home should always exist)
+            self.location = self.home
+        if self.location:
+            # save location again to be sure
+            self.db.prelogout_location = self.location
+            self.location.at_object_receive(self, self.location)
+        else:
+            player.msg("{r%s has no location and no home is set.{n" % self, session=session)
+        
+        if len(self.db.notifications) > 0:
+            print "Pending Notifications"
+            player.msg("SYSTEM: You have pending notifications. Type nn to read them.", session=session)
     
