@@ -146,7 +146,7 @@ class NotificationNext(default_cmds.MuxCommand):
     lock = "cmd:all()"
     
     def func(self):
-        if self.db.notifications.qsize() == 0:
+        if self.caller.db.notifications.qsize() == 0:
             self.caller.msg("SYSTEM: There aren't any notifications in your queue.")
         else:
             self.caller.msg(self.caller.db.notifications.get_nowait()[1])
