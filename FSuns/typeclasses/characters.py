@@ -78,6 +78,5 @@ class Character(DefaultCharacter):
             player.msg("{r%s has no location and no home is set.{n" % self, session=session)
         
         if len(self.db.notifications) > 0:
-            print "Pending Notifications"
             player.msg("SYSTEM: You have pending notifications. Type nn to read them.", session=session)
     

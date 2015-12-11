@@ -130,6 +130,23 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.mailto
         
     
+    def MailTo(caller, prompt, user_input):
+        target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
+        if len(target) == 0:
+            caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
+        elif len(target) > 1:
+            caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
+        else:
+            caller.ndb.mailto = target[0]
+            get_input(caller, "SYSTEM: What is the subject of this mail?", MailSubject)
+            
+            
+    def MailSubject(caller, prompt, user_input):
+        caller.ndb.mailtitle = user_input
+        key = "{0} to {1}".format(user_input, caller.ndb.mailto.key)
+        eveditor.EvEditor(self.caller, savefunc=save, quitfunc=quit, key=key)
+    
+    
     def func(self):
         if not self.args:
             get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
@@ -148,20 +165,3 @@ class MailSend(default_cmds.MuxCommand):
                 target.db.notifications.append("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
                 if target.has_player:
                     target.msg("SYSTEM: You have pending notifications.")
-            
-    
-    def MailTo(caller, prompt, user_input):
-        target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
-        if len(target) == 0:
-            caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
-        elif len(target) > 1:
-            caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
-        else:
-            caller.ndb.mailto = target[0]
-            get_input(caller, "SYSTEM: What is the subject of this mail?", MailSubject)
-            
-            
-    def MailSubject(caller, prompt, user_input):
-        caller.ndb.mailtitle = user_input
-        key = "{0} to {1}".format(user_input, caller.ndb.mailto.key)
-        eveditor.EvEditor(self.caller, savefunc=save, quitfunc=quit, key=key)
