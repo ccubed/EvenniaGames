@@ -121,7 +121,7 @@ class ApprovePC(default_cmds.MuxCommand):
     lock = "cmd:perm(Wizards)"
     
     def func(self):
-        target = evennia.search_object(self.args, typeclass="typeclasses.characters.Character")
+        target = search.search_object(self.args, typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             target.db.approved = 1
             self.caller.msg("SYSTEM: You have approved " + target.key + " for play.")
@@ -174,7 +174,7 @@ class StaffNotify(default_cmds.MuxCommand):
     lock = "cmd:perm(Wizards)"
     
     def func(self):
-        target = evennia.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
+        target = search.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             prefix = "From {0} on {1}/{2}: ".format(self.caller.key,datetime.now().month,datetime.now().day)
             target.db.notifications.append(prefix + self.args.split('=',1)[1])
