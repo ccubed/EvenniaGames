@@ -38,6 +38,8 @@ class MailList(default_cmds.MuxCommand):
             self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format("ID", "Date", "Sender", "Subject"))
             i = 0
             for x in self.caller.db.mailsystem:
+                print x
+                print type(x)
                 self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,x['date'].month + "/" + x['date'].day, x['sender'], x['title']))
                 i += 1
                 
@@ -168,6 +170,7 @@ class MailSend(default_cmds.MuxCommand):
                 temp = Mail(self.caller.key, title, message, datetime.now())
                 target.db.mailsystem.append(temp)
                 self.caller.msg("Sent your mail to {0}".format(target.key))
-                target.db.notifications.append("{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title']))
+                msg = "{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title'])
+                target.db.notifications.append(msg)
                 if target.has_player:
                     target.msg("SYSTEM: You have pending notifications.")
