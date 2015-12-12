@@ -146,6 +146,7 @@ class MailSend(default_cmds.MuxCommand):
             
             
     def MailSubject(self, caller, prompt, user_input):
+        print "MailSubject: We got " + user_input
         caller.ndb.mailtitle = user_input
         key = "{0} to {1}".format(user_input, caller.ndb.mailtarget.key)
         eveditor.EvEditor(self.caller, savefunc=self.save, quitfunc=self.quit, key=key)
