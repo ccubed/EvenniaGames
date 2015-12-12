@@ -143,6 +143,7 @@ class MailSend(default_cmds.MuxCommand):
         else:
             caller.ndb.mailtarget = target[0]
             get_input(self.caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
+            return True
             
             
     def MailSubject(self, caller, prompt, user_input):
