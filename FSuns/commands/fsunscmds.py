@@ -27,7 +27,7 @@ class Sheet(default_cmds.MuxCommand):
     help_category = "Characters"
     
     def func(self):
-        self.caller.msg(pad("Demographics", width=80))
+        self.caller.msg(pad(" Demographics ", width=80, fillchar='='))
         self.caller.msg(pad("Name: " + self.caller.key, width=40, align="l") + pad("Archetype: " + self.caller.db.archetype, width=40, align="r"))
         self.caller.msg(pad("Faction: " + self.caller.db.house, width=40, align="l") + pad("Rank: " + self.caller.db.benefices['Rank'], width=40, align="r"))
         self.caller.msg(pad("Firebirds: " + str(self.caller.db.firebirds), width=40, align="l") + pad("Assets: " + str(self.caller.db.assets), width=40, align="r"))
