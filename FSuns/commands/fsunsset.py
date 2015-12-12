@@ -15,3 +15,4 @@ class FSunSet(CmdSet):
         self.add(fsunscmds.ApprovePC())
         self.add(fsunscmds.NotificationNext())
         self.add(fsunscmds.StaffNotify())
+        self.add(fsunscmds.ReadAllNotifications())

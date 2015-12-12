@@ -39,7 +39,7 @@ class MailList(default_cmds.MuxCommand):
             for x in self.caller.db.mailsystem:
                 print x
                 print type(x)
-                self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,x[3].month + "/" + x[3].day, x[0], x[1]))
+                self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,str(x[3].month) + "/" + str(x[3].day), x[0], x[1]))
                 i += 1
                 
 
