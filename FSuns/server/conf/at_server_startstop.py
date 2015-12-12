@@ -54,7 +54,7 @@ def at_server_cold_start():
     This is called only when the server starts "cold", i.e. after a
     shutdown or a reset.
     """
-    pass
+    create_script("typeclasses.scripts.Assets", obj=None, persistent=True)
 
 
 def at_server_cold_stop():
@@ -62,4 +62,4 @@ def at_server_cold_stop():
     This is called only when the server goes down due to a shutdown or
     reset.
     """
-    create_script("typeclasses.scripts.Assets", obj=None, persistent=True)
+    pass

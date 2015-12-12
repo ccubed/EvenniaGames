@@ -19,8 +19,6 @@ class Sheet(default_cmds.MuxCommand):
     
     Usage:
         +sheet, sheet, score
-        
-    Display your sheet.
     """
     
     key = "+sheet"
@@ -91,12 +89,10 @@ class Sheet(default_cmds.MuxCommand):
             
 class ChargenStart(default_cmds.MuxCommand):
     """
-    Enter Chargen
+    Start Chargen. You can use other commands while in CG.
     
     Usage:
         +cg, cg, chargen, start
-        
-    Start chargen.
     """
     
     key = "+cg"
@@ -114,8 +110,6 @@ class ApprovePC(default_cmds.MuxCommand):
     
     Usage:
         @approve <name>
-        
-    Approve a player for play.
     """
     
     key = "@approve"
@@ -141,12 +135,10 @@ class ApprovePC(default_cmds.MuxCommand):
                 
 class NotificationNext(default_cmds.MuxCommand):
     """
-    Read next notification.
+    Read next notification. Reading a notification also deletes it from your queue.
     
     Usage:
-        nn, +nn, notification/next, +notification/next
-        
-    Read next notification.
+        nn, +nn
     """
     
     key = "nn"
@@ -169,8 +161,6 @@ class StaffNotify(default_cmds.MuxCommand):
     
     Usage:
         @n/add <name>=<msg>
-        
-    Allows staff to add a notification to a player.
     """
     
     key = "@n/add"
@@ -190,3 +180,25 @@ class StaffNotify(default_cmds.MuxCommand):
                 self.caller.msg("SYSTEM: That matched more than one player.")
             else:
                 self.caller.msg("SYSTEM: That did not match a player.")
+                
+                
+class ReadAllNotifications(default_cmds.MuxCommand):
+    """
+    Show all your pending notifications at once. Also empties your queue.
+    
+    Usage:
+        nall, +nall
+    """
+    
+    key = "nall"
+    aliases = [ '+nall' ]
+    lock = "cmd:all()"
+    help_category = "Notifications"
+    
+    def func(self):
+        if len(self.caller.db.notifications) == 0:
+            self.caller.msg("SYSTEM: You don't have any notifications.")
+        else:
+            for x in self.caller.db.notifications:
+                self.caller.msg(x)
+            self.caller.db.notifications = []
