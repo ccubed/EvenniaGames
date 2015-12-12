@@ -12,9 +12,8 @@ from evennia.utils import eveditor
 from evennia.utils.evmenu import get_input
 from evennia.utils import search
 from datetime import *
-import collections
 
-Mail = collections.namedtuple('Mail', ['sender', 'title', 'message', 'date'])
+# Note: Sender, Title, Message, Datetime
 
 class MailList(default_cmds.MuxCommand):
     """
@@ -40,7 +39,7 @@ class MailList(default_cmds.MuxCommand):
             for x in self.caller.db.mailsystem:
                 print x
                 print type(x)
-                self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,x['date'].month + "/" + x['date'].day, x['sender'], x['title']))
+                self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,x[3].month + "/" + x[3].day, x[0], x[1]))
                 i += 1
                 
 
@@ -68,11 +67,11 @@ class MailRead(default_cmds.MuxCommand):
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
             mail = self.caller.db.mailsystem[int(self.args)]
-            self.caller.msg(pad(mail['title'], width=80))
-            self.caller.msg("{0:39} {1:<39}".format("To: " + self.caller.key, "From: " + mail['sender']))
-            self.caller.msg("{0:^80}".format('Sent on ' + mail['date'].month + '/' + mail['date'].day + '/' + mail['date'].year))
+            self.caller.msg(pad(mail[1], width=80))
+            self.caller.msg("{0:39} {1:<39}".format("To: " + self.caller.key, "From: " + mail[0]))
+            self.caller.msg("{0:^80}".format('Sent on ' + mail[3].month + '/' + mail[3].day + '/' + mail[3].year))
             self.caller.msg(pad('=',width=80,fillchar='='))
-            evmore.msg(self.caller, mail['message'])
+            evmore.msg(self.caller, mail[2])
             
         
 class MailDelete(default_cmds.MuxCommand):
@@ -99,7 +98,7 @@ class MailDelete(default_cmds.MuxCommand):
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
             self.caller.db.mailsystem.remove(mail)
-            self.caller.msg("SYSTEM: Removed mail " + mail['title'] + " from your inbox.")
+            self.caller.msg("SYSTEM: Removed mail " + mail[1] + " from your inbox.")
         
         
 class MailSend(default_cmds.MuxCommand):
@@ -127,7 +126,7 @@ class MailSend(default_cmds.MuxCommand):
     def quit(self, caller):
         temp = Mail(caller.key, caller.ndb.mailtitle, caller.ndb.message, datetime.now())
         caller.ndb.mailtarget.db.mailsystem.append(temp)
-        caller.ndb.mailtarget.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
+        caller.ndb.mailtarget.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp[3].month, temp[3].day, caller.key, temp[1]))
         del caller.ndb.message
         del caller.ndb.mailtitle
         caller.msg("Sent your letter to {0}.".format(caller.ndb.mailtarget.key)) 
@@ -167,10 +166,10 @@ class MailSend(default_cmds.MuxCommand):
                 caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
             else: 
                 target = target[0]
-                temp = Mail(self.caller.key, title, message, datetime.now())
+                temp = [ self.caller.key, title, message, datetime.now() ]
                 target.db.mailsystem.append(temp)
                 self.caller.msg("Sent your mail to {0}".format(target.key))
-                msg = "{0}/{1}: New mail from {2} about {3}.".format(temp['date'].month, temp['date'].day, self.caller.key, temp['title'])
+                msg = "{0}/{1}: New mail from {2} about {3}.".format(temp[3].month, temp[3].day, self.caller.key, temp[1])
                 target.db.notifications.append(msg)
                 if target.has_player:
                     target.msg("SYSTEM: You have pending notifications.")
