@@ -26,6 +26,7 @@ class Sheet(default_cmds.MuxCommand):
     key = "+sheet"
     aliases = [ 'sheet', 'score' ]
     locks = "cmd:all()"
+    help_category = "Characters"
     
     def func(self):
         if self.caller.db.house == 'None':
@@ -101,6 +102,7 @@ class ChargenStart(default_cmds.MuxCommand):
     key = "+cg"
     aliases = [ 'cg', 'chargen', 'start' ]
     locks = "cmd:attr(approved,0)"
+    help_category = "Characters"
     
     def func(self):
         EvMenu(self.caller, "typeclasses.fsunscg", startnode="menunode_start", cmdset_mergetype="union", allow_quit="true", cmd_on_quit="look")
@@ -111,14 +113,14 @@ class ApprovePC(default_cmds.MuxCommand):
     Approve a PC for play.
     
     Usage:
-        +approve <name> or approve <name>
+        @approve <name>
         
     Approve a player for play.
     """
     
-    key = "+approve"
-    aliases = [ "approve" ]
+    key = "@approve"
     lock = "cmd:perm(Wizards)"
+    help_category = "Staff"
     
     def func(self):
         target = search.search_object(self.args, typeclass="typeclasses.characters.Character")
@@ -148,8 +150,9 @@ class NotificationNext(default_cmds.MuxCommand):
     """
     
     key = "nn"
-    aliases = [ "+nn", "notification/next", "+notification/next" ]
+    aliases = [ "+nn" ]
     lock = "cmd:all()"
+    help_category = "Notifications"
     
     def func(self):
         if len(self.caller.db.notifications) == 0:
@@ -165,13 +168,14 @@ class StaffNotify(default_cmds.MuxCommand):
     Allows staff to add a notification to a player.
     
     Usage:
-        n/add <name>=<msg>
+        @n/add <name>=<msg>
         
     Allows staff to add a notification to a player.
     """
     
-    key = "n/add"
+    key = "@n/add"
     lock = "cmd:perm(Wizards)"
+    help_category = "Staff"
     
     def func(self):
         target = search.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")

@@ -21,14 +21,15 @@ class MailList(default_cmds.MuxCommand):
     List available Mails
     
     Usage:
-        @mail, +mail, mail
+        +mail, mail
         
     List available Mails
     """
     
-    key = "@mail"
-    aliases = [ '+mail', 'mail' ]
+    key = "mail"
+    aliases = [ '+mail' ]
     locks = "cmd:all()"
+    help_category = "Mail"
     
     def func(self):
         if len(self.caller.db.mailsystem) == 0:
@@ -46,14 +47,15 @@ class MailRead(default_cmds.MuxCommand):
     Read a mail
     
     Usage:
-    read #, @read #, +read #
+    read #, +read #
     
     Read a mail
     """
     
-    key = "@read"
-    aliases = [ "+read", "read" ]
+    key = "read"
+    aliases = [ "+read" ]
     locks = "cmd:all()"
+    help_category = "Mail"
     
     def func(self):
         if len(self.caller.db.mailsystem) == 0:
@@ -76,14 +78,15 @@ class MailDelete(default_cmds.MuxCommand):
     Delete a mail
     
     Usage:
-    delete #, @delete #, +delete #
+    delete #, +delete #
     
     Delete a mail
     """
     
-    key = "@delete"
-    aliases = [ "+delete", "delete" ]
+    key = "delete"
+    aliases = [ "+delete" ]
     locks = "cmd:all()"
+    help_category = "Mail"
     
     def func(self):
         if len(self.caller.db.mailsystem) == 0:
@@ -104,14 +107,15 @@ class MailSend(default_cmds.MuxCommand):
     Usage:
     There are two uses here. You can type send by itself and be prompted for the options.
     Or you can type send to/title=msg.
-    You can also substitute @send and +send for send.
+    You can also substitute +send for send.
     
     Send a mail
     """
     
-    key = "@send"
-    aliases = [ "+send", "send" ]
+    key = "send"
+    aliases = [ "+send" ]
     locks = "cmd:all()"
+    help_category = "Mail"
         
         
     def save(self, caller, buffer):
@@ -130,7 +134,11 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.mailtarget
         
     
-    def MailTo(self, caller, prompt, user_input):
+    def MailTo(self, caller, prompt, user_input, x):
+        print type(caller)
+        print type(prompt)
+        print type(user_input)
+        print type(x)
         target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
         if len(target) == 0:
             caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
