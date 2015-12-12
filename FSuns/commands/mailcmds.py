@@ -59,15 +59,15 @@ class MailRead(default_cmds.MuxCommand):
     def func(self):
         if len(self.caller.db.mailsystem) == 0:
             self.caller.msg("SYSTEM: You don't have any mail!")
-        elif not self.args.is_digit():
-            self.caller.msg("SYSTEM: Input the index.")
+        elif not self.args.isnumeric():
+            self.caller.msg("SYSTEM: Index must be a number.")
         elif self.args > len(self.caller.db.mailsystem):
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
             mail = self.caller.db.mailsystem[int(self.args)]
             self.caller.msg(pad(mail[1], width=80))
             self.caller.msg("{0:39} {1:<39}".format("To: " + self.caller.key, "From: " + mail[0]))
-            self.caller.msg("{0:^80}".format('Sent on ' + mail[3].month + '/' + mail[3].day + '/' + mail[3].year))
+            self.caller.msg("{0:^80}".format('Sent on ' + str(mail[3].month) + '/' + str(mail[3].day) + '/' + str(mail[3].year)))
             self.caller.msg(pad('=',width=80,fillchar='='))
             evmore.msg(self.caller, mail[2])
             
@@ -90,8 +90,8 @@ class MailDelete(default_cmds.MuxCommand):
     def func(self):
         if len(self.caller.db.mailsystem) == 0:
             self.caller.msg("SYSTEM: You don't have any mail!")
-        elif not self.args.is_digit():
-            self.caller.msg("SYSTEM: Input the index.")
+        elif not self.args.isnumeric():
+            self.caller.msg("SYSTEM: Index must be a number.")
         elif self.args > len(self.caller.db.mailsystem):
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
