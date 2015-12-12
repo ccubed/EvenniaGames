@@ -135,10 +135,6 @@ class MailSend(default_cmds.MuxCommand):
         
     
     def MailTo(caller, prompt, user_input):
-        print type(caller)
-        print type(prompt)
-        print type(user_input)
-        print type(x)
         target = search.search_object(user_input, typeclass="typeclasses.characters.Character")
         if len(target) == 0:
             caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
@@ -158,7 +154,7 @@ class MailSend(default_cmds.MuxCommand):
     def func(self):
         print "Mailing. Got this: " + self.args
         if not self.args:
-            get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
+            #get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
         else:
             target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
             title = self.args.split('/').split('=')[0]
