@@ -123,12 +123,12 @@ class MailSend(default_cmds.MuxCommand):
     
         
     def quit(self, caller):
-        temp = Mail(caller.key, caller.ndb.mailtitle, caller.ndb.message, datetime.now())
+        temp = Mail(self.caller.key, self.caller.ndb.mailtitle, self.caller.ndb.message, datetime.now())
         caller.ndb.mailtarget.db.mailsystem.append(temp)
-        caller.ndb.mailtarget.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp[3].month, temp[3].day, caller.key, temp[1]))
+        caller.ndb.mailtarget.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp[3].month, temp[3].day, self.caller.key, temp[1]))
         del caller.ndb.message
         del caller.ndb.mailtitle
-        caller.msg("Sent your letter to {0}.".format(caller.ndb.mailtarget.key)) 
+        #caller.msg("Sent your letter to {0}.".format(caller.ndb.mailtarget.key)) 
         if caller.ndb.mailtarget.has_player:
             caller.ndb.mailtarget.msg("SYSTEM: You have pending notifications.")
         del caller.ndb.mailtarget
