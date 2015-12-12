@@ -134,7 +134,7 @@ class MailSend(default_cmds.MuxCommand):
         del caller.ndb.mailtarget
         
     
-    def MailTo(self, caller, prompt, user_input, x):
+    def MailTo(caller, prompt, user_input):
         print type(caller)
         print type(prompt)
         print type(user_input)
