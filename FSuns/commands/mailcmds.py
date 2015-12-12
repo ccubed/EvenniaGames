@@ -120,14 +120,14 @@ class MailSend(default_cmds.MuxCommand):
         
     def quit(self, caller):
         temp = Mail(caller.key, caller.ndb.mailtitle, caller.ndb.message, datetime.now())
-        caller.ndb.mailto.db.mailsystem.append(temp)
-        caller.ndb.mailto.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
+        caller.ndb.mailtarget.db.mailsystem.append(temp)
+        caller.ndb.mailtarget.db.notifications.append("{0}/{1}: New Mail from {2} about {3}".format(temp['date'].month, temp['date'].day, caller.key, temp['title']))
         del caller.ndb.message
         del caller.ndb.mailtitle
-        caller.msg("Sent your letter to {0}.".format(caller.ndb.mailto.key)) 
-        if caller.ndb.mailto.has_player:
-            caller.ndb.mailto.msg("SYSTEM: You have pending notifications.")
-        del caller.ndb.mailto
+        caller.msg("Sent your letter to {0}.".format(caller.ndb.mailtarget.key)) 
+        if caller.ndb.mailtarget.has_player:
+            caller.ndb.mailtarget.msg("SYSTEM: You have pending notifications.")
+        del caller.ndb.mailtarget
         
     
     def MailTo(self, caller, prompt, user_input):
@@ -137,21 +137,20 @@ class MailSend(default_cmds.MuxCommand):
         elif len(target) > 1:
             caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
         else:
-            caller.ndb.mailto = target[0]
+            caller.ndb.mailtarget = target[0]
             get_input(caller, "SYSTEM: What is the subject of this mail?", self.MailSubject)
             
             
     def MailSubject(self, caller, prompt, user_input):
         caller.ndb.mailtitle = user_input
-        key = "{0} to {1}".format(user_input, caller.ndb.mailto.key)
+        key = "{0} to {1}".format(user_input, caller.ndb.mailtarget.key)
         eveditor.EvEditor(self.caller, savefunc=self.save, quitfunc=self.quit, key=key)
     
     
     def func(self):
         print "Mailing. Got this: " + self.args
         if not self.args:
-            #get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
-            pass
+            get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
         else:
             target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
             title = self.args.split('/').split('=')[0]
