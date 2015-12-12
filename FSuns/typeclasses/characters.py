@@ -38,7 +38,9 @@ class Character(DefaultCharacter):
         self.db.benefices = {'Rank': 'None'}
         self.db.skills = {'Faction Lore.Phoenix Empire': 3, 'Fight': 3, 'Influence': 3, 'Observe': 3, 'Sneak': 3, 'Throwing': 3, 'Vigor': 3}
         self.db.vitality = 0
+        self.db.wounds = 0
         self.db.wyrd = 0
+        self.db.wyrdused = 0
         self.db.blessings = []
         self.db.curses = []
         self.db.afflictions = {}

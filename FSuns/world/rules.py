@@ -2,28 +2,22 @@
 rules.py
 
 Fading Suns World Rules Module
-
-Reference: VP Chart
-1: 0 (marginal)
-2-3: 1
-4-5: 2 (mediocre)
-6-7: 3
-8-9: 4 (satisfactory)
-10-11: 5
-12-13: 6 (Excellent)
-14-15: 7
-16-17: 8 (brilliant)
-18-19: 9
-20 - fail
 """
 
 from random import randint
 
 def Roll():
     """
-    All rolls are 1d20
+    Most rolls are 1d20
     """
     return randint(1,20)
+    
+
+def Roll6():
+    """
+    Some Rolls are 1d6
+    """
+    return randint(1,6)
     
 
 def VP(roll):
@@ -51,3 +45,101 @@ def VP(roll):
     elif 18 <= roll <= 19:
         return 9
         
+        
+def WyrdDisplay(player):
+    # Calculates and displays wyrd boxes
+    temp = ''
+    if player.db.wyrdused == 0:
+        # No used wyrd, so this one is easy
+        for i in range(0, player.db.wyrd):
+            temp += "[ ]"
+        return temp
+    else:
+        # Some wyrd used
+        for i in range(0, player.db.wyrdused):
+            temp += "[O]"
+        for i in range(0, (player.db.wyrd - player.db.wyrdused)):
+            temp += "[ ]"
+        return temp
+        
+
+def VitalityDisplay(player):
+    # Display the vitality boxes
+    temp = ''
+    if player.db.wounds == 0:
+        #No wounds, easy one
+        for i in range(0, player.db.vitality):
+            temp += "[ ]"
+        return temp
+    else:
+        # Some wounds
+        for i in range(0, player.db.wounds):
+            temp += "[X]"
+        for i in range(0, (player.db.vitality - player.db.wounds)):
+            temp += "[ ]"
+        return temp
+        
+        
+def WoundPenalty(player):
+    # Determine Wound Penalty if any
+    wpr = player.db.vitality - 5
+    if player.db.wounds < wpr: # Wound penalties don't start till last 5 slots
+        return 0
+    else:
+        # We have some
+        if player.db.vitality - player.db.wounds == 5:
+            return 2
+        elif player.db.vitality - player.db.wounds == 4:
+            return 4
+        elif player.db.vitality - player.db.wounds == 3:
+            return 6
+        elif player.db.vitality - player.db.wounds == 2:
+            return 8
+        else:
+            return 10
+            
+            
+"""
+GoalCheck
+
+Takes a goal as either a number or calculation. Rolls a d20 and then gets VP from that roll.
+
+Returns: Dictionary
+    Contents of Dict:
+        VP: VP given for Roll per VP Chart
+        Result: Actual number Rolled on d20
+        Check: Whether or not they passed the goal check
+        
+Special Notes:
+    if Check is -1, They rolled a 20, which is a failure
+    if Check is 0, they didn't put in a number or a calculation
+    
+Usage:
+    Goals are always an Attribute+Skill.
+    Complimentary Goal checks are done as separate rolls and are not directly added per rules.
+    You can provide the goal as a number or calculation.
+    For lores, omit the lore type. It doesn't look at that anyways. Extraneous spaces are stripped so they're fine.
+    Capitalization does not matter since comparison are done through lower case.
+    Examples:
+        14 -  Goal is 14
+        Strength+Fight - Goal is Strength+Fight
+        Strength+4 - Goal is Strength+4
+        10+Melee - Goal is 10+Melee
+        Phoenix Empire + Intelligence - Goal is Lore Phoenix Empire + Intelligence
+"""
+def GoalCheck(goal):
+    if goal.isnumeric():
+        # Goal is a number, easy
+        result = Roll()
+        vpr = VP(result)
+        if result == 20:
+            return { 'VP': 0, 'Result': 20, 'Check': -1 }
+        else:
+            if result <= goal:
+                return { 'VP': vpr, 'Result': result, 'Check': 1 }
+    elif '+' in goal:
+        # Calculation
+        pass
+    else:
+        # I have no idea what they entered
+        return { 'VP': 0, 'Result': 0, 'Check': 0 }

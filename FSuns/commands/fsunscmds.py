@@ -31,6 +31,9 @@ class Sheet(default_cmds.MuxCommand):
         self.caller.msg(pad("Name: " + self.caller.key, width=40, align="l") + pad("Archetype: " + self.caller.db.archetype, width=40, align="r"))
         self.caller.msg(pad("Faction: " + self.caller.db.house, width=40, align="l") + pad("Rank: " + self.caller.db.benefices['Rank'], width=40, align="r"))
         self.caller.msg(pad("Firebirds: " + str(self.caller.db.firebirds), width=40, align="l") + pad("Assets: " + str(self.caller.db.assets), width=40, align="r"))
+        self.caller.msg(pad("Initiative: " + str(self.caller.db.attributes['Dexterity'] + self.caller.db.attributes['Wits']), width=80, align="c"))
+        #Wyrd
+        #Vitality
         self.caller.msg(pad(" Attributes ", width=80, align="c", fillchar="="))
         table = evtable.EvTable("Body", "Mind", "Spirit", border="cells", width=80, align="c")
         table.add_row("Strength: " + str(self.caller.db.attributes['Strength']), "Wits: " + str(self.caller.db.attributes['Wits']), "Presence: " + str(self.caller.db.attributes['Presence']))
