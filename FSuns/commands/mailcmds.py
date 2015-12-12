@@ -156,9 +156,9 @@ class MailSend(default_cmds.MuxCommand):
         if not self.args:
             get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
         else:
-            target = search.search_object(self.args[0].split('/')[0], typeclass="typeclasses.characters.Character")
-            title = self.args[0].split('/').split('=')[0]
-            message = self.args[0].split('/').split('=',1)[1]
+            target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
+            title = self.args.split('/')[1].split('=')[0]
+            message = self.args.split('/')[1].split('=',1)[1]
             if len(target) == 0:
                 caller.msg("SYSTEM: That didn't match a player. Confirm the player's name and try again.")
             elif len(target) > 1:
