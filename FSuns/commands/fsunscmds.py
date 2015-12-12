@@ -64,7 +64,7 @@ class Sheet(default_cmds.MuxCommand):
                 else:
                     i += 1
         if not temp == '':
-            self.caller.msg(temp + "\n")
+            self.caller.msg(temp)
         if len(self.caller.db.occult):
             self.caller.msg(pad(" Occult ", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
@@ -85,7 +85,7 @@ class Sheet(default_cmds.MuxCommand):
                 else:
                     i += 1
             if not temp == '':
-                self.caller.msg(temp + "\n")
+                self.caller.msg(temp)
             
         
             
