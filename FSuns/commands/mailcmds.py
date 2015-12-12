@@ -34,12 +34,12 @@ class MailList(default_cmds.MuxCommand):
         if len(self.caller.db.mailsystem) == 0:
             self.caller.msg("SYSTEM: You don't have any mails.")
         else:
-            self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format("ID", "Date", "Sender", "Subject"))
+            self.caller.msg("{0:>3} {1:>4} {2:^20} {3:^36}".format("ID", "Date", "Sender", "Subject"))
             i = 0
             for x in self.caller.db.mailsystem:
                 print x
                 print type(x)
-                self.caller.msg("{0:3} {1:4} {2:20} {3:^36}".format(i,str(x[3].month) + "/" + str(x[3].day), x[0], x[1]))
+                self.caller.msg("{0:>3} {1:>4} {2:^20} {3:^36}".format(i,str(x[3].month) + "/" + str(x[3].day), x[0], x[1]))
                 i += 1
                 
 
