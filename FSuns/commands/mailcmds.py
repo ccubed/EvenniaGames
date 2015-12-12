@@ -69,7 +69,7 @@ class MailRead(default_cmds.MuxCommand):
             self.caller.msg("{0:39} {1:>39}".format("To: " + self.caller.key, "From: " + mail[0]))
             self.caller.msg("{0:^80}".format('Sent on ' + str(mail[3].month) + '/' + str(mail[3].day) + '/' + str(mail[3].year)))
             self.caller.msg(pad('=',width=80,fillchar='='))
-            evmore.msg(self.caller, mail[2])
+            evmore.msg(self.caller, mail[2] + "\n")
             
         
 class MailDelete(default_cmds.MuxCommand):
