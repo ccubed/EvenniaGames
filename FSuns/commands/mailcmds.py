@@ -61,7 +61,7 @@ class MailRead(default_cmds.MuxCommand):
             self.caller.msg("SYSTEM: You don't have any mail!")
         elif not self.args.isnumeric():
             self.caller.msg("SYSTEM: Index must be a number.")
-        elif int(self.args) > len(self.caller.db.mailsystem):
+        elif int(self.args) > len(self.caller.db.mailsystem)-1:
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
             mail = self.caller.db.mailsystem[int(self.args)]
@@ -93,7 +93,7 @@ class MailDelete(default_cmds.MuxCommand):
             self.caller.msg("SYSTEM: You don't have any mail!")
         elif not self.args.isnumeric():
             self.caller.msg("SYSTEM: Index must be a number.")
-        elif int(self.args) > len(self.caller.db.mailsystem):
+        elif int(self.args) > len(self.caller.db.mailsystem)-1:
             self.caller.msg("SYSTEM: You don't have that many mails.")
         else:
             self.caller.db.mailsystem.remove(mail)
