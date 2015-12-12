@@ -158,7 +158,7 @@ class MailSend(default_cmds.MuxCommand):
     def func(self):
         print "Mailing. Got this: " + self.args
         if not self.args:
-            get_input(self.caller, "SYSTEM: Who are you sending mail to?", MailTo)
+            get_input(self.caller, "SYSTEM: Who are you sending mail to?", self.MailTo)
         else:
             target = search.search_object(self.args.split('/')[0], typeclass="typeclasses.characters.Character")
             title = self.args.split('/').split('=')[0]
