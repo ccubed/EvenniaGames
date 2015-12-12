@@ -164,6 +164,7 @@ class MailSend(default_cmds.MuxCommand):
             elif len(target) > 1:
                 caller.msg("SYSTEM: That matched several players. Maybe try an alias?")
             else: 
+                target = target[0]
                 temp = Mail(self.caller.key, title, message, datetime.now())
                 target.db.mailsystem.append(temp)
                 self.caller.msg("Sent your mail to {0}".format(target.key))
