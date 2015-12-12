@@ -31,7 +31,7 @@ class Sheet(default_cmds.MuxCommand):
         self.caller.msg(pad("Name: " + self.caller.key, width=40, align="l") + pad("Archetype: " + self.caller.db.archetype, width=40, align="r"))
         self.caller.msg(pad("Faction: " + self.caller.db.house, width=40, align="l") + pad("Rank: " + self.caller.db.benefices['Rank'], width=40, align="r"))
         self.caller.msg(pad("Firebirds: " + str(self.caller.db.firebirds), width=40, align="l") + pad("Assets: " + str(self.caller.db.assets), width=40, align="r"))
-        self.caller.msg(pad("Attributes", width=80, align="c", fillchar="="))
+        self.caller.msg(pad(" Attributes ", width=80, align="c", fillchar="="))
         table = evtable.EvTable("Body", "Mind", "Spirit", border="cells", width=80, align="c")
         table.add_row("Strength: " + str(self.caller.db.attributes['Strength']), "Wits: " + str(self.caller.db.attributes['Wits']), "Presence: " + str(self.caller.db.attributes['Presence']))
         table.add_row("Dexterity: " + str(self.caller.db.attributes['Dexterity']), "Perception: " + str(self.caller.db.attributes['Perception']), "Will: " + str(self.caller.db.attributes['Will']))
@@ -49,13 +49,13 @@ class Sheet(default_cmds.MuxCommand):
                     i=0
                 else:   
                     i+=1
+        if not temp == '':
+            self.caller.msg(temp + "\n")
         self.caller.msg(pad(" Lores ", width=80, align="c", fillchar="="))
         i = 0
         temp = ''
         for x in self.caller.db.skills.keys():
             if 'Lore' in x:
-                print x
-                print x.split('.')
                 temp += "{0:^16}: {1:>6}".format(crop(x.split('.')[1],16,'...'), self.caller.db.skills[x])
                 if i == 1:
                     self.caller.msg(temp)
@@ -63,6 +63,8 @@ class Sheet(default_cmds.MuxCommand):
                     i = 0
                 else:
                     i += 1
+        if not temp == '':
+            self.caller.msg(temp + "\n")
         if len(self.caller.db.occult):
             self.caller.msg(pad(" Occult ", width=80, align="c", fillchar="="))
             for x in self.caller.db.occult.keys():
@@ -82,6 +84,9 @@ class Sheet(default_cmds.MuxCommand):
                     i = 0
                 else:
                     i += 1
+            if not temp == '':
+                self.caller.msg(temp + "\n")
+            
         
             
 class ChargenStart(default_cmds.MuxCommand):
