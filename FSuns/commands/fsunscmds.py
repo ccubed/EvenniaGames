@@ -268,3 +268,25 @@ class AddResources(default_cmds.MuxCommand):
                 self.caller.msg("SYSTEM: That matched more than one character.")
             else:
                 self.caller.msg("SYSTEM: That didn't match any characters.")
+                
+                
+class RollWeaponDmg(default_cmds.MuxCommand):
+    """
+    Roll weapon damage dice.
+    
+    Usage:
+        weapon <dice>
+    """
+    
+    key = "weapon"
+    lock = "cmd:all()"
+    help_category = "Rolling"
+    
+    def func(self):
+        if not self.args.isnumeric():
+            self.caller.msg("SYSTEM: Needs to be a number.")
+        else:
+            content = rules.WeaponRoll(int(self.args))
+            self.caller.msg("SYSTEM: You rolled some weapon damage dice.\n" + content)
+            prefix = "SYSTEM: {0} rolled some weapon damage dice.\n".format(self.caller.key)
+            self.caller.location.msg_contents(prefix + content, exclude=[self.caller])

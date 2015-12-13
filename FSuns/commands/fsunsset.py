@@ -17,3 +17,5 @@ class FSunSet(CmdSet):
         self.add(fsunscmds.StaffNotify())
         self.add(fsunscmds.ReadAllNotifications())
         self.add(fsunscmds.RollGoalCheck())
+        self.add(fsunscmds.AddResources())
+        self.add(fsunscmds.RollWeaponDmg())
