@@ -261,6 +261,11 @@ class AddResources(default_cmds.MuxCommand):
                     target.db.assets += int(self.args.split('=')[1])
                 else:
                     target.db.firebirds += int(self.args.split('=')[1])
+                self.caller.msg("SYSTEM: Added {0} to {1}'s {2}.".format(self.args.split('=')[1], target.key, str(self.cmdstring).strip('@')))
+                if target.has_player:
+                    target.msg("SYSTEM: {0} added {1} to your {2}.".format(self.caller.key, self.args.split('=')[1], str(self.cmdstring).strip('@')))
+                else:
+                    target.db.notifications.append("{0}/{1}: {2} added {3} to your {4}.".format(datetime.now().month, datetime.now().day, self.caller.key, self.args.split('=')[1], str(self.cmdstring).strip('@')))
             else:
                 self.caller.msg("SYSTEM: Amount argument must be a digit.")
         else:
