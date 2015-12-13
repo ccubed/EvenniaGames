@@ -35,7 +35,7 @@ class Sheet(default_cmds.MuxCommand):
         self.caller.msg(pad("Initiative: " + str(self.caller.db.attributes['Dexterity'] + self.caller.db.attributes['Wits']), width=80, align="c"))
         self.caller.msg(pad("Wyrd: " + rules.WyrdDisplay(self.caller), width=80, align="c"))
         self.caller.msg(pad("Vitality: " + rules.VitalityDisplay(self.caller), width=80, align="c"))
-        self.caller.msg(pad("Wound Penalty: " + str(rules.WoundPenalty(self.caller)), width=80, align="c"))
+        self.caller.msg(pad("Wound Penalty: -" + str(rules.WoundPenalty(self.caller)), width=80, align="c"))
         self.caller.msg(pad(" Attributes ", width=80, align="c", fillchar="="))
         table = evtable.EvTable("Body", "Mind", "Spirit", border="cells", width=80, align="c")
         table.add_row("Strength: " + str(self.caller.db.attributes['Strength']), "Wits: " + str(self.caller.db.attributes['Wits']), "Presence: " + str(self.caller.db.attributes['Presence']))
@@ -209,3 +209,33 @@ class ReadAllNotifications(default_cmds.MuxCommand):
             for x in self.caller.db.notifications:
                 self.caller.msg(x)
             self.caller.db.notifications = []
+            
+            
+class RollGoalCheck(default_cmds.MuxCommand):
+    """
+    Roll a goal check.
+    
+    Usage:
+        roll <goal>, +roll <goal>
+        
+    Goal can be a number or a calculation.
+    """
+    
+    key = "roll"
+    aliases = [ '+roll' ]
+    lock = "cmd:all()"
+    help_category = "Rolling"
+    
+    def func(self):
+        rolling = GoalCheck(self.args, self.caller)
+        if rolling['check'] == 0:
+            self.caller.msg("SYSTEM: Couldn't parse that input. See help roll.") 
+        elif rolling['check'] == -1:
+            # rolled a 20
+            pass
+        elif rolling['check'] == 1:
+            #passed
+            pass
+        elif rolling['check'] == 2:
+            #over the goal
+            pass

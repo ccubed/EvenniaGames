@@ -16,3 +16,4 @@ class FSunSet(CmdSet):
         self.add(fsunscmds.NotificationNext())
         self.add(fsunscmds.StaffNotify())
         self.add(fsunscmds.ReadAllNotifications())
+        self.add(fsunscmds.RollGoalCheck())
