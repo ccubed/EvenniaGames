@@ -236,5 +236,5 @@ class RollGoalCheck(default_cmds.MuxCommand):
         else:
             content = "SYSTEM: You rolled {0} against a goal of {1} and earned {2} VP.".format(str(rolling['Result']), str(rolling['Goal']), str(rolling['VP']))
             self.caller.msg(content)
-            self.caller.location.msg_contents(content, exclude=[caller])
+            self.caller.location.msg_contents(content, exclude=[self.caller])
             
