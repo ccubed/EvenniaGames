@@ -140,9 +140,9 @@ def GoalCheck(goal, player):
             return { 'VP': 0, 'Result': 20, 'Check': -1 }
         else:
             if result <= goal:
-                return { 'VP': vpr, 'Result': result, 'Check': 1 }
+                return { 'VP': vpr, 'Result': result, 'Check': 1, 'Goal': goal }
             else:
-                return { 'VP': vpr, 'Result': result, 'Check': 2 }
+                return { 'VP': 0, 'Result': result, 'Check': 2, 'Goal': goal }
     elif '+' in goal:
         parts = goal.split("+")
         gc = 0
@@ -184,12 +184,12 @@ def GoalCheck(goal, player):
             result = Roll()
             vpr = VP(result)
             if result == 20:
-                return { 'VP': 0, 'Result': 20, 'Check': -1 }
+                return { 'VP': 0, 'Result': 20, 'Check': -1, 'Goal': gc }
             else:
                 if result <= gc:
-                    return { 'VP': vpr, 'Result': result, 'Check': 1 }
+                    return { 'VP': vpr, 'Result': result, 'Check': 1, 'Goal': gc }
                 else:
-                    return { 'VP': vpr, 'Result': result, 'Check': 2 }
+                    return { 'VP': 0, 'Result': result, 'Check': 2, 'Goal': gc }
     else:
         # I have no idea what they entered
         return { 'VP': 0, 'Result': 0, 'Check': 0 }

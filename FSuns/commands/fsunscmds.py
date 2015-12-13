@@ -227,15 +227,14 @@ class RollGoalCheck(default_cmds.MuxCommand):
     help_category = "Rolling"
     
     def func(self):
-        rolling = GoalCheck(self.args, self.caller)
+        rolling = rules.GoalCheck(self.args, self.caller)
         if rolling['check'] == 0:
             self.caller.msg("SYSTEM: Couldn't parse that input. See help roll.") 
         elif rolling['check'] == -1:
-            # rolled a 20
-            pass
-        elif rolling['check'] == 1:
-            #passed
-            pass
-        elif rolling['check'] == 2:
-            #over the goal
-            pass
+            self.caller.msg("SYSTEM: You rolled a 20 on your goal check.")
+            self.caller.location.msg_contents("SYSTEM: {0} rolled a 20 on their goal check.", exclude=[self.caller])
+        else:
+            content = "SYSTEM: You rolled {0} against a goal of {1} and earned {2} VP.".format(str(rolling['Result']), str(rolling['Goal']), str(rolling['VP']))
+            self.caller.msg(content)
+            self.caller.location.msg_contents(content, exclude=[caller])
+            
