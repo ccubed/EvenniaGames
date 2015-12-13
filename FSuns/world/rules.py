@@ -139,7 +139,7 @@ def GoalCheck(goal, player):
         if result == 20:
             return { 'VP': 0, 'Result': 20, 'Check': -1 }
         else:
-            if result <= goal:
+            if result <= int(goal):
                 return { 'VP': vpr, 'Result': result, 'Check': 1, 'Goal': goal }
             else:
                 return { 'VP': 0, 'Result': result, 'Check': 2, 'Goal': goal }
