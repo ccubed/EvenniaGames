@@ -227,7 +227,7 @@ class RollGoalCheck(default_cmds.MuxCommand):
     help_category = "Rolling"
     
     def func(self):
-        print self.args
+        print type(self.args)
         rolling = rules.GoalCheck(self.args, self.caller)
         if rolling['Check'] == 0:
             self.caller.msg("SYSTEM: Couldn't parse that input. See help roll.") 
