@@ -132,16 +132,13 @@ Usage:
         Phoenix Empire + Intelligence - Goal is Lore Phoenix Empire + Intelligence
 """
 def GoalCheck(goal, player):
-    print goal
     if goal.isnumeric():
         # Goal is a number, easy
         result = Roll()
         vpr = VP(result)
-        print "Result: " + str(result)
         if result == 20:
             return { 'VP': 0, 'Result': 20, 'Check': -1 }
         else:
-            print "Goal: " + goal
             if result <= int(goal):
                 return { 'VP': vpr, 'Result': result, 'Check': 1, 'Goal': goal }
             else:

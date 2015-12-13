@@ -227,7 +227,6 @@ class RollGoalCheck(default_cmds.MuxCommand):
     help_category = "Rolling"
     
     def func(self):
-        print type(self.args)
         rolling = rules.GoalCheck(self.args, self.caller)
         if rolling['Check'] == 0:
             self.caller.msg("SYSTEM: Couldn't parse that input. See help roll.") 
@@ -239,3 +238,33 @@ class RollGoalCheck(default_cmds.MuxCommand):
             self.caller.msg(content)
             self.caller.location.msg_contents(content, exclude=[self.caller])
             
+            
+class AddResources(default_cmds.MuxCommand):
+    """
+    Allows staff to modify assets and firebirds. This is an addition operation. Accepts negative numbers.
+    
+    Usage:
+        @assets <name>=<amt>, @firebirds <name>=<amt>
+    """
+    
+    key = "@assets"
+    aliases = [ '@firebirds' ]
+    lock = "cmd:perm(Wizards)"
+    help_category = "Staff"
+    
+    def func(self):
+        target = search.search_object(self.args.split('=')[0], typeclass="typeclasses.characters.Character")
+        if len(target) == 1:
+            target = target[0]
+            if self.args.split('=')[1].isdigit():
+                if self.cmdstring == '@assets':
+                    target.db.assets += int(self.args.split('=')[1])
+                else:
+                    target.db.firebirds += int(self.args.split('=')[1])
+            else:
+                self.caller.msg("SYSTEM: Amount argument must be a digit.")
+        else:
+            if len(target) > 1:
+                self.caller.msg("SYSTEM: That matched more than one character.")
+            else:
+                self.caller.msg("SYSTEM: That didn't match any characters.")
