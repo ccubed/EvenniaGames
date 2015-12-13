@@ -104,4 +104,4 @@ INSTALLED_APPS += (
 # Django's cookies. Do not share this with anyone. Changing it will
 # log out all active web browsing sessions. Game web client sessions
 # may survive.
-SECRET_KEY = {secret_key}
+SECRET_KEY = '2uX-V:tTFfYdZcQ@oJ"wH+NO{1jk9"?83KUsp,g4'
