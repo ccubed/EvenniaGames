@@ -228,9 +228,9 @@ class RollGoalCheck(default_cmds.MuxCommand):
     
     def func(self):
         rolling = rules.GoalCheck(self.args, self.caller)
-        if rolling['check'] == 0:
+        if rolling['Check'] == 0:
             self.caller.msg("SYSTEM: Couldn't parse that input. See help roll.") 
-        elif rolling['check'] == -1:
+        elif rolling['Check'] == -1:
             self.caller.msg("SYSTEM: You rolled a 20 on your goal check.")
             self.caller.location.msg_contents("SYSTEM: {0} rolled a 20 on their goal check.", exclude=[self.caller])
         else:
