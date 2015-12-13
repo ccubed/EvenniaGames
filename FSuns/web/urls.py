@@ -19,7 +19,7 @@ from evennia.web.urls import urlpatterns
 # https://docs.djangoproject.com/en/1.6/intro/tutorial01/
 
 patterns = [
-    # url(r'/desired/url/', view, name='example'),
+    url(r'request/', include('helpdesk.urls')),
 ]
 
 urlpatterns = patterns + urlpatterns
