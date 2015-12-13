@@ -1179,7 +1179,7 @@ def menunode_lpn2(caller, raw_input):
     elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
-        fsutils.addsheet(caller, 'Faction Lore.' + raw_input, 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore.' + raw_input.encode('ascii', 'ignore'), 'Skills', 3)
         text = "Which existing house are you mirroring?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnmh"},
                    {"key": "1", "desc": "Decados", "goto": "menunode_lpnmh"},
@@ -1248,7 +1248,7 @@ def menunode_lpnq(caller, raw_input):
     elif not raw_input.isdigit():
         caller.db.minor = 1
         caller.db.house = raw_input
-        fsutils.addsheet(caller, 'Faction Lore.' + raw_input, 'Skills', 3)
+        fsutils.addsheet(caller, 'Faction Lore.' + raw_input.encode('ascii', 'ignore'), 'Skills', 3)
         text = "Which major house do you want to mirror?"
         options = ({"key": "0", "desc": "Hawkwood", "goto": "menunode_lpnqmh"},
                {"key": "1", "desc": "Decados", "goto": "menunode_lpnqmh"},
@@ -1538,7 +1538,7 @@ def menunode_lpn5sd4(caller):
     
     
 def menunode_lpn5di2(caller, raw_input):
-    fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Arts ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     text = "Do you want to take 2 points of Analytical or Malefaction skills?"
     options = ({"key": "0", "desc": "Analytical", "goto": "menunode_lpn5di2a"},
                {"key": "1", "desc": "Malefaction", "goto": "menunode_lpn5di2m"})
@@ -1592,7 +1592,7 @@ def menunode_lpn5dy2(caller):
     
     
 def menunode_lpn5dy3(caller, raw_input):
-    fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Arts ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     text = "You have one point to spend in the control group."
     options = ({"key": "0", "desc": "Aircraft", "exec": lambda caller: fsutils.addsheet(caller, 'Aircraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
                {"key": "1", "desc": "Beastcraft", "exec": lambda caller: fsutils.addsheet(caller, 'Beastcraft', 'Skills', 1), "goto": "menunode_lpn5cc"},
@@ -2006,7 +2006,7 @@ def menunode_lpn6d4(caller):
     
     
 def menunode_lpn6a2(caller, raw_input):
-    fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Arts ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     
     text = "Do you want Investigation at +2 or to choose 2 points of skills from the Malefaction group?"
     options = ({"key": "0", "desc": "Investigation +2", "exec": lambda caller: fsutils.addsheet(caller, 'Investigation', 'Skills', 2), "goto": "menunode_lpn6cc"},
@@ -2132,7 +2132,7 @@ def menunode_lpp32(caller):
     
     
 def menunode_lpp322(caller, raw_input):
-    fsutils.addsheet(caller, 'Craft ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Craft ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     
     text = "At this point you choose your apprenticeship."
     options = ({"key": "0", "desc": "Cathedral", "goto": "menunode_lpp5"},
@@ -2240,7 +2240,7 @@ def menunode_lpp5(caller, raw_input):
     return text, options
 
 def menunode_lpp5sa(caller, raw_input):
-    fsutils.addsheet(caller, 'Arts ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Arts ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     text = "Please select your early career."
     options = ({"key": "0", "desc": "Preacher/Pastor", "goto":"menunode_lpp6"},
                {"key": "1", "desc": "Monk", "goto":"menunode_lpp6"},
@@ -2369,7 +2369,7 @@ def menunode_lpp6(caller, raw_input):
     
     
 def menunode_lpp6m2(caller, raw_input):
-    fsutils.addsheet(caller, 'Craft ' + raw_input, 'Skills', 2)
+    fsutils.addsheet(caller, 'Craft ' + raw_input.encode('ascii', 'ignore'), 'Skills', 2)
     text = "Enter your home planet now."
     options = ({"key": "_default", "goto": "menunode_todstart"})
     return text, options
@@ -2592,7 +2592,7 @@ def menunode_lpm32(caller):
     
     
 def menunode_lpm322(caller, raw_input):
-    fsutils.addsheet(caller, 'Craft ' + raw_input, 'Skills', 1)
+    fsutils.addsheet(caller, 'Craft ' + raw_input.encode('ascii', 'ignore'), 'Skills', 1)
     text = "Now you will pick an apprenticeship."
     options = ({"key": "0", "desc": "Academy", "goto": "menunode_lpm5"},
                {"key": "1", "desc": "Guild Hall", "goto": "menunode_lpm5"},
@@ -3883,7 +3883,7 @@ def menunode_lpm6cc(caller):
 # BEGIN TOUR OF DUTY SECTION
 
 def menunode_todstart(caller, raw_input):
-    fsutils.addsheet(caller, 'Planetary Lore.' + raw_input, 'Skills', 3)
+    fsutils.addsheet(caller, 'Planetary Lore.' + raw_input.encode('ascii', 'ignore'), 'Skills', 3)
     
     if caller.db.questing:
         text = "Normally you get to choose two tours of duty. In your case you only get one choice.\n"

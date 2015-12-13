@@ -148,25 +148,28 @@ def GoalCheck(goal, player):
         gc = 0
         for x in parts:
             if '-' in x:
-                sub = x.split('-')
-                if sub[1].strip().isdigit():
-                    # Easiest, it's a number
-                    gc -= int(sub[1].strip())
-                else:
-                    temp = attemptParse(sub[1].strip(), player)
-                    if temp == 0:
-                        return { 'VP': 0, 'Result': 0, 'Check': 0 }
+                i = 0
+                for a in x.split('-'):
+                    if i > 0:
+                        if a.strip().isdigit():
+                            # Easiest, it's a number
+                            gc -= int(a.strip())
+                        else:
+                            temp = attemptParse(a.strip(), player)
+                            if temp == 0:
+                                return { 'VP': 0, 'Result': 0, 'Check': 0 }
+                            else:
+                                gc -= temp
                     else:
-                        gc -= temp
-                if sub[0].strip().isdigit():
-                    # Easiest, it's a number
-                    gc += int(sub[0].strip())
-                else:
-                    temp = attemptParse(sub[0].strip(), player)
-                    if temp == 0:
-                        return { 'VP': 0, 'Result': 0, 'Check': 0 }
-                    else:
-                        gc += temp
+                        if a.strip().isdigit():
+                            # Easiest, it's a number
+                            gc += int(a.strip())
+                        else:
+                            temp = attemptParse(a.strip(), player)
+                            if temp == 0:
+                                return { 'VP': 0, 'Result': 0, 'Check': 0 }
+                            else:
+                                gc += temp
             elif not x.strip().isdigit():
                 temp = attemptParse(x.strip(), player)
                 if temp == 0:
