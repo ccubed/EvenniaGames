@@ -132,6 +132,7 @@ Usage:
         Phoenix Empire + Intelligence - Goal is Lore Phoenix Empire + Intelligence
 """
 def GoalCheck(goal, player):
+    print goal
     if goal.isnumeric():
         # Goal is a number, easy
         result = Roll()
