@@ -34,7 +34,7 @@ class Sheet(default_cmds.MuxCommand):
         self.caller.msg(pad("Firebirds: " + str(self.caller.db.firebirds), width=40, align="l") + pad("Assets: " + str(self.caller.db.assets), width=40, align="r"))
         self.caller.msg(pad("Initiative: " + str(self.caller.db.attributes['Dexterity'] + self.caller.db.attributes['Wits']), width=80, align="c"))
         self.caller.msg(pad("Wyrd: " + rules.WyrdDisplay(self.caller), width=80, align="c"))
-        self.caller.msg(pad("Vitality: " + rules.VitalityDisplay(self.caller) + " <Wound Penalty: " + rules.WoundPenalty(self.caller) + ">", width=80, align="c"))
+        self.caller.msg(pad("Vitality: " + rules.VitalityDisplay(self.caller) + " <Wound Penalty: " + str(rules.WoundPenalty(self.caller)) + ">", width=80, align="c"))
         self.caller.msg(pad(" Attributes ", width=80, align="c", fillchar="="))
         table = evtable.EvTable("Body", "Mind", "Spirit", border="cells", width=80, align="c")
         table.add_row("Strength: " + str(self.caller.db.attributes['Strength']), "Wits: " + str(self.caller.db.attributes['Wits']), "Presence: " + str(self.caller.db.attributes['Presence']))
