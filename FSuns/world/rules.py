@@ -46,6 +46,10 @@ def VP(roll):
         return 9
         
         
+def RollInit(player):
+    return player.db.attributes['Dexterity'] + player.db.attributes['Wits'] + Roll6()
+        
+        
 def WyrdDisplay(player):
     # Calculates and displays wyrd boxes
     temp = ''
@@ -143,3 +147,11 @@ def GoalCheck(goal):
     else:
         # I have no idea what they entered
         return { 'VP': 0, 'Result': 0, 'Check': 0 }
+        
+    
+# Roll d6's for weapon damage.    
+def WeaponRoll(bonus):
+    temp = ''
+    for i in range(0,bonus):
+        temp += str(Roll6()) + " "
+    return temp
