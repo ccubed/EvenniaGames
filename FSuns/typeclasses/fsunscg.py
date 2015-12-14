@@ -4137,7 +4137,7 @@ def menunode_todic4(caller, raw_input):
     
     
 def menunode_todnp2(caller):
-    fsutils.addsheet(caller, 'Psi', 'Attributes', 3)
+    #fsutils.addsheet(caller, 'Psi', 'Attributes', 3)
     #caller.db.wyrd += 2
     text = "Choose a psychic path."
     #options = ({"key": "0", "desc": "Farhand", "goto": "menunode_todnp3"},
