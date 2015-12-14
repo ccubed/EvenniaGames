@@ -4140,13 +4140,14 @@ def menunode_todnp2(caller):
     fsutils.addsheet(caller, 'Psi', 'Attributes', 3)
     caller.db.wyrd += 2
     text = "Choose a psychic path."
-    options = ({"key": "0", "desc": "Farhand", "goto": "menunode_todnp3"},
-               {"key": "1", "desc": "Omen", "goto": "menunode_todnp3"},
-               {"key": "2", "desc": "Psyche", "goto": "menunode_todnp3"},
-               {"key": "3", "desc": "Sixth Sense", "goto": "menunode_todnp3"},
-               {"key": "4", "desc": "Soma", "goto": "menunode_todnp3"},
-               {"key": "5", "desc": "Sympathy", "goto": "menunode_todnp3"},
-               {"key": "6", "desc": "Vis Craft", "goto": "menunode_todnp3"})
+    #options = ({"key": "0", "desc": "Farhand", "goto": "menunode_todnp3"},
+    #           {"key": "1", "desc": "Omen", "goto": "menunode_todnp3"},
+    #           {"key": "2", "desc": "Psyche", "goto": "menunode_todnp3"},
+    #           {"key": "3", "desc": "Sixth Sense", "goto": "menunode_todnp3"},
+    #           {"key": "4", "desc": "Soma", "goto": "menunode_todnp3"},
+    #           {"key": "5", "desc": "Sympathy", "goto": "menunode_todnp3"},
+    #           {"key": "6", "desc": "Vis Craft", "goto": "menunode_todnp3"})
+    options = ({"key": "0", "desc": "Test", "goto": "menunode_todnp3"})
     return text, options
     
     
