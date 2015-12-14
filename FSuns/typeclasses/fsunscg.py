@@ -1115,7 +1115,7 @@ def menunode_lifepath(caller):
 def menunode_lpn1(caller):
     caller.db.archetype = "Noble"
     caller.db.noble = 1
-    caller.db.recbenefices = ('Nobility', 'Riches')
+    caller.db.recbenefices = [ 'Nobility', 'Riches' ]
     text = "As nobility, your first step is picking a house. Please pick one.\n"
     text += "Please note that houses after al-Malik are book defined minor houses.\n"
     text += "If you are going to use minor house and not follow an existing house, use custom cg.\n"

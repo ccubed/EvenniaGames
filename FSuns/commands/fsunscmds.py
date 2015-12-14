@@ -72,9 +72,9 @@ class Sheet(default_cmds.MuxCommand):
             self.caller.msg(temp)
         if len(self.caller.db.occult):
             self.caller.msg(pad(" Occult ", width=80, align="c", fillchar="="))
-            for x in self.caller.db.actions.keys():
+            for x in self.caller.db.occult.keys():
                 content = x + ": "
-                for a in self.caller.db.actions[x]:
+                for a in self.caller.db.occult[x]:
                     content += a + ", "
                 self.caller.msg(content.rstrip(', ') + ".")
         if len(self.caller.db.actions):
