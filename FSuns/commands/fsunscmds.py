@@ -77,7 +77,10 @@ class Sheet(default_cmds.MuxCommand):
         if len(self.caller.db.actions):
             self.caller.msg(pad(" Fighting Styles ", width=80, align="c", fillchar="="))
             for x in self.caller.db.actions.keys():
-                self.caller.msg(wrap(x + ": " + self.caller.db.actions[x], width=80, indent=3))
+                content = x + ": "
+                for a in self.caller.db.actions[x]:
+                    content += a + ", "
+                self.caller.msg(content.strip(',') + ".")
         if len(self.caller.db.languages):
             self.caller.msg(pad(" Languages ", width=80, align="c", fillchar="="))
             temp = ''
