@@ -10,7 +10,10 @@ Utility functions
 def addsheet(pc, what, which, amt):
     print "Addsheet for "  + pc.key + " to do " + what + " + " + str(amt)
     if which == 'Attributes':
-        pc.db.attributes[what] += amt
+        if what in pc.db.attributes:
+            pc.db.attributes[what] += amt
+        else:
+            pc.db.attributes[what] = amt
     elif which == 'Skills':
         if what in pc.db.skills:
             pc.db.skills[what] += amt

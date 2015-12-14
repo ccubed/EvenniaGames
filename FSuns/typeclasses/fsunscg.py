@@ -3952,7 +3952,7 @@ def menunode_todqk3(caller, raw_input):
     if caller.db.todsp == 0:
         caller.db.benefices['Imperial Charter'] = 'Carried'
         caller.db.tours.append('Questing Knight')
-        if len(caller.db.tours) != 2:
+        if len(caller.db.tours < 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "1", "desc": "Career Tour", "goto": "menunode_todct2"},
@@ -4024,7 +4024,7 @@ def menunode_todct3(caller, raw_input):
 def menunode_todct4(caller, raw_input):
     if caller.db.todsp == 0:
         caller.db.tours.append('Career Tour')
-        if len(caller.db.tours) != 2:
+        if len(caller.db.tours < 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "2", "desc": "Natal Psi", "goto": "menunode_todnp2"},
@@ -4099,7 +4099,7 @@ def menunode_todic4(caller, raw_input):
     if caller.db.todsp == 0:
         caller.db.benefices['Cohort Badge'] = 'Carried'
         caller.db.tours.append('Imperial Cohort')
-        if len(caller.db.tours) != 2:
+        if len(caller.db.tours) < 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
                        {"key": "1", "desc": "Natal Psi", "goto": "menunode_todnp2"},
@@ -4137,6 +4137,8 @@ def menunode_todic4(caller, raw_input):
     
     
 def menunode_todnp2(caller):
+    fsutils.addsheet(caller, 'Psi', 'Attributes', 3)
+    caller.db.wyrd += 2
     text = "Choose a psychic path."
     options = ({"key": "0", "desc": "Test", "goto": "menunode_todnp3"})
     return text, options
@@ -4176,7 +4178,7 @@ def menunode_todnp4(caller, raw_input):
     
     caller.db.tours.append('Natal Psi')
     
-    if len(caller.db.tours) != 2:
+    if len(caller.db.tours) < 2:
         text = "Now you get to pick your second tour of duty."
         options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
                    {"key": "1", "desc": "Savant Psi", "goto": "menunode_todsp2"},
@@ -4308,7 +4310,7 @@ def menunode_todnt3(caller, raw_input):
             
     caller.db.tours.append('Neophyte Theurge')
     
-    if len(caller.db.tours) != 2:
+    if len(caller.db.tours) < 2:
         text = "Now you get to pick your second tour of duty."
         options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
                    {"key": "1", "desc": "Adept Theurge", "goto": "menunode_todat2"},
@@ -4404,7 +4406,7 @@ def menunode_todcyt2(caller):
     
     caller.db.tours.append('Cybernetically Tweaked')
     
-    if len(caller.db.tours) != 2:
+    if len(caller.db.tours < 2:
         text += "In the meantime, you get to pick your second tour of duty."
         options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
                    {"key": "1", "desc": "Loaded for Bear", "goto": "menunode_todlfb2"},
