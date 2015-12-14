@@ -3912,7 +3912,7 @@ def menunode_todstart(caller, raw_input):
             options = options + ({"key": "4", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetype == 'Priest':
-            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
         
         return text, options
         
@@ -3955,12 +3955,12 @@ def menunode_todqk3(caller, raw_input):
         if len(caller.db.tours) != 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
-                       {"key": "1", "desc": "Career Tour", "goto": "menumode_todct2"},
-                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
+                       {"key": "1", "desc": "Career Tour", "goto": "menunode_todct2"},
+                       {"key": "2", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"})
                        
             if caller.db.archetype == 'Priest':
-                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
                        
             return text, options
         else:
@@ -4027,14 +4027,14 @@ def menunode_todct4(caller, raw_input):
         if len(caller.db.tours) != 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
-                       {"key": "2", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"})
+                       {"key": "2", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                       {"key": "4", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"})
                        
             if caller.db.archetype == "Noble":
                 options = options + ({"key": "5", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
                 
             if caller.db.archetype == 'Priest':
-                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+                options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
                     
             return text, options
         else:
@@ -4102,12 +4102,12 @@ def menunode_todic4(caller, raw_input):
         if len(caller.db.tours) != 2:
             text = "Now you get to pick your second tour of duty."
             options = ({"key": "0", "desc": "Master Tour", "goto": "menunode_todmt2"},
-                       {"key": "1", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                       {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
-                       {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
+                       {"key": "1", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                       {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"},
+                       {"key": "3", "desc": "Career Tour", "goto": "menunode_todct2"})
                        
             if caller.db.archetype == 'Priest':
-                options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+                options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
             
             return text, options
         else:
@@ -4186,10 +4186,10 @@ def menunode_todnp4(caller, raw_input):
     
     if len(caller.db.tours) != 2:
         text = "Now you get to pick your second tour of duty."
-        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                   {"key": "1", "desc": "Savant Psi", "goto": "menumode_todsp2"},
-                   {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
-                   {"key": "4", "desc": "Career Tour", "goto": "menumode_todct2"})
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                   {"key": "1", "desc": "Savant Psi", "goto": "menunode_todsp2"},
+                   {"key": "3", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"},
+                   {"key": "4", "desc": "Career Tour", "goto": "menunode_todct2"})
                    
         if caller.db.archetype == "Noble":
             options = options + ({"key":"5", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
@@ -4197,7 +4197,7 @@ def menunode_todnp4(caller, raw_input):
             options = options + ({"key": "5", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetype == 'Priest':
-            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+            options = options + ({"key": "2", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
                    
         return text, options
     else:
@@ -4318,10 +4318,10 @@ def menunode_todnt3(caller, raw_input):
     
     if len(caller.db.tours) != 2:
         text = "Now you get to pick your second tour of duty."
-        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                   {"key": "1", "desc": "Adept Theurge", "goto": "menumode_todat2"},
-                   {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menumode_todcyt2"},
-                   {"key": "3", "desc": "Career Tour", "goto": "menumode_todct2"})
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                   {"key": "1", "desc": "Adept Theurge", "goto": "menunode_todat2"},
+                   {"key": "2", "desc": "Cybernetically Tweaked", "goto": "menunode_todcyt2"},
+                   {"key": "3", "desc": "Career Tour", "goto": "menunode_todct2"})
                    
         if caller.db.archetype == "Noble":
             options = options + ({"key":"4", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
@@ -4414,9 +4414,9 @@ def menunode_todcyt2(caller):
     
     if len(caller.db.tours) != 2:
         text += "In the meantime, you get to pick your second tour of duty."
-        options = ({"key": "0", "desc": "Natal Psi", "goto": "menumode_todnp2"},
-                   {"key": "1", "desc": "Loaded for Bear", "goto": "menumode_todlfb2"},
-                   {"key": "2", "desc": "Career Tour", "goto": "menumode_todct2"})
+        options = ({"key": "0", "desc": "Natal Psi", "goto": "menunode_todnp2"},
+                   {"key": "1", "desc": "Loaded for Bear", "goto": "menunode_todlfb2"},
+                   {"key": "2", "desc": "Career Tour", "goto": "menunode_todct2"})
                    
         if caller.db.archetype == "Noble":
             options = options + ({"key":"3", "desc": "Questing Knight", "goto": "menunode_todqk1"},)
@@ -4424,7 +4424,7 @@ def menunode_todcyt2(caller):
             options = options + ({"key": "3", "desc": "Imperial Cohort", "goto": "menunode_todic2"},)
             
         if caller.db.archetpye == "Priest":
-            options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menumode_todnt2"},)
+            options = options + ({"key": "4", "desc": "Neophyte Theurge", "goto": "menunode_todnt2"},)
                    
         return text, options
     else:
