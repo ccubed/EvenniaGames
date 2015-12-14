@@ -4793,17 +4793,17 @@ def menunode_todwbtf2(caller, raw_input):
             caller.db.benefices['Ally'] = '1'
     elif int(raw_input) == 1:
         if 'Contact' in caller.db.benefices:
-            caller.db.benefices['Contact'] = str(int(caller.db.benefices['Ally'])+1)
+            caller.db.benefices['Contact'] = str(int(caller.db.benefices['Contact'])+1)
         else:
             caller.db.benefices['Contact'] = '1'
     elif int(raw_input) == 2:
         if 'Gossip Network' in caller.db.benefices:
-            caller.db.benefices['Gossip Network'] = str(int(caller.db.benefices['Ally'])+1)
+            caller.db.benefices['Gossip Network'] = str(int(caller.db.benefices['Gossip Network'])+1)
         else:
             caller.db.benefices['Gossip Network'] = '1'
     elif int(raw_input) == 3:
         if 'Passage Contract' in caller.db.benefices:
-            caller.db.benefices['Passage Contract'] = str(int(caller.db.benefices['Ally'])+1)
+            caller.db.benefices['Passage Contract'] = str(int(caller.db.benefices['Passage Contract'])+1)
         else:
             caller.db.benefices['Passage Contract'] = '1'
     

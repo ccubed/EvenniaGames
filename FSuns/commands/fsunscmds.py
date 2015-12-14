@@ -62,7 +62,7 @@ class Sheet(default_cmds.MuxCommand):
         for x in self.caller.db.skills.keys():
             if 'Lore' in x:
                 temp += "{0:^16}: {1:>6}".format(crop(x.split('.')[1],16,'...'), self.caller.db.skills[x])
-                if i == 1:
+                if i == 2:
                     self.caller.msg(temp)
                     temp = ''
                     i = 0
@@ -97,6 +97,17 @@ class Sheet(default_cmds.MuxCommand):
                     i += 1
             if not temp == '':
                 self.caller.msg(temp)
+        if len(self.caller.db.benefices) > 1:
+            self.caller.msg(pad(" Benefices ", width=80, align="c", fillchar="="))
+            i = 0
+            temp = ''
+            for x in self.caller.db.benefices.keys():
+                temp += "{0:^16}: {1:>6} ".format(crop(x, 16, '...'), self.caller.db.benefices[x])
+                if i == 2:
+                    self.caller.msg(temp)
+                    i = 0
+                else:
+                    i += 1
             
         
             
