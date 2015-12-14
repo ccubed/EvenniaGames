@@ -2408,6 +2408,7 @@ def menunode_lpp6i4(caller):
     return text, options
     
 def menunode_lppbb(caller):
+    caller.db.house = "Brother Battle"
     fsutils.addsheet(caller, 'Strength', 'Attributes', 5)
     fsutils.addsheet(caller, 'Dexterity', 'Attributes', 5)
     fsutils.addsheet(caller, 'Endurance', 'Attributes', 5)
@@ -2509,6 +2510,8 @@ def menunode_lppbb6(caller, raw_input):
         caller.db.actions['Phoenix Rifle Corps'] = ['Heads Down Stance', 'Practiced Shooting', 'Stock Slam', 'Instinct Shot']
     elif int(raw_input) == 9:
         caller.db.actions['Pistola'] = ['Criticorum Reload', 'Snap Shot', 'Roll and Shoot', 'Run and Gun']
+        
+    caller.db.benefices['Rank'] = "Apprentice"
         
     text = "Enter your home planet now."
     options = ({"key": "_default", "goto": "menunode_todstart"})
