@@ -4838,7 +4838,7 @@ def menunode_bonuspointcalc(caller):
             caller.db.skills[x] = 8
             
     if caller.db.bonusattrib:
-        caller.db.bonuseattrib -= 1
+        caller.db.bonusattrib -= 1
         text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
         text += "You have %i points remaining." % caller.db.bonusattrib
@@ -4874,7 +4874,7 @@ def menunode_bonuspointcalc(caller):
 
 def menunode_bonusattrib(caller):
     if caller.db.bonusattrib:
-        caller.db.bonuseattrib -= 1
+        caller.db.bonusattrib -= 1
         text = "Some of your attributes were over 8 and had to be lowered.\n"
         text += "You can now use those points regained to purchase extra items. What do you want?\n"
         text += "You have %i points remaining." % caller.db.bonusattrib
