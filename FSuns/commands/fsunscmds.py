@@ -133,7 +133,7 @@ class ApprovePC(default_cmds.MuxCommand):
         target = search.search_object(self.args, typeclass="typeclasses.characters.Character")
         if len(target) == 1:
             target[0].db.approved = 1
-            self.caller.msg("SYSTEM: You have approved " + target.key + " for play.")
+            self.caller.msg("SYSTEM: You have approved " + target[0].key + " for play.")
             if target[0].has_player:
                 target[0].msg("SYSTEM: You have been approved for play by " + self.caller.key)
             else:
