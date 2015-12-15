@@ -113,7 +113,18 @@ INSTALLED_APPS += (
     'filer',
     'easy_thumbnails',
     'calendarium',
-) + get_machina_apps()
+    'machina',
+    'machina.apps.forum',
+    'machina.apps.forum_conversation',
+    'machina.apps.forum_conversation.forum_attachments',
+    'machina.apps.forum_conversation.forum_polls',
+    'machina.apps.forum_feeds',
+    'machina.apps.forum_moderation',
+    'machina.apps.forum_search',
+    'machina.apps.forum_tracking',
+    'machina.apps.forum_member',
+    'machina.apps.forum_permission'
+)
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'machina.core.context_processors.metadata',
