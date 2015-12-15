@@ -2,6 +2,8 @@ from django.conf.urls import url, include
 
 from evennia.web.urls import urlpatterns
 
+from machina.app import board
+
 #
 # File that determines what each URL points to. This uses _Python_ regular
 # expressions, not Perl's.
@@ -20,6 +22,9 @@ from evennia.web.urls import urlpatterns
 
 patterns = [
     url(r'request/', include('helpdesk.urls')),
+    url(r'^calendar/', include('calendarium.urls')),
+    url(r'^markdown/', include('django_markdown.urls')),
+    url(r'^forum/', include(board.urls)),
 ]
 
 urlpatterns = patterns + urlpatterns

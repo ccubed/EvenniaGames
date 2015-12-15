@@ -14,6 +14,9 @@ unnecessarily.
 # Use the defaults from Evennia unless explicitly overridden
 import os
 from evennia.settings_default import *
+from machina import get_apps as get_machina_apps
+from machina import MACHINA_MAIN_TEMPLATE_DIR
+from machina import MACHINA_MAIN_STATIC_DIR
 
 ######################################################################
 # Evennia base server config
@@ -83,22 +86,58 @@ STATIC_ROOT = os.path.join(GAME_DIR, "web", "static")
 # Directories from which static files will be gathered from.
 STATICFILES_DIRS = (
     os.path.join(GAME_DIR, "web", "static_overrides"),
-    os.path.join(EVENNIA_DIR, "web", "static"),)
+    os.path.join(EVENNIA_DIR, "web", "static"),
+    MACHINA_MAIN_STATIC_DIR,
+)
 
 # We setup the location of the website template as well as the admin site.
 TEMPLATE_DIRS = (
     os.path.join(GAME_DIR, "web", "template_overrides", ACTIVE_TEMPLATE),
     os.path.join(GAME_DIR, "web", "template_overrides"),
     os.path.join(EVENNIA_DIR, "web", "templates", ACTIVE_TEMPLATE),
-    os.path.join(EVENNIA_DIR, "web", "templates"),)
+    os.path.join(EVENNIA_DIR, "web", "templates"),
+    MACHINA_MAIN_TEMPLATE_DIR,
+)
 
 # Installed Apps
 INSTALLED_APPS += (
     'django.contrib.humanize',
     'markdown_deux',
     'bootstrapform',
-    'helpdesk'
+    'helpdesk',
+    'django.contrib.messages',
+    'mptt',
+    'haystack',
+    'widget_tweaks',
+    'django_markdown',
+    'filer',
+    'easy_thumbnails',
+    'calendarium',
+) + get_machina_apps()
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'machina.core.context_processors.metadata',
 )
+
+MIDDLEWARE_CLASSES += (
+    'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
+)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'machina_attachments': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp',
+    }
+}
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
 
 # The secret key is randomly seeded upon creation. It is used to sign
 # Django's cookies. Do not share this with anyone. Changing it will
