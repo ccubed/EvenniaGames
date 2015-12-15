@@ -22,7 +22,7 @@ from machina.app import board
 
 patterns = [
     url(r'request/', include('helpdesk.urls')),
-    url(r'^calendar/', include('calendarium.urls')),
+    url(r'^calendar/', include('happenings.urls', namespace='calendar')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^forum/', include(board.urls)),
 ]
