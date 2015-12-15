@@ -19,3 +19,5 @@ class FSunSet(CmdSet):
         self.add(fsunscmds.RollGoalCheck())
         self.add(fsunscmds.AddResources())
         self.add(fsunscmds.RollWeaponDmg())
+        self.add(fsunscmds.WriteBG())
+        self.add(fsunscmds.ViewBG())

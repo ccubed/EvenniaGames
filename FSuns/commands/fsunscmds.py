@@ -12,6 +12,8 @@ from evennia.utils.utils import *
 from evennia.utils import search
 from world import rules
 from datetime import *
+from evennia.utils import eveditor
+from evennia.utils import evmore
 
 
 class Sheet(default_cmds.MuxCommand):
@@ -312,3 +314,47 @@ class RollWeaponDmg(default_cmds.MuxCommand):
             self.caller.msg("SYSTEM: You rolled some weapon damage dice.\n" + content)
             prefix = "SYSTEM: {0} rolled some weapon damage dice.\n".format(self.caller.key)
             self.caller.location.msg_contents(prefix + content, exclude=[self.caller])
+            
+            
+class WriteBG(default_cmds.MuxCommand):
+    """
+    Enter an editor to write your bg. Vim like.
+    
+    Usage:
+        bg
+    """
+    
+    key = "bg"
+    lock = "cmd:all()"
+    help_category = "Characters"
+    
+    def func(self):
+        
+        def load(caller):
+            return caller.db.bg
+            
+        def save(caller, buffer):
+            caller.db.bg = buffer
+            
+        def quit(caller):
+            caller.msg("All saved. Asked staff about approval.")
+            
+        key = "%s's BG." % self.caller.key
+        
+        eveditor.EvEditor(self.caller, loadfunc=load, savefunc=save, quitfunc=quit, key=key)
+        
+
+class ViewBG(default_cmds.MuxCommand):
+    """
+    display your bg as written.
+    
+    Usage:
+        bgview
+    """
+    
+    key = "bgview"
+    lock = "cmd:all()"
+    help_category = "Characters"
+    
+    def func(self):
+        evmore.msg(self.caller, str(self.caller.db.bg) + "\n")

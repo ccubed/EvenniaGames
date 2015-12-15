@@ -4925,6 +4925,6 @@ def menunode_bonusskills(caller, raw_input):
             caller.db.wyrd += caller.db.attributes['Faith']
         else:
             caller.db.wyrd += caller.db.attributes['Will']
-        text = "Congrats, you are done. Type quit to exit. Ask staff about approval."
-        options = ({"key": "0", "desc": "Type quit to exit. You are finally done!"})
+        text = "Congrats, you are done. Now all that's left is to type a quick BG and then ask staff for approval. Type help bg for info."
+        options = ({"key": "0", "desc": "You are finally done!"})
         return text, options

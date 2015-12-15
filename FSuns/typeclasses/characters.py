@@ -63,6 +63,7 @@ class Character(DefaultCharacter):
         self.db.mailsystem = []
         self.cmdset.add("fsunsset.FSunSet", permanent=True)
         self.cmdset.add("mailset.MailSet", permanent=True)
+        self.db.bg = ''
         
         
     def at_pre_puppet(self, player, session=None):
