@@ -2,15 +2,37 @@
 {% load staticfiles i18n %}
 
 {% block content %}
-    <div class="container valign-wrapper">
+    <nav>
+    <div class="nav-wrapper z-depth-2">
+      <div class="col s12">
+        <a href="http://radialblur.vertinext.com/" class="breadcrumb">Home</a>
+        <a href="http://radialblur.vertinext.com/calendar/" class="breadcrumb">Calendar</a>
+        <a href="{{ request.get_full_path }}" class="breadcrumb">This Event</a>
+      </div>
+    </div>
+    </nav>
+
+
+    <div class="container valign-wrapper z-depth-1">
         <div class="col s12">
             <div class="card-panel">
-                <h1 id="title">{{ event.title }}</h1>
-                <p id="description">{{ event.description }}</p>
-
+                <h1>{{ event.title }}</h1>
+                <blockquote>{{ event.description }}<br />
                 {% if event.start_end_diff %}
-                    <b>{% blocktrans with event_duration_days=event.start_end_diff %}This is a {{ event_duration_days }} day event.{% endblocktrans %}</b><br>
+                    <div class="chip">
+                        {% blocktrans with event_duration_days=event.start_end_diff %}{{ event_duration_days }} days{% endblocktrans %}
+                    </div>
+                {% else %}
+                    <div class="chip">
+                        1 day
+                    </div>
                 {% endif %}
+                {% if this_cncl %}
+                    <div class="chip">
+                        Cancelled
+                    </div>
+                {% endif %}
+                </blockquote>
 
                 {% if next_event %}
                 <b>{% blocktrans with repeat_lower=repeat|lower %}This event repeats {{ repeat_lower }}.{% endblocktrans %}</b>
@@ -39,7 +61,6 @@
                         </ul>
                     {% else %}
                             {{ event.start_date|date:"SHORT_DATE_FORMAT" }} - {{ event.end_date|time }}
-                            {% if this_cncl %} {{ _("(CANCELLED)") }}{% endif %}
                     {% endif %}
                 {% endif %}
 
