@@ -121,7 +121,9 @@ INSTALLED_APPS += (
     'machina.apps.forum_search',
     'machina.apps.forum_tracking',
     'machina.apps.forum_member',
-    'machina.apps.forum_permission'
+    'machina.apps.forum_permission',
+    'bootstrap3',
+    'jquery'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
