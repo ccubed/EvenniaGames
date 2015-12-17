@@ -51,7 +51,7 @@
                 {% elif last_event %}
                 <ul class="collection with-header">
                     <li class="collection-header">{% blocktrans with repeat_lower=repeat|lower %}<h4>Event Series Ended</h4><span class="badge">{{repeat_lower}} Events</span>{% endblocktrans %}</li>
-                    <li class="collection-item">{% blocktrans with last_event_date=last_event|date:"SHORT_DATE_FORMAT" %}<div>{{ last_event_date }}</div>{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>
+                    <li class="collection-item">{% blocktrans with last_event_date=last_event|date:"SHORT_DATE_FORMAT" %}<div>{{ last_event_date }}</div>{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>{% endblocktrans %}
                 </ul>
                 {% else %}
                 <ul class="collection with-header">
