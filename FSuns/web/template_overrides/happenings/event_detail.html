@@ -36,23 +36,23 @@
                 </blockquote>
 
                 {% if next_event %}
-                <ul class="collection with-header">
+                <ul class="collection with-header hoverable">
                     <li class="collection-header"><h4>Duration Details</h4></li>
                     <li class="collection-item"><div>{{ event.start_date|time }}</div><a href="#!" class="secondary-content"><i class="material-icons">play_arrow</i></a></li>
                     <li class="collection-item"><div>{{ event.end_date|time }}</div><a href="#!" class="secondary-content"><i class="material-icons">stop</i></a></li>
                 </ul>
                 <br />
-                <ul class="collection with-header">
+                <ul class="collection with-header hoverable">
                     <li class="collection-header"><h4>Next Event</h4>{% blocktrans with repeat_lower=repeat|lower %}<span class="new badge">{{repeat_lower}} Events</span>{% endblocktrans %}</li>
                     <li class="collection-item"><div>{{ next_event|date:"SHORT_DATE_FORMAT" }}</div>{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>
                 </ul>
                 {% elif last_event %}
-                <ul class="collection with-header">
+                <ul class="collection with-header hoverable">
                     <li class="collection-header">{% blocktrans with repeat_lower=repeat|lower %}<h4>Event Series Ended</h4><span class="badge">{{repeat_lower}} Events</span>{% endblocktrans %}</li>
                     <li class="collection-item">{% blocktrans with last_event_date=last_event|date:"SHORT_DATE_FORMAT" %}<div>{{ last_event_date }}</div>{% endblocktrans %}{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>
                 </ul>
                 {% else %}
-                <ul class="collection with-header">
+                <ul class="collection with-header hoverable">
                     {% if event_days %}
                         <li class="collection-header"><h4>Event Dates</h4></li>
                         {% for e in event_days %}
@@ -67,7 +67,7 @@
                 {% endif %}
 
                 {% if event.location.all %}
-                <ul class="collection with-header">
+                <ul class="collection with-header hoverable">
                     <li class="collection-header"><h4>Locations</h4></li>
                 {% for l in event.location.all %}
                     <li class="collection-item">
@@ -84,7 +84,7 @@
 
 
                 {% if event.categories.all %}
-                    <ul class="collection with-header">
+                    <ul class="collection with-header hoverable">
                     <li class="collection-header"><h4>Categories</h4></li>
                     <li class="collection-item">
                         {% for category in event.categories.all %}
@@ -95,7 +95,7 @@
                 {% endif %}
 
                 {% if event.tags.all %}
-                    <ul class="collection with-header">
+                    <ul class="collection with-header hoverable">
                     {% blocktrans count counter=event.tags.all.count %}Tag:{% plural %}Tags:{% endblocktrans %}
                     <li class="collection-header"><h4>Tags</h4></li>
                     <li class="collection-item">
