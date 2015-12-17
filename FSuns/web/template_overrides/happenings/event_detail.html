@@ -58,7 +58,7 @@
                     {% if event_days %}
                         <li class="collection-header"><h4>Event Dates</h4></li>
                         {% for e in event_days %}
-                        <li class="collection-item"><div>{{ e|date:"SHORT_DATE_FORMAT" }}<div class="chip">{{ event.end_date|time }}</div>{% for c in event.cancellations.all %}{% if c.date == e.date %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}{% endofr %}</div></li>
+                        <li class="collection-item"><div>{{ e|date:"SHORT_DATE_FORMAT" }}<div class="chip">{{ event.end_date|time }}</div>{% for c in event.cancellations.all %}{% if c.date == e.date %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}{% endfor %}</div></li>
                         {% endfor %}
                         </ul>
                     {% else %}
