@@ -4,10 +4,13 @@
 {% block content %}
     <nav>
     <div class="nav-wrapper z-depth-2">
-      <div class="col s12">
+      <div class="col s6">
         <a href="http://radialblur.vertinext.com/" class="breadcrumb">Home</a>
         <a href="http://radialblur.vertinext.com/calendar/" class="breadcrumb">Calendar</a>
         <a href="{{ request.get_full_path }}" class="breadcrumb">This Event</a>
+      </div>
+      <div class="col s6">
+          {% now "SHORT_DATE_FORMAT" %}
       </div>
     </div>
     </nav>
@@ -15,7 +18,7 @@
 
     <div class="container valign-wrapper z-depth-1">
         <div class="col s12">
-            <div class="card-panel">
+            <div class="card-panel hoverable">
                 <h1>{{ event.title }}</h1>
                 <blockquote>{{ event.description }}<br />
                 {% if event.start_end_diff %}
@@ -35,77 +38,73 @@
                 </blockquote>
 
                 {% if next_event %}
-                <b>{% blocktrans with repeat_lower=repeat|lower %}This event repeats {{ repeat_lower }}.{% endblocktrans %}</b>
-                    <p>
-                        {{ _("Next event date:") }}
-                            {{ next_event|date:"SHORT_DATE_FORMAT" }}
-                            {{ event.start_date|time }} -
-                            {{ event.end_date|time }}{% if next_or_prev_cncl %} {{ _("(CANCELLED)") }}{% endif %}
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Duration Details</h4></li>
+                    <li class="collection-item"><div>{{ even.start_date|time }}</div><a href="#!" class="secondary-content"><i class="material-icons">play_arrow</i></a></li>
+                    <li class="collection-item"><div>{{ even.end_date|time }}</div><a href="#!" class="secondary-content"><i class="material-icons">stop</i></a></li>
+                </ul>
+                <br />
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Next Event</h4>{% blocktrans with repeat_lower=repeat|lower %}<span class="new badge">{{repeat_lower}} Events</span>{% endblocktrans %}</li>
+                    <li class="collection-item"><div>{{ next_event|date:"SHORT_DATE_FORMAT" }}</div>{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>
+                </ul>
                 {% elif last_event %}
-                    <b>{% blocktrans with repeat_lower=repeat|lower %}This was an event that repeated {{ repeat_lower }}.{% endblocktrans %}</b>
-                    <p>{% blocktrans with last_event_date=last_event|date:"SHORT_DATE_FORMAT" %}The last event was on {{ last_event_date }}{% endblocktrans %}{% if next_or_prev_cncl %} {{ _("(CANCELLED)") }}{% endif %}
+                <ul class="collection with-header">
+                    <li class="collection-header">{% blocktrans with repeat_lower=repeat|lower %}<h4>Event Series Ended</h4><span class="badge">{{repeat_lower}} Events</span>{% endblocktrans %}</li>
+                    <li class="collection-item">{% blocktrans with last_event_date=last_event|date:"SHORT_DATE_FORMAT" %}<div>{{ last_event_date }}</div>{% if next_or_prev_cncl %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}</li>
+                </ul>
                 {% else %}
-                    <p>{{ _("When:") }}
+                <ul class="collection with-header">
                     {% if event_days %}
-                        <ul>
+                        <li class="collection-header"><h4>Event Dates</h4></li>
                         {% for e in event_days %}
-                            <li>
-                                {% blocktrans with num_day=forloop.counter %}Day {{ num_day }}{% endblocktrans %}: {{ e|date:"SHORT_DATE_FORMAT" }} - {{ event.end_date|time }}
-                                {% for c in event.cancellations.all %}
-                                    {% if c.date == e.date %}
-                                        {{ _("(CANCELLED)") }}
-                                    {% endif %}
-                            </li>
-                            {% endfor %}
+                        <li class="collection-item"><div>{{ e|date:"SHORT_DATE_FORMAT" }}<div class="chip">{{ event.end_date|time }}</div>{% for c in event.cancellations.all %}{% if c.date == e.date %}<a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>{% endif %}{% endofr %}</div></li>
                         {% endfor %}
                         </ul>
                     {% else %}
-                            {{ event.start_date|date:"SHORT_DATE_FORMAT" }} - {{ event.end_date|time }}
+                        <li class="collection-header"><h4>Event Details</h4></li>
+                        <li class="collection-item">{{ event.start_date|date:"SHORT_DATE_FORMAT" }}<div class="chip">{{ event.end_date|time }}</div></li>
+                        </ul>
                     {% endif %}
                 {% endif %}
 
-                ({{ _("today is:") }} {% now "SHORT_DATE_FORMAT" %})
-                </p>
-                {% if cncl_days %}
-                    <p>{{ _("This event has been cancelled on the following day(s):") }}</p>
-                    <ul>
-                    {% for d, reason in cncl_days %}
-                        <li>{{ d|date:"SHORT_DATE_FORMAT" }} - {% blocktrans %}Reason: {{ reason }}{% endblocktrans %}</li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-
                 {% if event.location.all %}
-                <p>{% blocktrans count counter=event.location.all.count %}Location:{% plural %}Locations:{% endblocktrans %}<br>
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Locations</h4></li>
                 {% for l in event.location.all %}
-                    {{ l.name }}<br>
-                    {% if l.address_line_1 %}{{ l.address_line_1 }}<br>{% endif %}
-                    {% if l.address_line_2 %}{{ l.address_line_2 }}<br>{% endif %}
-                    {% if l.address_line_3 %}{{ l.address_line_3 }}<br>{% endif %}
-                    {% if l.city %}{{ l.city }},{% endif %}
-                    {% if l.state %}{{ l.state }}{% endif %}
-                    {% if l.zipcode %}{{ l.zipcode }}<br>{% endif %}
-                    {% if l.country %}{{ l.country }}<br>{% endif %}
+                    <li class="collection-item">
+                        <span class="title">{{ l.name }}</span>
+                        {% if l.address_line_1 %}<p>{{ l.address_line_1 }}</p>{% endif %}
+                        {% if l.address_line_2 %}<p>{{ l.address_line_2 }}</p>{% endif %}
+                        {% if l.address_line_3 %}{{ l.address_line_3 }}</p>{% endif %}
+                        <p>{% if l.city %}{{ l.city }}{% endif %}{% if l.state %},&nbsp;{{ l.state }}{% endif %}</p>
+                        <p>{% if l.zipcode %}{{ l.zipcode }}</p>{% endif %}
+                        <p>{% if l.country %}{{ l.country }}</p>{% endif %}
                 {% endfor %}
-                </p>
+                </ul>
                 {% endif %}
 
 
                 {% if event.categories.all %}
-                    {% blocktrans count counter=event.categories.all.count %}Category:{% plural %}Categories:{% endblocktrans %}
-                    <ul>
+                    <ul class="collection with-header">
+                    <li class="collection-header"><h4>Categories</h4></li>
+                    <li class="collection-item">
                         {% for category in event.categories.all %}
-                        <li>{{ category.title }}</li>
+                        <div class="chip">{{ category.title }}</div>
                         {% endfor %}
+                    </li>
                     </ul>
                 {% endif %}
 
                 {% if event.tags.all %}
+                    <ul class="collection with-header">
                     {% blocktrans count counter=event.tags.all.count %}Tag:{% plural %}Tags:{% endblocktrans %}
-                    <ul>
+                    <li class="collection-header"><h4>Tags</h4></li>
+                    <li class="collection-item">
                         {% for tag in event.tags.all %}
-                        <li>{{ tag.name }}</li>
+                        <div class="chip">{{ tag.name }}</div>
                         {% endfor %}
+                    </li>
                     </ul>
                 {% endif %}
             </div>
