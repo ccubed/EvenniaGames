@@ -128,34 +128,31 @@ class ChargenStart(default_cmds.MuxCommand):
     
     def func(self):
         if self.caller.db.benefices['Rank'] != 'None':
-            self.db.attributes = {'Strength': 3, 'Dexterity': 3, 'Endurance': 3, 'Wits': 3, 'Perception': 3, 'Tech': 3, 'Presence': 3, 'Will': 3, 'Faith': 3}
-            self.db.benefices = {'Rank': 'None'}
-            self.db.skills = {'Faction Lore.Phoenix Empire': 3, 'Fight': 3, 'Influence': 3, 'Observe': 3, 'Sneak': 3, 'Throwing': 3, 'Vigor': 3}
-            self.db.vitality = 0
-            self.db.wounds = 0
-            self.db.wyrd = 0
-            self.db.wyrdused = 0
-            self.db.blessings = []
-            self.db.curses = []
-            self.db.afflictions = {}
-        self.db.languages = [ 'Urthish' ]
-        self.db.approved = 0
-        self.db.house = 'None'
-        self.db.archetype = 'None'
-        self.db.questing = 0  # Track questing choice. Matters to CG because forces their first tour of duty to be the questing knight tour.
-        self.db.actions = {}
-        self.db.minor = 0
-        self.db.recbenefices = []
-        self.db.mirrorhouse = 'None'
-        self.db.occult = {} # occult powers
-        self.db.tours = [] # duty tours
-        self.db.cyber = [] # Cybernetics
-        self.db.notes = {}
-        self.db.firebirds = 250
-        self.db.assets = 0
-        self.db.notifications = []
-        self.db.mailsystem = []
-        self.db.bg = ''
+            self.caller.db.attributes = {'Strength': 3, 'Dexterity': 3, 'Endurance': 3, 'Wits': 3, 'Perception': 3, 'Tech': 3, 'Presence': 3, 'Will': 3, 'Faith': 3}
+            self.caller.db.benefices = {'Rank': 'None'}
+            self.caller.db.skills = {'Faction Lore.Phoenix Empire': 3, 'Fight': 3, 'Influence': 3, 'Observe': 3, 'Sneak': 3, 'Throwing': 3, 'Vigor': 3}
+            self.caller.db.vitality = 0
+            self.caller.db.wounds = 0
+            self.caller.db.wyrd = 0
+            self.caller.db.wyrdused = 0
+            self.caller.db.blessings = []
+            self.caller.db.curses = []
+            self.caller.db.afflictions = {}
+            self.caller.db.languages = [ 'Urthish' ]
+            self.caller.db.approved = 0
+            self.caller.db.house = 'None'
+            self.caller.db.archetype = 'None'
+            self.caller.db.questing = 0  # Track questing choice. Matters to CG because forces their first tour of duty to be the questing knight tour.
+            self.caller.db.actions = {}
+            self.caller.db.minor = 0
+            self.caller.db.recbenefices = []
+            self.caller.db.mirrorhouse = 'None'
+            self.caller.db.occult = {} # occult powers
+            self.caller.db.tours = [] # duty tours
+            self.caller.db.cyber = [] # Cybernetics
+            self.caller.db.notes = {}
+            self.caller.db.firebirds = 250
+            self.caller.db.assets = 0
         EvMenu(self.caller, "typeclasses.fsunscg", startnode="menunode_start", cmdset_mergetype="union", allow_quit="true", cmd_on_quit="look")
         
 
